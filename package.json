@@ -1,0 +1,31 @@
+{
+  "name": "mern-auth",
+  "version": "1.0.0",
+  "description": "Build a Login/Auth App with the MERN Stack — Part 1 (Backend)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slimeVidas26/mern-auth.git"
+  },
+  "author": " (https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slimeVidas26/mern-auth/issues"
+  },
+  "homepage": "https://github.com/slimeVidas26/mern-auth#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.1.0",
+    "express": "^4.17.1",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.11",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "validator": "^12.2.0"
+  }
+}
