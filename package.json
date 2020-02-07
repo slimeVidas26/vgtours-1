@@ -4,8 +4,9 @@
   "description": "Build a Login/Auth App with the MERN Stack — Part 1 (Backend)",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "start": "node server.js",
+    "server": "nodemon server.js",
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/slimeVidas26/mern-auth.git"
@@ -27,5 +28,8 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "validator": "^12.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
