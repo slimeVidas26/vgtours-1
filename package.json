@@ -4,9 +4,12 @@
   "description": "Build a Login/Auth App with the MERN Stack — Part 1 (Backend)",
   "main": "server.js",
   "scripts": {
+    "client-install": "npm install --prefix client",
     "start": "node server.js",
-    "server": "nodemon server.js"
-},
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/slimeVidas26/mern-auth.git"
