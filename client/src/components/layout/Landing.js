@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Button from '@material-ui/core/Button';
+
+
 class Landing extends Component {
   render() {
     return (
@@ -16,7 +19,7 @@ class Landing extends Component {
               passport and JWTs
             </p>
             <br />
-            <div className="col s6">
+            <div className="col s4">
               <Link
                 to="/register"
                 style={{
@@ -29,7 +32,18 @@ class Landing extends Component {
                 Register
               </Link>
             </div>
-            <div className="col s6">
+
+            <div className="col s4">
+              <Link
+                to="/register"
+               
+              >
+              <Button variant="contained" color="primary">
+                Hello World
+               </Button>
+              </Link>
+            </div>
+            <div className="col s4">
               <Link
                 to="/login"
                 style={{
