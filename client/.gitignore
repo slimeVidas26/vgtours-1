@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/myBiz
 /.pnp
 .pnp.js
 
