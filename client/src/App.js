@@ -6,6 +6,7 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 import './App.css';
+import 'semantic-ui-css/semantic-min-css'
 
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
