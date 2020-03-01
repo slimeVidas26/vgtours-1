@@ -11,3 +11,6 @@ git checkout -b feature_branch_name
 Edit, add and commit your files.
 Push your branch to the remote repository:
 git push -u origin feature_branch_name
+
+Rename your local branch.
+ If you are on the branch you want to rename: git branch -m new-name
