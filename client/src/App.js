@@ -7,14 +7,16 @@ import { Provider } from "react-redux";
 import store from "./store";
 // import './App.css';
 
-import Navbar from "./components/layout/Navbar";
+// import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 // import ModalExample from "./components/semantic-ui-tests/ModalExample";
-import Footer from "./components/layout/Footer";
+//import Footer from "./components/layout/Footer";
+import HomePage from "./components/HomePage";
+
 
 
 
@@ -45,15 +47,17 @@ class App extends Component {
        <Provider store={store}>
       <Router>
         <div className="App">
-          <Navbar />
+          {/* <Navbar /> */}
           {/* <ModalExample/> */}
-          <Route exact path="/" component={Landing} />
+          {/* <Route exact path="/" component={Landing} /> */}
+          <Route exact path="/" component={HomePage} />
+
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
       
       </Router>

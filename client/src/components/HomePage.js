@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+// import { Header } from 'semantic-ui-react'
 
 function HomePage() {
     return (
@@ -13,12 +15,12 @@ function HomePage() {
 
 <div className="ui container grid">
     <div className="header-item header-left flex-order-tablet-second flex-order-mobile-second flex-grow-tablet-true flex-grow-mobile-true">
-        
-<a href="homepage.html" className="logo item">
-<img src="assets/images/logo-mybnb-transparent.png" srcset="assets/images/logo-mybnb-transparent.png 1x, assets/images/logo-mybnb-transparent@2x.png 2x" alt="mybnb logo" className="logo-transparent"/>
+         
+<Link to="homepage.html" className="logo item">
+<img src="assets/images/logo-mybnb-transparent.png" srcSet="assets/images/logo-mybnb-transparent.png 1x, assets/images/logo-mybnb-transparent@2x.png 2x" alt="mybnb logo" className="logo-transparent"/>
 
-<img src="assets/images/logo-mybnb.png" srcset="assets/images/logo-mybnb.png 1x, assets/images/logo-mybnb@2x.png 2x" alt="mybnb logo"/>
-</a>
+<img src="assets/images/logo-mybnb.png" srcSet="assets/images/logo-mybnb.png 1x, assets/images/logo-mybnb@2x.png 2x" alt="mybnb logo"/>
+</Link>
 
 
     </div>
@@ -45,66 +47,66 @@ function HomePage() {
 
 <ul className="main-menu">
                 
-    <li><a href="become_a_vendor.html" className="item">
+    <li><Link to="become_a_vendor.html" className="item">
             <span>Become a Vendor</span>
-        </a>
+        </Link>
     </li>
     
     <li className="has-submenu">
-        <a href="#" className="item">
+        <Link to="#" className="item">
             <span>Features</span>
-        </a>
+        </Link>
         <ul className="submenu">
-            <li><a href="../features/fts_default_grid.html" className="item"><span>Default Grid</span></a></li>
-            <li><a href="../features/fts_divided_container.html" className="item"><span>Divided Container</span></a></li>
-            <li><a href="../features/fts_magic_grid.html" className="item"><span>Magic Grid</span></a></li>
+            <li><Link to="../features/fts_default_grid.html" className="item"><span>Default Grid</span></Link></li>
+            <li><Link to="../features/fts_divided_container.html" className="item"><span>Divided Container</span></Link></li>
+            <li><Link to="../features/fts_magic_grid.html" className="item"><span>Magic Grid</span></Link></li>
             <li>
                 <hr/>
             </li>
-            <li><a href="../features/fts_header.html" className="item"><span>Header</span></a></li>
-            <li><a href="../features/fts_menu.html" className="item"><span>Menu Default</span></a></li>
-            <li><a href="../features/fts_dashboard_menu.html" className="item"><span>Dashboard Menu</span></a></li>
-            <li><a href="../features/fts_logo.html" className="item"><span>Logo</span></a></li>
-            <li><a href="../features/fts_buttons.html" className="item"><span>Buttons</span></a></li>
-            <li><a href="../features/fts_icons.html" className="item"><span>Icons</span></a></li>
-            <li><a href="../features/fts_form_elements.html" className="item"><span>Form Elements</span></a></li>
-            <li><a href="../features/fts_floating_placeholder.html" className="item"><span>Floating Placeholder</span></a></li>
-            <li><a href="../features/fts_sticky_element.html" className="item"><span>Sticky Element</span></a></li>
-            <li><a href="../features/fts_property_items.html" className="item"><span>Property Items</span></a></li>
-            <li><a href="../features/fts_articles.html" className="item"><span>Articles</span></a></li>
-            <li><a href="../features/fts_promo_section.html" className="item"><span>Promo Sections</span></a></li>
-            <li><a href="../features/fts_modals.html" className="item"><span>Modals</span></a></li>
-            <li><a href="../features/fts_accordion.html" className="item"><span>Accordion</span></a></li>
-            <li><a href="../features/fts_hero_search_horizontal.html" className="item"><span>Hero Search Horizontal</span></a></li>
-            <li><a href="../features/fts_hero_search_vertical.html" className="item"><span>Hero Search Vertical</span></a></li>
-            <li><a href="../features/fts_slick_carousel.html" className="item"><span>Slick Carousel</span></a></li>
-            <li><a href="../features/fts_slick_hero_big.html" className="item"><span>Slick Hero Big</span></a></li>
-            <li><a href="../features/fts_slick_full_page_search.html" className="item"><span>Slick Full Page Search</span></a></li>
-            <li><a href="../features/fts_charts.html" className="item"><span>Charts</span></a></li>
-            <li><a href="../features/fts_progressbar.html" className="item"><span>Progressbar</span></a></li>
-            <li><a href="../features/fts_hamburger_icon.html" className="item"><span>Hamburger Icon</span></a></li>
-            <li><a href="../features/fts_calendar.html" className="item"><span>Calendar</span></a></li>
-            <li><a href="../features/fts_price_range_slider.html" className="item"><span>Price Range Slider</span></a></li>
+            <li><Link to="../features/fts_header.html" className="item"><span>Header</span></Link></li>
+            <li><Link to="../features/fts_menu.html" className="item"><span>Menu Default</span></Link></li>
+            <li><Link to="../features/fts_dashboard_menu.html" className="item"><span>Dashboard Menu</span></Link></li>
+            <li><Link to="../features/fts_logo.html" className="item"><span>Logo</span></Link></li>
+            <li><Link to="../features/fts_buttons.html" className="item"><span>Buttons</span></Link></li>
+            <li><Link to="../features/fts_icons.html" className="item"><span>Icons</span></Link></li>
+            <li><Link to="../features/fts_form_elements.html" className="item"><span>Form Elements</span></Link></li>
+            <li><Link to="../features/fts_floating_placeholder.html" className="item"><span>Floating Placeholder</span></Link></li>
+            <li><Link to="../features/fts_sticky_element.html" className="item"><span>Sticky Element</span></Link></li>
+            <li><Link to="../features/fts_property_items.html" className="item"><span>Property Items</span></Link></li>
+            <li><Link to="../features/fts_articles.html" className="item"><span>Articles</span></Link></li>
+            <li><Link to="../features/fts_promo_section.html" className="item"><span>Promo Sections</span></Link></li>
+            <li><Link to="../features/fts_modals.html" className="item"><span>Modals</span></Link></li>
+            <li><Link to="../features/fts_accordion.html" className="item"><span>Accordion</span></Link></li>
+            <li><Link to="../features/fts_hero_search_horizontal.html" className="item"><span>Hero Search Horizontal</span></Link></li>
+            <li><Link to="../features/fts_hero_search_vertical.html" className="item"><span>Hero Search Vertical</span></Link></li>
+            <li><Link to="../features/fts_slick_carousel.html" className="item"><span>Slick Carousel</span></Link></li>
+            <li><Link to="../features/fts_slick_hero_big.html" className="item"><span>Slick Hero Big</span></Link></li>
+            <li><Link to="../features/fts_slick_full_page_search.html" className="item"><span>Slick Full Page Search</span></Link></li>
+            <li><Link to="../features/fts_charts.html" className="item"><span>Charts</span></Link></li>
+            <li><Link to="../features/fts_progressbar.html" className="item"><span>Progressbar</span></Link></li>
+            <li><Link to="../features/fts_hamburger_icon.html" className="item"><span>Hamburger Icon</span></Link></li>
+            <li><Link to="../features/fts_calendar.html" className="item"><span>Calendar</span></Link></li>
+            <li><Link to="../features/fts_price_range_slider.html" className="item"><span>Price Range Slider</span></Link></li>
             <li>
                 <hr/>
             </li>
-            <li><a href="../features/fts_typography.html" className="item"><span>Typography</span></a></li>
-            <li><a href="../features/fts_code.html" className="item"><span>Code</span></a></li>
-            <li><a href="../features/fts_image.html" className="item"><span>Image</span></a></li>
-            <li><a href="../features/fts_image_gallery.html" className="item"><span>Image Gallery</span></a></li>
-            <li><a href="../features/fts_table.html" className="item"><span>Table</span></a></li>
+            <li><Link to="../features/fts_typography.html" className="item"><span>Typography</span></Link></li>
+            <li><Link to="../features/fts_code.html" className="item"><span>Code</span></Link></li>
+            <li><Link to="../features/fts_image.html" className="item"><span>Image</span></Link></li>
+            <li><Link to="../features/fts_image_gallery.html" className="item"><span>Image Gallery</span></Link></li>
+            <li><Link to="../features/fts_table.html" className="item"><span>Table</span></Link></li>
             
         </ul>
     </li>
     
-    <li><a href="#" className="item modal-ui-trigger" data-trigger-for="modal01">
+    <li><Link to="#" className="item modal-ui-trigger" data-trigger-for="modal01">
             <span>Sign Up</span>
-        </a>
+        </Link>
     </li>
 
-    <li><a href="#" className="item modal-ui-trigger" data-trigger-for="modal02">
+    <li><Link to="#" className="item modal-ui-trigger" data-trigger-for="modal02">
             <span>Log In</span>
-        </a>
+        </Link>
     </li>
 
 </ul>
@@ -197,15 +199,15 @@ function HomePage() {
            <h1 className="font-weight-extrabold-sq">New Experiences</h1>
         </div>
         <div className="caption-outside">
-            <a className="button anchor-sq" href="#top">
+            <Link to ="#top"  className="button anchor-sq" >
                 <i className="icon big icon-compass"></i>
                 <span>Explore</span>
-            </a>
+            </Link>
         </div>
 
         <div className="image-wrapper">
             <div className="image-inner">
-                <img className="image-sq" src="assets/images/hero/hero_big_28.jpg" alt=""/>
+                <img className="image-sq" src="assets/images/hero/hero_big_28.jpg" alt="hero_big_28.jpg"/>
             </div>
         </div>
     </div>
@@ -217,10 +219,10 @@ function HomePage() {
         </div>
         
         <div className="caption-outside">
-            <a className="button anchor-sq" href="#top">
+            <Link to="#top" className="button anchor-sq" >
                 <i className="icon big icon-compass"></i>
                 <span>Find</span>
-            </a>
+            </Link>
         </div>
 
         <div className="image-wrapper">
@@ -237,10 +239,10 @@ function HomePage() {
         </div>
         
         <div className="caption-outside">
-            <a className="button anchor-sq" href="#top">
+            <Link to ="#top" className="button anchor-sq" >
                 <i className="icon big icon-compass"></i>
                 <span>Read</span>
-            </a>
+            </Link>
         </div>
 
         <div className="image-wrapper">
@@ -256,10 +258,10 @@ function HomePage() {
            <h1 className="font-weight-extrabold-sq">New Locations</h1>
         </div>
         <div className="caption-outside">
-            <a className="button anchor-sq" href="#top">
+            <Link to ="#top"  className="button anchor-sq">
                 <i className="icon big icon-compass"></i>
                 <span>View</span>
-            </a>
+            </Link>
         </div>
 
         <div className="image-wrapper">
@@ -300,11 +302,11 @@ function HomePage() {
                             </div>
 
                             {/* <!-- typography container--> */}
-                            <a href="listing_page.html" className="typo-sq">
+                            <Link to="listing_page.html" className="typo-sq">
                                 <span className="typo-whitespace"></span>
                                 <p className="typo-label-sq" data-label-before="Greece" data-label-after="Book a home in"></p>
                                 <p className="typo-title-sq">Lefkada</p>
-                            </a>
+                            </Link>
 
                         </div>
                     </div>
@@ -323,11 +325,11 @@ function HomePage() {
                             </div>
 
                             {/* <!-- typography container--> */}
-                            <a href="listing_page.html" className="typo-sq">
+                            <Link to="listing_page.html" className="typo-sq">
                                 <span className="typo-whitespace"></span>
                                 <p className="typo-label-sq" data-label-before="Netherlands" data-label-after="Book a home in"></p>
                                 <p className="typo-title-sq">Amsterdam</p>
-                            </a>
+                            </Link>
 
                         </div>
                     </div>
@@ -346,11 +348,11 @@ function HomePage() {
                             </div>
 
                             {/* <!-- typography container--> */}
-                            <a href="listing_page.html" className="typo-sq">
+                            <Link to="listing_page.html" className="typo-sq">
                                 <span className="typo-whitespace"></span>
                                 <p className="typo-label-sq" data-label-before="France" data-label-after="Book a home in"></p>
                                 <p className="typo-title-sq">Paris</p>
-                            </a>
+                            </Link>
 
                         </div>
                     </div>
@@ -369,20 +371,20 @@ function HomePage() {
                             </div>
 
                             {/* <!-- typography container--> */}
-                            <a href="listing_page.html" className="typo-sq">
+                            <Link to="listing_page.html" className="typo-sq">
                                 <span className="typo-whitespace"></span>
                                 <p className="typo-label-sq" data-label-before="Czech" data-label-after="Book a home in"></p>
                                 <p className="typo-title-sq">Prague</p>
-                            </a>
+                            </Link>
 
                         </div>
                     </div>
 
                 </div>
                 
-                <a className="more-trigger" data-more="See All" href="listing_page.html">
+                <Link to = "listing_page.html" className="more-trigger" data-more="See All">
                    <i className="icon icon-arrow-down-122"></i>
-                </a>
+                </Link>
             </div>
             
         </div>
@@ -402,7 +404,7 @@ function HomePage() {
                     <h2>Explore the world</h2>
                     <p>Spectacular natural wonders and astonishing man-made structures. The list of great landmarks are often limited to seven, but the world is filled with wonders.</p>
                     
-                    <a href="listing_page.html" className="button-sq see-through-sq"> See Map </a>
+                    <Link to="listing_page.html" className="button-sq see-through-sq"> See Map </Link>
                 </div>
 
             </div>
@@ -435,24 +437,24 @@ function HomePage() {
                             <div className="property-item-inner">
                 
                                <div className="price-tag-sq">112 &euro; <span>/ night</span></div>
-                               <a className="add-wishlist modal-ui-trigger" href="" data-trigger-for="wishlist">
+                               <Link to = "" className="add-wishlist modal-ui-trigger" data-trigger-for="wishlist">
                                    <i className="icon icon-add-wishlist"></i>
-                               </a>
+                               </Link>
                 
-                                <a className="image-sq" href="property_page.html">
+                                <Link to ="property_page.html"  className="image-sq">
                                     <span className="image-wrapper">
                                         <span className="image-inner">
                                             <img src="assets/images/property/property_little_01.jpg" alt="" className=""/>
                                         </span>
                                     </span>
-                                </a>
+                                </Link>
                 
                                 <div className="main-details">
                                    <div className="title-row">
-                                       <a href="property_page.html" className="title-sq">Downtown Sweet House</a>
-                                       <a href="vendor_details.html" className="avatar-sq">
+                                       <Link to="property_page.html" className="title-sq">Downtown Sweet House</Link>
+                                       <Link to="vendor_details.html" className="avatar-sq">
                                            <img src="assets/images/avatar/avatar_01.jpg" alt=""/>
-                                       </a>
+                                       </Link>
                                    </div>
                 
                                    <div className="icons-row">
@@ -480,26 +482,26 @@ function HomePage() {
                                 <div className="property-item-inner">
                 
                                    <div className="price-tag-sq">78 &euro; <span>/ night</span></div>
-                                   <a className="add-wishlist modal-ui-trigger" href="" data-trigger-for="wishlist">
+                                   <Link to = "" className="add-wishlist modal-ui-trigger" data-trigger-for="wishlist">
                                        <i className="icon icon-add-wishlist"></i>
-                                   </a>
+                                   </Link>
                                    
                                    
-                                    <a className="image-sq" href="property_page.html">
+                                    <Link to = "property_page.html" className="image-sq">
                                         <span className="image-wrapper">
                                             <span className="image-inner">
                                                 <img src="assets/images/property/property_little_02.jpg" alt="" className=""/>
                                             </span>
                                         </span>
-                                    </a>
+                                    </Link>
                 
                                     <div className="main-details">
                 
                                        <div className="title-row">
-                                           <a href="property_page.html" className="title-sq">Large and confortable double room</a>
-                                           <a href="vendor_details.html" className="avatar-sq">
+                                           <Link to="property_page.html" className="title-sq">Large and confortable double room</Link>
+                                           <Link to="vendor_details.html" className="avatar-sq">
                                                <img src="assets/images/avatar/avatar_02.jpg" alt=""/>
-                                           </a>
+                                           </Link>
                                        </div>
                 
                                        <div className="icons-row">
@@ -528,27 +530,27 @@ function HomePage() {
                             <div className="property-item-inner">
                 
                                <div className="price-tag-sq">51 &euro; <span>/ night</span></div>
-                               <a className="add-wishlist modal-ui-trigger" href="" data-trigger-for="wishlist">
+                               <Link to = "" className="add-wishlist modal-ui-trigger" data-trigger-for="wishlist">
                                    <i className="icon icon-add-wishlist"></i>
-                               </a>
+                               </Link>
                 
-                                <a className="image-sq" href="property_page.html">
+                                <Link to = "property_page.html" className="image-sq">
                                     <span className="image-wrapper">
                                         <span className="image-inner">
                                             <img src="assets/images/property/property_little_03.jpg" alt="" className=""/>
                                         </span>
                                     </span>
-                                </a>
+                                </Link>
                 
                 
                                 <div className="main-details">
                 
                                    <div className="title-row">
-                                       <a href="property_page.html" className="title-sq">Modern studio flat with garden</a>
-                                       <a href="vendor_details.html" className="avatar-sq">
+                                       <Link to="property_page.html" className="title-sq">Modern studio flat with garden</Link>
+                                       <Link to="vendor_details.html" className="avatar-sq">
                                            <img src="assets/images/avatar/avatar_03.jpg"
                                             alt=""/>
-                                       </a>
+                                       </Link>
                                    </div>
                 
                                    <div className="icons-row">
@@ -577,25 +579,25 @@ function HomePage() {
                             <div className="property-item-inner">
                 
                                <div className="price-tag-sq">130 &euro; <span>/ night</span></div>
-                               <a className="add-wishlist modal-ui-trigger" href="" data-trigger-for="wishlist">
+                               <Link to  = ""  className="add-wishlist modal-ui-trigger" data-trigger-for="wishlist">
                                    <i className="icon icon-add-wishlist"></i>
-                               </a>
+                               </Link>
                                
-                                <a className="image-sq" href="property_page.html">
+                                <Link to  = "property_page.html" className="image-sq">
                                     <span className="image-wrapper">
                                         <span className="image-inner">
                                             <img src="assets/images/property/property_little_04.jpg" alt="" className=""/>
                                         </span>
                                     </span>
-                                </a>
+                                </Link>
                                 
                 
                                 <div className="main-details">
                                    <div className="title-row">
-                                       <a href="property_page.html" className="title-sq">Bright clean room close to Brixton</a>
-                                       <a href="vendor_details.html" className="avatar-sq">
+                                       <Link to="property_page.html" className="title-sq">Bright clean room close to Brixton</Link>
+                                       <Link to="vendor_details.html" className="avatar-sq">
                                            <img src="assets/images/avatar/avatar_04.jpg" alt=""/>
-                                       </a>
+                                       </Link>
                                    </div>
                 
                                    <div className="icons-row">
@@ -623,25 +625,25 @@ function HomePage() {
                             <div className="property-item-inner">
                 
                                <div className="price-tag-sq">59 &euro; <span>/ night</span></div>
-                               <a className="add-wishlist modal-ui-trigger" href="" data-trigger-for="wishlist">
+                               <Link to ="" className="add-wishlist modal-ui-trigger" data-trigger-for="wishlist">
                                    <i className="icon icon-add-wishlist"></i>
-                               </a>
+                               </Link>
                 
-                                <a className="image-sq" href="property_page.html">
+                                <Link to ="property_page.html"  className="image-sq">
                                     <span className="image-wrapper">
                                         <span className="image-inner">
                                             <img src="assets/images/property/property_little_05.jpg" alt="" className=""/>
                                         </span>
                                     </span>
-                                </a>
+                                </Link>
                 
                                 <div className="main-details">
                 
                                    <div className="title-row">
-                                       <a href="property_page.html" className="title-sq">Romantic Suite in family home</a>
-                                       <a href="vendor_details.html" className="avatar-sq">
+                                       <Link to="property_page.html" className="title-sq">Romantic Suite in family home</Link>
+                                       <Link to="vendor_details.html" className="avatar-sq">
                                            <img src="assets/images/avatar/avatar_05.jpg" alt=""/>
-                                       </a>
+                                       </Link>
                                    </div>
                 
                                    <div className="icons-row">
@@ -670,26 +672,26 @@ function HomePage() {
                             <div className="property-item-inner">
                 
                                <div className="price-tag-sq">32 &euro; <span>/ night</span></div>
-                               <a className="add-wishlist modal-ui-trigger" href="" data-trigger-for="wishlist">
+                               <Link to ="" className="add-wishlist modal-ui-trigger" data-trigger-for="wishlist">
                                    <i className="icon icon-add-wishlist"></i>
-                               </a>
+                               </Link>
                 
                 
-                                <a className="image-sq" href="property_page.html">
+                                <Link to ="property_page.html" className="image-sq">
                                     <span className="image-wrapper">
                                         <span className="image-inner">
                                             <img src="assets/images/property/property_little_06.jpg" alt="" className=""/>
                                         </span>
                                     </span>
-                                </a>
+                                </Link>
                 
                                 <div className="main-details">
                 
                                    <div className="title-row">
-                                       <a href="property_page.html" className="title-sq">Quit and bright room in the heart of Amsterdam</a>
-                                       <a href="vendor_details.html" className="avatar-sq">
+                                       <Link to="property_page.html" className="title-sq">Quit and bright room in the heart of Amsterdam</Link>
+                                       <Link to="vendor_details.html" className="avatar-sq">
                                            <img src="assets/images/avatar/avatar_06.jpg" alt=""/>
-                                       </a>
+                                       </Link>
                                    </div>
                 
                                    <div className="icons-row">
@@ -715,9 +717,9 @@ function HomePage() {
                     
                 </div>
                 
-                <a href="listing_page.html" className="more-trigger" data-more="Discover All">
+                <Link to="listing_page.html" className="more-trigger" data-more="Discover All">
                    <i className="icon icon-arrow-down-122"></i>
-                </a>
+                </Link>
             </div>
         </div>
     </div>
@@ -733,7 +735,7 @@ function HomePage() {
                     <h2>Beautiful Experiences</h2>
                     <p>Few would argue that, despite the advancements of feminism over the past three decades, women still face a double standard when it comes to their behavior. </p>
                     
-                    <a href="listing_page.html" className="button-sq see-through-sq"> See Map </a>
+                    <Link to="listing_page.html" className="button-sq see-through-sq"> See Map </Link>
                 </div>
 
             </div>
@@ -774,9 +776,9 @@ function HomePage() {
                             </div>
                 
                             {/* <!-- typography container--> */}
-                            <a href="article_listing.html" className="typo-sq">
+                            <Link to="article_listing.html" className="typo-sq">
                                 <p className="typo-title-sq">Wildlife</p>
-                            </a>
+                            </Link>
                 
                         </div>
                     </div>
@@ -795,9 +797,9 @@ function HomePage() {
                             </div>
                 
                             {/* <!-- typography container--> */}
-                            <a href="article_listing.html" className="typo-sq">
+                            <Link to="article_listing.html" className="typo-sq">
                                 <p className="typo-title-sq">Adventure</p>
-                            </a>
+                            </Link>
                 
                         </div>
                     </div>
@@ -816,9 +818,9 @@ function HomePage() {
                             </div>
                 
                             {/* <!-- typography container--> */}
-                            <a href="article_listing.html" className="typo-sq">
+                            <Link to="article_listing.html" className="typo-sq">
                                 <p className="typo-title-sq">Beaches</p>
-                            </a>
+                            </Link>
                 
                         </div>
                     </div>
@@ -837,9 +839,9 @@ function HomePage() {
                             </div>
                 
                             {/* <!-- typography container--> */}
-                            <a href="article_listing.html" className="typo-sq">
+                            <Link to="article_listing.html" className="typo-sq">
                                 <p className="typo-title-sq">Monuments</p>
-                            </a>
+                            </Link>
                 
                         </div>
                     </div>
@@ -858,9 +860,9 @@ function HomePage() {
                             </div>
                 
                             {/* <!-- typography container--> */}
-                            <a href="article_listing.html" className="typo-sq">
+                            <Link to="article_listing.html" className="typo-sq">
                                 <p className="typo-title-sq">Food</p>
-                            </a>
+                            </Link>
                 
                         </div>
                     </div>
@@ -879,9 +881,9 @@ function HomePage() {
                             </div>
                 
                             {/* <!-- typography container--> */}
-                            <a href="article_listing.html" className="typo-sq">
+                            <Link to="article_listing.html" className="typo-sq">
                                 <p className="typo-title-sq">Party</p>
-                            </a>
+                            </Link>
                 
                         </div>
                     </div>
@@ -900,9 +902,9 @@ function HomePage() {
                             </div>
                 
                             {/* <!-- typography container--> */}
-                            <a href="article_listing.html" className="typo-sq">
+                            <Link to="article_listing.html" className="typo-sq">
                                 <p className="typo-title-sq">Museum</p>
-                            </a>
+                            </Link>
                 
                         </div>
                     </div>
@@ -925,13 +927,13 @@ function HomePage() {
                         <div className="item-inner">
                 
                             {/* <!-- image container --> */}
-                            <a className="image-sq" href="article.html">
+                            <Link to ="article.html" className="image-sq" >
                                 <span className="image-wrapper">
                                     <span className="image-inner">
                                         <img className="image-sq" src="assets/images/magic_grid/magic_grid_article_01.jpg" alt=""/>
                                     </span>
                                 </span>
-                            </a>
+                            </Link>
                 
                             {/* <!-- typography container--> */}
                             <div className="typo-sq">
@@ -939,7 +941,7 @@ function HomePage() {
                                 <p className="typo-title-sq">Getting Cheap Airfare For Last Minute Travel</p>
                                 <p className="typo-desc-sq">The city of southern California, san diego is locally known as ‘America’s Finest City’. It’s located on San Diego Bay, an inlet of the Pacific Ocean near the Mexican border. San Diego is the second largest city in</p>
                 
-                                <a href="article.html" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></a>
+                                <Link to="article.html" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></Link>
                             </div>
                         </div>
                     </div>
@@ -949,13 +951,13 @@ function HomePage() {
                         <div className="item-inner">
                 
                             {/* <!-- image container --> */}
-                            <a className="image-sq" href="article.html">
+                            <Link to ="article.html" className="image-sq" >
                                 <span className="image-wrapper">
                                     <span className="image-inner">
                                         <img className="image-sq" src="assets/images/magic_grid/magic_grid_article_02.jpg" alt=""/>
                                     </span>
                                 </span>
-                            </a>
+                            </Link>
                 
                             {/* <!-- typography container--> */}
                             <div className="typo-sq">
@@ -963,7 +965,7 @@ function HomePage() {
                                 <p className="typo-title-sq">10 Steps To Look Younger</p>
                                 <p className="typo-desc-sq">Lots of people are unaware of the fact that adult acne exists and they seem not to know how to treat adult acne. People have this misconception that acne only happens during teenage years and gradually wears off as they age. For most people, this fact may be true but it is important to note that acne does not start during teenage years only. However, it is important to note that there are a significant number of adults that experience such condition.</p>
                 
-                                <a href="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></a>
+                                <Link to="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></Link>
                             </div>
                 
                         </div>
@@ -974,13 +976,13 @@ function HomePage() {
                         <div className="item-inner">
                 
                             {/* <!-- image container --> */}
-                            <a className="image-sq" href="article.html">
+                            <Link to ="article.html" className="image-sq" >
                                 <span className="image-wrapper">
                                     <span className="image-inner">
                                         <img className="image-sq" src="assets/images/magic_grid/magic_grid_article_03.jpg" alt=""/>
                                     </span>
                                 </span>
-                            </a>
+                            </Link>
                 
                             {/* <!-- typography container--> */}
                             <div className="typo-sq">
@@ -989,7 +991,7 @@ function HomePage() {
                                 <p className="typo-desc-sq">When it is time to bake cookies, we usually think that it is complicated, that it takes a lot of time. In one word : that it is not worthwhile ! We will show you hereunder that it is simply not true. Baking cookies is easy, fast and, most important, fun. Come and join all our readers who decided to give it a try and now,</p>
                 
                 
-                                <a href="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></a>
+                                <Link to="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></Link>
                             </div>
                 
                         </div>
@@ -1000,13 +1002,13 @@ function HomePage() {
                         <div className="item-inner">
                 
                             {/* <!-- image container --> */}
-                            <a className="image-sq" href="article.html">
+                            <Link to ="article.html" className="image-sq" >
                                 <span className="image-wrapper">
                                     <span className="image-inner">
                                         <img className="image-sq" src="assets/images/magic_grid/magic_grid_article_04.jpg" alt=""/>
                                     </span>
                                 </span>
-                            </a>
+                            </Link>
                 
                             {/* <!-- typography container--> */}
                             <div className="typo-sq">
@@ -1015,7 +1017,7 @@ function HomePage() {
                                 <p className="typo-title-sq">Enhance Your Brand Potential With Giant Advertising Blimps</p>
                                 <p className="typo-desc-sq">It is a small world after all. Globalization is that great process that started perhaps with Mr. Marco Polo, but has since regained its prestige after a short stint of protectionism following the great depression</p>
                 
-                                <a href="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></a>
+                                <Link to="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></Link>
                             </div>
                 
                         </div>
@@ -1026,13 +1028,13 @@ function HomePage() {
                         <div className="item-inner">
                 
                             {/* <!-- image container --> */}
-                            <a className="image-sq" href="article.html">
+                            <Link to ="article.html" className="image-sq" >
                                 <span className="image-wrapper">
                                     <span className="image-inner">
                                         <img className="image-sq" src="assets/images/magic_grid/magic_grid_article_05.jpg" alt=""/>
                                     </span>
                                 </span>
-                            </a>
+                            </Link>
                 
                             {/* <!-- typography container--> */}
                             <div className="typo-sq">
@@ -1040,7 +1042,7 @@ function HomePage() {
                                 <p className="typo-title-sq">Counting Your Chicken Before They Hatch</p>
                                 <p className="typo-desc-sq">Be more concerned with your character than with your reputation. Your character is what you really are while your reputation is merely what others think you are.</p>
                 
-                                <a href="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></a>
+                                <Link to="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></Link>
                             </div>
                 
                         </div>
@@ -1051,13 +1053,13 @@ function HomePage() {
                         <div className="item-inner">
                 
                             {/* <!-- image container --> */}
-                            <a className="image-sq" href="article.html">
+                            <Link to ="article.html" className="image-sq" >
                                 <span className="image-wrapper">
                                     <span className="image-inner">
                                         <img className="image-sq" src="assets/images/magic_grid/magic_grid_article_06.jpg" alt=""/>
                                     </span>
                                 </span>
-                            </a>
+                            </Link>
                 
                             {/* <!-- typography container--> */}
                             <div className="typo-sq">
@@ -1065,7 +1067,7 @@ function HomePage() {
                                 <p className="typo-title-sq">Download Anything Now A Days</p>
                                 <p className="typo-desc-sq">Do you want to download free song for ipod? If so, reading this article could save you from getting in to a lot of trouble! Downloading music to your Ipod has more than one pitfall associated with it, and this article will tell you the best way to download free song for Ipod.</p>
                 
-                                <a href="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></a>
+                                <Link to="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></Link>
                             </div>
                 
                         </div>
@@ -1073,9 +1075,9 @@ function HomePage() {
                 
                 </div>
                 
-                <a href="article_listing.html" className="more-trigger" data-more="View More">
+                <Link to="article_listing.html" className="more-trigger" data-more="View More">
                    <i className="icon icon-arrow-down-122"></i>
-                </a>
+                </Link>
             </div>
             
         </div>
@@ -1099,20 +1101,20 @@ function HomePage() {
 </div>
 
 <div className="content">
-    <a href="" className="button-sq fullwidth-sq modal-ui-trigger" data-trigger-for="modal03">
+    <Link to="" className="button-sq fullwidth-sq modal-ui-trigger" data-trigger-for="modal03">
         <i className="icon icon-email-2"></i>
         <span>Sign Up with Email</span>
-    </a>
+    </Link>
 
-    <a href="" className="button-sq fullwidth-sq facebook-button">
+    <Link to="" className="button-sq fullwidth-sq facebook-button">
         <i className="icon icon-logo-facebook2"></i>
         <span>Sign Up with Facebook</span>
-    </a>
+    </Link>
 
-    <a href="" className="button-sq fullwidth-sq google-button">
+    <Link to="" className="button-sq fullwidth-sq google-button">
         <img src="assets/images/icon-google-plus.svg" alt=""/>
         <span>Sign Up with Google</span>
-    </a>
+    </Link>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
 </div>
 
@@ -1261,11 +1263,11 @@ function HomePage() {
     <p>Mauris malesuada leo libero, vitae tempor ante sagittis vitae. Suspendisse consectetur facilisis enim.</p>
     <br/>
     <input type="checkbox" id="c01"/>
-    <label for="c01">Beautiful Places</label>
+    <label htmlFor="c01">Beautiful Places</label>
     <input type="checkbox" id="c02"/>
-    <label for="c02">For Summer</label>
+    <label htmlFor="c02">For Summer</label>
     <input type="checkbox" id="c03"/>
-    <label for="c03">Dream Houses</label>
+    <label htmlFor="c03">Dream Houses</label>
 </div>
 
 <div className="actions">
@@ -1294,10 +1296,10 @@ function HomePage() {
            <h5>Hosting</h5>
            
            <ul className="list-default-sq">
-               <li><a href="">Etiam consequat</a></li>
-               <li><a href="">Phasellus sed neque </a></li>
-               <li><a href="">Morbi suscipit convallis</a></li>
-               <li><a href="">Praesent diam</a></li>
+               <li><Link to="">Etiam consequat</Link></li>
+               <li><Link to="">Phasellus sed neque </Link></li>
+               <li><Link to="">Morbi suscipit convallis</Link></li>
+               <li><Link to="">Praesent diam</Link></li>
            </ul>
            
        </div>
@@ -1305,10 +1307,10 @@ function HomePage() {
            <h5>Useful Links</h5>
            
            <ul className="list-default-sq">
-               <li><a href="">Aenean sit amet ipsum</a></li>
-               <li><a href="">Sed mollis</a></li>
-               <li><a href="">Aliquam porttitor</a></li>
-               <li><a href="">Nulla vitae</a></li>
+               <li><Link to="">Aenean sit amet ipsum</Link></li>
+               <li><Link to="">Sed mollis</Link></li>
+               <li><Link to="">Aliquam porttitor</Link></li>
+               <li><Link to="">Nulla vitae</Link></li>
            </ul>
        </div>
        <div className="ui twelve wide tablet four wide computer column">
@@ -1326,17 +1328,17 @@ function HomePage() {
 <div className="ui grid container">
    <div className="row">
        <div className="ui twelve wide mobile eight wide computer column">
-           <a href="" className="footer-logo">
-               <img src="assets/images/logo-mybnb-transparent.png" srcset="assets/images/logo-mybnb-transparent.png 1x, assets/images/logo-mybnb-transparent@2x.png 2x" alt="mybnb logo" />
-               © SeventhQueen 2018                   </a>
+           <Link to="" className="footer-logo">
+               <img src="assets/images/logo-mybnb-transparent.png" srcSet="assets/images/logo-mybnb-transparent.png 1x, assets/images/logo-mybnb-transparent@2x.png 2x" alt="mybnb logo" />
+               © SeventhQueen 2018                   </Link>
        </div>
        <div className="ui twelve wide mobile four wide computer column">
            <ul className="social-links-sq list-style-inline-sq list-default-sq">
-                <li><a href="" className="fb"><i className="icon icon-logo-facebook2"></i></a></li>
+                <li><Link to="" className="fb"><i className="icon icon-logo-facebook2"></i></Link></li>
 
-                <li><a href="" className="tw"><i className="icon icon-logo-twitter-bird2"></i></a></li>
+                <li><Link to="" className="tw"><i className="icon icon-logo-twitter-bird2"></i></Link></li>
 
-                <li><a href="" className="gp"><i className="icon icon-logo-circle-google-plus-22"></i></a></li>
+                <li><Link to="" className="gp"><i className="icon icon-logo-circle-google-plus-22"></i></Link></li>
             </ul>
        </div>
    </div>
@@ -1347,41 +1349,16 @@ function HomePage() {
 
 
 </div>
+
     )
-{/* <!--end #page-wrapper--> */}
-{/* <script src="assets/library/jquery-2.2.0.min.js"></script>
-<script src="assets/library/flexmenu.js"></script>
-<script src="assets/library/nouislider.min.js"></script>
 
-<script src="assets/library/wNumb.js"></script>
 
-<script src="assets/library/jrespond.min.js"></script>
-<script src="assets/library/scrollspy.min.js"></script>
 
-<script src="assets/library/visibility.js"></script>
 
-<script src="assets/library/accordion.js"></script>
-<script src="assets/library/dropdown-custom.js"></script>
-<script src="assets/library/sticky.js"></script>
 
-<script src="assets/library/page-transition.js"></script>
-<script src="assets/library/checkbox.js"></script>
-<script src="assets/library/transition.js"></script>
-<script src="assets/library/sidebar.js"></script>
 
-<script src="assets/library/modal.js"></script>
-<script src="assets/library/dimmer.js"></script>
 
-<!-- Datepicker -->
-<script src="assets/library/popup.js"></script>
-<script src="assets/library/calendar.js"></script>
 
-<!-- Slick -->
-<script src="assets/library/slick.js"></script>
-
-<script src="assets/library/header.js"></script>
-<script src="assets/library/functions.js"></script> */}
-    
 }
 
 export default HomePage
