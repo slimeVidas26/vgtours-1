@@ -1,6 +1,33 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 // import { Header } from 'semantic-ui-react'
+import magic_grid_photo_01 from '../assets/images/magic_grid/magic_grid_photo_01.jpg';
+import magic_grid_photo_02 from '../assets/images/magic_grid/magic_grid_photo_02.jpg';
+import magic_grid_photo_03 from '../assets/images/magic_grid/magic_grid_photo_03.jpg';
+import magic_grid_photo_04 from '../assets/images/magic_grid/magic_grid_photo_04.jpg';
+
+
+import logo_mybnb_transparent from '../assets/images/logo-mybnb-transparent.png';
+import logo_mybnb_transparent2x from '../assets/images/logo-mybnb-transparent@2x.png';
+import logo_mybnb from '../assets/images/logo-mybnb.png';
+import logo_mybnb2x from '../assets/images/logo-mybnb@2x.png';
+
+import  hero_big_28  from "../assets/images/hero/hero_big_28.jpg";
+import  hero_big_29  from "../assets/images/hero/hero_big_29.jpg";
+import  hero_big_30  from "../assets/images/hero/hero_big_30.jpg";
+import  hero_big_31  from "../assets/images/hero/hero_big_31.jpg";
+
+import  promo_section_01  from "../assets/images/promo_section/promo_section_01.jpg";
+
+import property_little_01 from '../assets/images/property/property_little_01.jpg'
+import property_little_02 from '../assets/images/property/property_little_02.jpg'
+import property_little_03 from '../assets/images/property/property_little_03.jpg'
+import property_little_04 from '../assets/images/property/property_little_04.jpg'
+import property_little_05 from '../assets/images/property/property_little_05.jpg'
+import property_little_06 from '../assets/images/property/property_little_06.jpg'
+
+
+
 
 function HomePage() {
     return (
@@ -17,9 +44,10 @@ function HomePage() {
     <div className="header-item header-left flex-order-tablet-second flex-order-mobile-second flex-grow-tablet-true flex-grow-mobile-true">
          
 <Link to="homepage.html" className="logo item">
-<img src="assets/images/logo-mybnb-transparent.png" srcSet="assets/images/logo-mybnb-transparent.png 1x, assets/images/logo-mybnb-transparent@2x.png 2x" alt="mybnb logo" className="logo-transparent"/>
+<img src={logo_mybnb_transparent} srcSet={`${logo_mybnb_transparent} 1x ,${logo_mybnb_transparent2x} 2x `} alt="mybnb logo" className="logo-transparent"/>
+{/* <img src={logo_mybnb} srcSet="../assets/images/logo-mybnb.png 1x, ../assets/images/logo-mybnb@2x.png 2x" alt="mybnb logo"/> */}
+<img src={logo_mybnb} srcSet= {`${logo_mybnb} 1x , ${logo_mybnb2x} 2x`} alt="mybnb logo"/>
 
-<img src="assets/images/logo-mybnb.png" srcSet="assets/images/logo-mybnb.png 1x, assets/images/logo-mybnb@2x.png 2x" alt="mybnb logo"/>
 </Link>
 
 
@@ -207,7 +235,7 @@ function HomePage() {
 
         <div className="image-wrapper">
             <div className="image-inner">
-                <img className="image-sq" src="assets/images/hero/hero_big_28.jpg" alt="hero_big_28.jpg"/>
+                <img className="image-sq" src={hero_big_28} alt="hero_big_28.jpg"/>
             </div>
         </div>
     </div>
@@ -227,7 +255,7 @@ function HomePage() {
 
         <div className="image-wrapper">
             <div className="image-inner">
-                <img className="image-sq" src="assets/images/hero/hero_big_29.jpg" alt=""/>
+                <img className="image-sq" src={hero_big_29} alt=""/>
             </div>
         </div>
     </div>
@@ -247,7 +275,7 @@ function HomePage() {
 
         <div className="image-wrapper">
             <div className="image-inner">
-                <img className="image-sq" src="assets/images/hero/hero_big_30.jpg" alt=""/>
+                <img className="image-sq" src={hero_big_30} alt=""/>
             </div>
         </div>
     </div>
@@ -266,7 +294,7 @@ function HomePage() {
 
         <div className="image-wrapper">
             <div className="image-inner">
-                <img className="image-sq" src="assets/images/hero/hero_big_31.jpg" alt=""/>
+                <img className="image-sq" src={{hero_big_31}} alt=""/>
             </div>
         </div>
     </div>
@@ -296,7 +324,7 @@ function HomePage() {
                             <div className="image-sq">
                                 <div className="image-wrapper">
                                     <div className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_photo_01.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_photo_01} alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -319,7 +347,7 @@ function HomePage() {
                             <div className="image-sq">
                                 <div className="image-wrapper">
                                     <div className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_photo_02.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_photo_02} alt=""/>
                                     </div>
                                 </div>       
                             </div>
@@ -342,7 +370,7 @@ function HomePage() {
                             <div className="image-sq">
                                 <div className="image-wrapper">
                                     <div className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_photo_03.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_photo_03} alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -365,7 +393,7 @@ function HomePage() {
                             <div className="image-sq">
                                 <div className="image-wrapper">
                                     <div className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_photo_04.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_photo_04} alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -414,7 +442,7 @@ function HomePage() {
     {/* <!-- picture --> */}
     <div className="image-wrapper">
         <div className="image-inner">
-            <img className="image-sq" src="assets/images/promo_section/promo_section_01.jpg" alt=""/>
+            <img className="image-sq" src={promo_section_01} alt=""/>
         </div>
     </div>
 </div>
@@ -444,7 +472,7 @@ function HomePage() {
                                 <Link to ="property_page.html"  className="image-sq">
                                     <span className="image-wrapper">
                                         <span className="image-inner">
-                                            <img src="assets/images/property/property_little_01.jpg" alt="" className=""/>
+                                            <img src={property_little_01} alt="" className=""/>
                                         </span>
                                     </span>
                                 </Link>
@@ -490,7 +518,7 @@ function HomePage() {
                                     <Link to = "property_page.html" className="image-sq">
                                         <span className="image-wrapper">
                                             <span className="image-inner">
-                                                <img src="assets/images/property/property_little_02.jpg" alt="" className=""/>
+                                                <img src={property_little_02} alt="" className=""/>
                                             </span>
                                         </span>
                                     </Link>
@@ -537,7 +565,7 @@ function HomePage() {
                                 <Link to = "property_page.html" className="image-sq">
                                     <span className="image-wrapper">
                                         <span className="image-inner">
-                                            <img src="assets/images/property/property_little_03.jpg" alt="" className=""/>
+                                            <img src={property_little_03} alt="" className=""/>
                                         </span>
                                     </span>
                                 </Link>
@@ -586,7 +614,7 @@ function HomePage() {
                                 <Link to  = "property_page.html" className="image-sq">
                                     <span className="image-wrapper">
                                         <span className="image-inner">
-                                            <img src="assets/images/property/property_little_04.jpg" alt="" className=""/>
+                                            <img src={property_little_04} alt="" className=""/>
                                         </span>
                                     </span>
                                 </Link>
@@ -632,7 +660,7 @@ function HomePage() {
                                 <Link to ="property_page.html"  className="image-sq">
                                     <span className="image-wrapper">
                                         <span className="image-inner">
-                                            <img src="assets/images/property/property_little_05.jpg" alt="" className=""/>
+                                            <img src={property_little_05} alt="" className=""/>
                                         </span>
                                     </span>
                                 </Link>
@@ -680,7 +708,7 @@ function HomePage() {
                                 <Link to ="property_page.html" className="image-sq">
                                     <span className="image-wrapper">
                                         <span className="image-inner">
-                                            <img src="assets/images/property/property_little_06.jpg" alt="" className=""/>
+                                            <img src={property_little_06} alt="" className=""/>
                                         </span>
                                     </span>
                                 </Link>
