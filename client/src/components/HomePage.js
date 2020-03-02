@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 // import { Header } from 'semantic-ui-react'
+
+//import images
 import magic_grid_photo_01 from '../assets/images/magic_grid/magic_grid_photo_01.jpg';
 import magic_grid_photo_02 from '../assets/images/magic_grid/magic_grid_photo_02.jpg';
 import magic_grid_photo_03 from '../assets/images/magic_grid/magic_grid_photo_03.jpg';
@@ -49,6 +51,14 @@ import magic_grid_article_03 from '../assets/images/magic_grid/magic_grid_articl
 import magic_grid_article_04 from '../assets/images/magic_grid/magic_grid_article_04.jpg';
 import magic_grid_article_05 from '../assets/images/magic_grid/magic_grid_article_05.jpg';
 import magic_grid_article_06 from '../assets/images/magic_grid/magic_grid_article_06.jpg';
+
+//styles
+import '../assets/less/base.css'; // Tell webpack that HomePage.js uses these styles
+import '../assets/less/header.css';
+import '../assets/less/theme.css';
+import '../assets/icon/style.css';
+
+
 
 
 
