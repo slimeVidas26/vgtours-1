@@ -18,6 +18,7 @@ import  hero_big_30  from "../assets/images/hero/hero_big_30.jpg";
 import  hero_big_31  from "../assets/images/hero/hero_big_31.jpg";
 
 import  promo_section_01  from "../assets/images/promo_section/promo_section_01.jpg";
+import  promo_section_02  from "../assets/images/promo_section/promo_section_02.jpg";
 
 import property_little_01 from '../assets/images/property/property_little_01.jpg'
 import property_little_02 from '../assets/images/property/property_little_02.jpg'
@@ -25,6 +26,31 @@ import property_little_03 from '../assets/images/property/property_little_03.jpg
 import property_little_04 from '../assets/images/property/property_little_04.jpg'
 import property_little_05 from '../assets/images/property/property_little_05.jpg'
 import property_little_06 from '../assets/images/property/property_little_06.jpg'
+
+
+import avatar_01 from '../assets/images/avatar/avatar_01.jpg'
+import avatar_02 from '../assets/images/avatar/avatar_02.jpg'
+import avatar_03 from '../assets/images/avatar/avatar_03.jpg'
+import avatar_04 from '../assets/images/avatar/avatar_04.jpg'
+import avatar_05 from '../assets/images/avatar/avatar_05.jpg'
+import avatar_06 from '../assets/images/avatar/avatar_06.jpg'
+
+import magic_grid_category_special_01 from '../assets/images/magic_grid/magic_grid_category_special_01.png';
+import magic_grid_category_special_02 from '../assets/images/magic_grid/magic_grid_category_special_02.jpg';
+import magic_grid_category_special_03 from '../assets/images/magic_grid/magic_grid_category_special_03.jpg';
+import magic_grid_category_special_04 from '../assets/images/magic_grid/magic_grid_category_special_04.jpg';
+import magic_grid_category_special_05 from '../assets/images/magic_grid/magic_grid_category_special_05.jpg';
+import magic_grid_category_special_06 from '../assets/images/magic_grid/magic_grid_category_special_06.jpg';
+import magic_grid_category_special_07 from '../assets/images/magic_grid/magic_grid_category_special_07.jpg';
+
+import magic_grid_article_01 from '../assets/images/magic_grid/magic_grid_article_01.jpg';
+import magic_grid_article_02 from '../assets/images/magic_grid/magic_grid_article_02.jpg';
+import magic_grid_article_03 from '../assets/images/magic_grid/magic_grid_article_03.jpg';
+import magic_grid_article_04 from '../assets/images/magic_grid/magic_grid_article_04.jpg';
+import magic_grid_article_05 from '../assets/images/magic_grid/magic_grid_article_05.jpg';
+import magic_grid_article_06 from '../assets/images/magic_grid/magic_grid_article_06.jpg';
+
+
 
 
 
@@ -481,7 +507,7 @@ function HomePage() {
                                    <div className="title-row">
                                        <Link to="property_page.html" className="title-sq">Downtown Sweet House</Link>
                                        <Link to="vendor_details.html" className="avatar-sq">
-                                           <img src="assets/images/avatar/avatar_01.jpg" alt=""/>
+                                           <img src={avatar_01} alt=""/>
                                        </Link>
                                    </div>
                 
@@ -528,7 +554,7 @@ function HomePage() {
                                        <div className="title-row">
                                            <Link to="property_page.html" className="title-sq">Large and confortable double room</Link>
                                            <Link to="vendor_details.html" className="avatar-sq">
-                                               <img src="assets/images/avatar/avatar_02.jpg" alt=""/>
+                                               <img src={avatar_02} alt=""/>
                                            </Link>
                                        </div>
                 
@@ -576,7 +602,7 @@ function HomePage() {
                                    <div className="title-row">
                                        <Link to="property_page.html" className="title-sq">Modern studio flat with garden</Link>
                                        <Link to="vendor_details.html" className="avatar-sq">
-                                           <img src="assets/images/avatar/avatar_03.jpg"
+                                           <img src={avatar_03}
                                             alt=""/>
                                        </Link>
                                    </div>
@@ -624,7 +650,7 @@ function HomePage() {
                                    <div className="title-row">
                                        <Link to="property_page.html" className="title-sq">Bright clean room close to Brixton</Link>
                                        <Link to="vendor_details.html" className="avatar-sq">
-                                           <img src="assets/images/avatar/avatar_04.jpg" alt=""/>
+                                           <img src={avatar_04} alt=""/>
                                        </Link>
                                    </div>
                 
@@ -670,7 +696,7 @@ function HomePage() {
                                    <div className="title-row">
                                        <Link to="property_page.html" className="title-sq">Romantic Suite in family home</Link>
                                        <Link to="vendor_details.html" className="avatar-sq">
-                                           <img src="assets/images/avatar/avatar_05.jpg" alt=""/>
+                                           <img src={avatar_05} alt=""/>
                                        </Link>
                                    </div>
                 
@@ -718,7 +744,7 @@ function HomePage() {
                                    <div className="title-row">
                                        <Link to="property_page.html" className="title-sq">Quit and bright room in the heart of Amsterdam</Link>
                                        <Link to="vendor_details.html" className="avatar-sq">
-                                           <img src="assets/images/avatar/avatar_06.jpg" alt=""/>
+                                           <img src={avatar_06} alt=""/>
                                        </Link>
                                    </div>
                 
@@ -773,7 +799,7 @@ function HomePage() {
     {/* <!-- picture --> */}
     <div className="image-wrapper">
         <div className="image-inner">
-            <img className="image-sq" src="assets/images/promo_section/promo_section_02.jpg" alt=""/>
+            <img className="image-sq" src={promo_section_02} alt=""/>
         </div>
     </div>
 </div>
@@ -797,7 +823,7 @@ function HomePage() {
                             <div className="image-sq">
                                 <div className="image-wrapper">
                                     <div className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_category_special_01.png" alt=""/>
+                                        <img className="image-sq" src={magic_grid_category_special_01} alt=""/>
                 
                                     </div>
                                 </div>
@@ -819,7 +845,7 @@ function HomePage() {
                             <div className="image-sq">
                                 <div className="image-wrapper">
                                     <div className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_category_special_02.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_category_special_02} alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -840,7 +866,7 @@ function HomePage() {
                             <div className="image-sq">
                                 <div className="image-wrapper">
                                     <div className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_category_special_03.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_category_special_03} alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -861,7 +887,7 @@ function HomePage() {
                             <div className="image-sq">
                                 <div className="image-wrapper">
                                     <div className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_category_special_04.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_category_special_04} alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -882,7 +908,7 @@ function HomePage() {
                             <div className="image-sq">
                                 <div className="image-wrapper">
                                     <div className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_category_special_05.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_category_special_05} alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -903,7 +929,7 @@ function HomePage() {
                             <div className="image-sq">
                                 <div className="image-wrapper">
                                     <div className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_category_special_06.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_category_special_06} alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -924,7 +950,7 @@ function HomePage() {
                             <div className="image-sq">
                                 <div className="image-wrapper">
                                     <div className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_category_special_07.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_category_special_07} alt=""/>
                                     </div>
                                 </div>
                             </div>
@@ -958,7 +984,7 @@ function HomePage() {
                             <Link to ="article.html" className="image-sq" >
                                 <span className="image-wrapper">
                                     <span className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_article_01.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_article_01} alt=""/>
                                     </span>
                                 </span>
                             </Link>
@@ -982,7 +1008,7 @@ function HomePage() {
                             <Link to ="article.html" className="image-sq" >
                                 <span className="image-wrapper">
                                     <span className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_article_02.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_article_02} alt=""/>
                                     </span>
                                 </span>
                             </Link>
@@ -1007,7 +1033,7 @@ function HomePage() {
                             <Link to ="article.html" className="image-sq" >
                                 <span className="image-wrapper">
                                     <span className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_article_03.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_article_03} alt=""/>
                                     </span>
                                 </span>
                             </Link>
@@ -1033,7 +1059,7 @@ function HomePage() {
                             <Link to ="article.html" className="image-sq" >
                                 <span className="image-wrapper">
                                     <span className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_article_04.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_article_04} alt=""/>
                                     </span>
                                 </span>
                             </Link>
@@ -1059,7 +1085,7 @@ function HomePage() {
                             <Link to ="article.html" className="image-sq" >
                                 <span className="image-wrapper">
                                     <span className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_article_05.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_article_05} alt=""/>
                                     </span>
                                 </span>
                             </Link>
@@ -1084,7 +1110,7 @@ function HomePage() {
                             <Link to ="article.html" className="image-sq" >
                                 <span className="image-wrapper">
                                     <span className="image-inner">
-                                        <img className="image-sq" src="assets/images/magic_grid/magic_grid_article_06.jpg" alt=""/>
+                                        <img className="image-sq" src={magic_grid_article_06} alt=""/>
                                     </span>
                                 </span>
                             </Link>
