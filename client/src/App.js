@@ -8,7 +8,7 @@ import store from "./store";
 // import './App.css';
 
 // import Navbar from "./components/layout/Navbar";
-import Landing from "./components/layout/Landing";
+// import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
@@ -16,6 +16,11 @@ import Dashboard from "./components/dashboard/Dashboard";
 // import ModalExample from "./components/semantic-ui-tests/ModalExample";
 //import Footer from "./components/layout/Footer";
 import HomePage from "./components/HomePage";
+// import ButtonExampleEmphasisShorthand from "./components/ButtonExampleEmphasisShorthand";
+//  import ThemingLayout from "./components/ThemingLayout";
+// import Home from './components/Home'
+
+
 
 
 
@@ -47,10 +52,17 @@ class App extends Component {
        <Provider store={store}>
       <Router>
         <div className="App">
+        
           {/* <Navbar /> */}
           {/* <ModalExample/> */}
           {/* <Route exact path="/" component={Landing} /> */}
           <Route exact path="/" component={HomePage} />
+           {/* <Route exact path="/" component={ButtonExampleEmphasisShorthand} /> */}
+            {/* <Route exact path="/" component={ThemingLayout} />  */}
+             {/* <Route exact path="/" component={Home} /> */}
+
+
+
 
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
@@ -59,6 +71,7 @@ class App extends Component {
             </Switch>
             {/* <Footer/> */}
         </div>
+        
       
       </Router>
       </Provider>
