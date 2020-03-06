@@ -47,6 +47,13 @@ if (localStorage.jwtToken) {
 
 
 class App extends Component {
+
+  componentWillMount() {
+    console.log('componentWillMount is called');
+    const script = document.createElement('script');
+    script.src = 'assets/library/jquery-2.2.0.min.js';
+    document.body.appendChild(script);
+}
   render() {
     return (
        <Provider store={store}>

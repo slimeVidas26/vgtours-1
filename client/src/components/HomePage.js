@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import '../assets/less/base.min.css'
 import '../assets/less/header.min.css'
+import '../assets/less/theme.min.css'
+
+
 
 
 
