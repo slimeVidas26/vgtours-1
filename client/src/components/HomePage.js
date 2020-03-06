@@ -52,11 +52,7 @@ import magic_grid_article_04 from '../assets/images/magic_grid/magic_grid_articl
 import magic_grid_article_05 from '../assets/images/magic_grid/magic_grid_article_05.jpg';
 import magic_grid_article_06 from '../assets/images/magic_grid/magic_grid_article_06.jpg';
 
-//styles
-import '../assets/less/base.css'; // Tell webpack that HomePage.js uses these styles
-import '../assets/less/header.css';
-import '../assets/less/theme.css';
-import '../assets/icon/style.css';
+
 
 
 
