@@ -1,6 +1,12 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-// import { Header } from 'semantic-ui-react'
+import '../assets/less/base.min.css'
+import '../assets/less/header.min.css'
+
+
+
+
+
 
 //import images
 import magic_grid_photo_01 from '../assets/images/magic_grid/magic_grid_photo_01.jpg';
