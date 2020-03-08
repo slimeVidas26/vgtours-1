@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import '../assets/less/base.min.css'
 import '../assets/less/header.min.css'
 import '../assets/less/theme.min.css'
+import '../assets/icon/style.css'
+
 import '../assets/images/ico/favicon.ico'
 
 
