@@ -104,7 +104,7 @@ function HeroSearchFullPage() {
 
         <div className="image-wrapper">
             <div className="image-inner">
-                <img className="image-sq" src={hero_big_29} alt=""/>
+                <img className="image-sq" src={hero_big_29} alt="hero_big_29.jpg"/>
             </div>
         </div>
     </div>
@@ -124,7 +124,7 @@ function HeroSearchFullPage() {
 
         <div className="image-wrapper">
             <div className="image-inner">
-                <img className="image-sq" src={hero_big_30} alt=""/>
+                <img className="image-sq" src={hero_big_30} alt="hero_big_30.jpg"/>
             </div>
         </div>
     </div>
@@ -143,7 +143,7 @@ function HeroSearchFullPage() {
 
         <div className="image-wrapper">
             <div className="image-inner">
-                <img className="image-sq" src={{hero_big_31}} alt=""/>
+                <img className="image-sq" src={hero_big_31} alt="hero_big_31.jpg"/>
             </div>
         </div>
     </div>
