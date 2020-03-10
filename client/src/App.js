@@ -16,9 +16,11 @@ import Dashboard from "./components/dashboard/Dashboard";
 // import ModalExample from "./components/semantic-ui-tests/ModalExample";
 //import Footer from "./components/layout/Footer";
 import HomePage from "./components/HomePage";
+import DefaultGrid from "./components/features/DefaultGrid";
 // import ButtonExampleEmphasisShorthand from "./components/ButtonExampleEmphasisShorthand";
 //  import ThemingLayout from "./components/ThemingLayout";
 // import Home from './components/Home'
+// import HeaderMenu from './components/layout/HeaderMenu'
 
 
 
@@ -48,12 +50,12 @@ if (localStorage.jwtToken) {
 
 class App extends Component {
 
-  componentWillMount() {
-    console.log('componentWillMount is called');
-    const script = document.createElement('script');
-    script.src = 'assets/library/jquery-2.2.0.min.js';
-    document.body.appendChild(script);
-}
+//   componentWillMount() {
+//     console.log('componentWillMount is called');
+//     const script = document.createElement('script');
+//     script.src = 'assets/library/jquery-2.2.0.min.js';
+//     document.body.appendChild(script);
+// }
   render() {
     return (
        <Provider store={store}>
@@ -70,9 +72,12 @@ class App extends Component {
 
 
 
-
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/features/fts_default_grid.html" component={DefaultGrid} />
+
+
+
           <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
