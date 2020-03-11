@@ -73,8 +73,59 @@
     
     <!-- Slick -->
     <script src="%PUBLIC_URL%/assets/library/slick.js"></script>
+     <!-- Fancybox -->
+<script src="%PUBLIC_URL%/assets/library/jquery.fancybox.js"></script>
+
+<script src="%PUBLIC_URL%/assets/library/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <script src="%PUBLIC_URL%/assets/library/clipboard.min.js"></script>
+
     
     <script src="%PUBLIC_URL%/assets/library/header.js"></script>
     <script src="%PUBLIC_URL%/assets/library/functions.js"></script>
+
+    
+
+   
+
+
+
+
+
+<script>
+
+	$(document)
+		.ready(function() {
+
+			new Clipboard('.clipboad-copy-sq', {
+				target: function(trigger) {
+					return trigger.nextElementSibling;
+				}
+			});
+
+		});
+
+</script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

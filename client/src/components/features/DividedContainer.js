@@ -1,4 +1,10 @@
 import React from 'react'
+import '../../assets/less/base.min.css'
+import '../../assets/less/header.min.css'
+import '../../assets/less/theme.min.css'
+ import '../../assets/icon/style.css'
+import '../../assets/library/highlight.css'
+
 import { Link } from "react-router-dom";
 
 
@@ -7,10 +13,10 @@ import logo_mybnb_transparent2x from '../../assets/images/logo-mybnb-transparent
 import logo_mybnb from '../../assets/images/logo-mybnb.png';
 import logo_mybnb2x from '../../assets/images/logo-mybnb@2x.png';
 
-function DefaultGrid() {
+function DividedContainer() {
     return (
-        <div id="page-wrapper">
-             {/* <!-- for background color & freeze on sidemenu visible --> */}
+       <div id="page-wrapper">
+            {/* <!-- for background color & freeze on sidemenu visible --> */}
 
 {/* <!--DEFAULT HEADER--> */}
 
@@ -20,7 +26,7 @@ function DefaultGrid() {
 <div className="ui container grid">
     <div className="header-item header-left flex-order-tablet-second flex-order-mobile-second flex-grow-tablet-true flex-grow-mobile-true">
         
-<Link to="" className="logo item">
+    <Link to="" className="logo item">
 <img src={logo_mybnb_transparent} srcSet={`${logo_mybnb_transparent} 1x ,${logo_mybnb_transparent2x} 2x `} alt="mybnb logo" className="logo-transparent"/>
 <img src={logo_mybnb} srcSet= {`${logo_mybnb} 1x , ${logo_mybnb2x} 2x`} alt="mybnb logo"/>
 <span className="item">features</span>
@@ -84,6 +90,7 @@ function DefaultGrid() {
 </div>    
 </header>
 
+
 <div className="ui layout">
 
 {/* <!-- grid --> */}
@@ -126,8 +133,8 @@ function DefaultGrid() {
     </div>
     <div className="content active">
        <div className="accordion">
-           <div className="title active"><a href="fts_default_grid.html" className="item">Default Grid</a></div>
-           <div className="title "><a href="fts_divided_container.html" className="item">Divided Container</a></div>
+           <div className="title "><a href="fts_default_grid.html" className="item">Default Grid</a></div>
+           <div className="title active"><a href="fts_divided_container.html" className="item">Divided Container</a></div>
            <div className="title "><a href="fts_magic_grid.html" className="item">Magic Grid</a></div>
        </div>
     </div>
@@ -252,13 +259,201 @@ function DefaultGrid() {
                            
                             <div className="ui twelve wide computer column">
                                 <div className="typo-section-sq top-default bottom-default">
-                                    <h2>Default Grid</h2>
+                                    <h2>Divided Container</h2>
                                     
-                                    <p className="definition-sq"><strong>Default Grid</strong> is actually the grid from <a href="https://semantic-ui.com/collections/grid.html" target="_blank">semantic UI</a>.</p>
-                                    <br/>
-                                    <p>You can see here all the details on how to use the semantic UI grid by <a href="https://semantic-ui.com/collections/grid.html" target="_blank">clicking here</a>.</p>
+                                    <p className="definition-sq"><strong>Divided Container</strong> is a custom grid particular to the theme.</p>
                                     <hr className="padded-sq"/>
+                                    
+                                    <h3>General Info</h3>
+                                    <br/>
+                                    
+                                    <p>The grid it is used in many cases to what form elements together with the corresponding label.</p>
+                                    
+                                    <p>Base structure is like this: </p>
+                                    
+                                    
+<pre><button className="clipboad-copy-sq button-sq link-sq">Copy</button>
+<code className="html">&lt;div className=&quot;div-c&quot;&gt;
+&lt;div className=&quot;divided-column&quot;&gt;
+&lt;label&gt;Label 1&lt;/label&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;Input Here&quot;&gt;
+&lt;/div&gt;
+...
+&lt;/div&gt;</code></pre>
+                                    <hr className="padded-sq"/>
+                                    
+                                    <h3>Columns</h3>
+                                    <br/>
+                                    
+                                    <p>By default <strong>.div-c</strong> columns have 100% width.</p>
+                                    <br/>
+                                    
+                                    <p>In order to have multiple columns on one line you can use these classes::</p>
+
+                                    <ul>
+                                        <li><strong>.inline-2</strong> - two columns in a row.</li>
+                                        <li><strong>.inline-3</strong> - thre columns in a row.</li>
+                                        <li><strong>.inline-4</strong> - four columns in a row.</li>
+                                    </ul>
+                                    
+                                    <p>No matter the above options, on mobile the width will always be 100%.</p>
+                                    <br/>
+<div className="div-c inline-2">
+<div className="divided-column">
+<label>Label 1</label>
+<input type="text" placeholder="Input Here"/>
+</div>
+<div className="divided-column">
+<label>Label 2</label>
+<input type="text" placeholder="Input Here"/>
+</div>
+</div>                     
+                                               
+<pre><button className="clipboad-copy-sq button-sq link-sq">Copy</button>
+<code className="html">&lt;div className=&quot;div-c <mark className="markcode">inline-2</mark>&quot;&gt;
+&lt;div className=&quot;divided-column&quot;&gt;
+&lt;label&gt;Label 1&lt;/label&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;Input Here&quot;&gt;
+&lt;/div&gt;
+&lt;div className=&quot;divided-column&quot;&gt;
+&lt;label&gt;Label 2&lt;/label&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;Input Here&quot;&gt;
+&lt;/div&gt;
+...
+&lt;/div&gt;</code></pre>
+                                <br/>
+                                <br/>
+                                 
+<div className="div-c inline-3">
+<div className="divided-column">
+<label>Label 3</label>
+<input type="text" placeholder="Input Here"/>
+</div>
+<div className="divided-column">
+<label>Label 4</label>
+<input type="text" placeholder="Input Here"/>
+</div>
+<div className="divided-column">
+<label>Label 5</label>
+<input type="text" placeholder="Input Here"/>
+</div>
+</div>                     
+                                               
+<pre><button className="clipboad-copy-sq button-sq link-sq">Copy</button>
+<code className="html">&lt;div className=&quot;div-c <mark className="markcode">inline-3</mark>&quot;&gt;
+&lt;div className=&quot;divided-column&quot;&gt;
+&lt;label&gt;Label 1&lt;/label&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;Input Here&quot;&gt;
+&lt;/div&gt;
+&lt;div className=&quot;divided-column&quot;&gt;
+&lt;label&gt;Label 2&lt;/label&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;Input Here&quot;&gt;
+&lt;/div&gt;
+&lt;div className=&quot;divided-column&quot;&gt;
+&lt;label&gt;Label 2&lt;/label&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;Input Here&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                                  
+                                  
+                                  <hr className="padded-sq"/>
+                                   
+                                   
+                                   <h3>One Label Option</h3>
+                                   
+                                   
+                                   <p>There are cases when the elements grid needs just one label. You can use the <strong>.one-label</strong> class like this:</p>
+<div className="div-c inline-4 one-label">
+<label>Label 1</label>
+<div className="divided-column">
+<input type="text" placeholder="Input Here"/>
+</div>
+<div className="divided-column">
+<input type="text" placeholder="Input Here"/>
+</div>
+<div className="divided-column">
+<input type="text" placeholder="Input Here"/>
+</div>
+<div className="divided-column">
+<input type="text" placeholder="Input Here"/>
+</div>
+</div>  
+                              
+                               
+<pre><button className="clipboad-copy-sq button-sq link-sq">Copy</button>
+<code className="html">&lt;div className=&quot;div-c <mark className="markcode">one-label</mark> inline-4&quot;&gt;
+&lt;label&gt;Label 1&lt;/label&gt;
+&lt;div className=&quot;divided-column&quot;&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;Input Here&quot;&gt;
+&lt;/div&gt;
+&lt;div className=&quot;divided-column&quot;&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;Input Here&quot;&gt;
+&lt;/div&gt;
+&lt;div className=&quot;divided-column&quot;&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;Input Here&quot;&gt;
+&lt;/div&gt;
+&lt;div className=&quot;divided-column&quot;&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;Input Here&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;</code></pre>       
+                                   <hr className="padded-sq"/>
+                                   
+                                   <h3>No Padding Option</h3>
+                                   <br/>
+                                          
+                                   <p>To remove columns gutter you can use this class <strong>.no-padding</strong></p>
+<div className="div-c inline-2 no-padding">
+<div className="divided-column">
+<label>Label 1</label>
+<input type="text" placeholder="Input Here"/>
+</div>
+<div className="divided-column">
+<label>Label 2</label>
+<input type="text" placeholder="Input Here"/>
+</div>
+</div> 
+                                            
+<pre><button className="clipboad-copy-sq button-sq link-sq">Copy</button>
+<code className="html">&lt;div className=&quot;div-c inline-2 <mark className="markcode">no-padding</mark>&quot;&gt;
+&lt;div className=&quot;divided-column&quot;&gt;
+&lt;label&gt;Label 1&lt;/label&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;Input Here&quot;&gt;
+&lt;/div&gt;
+&lt;div className=&quot;divided-column&quot;&gt;
+&lt;label&gt;Label 2&lt;/label&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;Input Here&quot;&gt;
+&lt;/div&gt;
+...
+&lt;/div&gt;</code></pre>
+
+                                <hr className="padded-sq"/>
+                                           
+                                    <h3>Border Option</h3>
+                                   <br/>
+                                          
+                                   <p>To apply a border on the whole <strong>.div-c</strong>, excluding the label, you can use <strong>.border-sq</strong> class along with <strong>.no-padding</strong> class.</p>
+                                   
+                                   
+                                   
+<div className="div-c inline-3 one-label no-padding border-sq">
+<label>Label 1</label>
+<div className="divided-column">Element 01</div>
+<div className="divided-column">Element 02</div>
+<div className="divided-column">Element 03</div>
+</div>
+    
+<pre><button className="clipboad-copy-sq button-sq link-sq">Copy</button>
+<code className="html">&lt;div className=&quot;div-c inline-3 one-label no-padding <mark className="markcode">border-sq</mark>&quot;&gt;
+&lt;label&gt;Label 1&lt;/label&gt;
+&lt;div className=&quot;divided-column&quot;&gt;Element 01&lt;/div&gt;
+&lt;div className=&quot;divided-column&quot;&gt;Element 02&lt;/div&gt;
+&lt;div className=&quot;divided-column&quot;&gt;Element 03&lt;/div&gt;
+&lt;/div&gt;</code></pre>                    
+                               
+                                <hr className="padded-sq"/>                        
                                 </div>
+                                
+                                    
                             </div>
                                            
                             
@@ -272,11 +467,15 @@ function DefaultGrid() {
        
     </div>
 </div>
+
+
 </div>    
-</div>
- )
+
 {/* <!--end #page-wrapper--> */}
-   
+
+</div>
+
+    )
 }
 
-export default DefaultGrid
+export default DividedContainer

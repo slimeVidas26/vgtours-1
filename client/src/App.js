@@ -17,6 +17,8 @@ import Dashboard from "./components/dashboard/Dashboard";
 //import Footer from "./components/layout/Footer";
 import HomePage from "./components/HomePage";
 import DefaultGrid from "./components/features/DefaultGrid";
+import DividedContainer from "./components/features/DividedContainer";
+
 // import ButtonExampleEmphasisShorthand from "./components/ButtonExampleEmphasisShorthand";
 //  import ThemingLayout from "./components/ThemingLayout";
 // import Home from './components/Home'
@@ -75,6 +77,8 @@ class App extends Component {
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/features/fts_default_grid.html" component={DefaultGrid} />
+          <Route exact path="/features/fts_divided_container.html" component={DividedContainer} />
+
 
 
 
