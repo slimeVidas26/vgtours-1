@@ -14,21 +14,11 @@ import Login2 from './auth/Login2'
 import SignUpWithMail from './auth/SignUpWithMail'
 import Wishlist from './Wishlist'
 
-
-
-
-
 import Footer from "./Footer";
-
-
-
-
-
-
 
 function HomePage() {
     return (
-       <div id="page-wrapper">
+      <React.Fragment>
 
 <Header/>
 
@@ -57,8 +47,7 @@ function HomePage() {
 {/* <!--FOOTER--> */}
 
 <Footer/>
-</div>
-
+</React.Fragment>
     )
 
 

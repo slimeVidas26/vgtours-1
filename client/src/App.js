@@ -52,6 +52,8 @@ if (localStorage.jwtToken) {
 
 class App extends Component {
 
+  
+
 //   componentWillMount() {
 //     console.log('componentWillMount is called');
 //     const script = document.createElement('script');
@@ -62,7 +64,7 @@ class App extends Component {
     return (
        <Provider store={store}>
       <Router>
-        <div className="App">
+      <React.Fragment>
         
           {/* <Navbar /> */}
           {/* <ModalExample/> */}
@@ -86,7 +88,7 @@ class App extends Component {
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
             {/* <Footer/> */}
-        </div>
+            </React.Fragment>
         
       
       </Router>
