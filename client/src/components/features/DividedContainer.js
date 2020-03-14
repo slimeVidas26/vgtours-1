@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-import '../../assets/less/base.min.css'
-import '../../assets/less/header.min.css'
-import '../../assets/less/theme.min.css'
- import '../../assets/icon/style.css'
+
+// import '../../assets/less/base.css'
+// import '../../assets/less/header.css'
+// import '../../assets/less/theme.css'
+//  import '../../assets/icon/style.css'
 import './assets/library/highlight.css'
 
-import { Link } from "react-router-dom";
 
 
 import logo_mybnb_transparent from '../../assets/images/logo-mybnb-transparent.png';
@@ -15,6 +16,8 @@ import logo_mybnb from '../../assets/images/logo-mybnb.png';
 import logo_mybnb2x from '../../assets/images/logo-mybnb@2x.png';
 
 class DividedContainer extends Component {
+
+   
 
     componentDidMount() {
         document.getElementsByTagName('body')[0].className = 'no-transition dashboard-sq';
@@ -30,6 +33,8 @@ class DividedContainer extends Component {
     // }
 
     render(){
+
+       
         return (
           <React.Fragment>
                
@@ -290,13 +295,17 @@ class DividedContainer extends Component {
                                         
                                         
     <pre><button className="clipboad-copy-sq button-sq link-sq">Copy</button>
-    <code className="html">&lt;div className=&quot;div-c&quot;&gt;
+
+    <code className="html">
+        &lt;div className=&quot;div-c&quot;&gt;
     &lt;div className=&quot;divided-column&quot;&gt;
     &lt;label&gt;Label 1&lt;/label&gt;
     &lt;input type=&quot;text&quot; placeholder=&quot;Input Here&quot;&gt;
     &lt;/div&gt;
     ...
-    &lt;/div&gt;</code></pre>
+    &lt;/div&gt;
+    </code>
+    </pre>
                                         <hr className="padded-sq"/>
                                         
                                         <h3>Columns</h3>

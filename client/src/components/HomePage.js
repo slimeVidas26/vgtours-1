@@ -1,8 +1,9 @@
 import React from 'react'
-import '../assets/less/base.min.css'
-import '../assets/less/header.min.css'
-import '../assets/less/theme.min.css'
+import '../assets/less/base.css'
+import '../assets/less/header.css'
+import '../assets/less/theme.css'
 import '../assets/icon/style.css'
+
 
 import '../assets/images/ico/favicon.ico'
 //import components
