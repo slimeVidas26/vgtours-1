@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Sidebar from './assets/elements/Sidebar'
 import Header from './assets/elements/header/Header'
+import { Link } from "react-router-dom";
+
 
 
 import '../../assets/library/highlight.css'
@@ -52,7 +54,7 @@ import magic_grid_article_03 from './assets/images/magic_grid/magic_grid_article
 import magic_grid_article_04 from './assets/images/magic_grid/magic_grid_article_04.jpg';
 import magic_grid_article_05 from './assets/images/magic_grid/magic_grid_article_05.jpg';
 import magic_grid_article_06 from './assets/images/magic_grid/magic_grid_article_06.jpg';
-import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article_07.jpg';
+// import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article_07.jpg';
 
 
  class MagiGrid extends Component {
@@ -116,11 +118,11 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                <span className="typo-whitespace"></span>
                 <p className="typo-label-sq" data-label-before="Category" data-label-after="Category"></p>
                 <p className="typo-title-sq">Food</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -139,11 +141,11 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-label-sq" data-label-before="Category" data-label-after="Category"></p>
                 <p className="typo-title-sq">Breakfast</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -162,11 +164,11 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-label-sq" data-label-before="Category" data-label-after="Category"></p>
                 <p className="typo-title-sq">Tea</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -185,11 +187,11 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-label-sq" data-label-before="Category" data-label-after="Category"></p>
                 <p className="typo-title-sq">Healthy Food</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -208,11 +210,11 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-label-sq" data-label-before="Category" data-label-after="Book a home in"></p>
                 <p className="typo-title-sq">Pie</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -231,11 +233,11 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-label-sq" data-label-before="Greece" data-label-after="Book a home in"></p>
                 <p className="typo-title-sq">Fruit Cocktail</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -256,7 +258,7 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             &lt;/div&gt;
 
             &lt;!-- text container--&gt;
-            &lt;a href=&quot;&quot; className=&quot;typo-sq&quot;&gt;
+            &lt;Link to =&quot;&quot; className=&quot;typo-sq&quot;&gt;
 				&lt;span className=&quot;typo-whitespace&quot;&gt;&lt;/span&gt;
                 &lt;p className=&quot;typo-label-sq&quot; data-label-before=&quot;Category&quot; data-label-after=&quot;Category&quot;&gt;&lt;/p&gt;
                 &lt;p className=&quot;typo-title-sq&quot;&gt;Food&lt;/p&gt;
@@ -315,11 +317,11 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-label-sq" data-label-before="Greece" data-label-after="Book a home in"></p>
                 <p className="typo-title-sq">Lefkada</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -338,11 +340,11 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                <span className="typo-whitespace"></span>
                 <p className="typo-label-sq" data-label-before="Netherlands" data-label-after="Book a home in"></p>
                 <p className="typo-title-sq">Amsterdam</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -361,11 +363,11 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-label-sq" data-label-before="France" data-label-after="Book a home in"></p>
                 <p className="typo-title-sq">Paris</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -384,11 +386,11 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-label-sq" data-label-before="Czech" data-label-after="Book a home in"></p>
                 <p className="typo-title-sq">Prague</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -407,11 +409,11 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-label-sq" data-label-before="Germany" data-label-after="Book a home in"></p>
                 <p className="typo-title-sq">Hamburg</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -430,11 +432,11 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-label-sq" data-label-before="Romania" data-label-after="Book a home in"></p>
                 <p className="typo-title-sq">Bucharest</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -453,11 +455,11 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-label-sq" data-label-before="United Kingdom" data-label-after="Book a home in"></p>
                 <p className="typo-title-sq">London</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -476,11 +478,11 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-label-sq" data-label-before="Brazil" data-label-after="Book a home in"></p>
                 <p className="typo-title-sq">Rio de Janeiro</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -522,10 +524,10 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-title-sq">Special Item</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -544,10 +546,10 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-title-sq">From Space</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -566,10 +568,10 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-title-sq">NASA</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -589,10 +591,10 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-title-sq">On the Moon</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -611,10 +613,10 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-title-sq">Galaxy</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -632,10 +634,10 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-title-sq">Another Earth</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -654,10 +656,10 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
             </div>
 
             {/* <!-- typography container--> */}
-            <a href="" className="typo-sq">
+            <Link to ="" className="typo-sq">
                 <span className="typo-whitespace"></span>
                 <p className="typo-title-sq">Satellite</p>
-            </a>
+            </Link>
 
         </div>
     </div>
@@ -689,10 +691,10 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                         </div>
 
                                                         {/* <!-- typography container--> */}
-                                                        <a href="" className="typo-sq">
+                                                        <Link to ="" className="typo-sq">
                                                            <span className="typo-whitespace"></span>
                                                             <p className="typo-title-sq">Wildlife</p>
-                                                        </a>
+                                                        </Link>
 
                                                     </div>
                                                 </div>
@@ -711,10 +713,10 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                         </div>
 
                                                         {/* <!-- typography container--> */}
-                                                        <a href="" className="typo-sq">
+                                                        <Link to ="" className="typo-sq">
                                                            <span className="typo-whitespace"></span>
                                                             <p className="typo-title-sq">Adventure</p>
-                                                        </a>
+                                                        </Link>
 
                                                     </div>
                                                 </div>
@@ -733,10 +735,10 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                         </div>
 
                                                         {/* <!-- typography container--> */}
-                                                        <a href="" className="typo-sq">
+                                                        <Link to ="" className="typo-sq">
                                                             <span className="typo-whitespace"></span>
                                                             <p className="typo-title-sq">Beaches</p>
-                                                        </a>
+                                                        </Link>
 
                                                     </div>
                                                 </div>
@@ -756,10 +758,10 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                         </div>
 
                                                         {/* <!-- typography container--> */}
-                                                        <a href="" className="typo-sq">
+                                                        <Link to ="" className="typo-sq">
                                                            <span className="typo-whitespace"></span>
                                                             <p className="typo-title-sq">Monuments</p>
-                                                        </a>
+                                                        </Link>
 
                                                     </div>
                                                 </div>
@@ -778,10 +780,10 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                         </div>
 
                                                         {/* <!-- typography container--> */}
-                                                        <a href="" className="typo-sq">
+                                                        <Link to ="" className="typo-sq">
                                                            <span className="typo-whitespace"></span>
                                                             <p className="typo-title-sq">Food</p>
-                                                        </a>
+                                                        </Link>
 
                                                     </div>
                                                 </div>
@@ -799,10 +801,10 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                         </div>
 
                                                         {/* <!-- typography container--> */}
-                                                        <a href="" className="typo-sq">
+                                                        <Link to ="" className="typo-sq">
                                                            <span className="typo-whitespace"></span>
                                                             <p className="typo-title-sq">Party</p>
-                                                        </a>
+                                                        </Link>
 
                                                     </div>
                                                 </div>
@@ -821,10 +823,10 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                         </div>
 
                                                         {/* <!-- typography container--> */}
-                                                        <a href="" className="typo-sq">
+                                                        <Link to ="" className="typo-sq">
                                                            <span className="typo-whitespace"></span>
                                                             <p className="typo-title-sq">Museum</p>
-                                                        </a>
+                                                        </Link>
 
                                                     </div>
                                                 </div>
@@ -854,13 +856,13 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                     <div className="item-inner">
 
                                                         {/* <!-- image container --> */}
-                                                        <a className="image-sq" href="#">
+                                                        <Link to="#" className="image-sq">
                                                             <span className="image-wrapper">
                                                                 <span className="image-inner">
                                                                     <img className="image-sq" src={magic_grid_article_01} alt=""/>
                                                                 </span>
                                                             </span>
-                                                        </a>
+                                                        </Link>
 
                                                         {/* <!-- typography container--> */}
                                                         <div className="typo-sq">
@@ -869,7 +871,7 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                             <p className="typo-title-sq">Getting Cheap Airfare For Last Minute Travel</p>
                                                             <p className="typo-desc-sq">Nunc sit amet velit nibh. Proin consectetur, ante quis tristique mattis, massa massa condimentum enim.</p>
 
-                                                            <a href="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></a>
+                                                            <Link to ="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></Link>
                                                         </div>
 
                                                     </div>
@@ -880,13 +882,13 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                     <div className="item-inner">
 
                                                         {/* <!-- image container --> */}
-                                                        <a className="image-sq" href="#">
+                                                        <Link to = "#"  className="image-sq">
                                                             <span className="image-wrapper">
                                                                 <span className="image-inner">
                                                                     <img className="image-sq" src={magic_grid_article_02} alt=""/>
                                                                 </span>
                                                             </span>
-                                                        </a>
+                                                        </Link>
 
                                                         {/* <!-- typography container--> */}
                                                         <div className="typo-sq">
@@ -895,7 +897,7 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                             <p className="typo-title-sq">10 Steps To Look Younger</p>
                                                             <p className="typo-desc-sq">Nunc sit amet velit nibh. Proin consectetur, ante quis tristique mattis, massa massa condimentum enim.</p>
 
-                                                            <a href="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></a>
+                                                            <Link to ="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></Link>
                                                         </div>
 
                                                     </div>
@@ -906,13 +908,13 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                     <div className="item-inner">
 
                                                         {/* <!-- image container --> */}
-                                                        <a className="image-sq" href="#">
+                                                        <Link to ="#" className="image-sq">
                                                             <span className="image-wrapper">
                                                                 <span className="image-inner">
                                                                     <img className="image-sq" src={magic_grid_article_03} alt=""/>
                                                                 </span>
                                                             </span>
-                                                        </a>
+                                                        </Link>
 
                                                         {/* <!-- typography container--> */}
                                                         <div className="typo-sq">
@@ -922,7 +924,7 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                             <p className="typo-desc-sq">Nunc sit amet velit nibh. Proin consectetur, ante quis tristique mattis, massa massa condimentum enim.</p>
 
 
-                                                            <a href="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></a>
+                                                            <Link to ="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></Link>
                                                         </div>
 
                                                     </div>
@@ -933,13 +935,13 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                     <div className="item-inner">
 
                                                         {/* <!-- image container --> */}
-                                                        <a className="image-sq" href="#">
+                                                        <Link to="#"  className="image-sq">
                                                             <span className="image-wrapper">
                                                                 <span className="image-inner">
                                                                     <img className="image-sq" src={magic_grid_article_04} alt=""/>
                                                                 </span>
                                                             </span>
-                                                        </a>
+                                                        </Link>
 
                                                         {/* <!-- typography container--> */}
                                                         <div className="typo-sq">
@@ -949,7 +951,7 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                             <p className="typo-title-sq">Enhance Your Brand Potential With Giant Advertising Blimps</p>
                                                             <p className="typo-desc-sq">Nunc sit amet velit nibh. Proin consectetur, ante quis tristique mattis, massa massa condimentum enim.</p>
 
-                                                            <a href="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></a>
+                                                            <Link to ="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></Link>
                                                         </div>
 
                                                     </div>
@@ -960,13 +962,13 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                     <div className="item-inner">
 
                                                         {/* <!-- image container --> */}
-                                                        <a className="image-sq" href="#">
+                                                        <Link to ="#" className="image-sq">
                                                             <span className="image-wrapper">
                                                                 <span className="image-inner">
                                                                     <img className="image-sq" src={magic_grid_article_05} alt=""/>
                                                                 </span>
                                                             </span>
-                                                        </a>
+                                                        </Link>
 
                                                         {/* <!-- typography container--> */}
                                                         <div className="typo-sq">
@@ -975,7 +977,7 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                             <p className="typo-title-sq">Counting Your Chicken Before They Hatch</p>
                                                             <p className="typo-desc-sq">Nunc sit amet velit nibh. Proin consectetur, ante quis tristique mattis, massa massa condimentum enim.</p>
 
-                                                            <a href="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></a>
+                                                            <Link to ="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></Link>
                                                         </div>
 
                                                     </div>
@@ -986,13 +988,13 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                     <div className="item-inner">
 
                                                         {/* <!-- image container --> */}
-                                                        <a className="image-sq" href="#">
+                                                        <Link to = "#" className="image-sq">
                                                             <span className="image-wrapper">
                                                                 <span className="image-inner">
                                                                     <img className="image-sq" src={magic_grid_article_06} alt=""/>
                                                                 </span>
                                                             </span>
-                                                        </a>
+                                                        </Link>
 
                                                         {/* <!-- typography container--> */}
                                                         <div className="typo-sq">
@@ -1001,7 +1003,7 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                                                             <p className="typo-title-sq">Tesla to Build Three More Gigafactories</p>
                                                             <p className="typo-desc-sq">Nunc sit amet velit nibh. Proin consectetur, ante quis tristique mattis, massa massa condimentum enim.</p>
 
-                                                            <a href="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></a>
+                                                            <Link to ="" className="read-more-sq">read more <i className="icon icon-arrow-right-122"></i></Link>
                                                         </div>
 
                                                     </div>
@@ -1028,7 +1030,7 @@ import magic_grid_article_07 from './assets/images/magic_grid/magic_grid_article
                 &lt;p className=&quot;typo-label-sq&quot; data-label-before=&quot;Travel&quot; data-label-after=&quot;Book a home in&quot;&gt;&lt;/p&gt;
                 &lt;p className=&quot;typo-title-sq&quot;&gt;Getting Cheap Airfare For Last Minute Travel&lt;/p&gt;
                 &lt;p className=&quot;typo-desc-sq&quot;&gt;Nunc sit amet velit nibh...&lt;/p&gt;
-                &lt;a href=&quot;&quot; className=&quot;read-more-sq&quot;&gt;read more &lt;i className=&quot;icon icon-arrow-right-122&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                &lt;Link to =&quot;&quot; className=&quot;read-more-sq&quot;&gt;read more &lt;i className=&quot;icon icon-arrow-right-122&quot;&gt;&lt;/i&gt;&lt;/a&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;

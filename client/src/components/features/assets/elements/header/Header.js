@@ -33,25 +33,25 @@ import Logo from './Logo'
              
              <ul className="main-menu">
                  
-                 <li><a href="https://seventhqueen.com/themes/mybiz-html/mybnb" className="item">
+                 <li><Link to ="https://seventhqueen.com/themes/mybiz-html/mybnb" className="item">
                          <span>myBnb</span>
-                     </a>
+                     </Link>
                  </li>
-                 <li><a href="https://seventhqueen.com/themes/mybiz-html/myboat/homepage.html" className="item">
+                 <li><Link to ="https://seventhqueen.com/themes/mybiz-html/myboat/homepage.html" className="item">
                          <span>myBoat</span>
-                     </a>
+                     </Link>
                  </li>
-                 <li><a href="https://seventhqueen.com/themes/mybiz-html/mycar/homepage.html" className="item">
+                 <li><Link to ="https://seventhqueen.com/themes/mybiz-html/mycar/homepage.html" className="item">
                          <span>myCar</span>
-                     </a>
+                     </Link>
                  </li>
-                 <li><a href="https://seventhqueen.com/themes/mybiz-html/myhotel/homepage.html" className="item">
+                 <li><Link to ="https://seventhqueen.com/themes/mybiz-html/myhotel/homepage.html" className="item">
                          <span>myHotel</span>
-                     </a>
+                     </Link>
                  </li>
-                 <li><a href="https://seventhqueen.com/themes/mybiz-html/mytent/homepage.html" className="item">
+                 <li><Link to ="https://seventhqueen.com/themes/mybiz-html/mytent/homepage.html" className="item">
                          <span>myTent</span>
-                     </a>
+                     </Link>
                  </li>
                  
              </ul>

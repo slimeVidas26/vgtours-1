@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from "react-router-dom";
-import HeaderMenu from './layout/HeaderMenu'
+import { Link} from "react-router-dom";
+import HeaderMenu from './HeaderMenu'
 
 //import images
 import logo_mybnb_transparent from '../assets/images/logo-mybnb-transparent.png';
@@ -9,7 +9,9 @@ import logo_mybnb from '../assets/images/logo-mybnb.png';
 import logo_mybnb2x from '../assets/images/logo-mybnb@2x.png';
 
 
-function Header() {
+function Header(props) {
+    console.log(props)
+    console.log('header')
     return (
 
 
@@ -21,8 +23,8 @@ function Header() {
     <div className="header-item header-left flex-order-tablet-second flex-order-mobile-second flex-grow-tablet-true flex-grow-mobile-true">
          
 <Link to="homepage.html" className="logo item">
-<img src={logo_mybnb_transparent} srcSet={`${logo_mybnb_transparent} 1x ,${logo_mybnb_transparent2x} 2x `} alt="mybnb logo" className="logo-transparent"/>
-<img src={logo_mybnb} srcSet= {`${logo_mybnb} 1x , ${logo_mybnb2x} 2x`} alt="mybnb logo"/>
+<img  src={logo_mybnb_transparent} srcSet={`${logo_mybnb_transparent} 1x ,${logo_mybnb_transparent2x} 2x `} alt="mybnb logo" className="logo-transparent"/>
+<img   src={logo_mybnb} srcSet= {`${logo_mybnb} 1x , ${logo_mybnb2x} 2x`} alt="mybnb logo"/>
 
 </Link>
 

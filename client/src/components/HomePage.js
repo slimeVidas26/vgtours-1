@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component  } from 'react'
+// import {withRouter} from 'react-router-dom'
 import '../assets/less/base.css'
 import '../assets/less/header.css'
 import '../assets/less/theme.css'
@@ -17,46 +18,52 @@ import Wishlist from './Wishlist'
 
 import Footer from "./Footer";
 
-function HomePage() {
-    return (
-      <React.Fragment>
+class HomePage extends Component {
 
-<Header/>
+    constructor(props) {
+        super(props)
+    console.log(this.props)
+        this.state = {
+             
+        }
+    }
+    
 
-
-{/* <!-- Hero Full Page --> */}
-<HeroSearchFullPage/>
-
-{/* <!-- ui layout top --> */}
-<UiLayoutTop/>
-{/* <!-- Modals --> */}
-
-{/* <!-- Sign Up --> */}
-
-<SignUp/>
-{/* <!-- Log In --> */}
-
-<Login2/>
-
-{/* <!-- Sign Up with mail --> */}
-
-<SignUpWithMail/>
-{/* <!-- Wishlist --> */}
-
-<Wishlist/>           
-
-{/* <!--FOOTER--> */}
-
-<Footer/>
-</React.Fragment>
-    )
-
-
-
-
-
-
-
+    render(){
+        return (
+            <React.Fragment>
+      
+      <Header/>
+      
+      
+      {/* <!-- Hero Full Page --> */}
+      <HeroSearchFullPage/>
+      
+      {/* <!-- ui layout top --> */}
+      <UiLayoutTop/>
+      {/* <!-- Modals --> */}
+      
+      {/* <!-- Sign Up --> */}
+      
+      <SignUp/>
+      {/* <!-- Log In --> */}
+      
+      <Login2/>
+      
+      {/* <!-- Sign Up with mail --> */}
+      
+      <SignUpWithMail/>
+      {/* <!-- Wishlist --> */}
+      
+      <Wishlist/>           
+      
+      {/* <!--FOOTER--> */}
+      
+      <Footer/>
+      </React.Fragment>
+          )
+    }
+   
 
 }
 

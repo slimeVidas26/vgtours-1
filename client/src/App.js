@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component , Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
@@ -66,7 +66,7 @@ class App extends Component {
     return (
        <Provider store={store}>
       <Router>
-      <React.Fragment>
+      <Fragment>
         
           {/* <Navbar /> */}
           {/* <ModalExample/> */}
@@ -80,7 +80,7 @@ class App extends Component {
             
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/features/fts_default_grid.html" component={DefaultGrid} />
+          <Route exact path="/features/fts_default_grid.html" component={DefaultGrid}/>
           <Route exact path="/features/fts_divided_container.html" component={DividedContainer} />
           <Route exact path="/features/fts_magic_grid.html" component={MagicGrid} />
 
@@ -91,7 +91,7 @@ class App extends Component {
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
             {/* <Footer/> */}
-            </React.Fragment>
+            </Fragment>
         
       
       </Router>

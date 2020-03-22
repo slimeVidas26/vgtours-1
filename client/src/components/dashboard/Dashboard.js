@@ -3,6 +3,15 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 class Dashboard extends Component {
+
+  constructor(props) {
+    super(props)
+  console.log(this.props + ' from dashboard')
+    this.state = {
+       
+    }
+  }
+  
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();

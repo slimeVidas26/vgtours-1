@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Sidebar from './assets/elements/Sidebar'
 import Header from './assets/elements/header/Header'
 
 
-
-
-
 class DefaultGrid extends Component {
+
+    constructor(props) {
+        super(props)
+        console.log(this.props)
+        console.log('defaultGrid')
+
+    
+        this.state = {
+             
+        }
+    }
+    
 
     componentDidMount() {
         document.getElementsByTagName('body')[0].className = 'no-transition dashboard-sq';
@@ -44,7 +53,7 @@ class DefaultGrid extends Component {
          <div className="row">
             
        {/* sidebar component */}
-       <Sidebar/>
+       <Sidebar name = "sidebar"/>
 
             <div className="ui twelve wide tablet nine wide computer nine wide widescreen nine wide large screen column">
                 <div className="ui grid">
@@ -87,4 +96,4 @@ class DefaultGrid extends Component {
    
 }
 
-export default DefaultGrid
+export default withRouter(DefaultGrid)

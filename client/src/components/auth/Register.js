@@ -11,8 +11,11 @@ import classnames from "classnames";
 
 
 class Register extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    console.log(this.props.history + ' from register')
+
     this.state = {
       name: "",
       email: "",
@@ -23,6 +26,9 @@ class Register extends Component {
   }
 
   componentDidMount() {
+
+        console.log(this.props.history + ' from register')
+
     // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
