@@ -1,13 +1,57 @@
-import React, { Component } from 'react'
+import React, { Component , Fragment } from 'react'
 import { Link } from "react-router-dom";
 import Logo from './Logo'
 
 
 
  class Header extends Component {
+
+    constructor(props) {
+        super(props)
+    
+        this.state = [
+               {
+                 url : "https://seventhqueen.com/themes/mybiz-html/mybnb",
+                 item : "myBnb" 
+               },
+               {
+                url : "https://seventhqueen.com/themes/mybiz-html/myboat/homepage.html",
+                item : "myBoat" 
+              }, 
+              {
+                url : "https://seventhqueen.com/themes/mybiz-html/mycar/homepage.html",
+                item : "myCar"
+              },
+              {
+                url : "https://seventhqueen.com/themes/mybiz-html/myhotel/homepage.html",
+                item : "myHotel" 
+              },
+              {
+                url : "https://seventhqueen.com/themes/mybiz-html/mytent/homepage.html",
+                item : "myTent" 
+              },
+
+        ]
+
+
+     
+             
+        }
+
+    
+    
     render() {
+     const myBizArray = this.state.map((elem)=>{
+         return  <li><Link to={elem.url} class="item">
+                   <span>{elem.item}</span>
+                </Link>
+               </li>
+     })
+
+
+
         return (
-              <React.Fragment>
+              <Fragment>
             <div className="header-item header-left flex-order-tablet-second flex-order-mobile-second flex-grow-tablet-true flex-grow-mobile-true">
              <Logo/>
             
@@ -32,35 +76,17 @@ import Logo from './Logo'
              <div className="item menu-default burger-mobile-sidemenu burger-tablet-sidemenu sidemenu-open-right icons-left profile-priority slide-out-sq dimmed flexMenu dropdown-open-right" data-burger="menu01">
              
              <ul className="main-menu">
-                 
-                 <li><Link to ="https://seventhqueen.com/themes/mybiz-html/mybnb" className="item">
-                         <span>myBnb</span>
-                     </Link>
-                 </li>
-                 <li><Link to ="https://seventhqueen.com/themes/mybiz-html/myboat/homepage.html" className="item">
-                         <span>myBoat</span>
-                     </Link>
-                 </li>
-                 <li><Link to ="https://seventhqueen.com/themes/mybiz-html/mycar/homepage.html" className="item">
-                         <span>myCar</span>
-                     </Link>
-                 </li>
-                 <li><Link to ="https://seventhqueen.com/themes/mybiz-html/myhotel/homepage.html" className="item">
-                         <span>myHotel</span>
-                     </Link>
-                 </li>
-                 <li><Link to ="https://seventhqueen.com/themes/mybiz-html/mytent/homepage.html" className="item">
-                         <span>myTent</span>
-                     </Link>
-                 </li>
-                 
+            
+            {myBizArray}
+            
+                   
              </ul>
              </div>
              
              {/* <!-- End of Header Menu--> */}
                      
                  </div>
-                 </React.Fragment>
+                 </Fragment>
         )
     }
 }
