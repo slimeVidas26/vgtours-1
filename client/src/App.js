@@ -17,8 +17,8 @@ import Dashboard from "./components/dashboard/Dashboard";
 //import Footer from "./components/layout/Footer";
 import HomePage from "./components/HomePage";
 import DefaultGrid from "./components/features/DefaultGrid";
-import DividedContainer from "./components/features/DividedContainer";
-import MagicGrid from "./components/features/MagicGrid";
+import DividedContainer from "./components/features/assets/dividedContainer/DividedContainer";
+import MagicGrid from "./components/features/assets/magicGrid/MagicGrid";
 
 
 // import ButtonExampleEmphasisShorthand from "./components/ButtonExampleEmphasisShorthand";

@@ -1,4 +1,4 @@
-import React, { Component  } from 'react'
+import React, { Component , Fragment  } from 'react'
 // import {withRouter} from 'react-router-dom'
 import '../assets/less/base.css'
 import '../assets/less/header.css'
@@ -31,8 +31,9 @@ class HomePage extends Component {
 
     render(){
         return (
-            <React.Fragment>
-      
+            <Fragment>
+            {/* <!-- Header menu --> */}
+
       <Header/>
       
       
@@ -60,7 +61,7 @@ class HomePage extends Component {
       {/* <!--FOOTER--> */}
       
       <Footer/>
-      </React.Fragment>
+      </Fragment>
           )
     }
    

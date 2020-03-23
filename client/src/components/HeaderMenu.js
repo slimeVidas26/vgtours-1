@@ -10,7 +10,7 @@ constructor(props) {
 
     super(props)
     console.log(this.props)
-    console.log('header menu')
+    // console.log('header menu')
 
     this.state = {
        

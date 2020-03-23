@@ -25,7 +25,7 @@ import { Link } from "react-router-dom";
         return (
            
               <ul className="submenu" >
-                <li ><Link to="../features/fts_default_grid.html" onClick = {this.getClass}    className="item" ><span  >Default Grid</span></Link></li>
+                <li ><Link to="../features/fts_default_grid.html" onClick = {this.getClass}    className="item" ><span>Default Grid</span></Link></li>
                 <li><Link to="../features/fts_divided_container.html" className="item"><span>Divided Container</span></Link></li>
                 <li><Link to="../features/fts_magic_grid.html" className="item"><span>Magic Grid</span></Link></li>
                 <li>

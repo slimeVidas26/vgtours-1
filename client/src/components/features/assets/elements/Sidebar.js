@@ -14,15 +14,18 @@ class  Sidebar extends Component {
     componentDidMount(){
         switch (this.props.location.pathname) {
             case "/features/fts_default_grid.html":
-            document.getElementsByClassName('defaultGrid')[0].classList.add(this.state.activeClass)
+                const defaultGrid = document.getElementsByClassName('defaultGrid')[0];
+                      defaultGrid.classList.add(this.state.activeClass)
 
                 break;
                 case "/features/fts_divided_container.html":
-            document.getElementsByClassName('dividedContainer')[0].classList.add(this.state.activeClass)
+                    const dividedContainer = document.getElementsByClassName('dividedContainer')[0];
+                          dividedContainer.classList.add(this.state.activeClass)
 
                 break;
                 case "/features/fts_magic_grid.html":
-            document.getElementsByClassName('magicGrid')[0].classList.add(this.state.activeClass)
+                    const magicGrid = document.getElementsByClassName('magicGrid')[0];
+                          magicGrid.classList.add(this.state.activeClass)
 
                 break;
         

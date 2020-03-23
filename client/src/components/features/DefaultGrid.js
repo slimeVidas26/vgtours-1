@@ -53,7 +53,7 @@ class DefaultGrid extends Component {
          <div className="row">
             
        {/* sidebar component */}
-       <Sidebar name = "sidebar"/>
+       <Sidebar/>
 
             <div className="ui twelve wide tablet nine wide computer nine wide widescreen nine wide large screen column">
                 <div className="ui grid">
@@ -83,8 +83,6 @@ class DefaultGrid extends Component {
                  </div>
                 </div>
             </div>
-            
-            
          </div>
      </div>
      </div>    
