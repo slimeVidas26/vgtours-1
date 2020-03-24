@@ -1,4 +1,4 @@
-import React , {Fragment} from 'react'
+import React , {Fragment, Component} from 'react'
 import { Link } from "react-router-dom";
 
 
@@ -23,351 +23,170 @@ import magic_grid_category_special_05 from '../../assets/images/magic_grid/magic
 import magic_grid_category_special_06 from '../../assets/images/magic_grid/magic_grid_category_special_06.jpg';
 import magic_grid_category_special_07 from '../../assets/images/magic_grid/magic_grid_category_special_07.jpg';
 
-function ArticleStyle() {
-    return (
-        <Fragment>
-        <h3>Category Style</h3>
-                                            <br/>
-                                            <p>To achieve this style you need to add <strong>.category-sq</strong> className.</p>
-                                            <p>This style is another category/articles listing representation. In its initial form, the first element represents 1/3 from the container width and the rest of the categories will have 1/3 each from the remaining space.
-                                            </p>
-                                            <br/>
-                                        
-<div className="magic-grid category-sq hover-scale hover-default">
-   {/* <!-- item--> */}
-   <div className="item">
-        <div className="item-inner">
+class  ArticleStyle extends Component {
 
-            {/* <!-- image container --> */}
-            <div className="image-sq">
-                <div className="image-wrapper">
-                    <div className="image-inner">
-                        <img className="image-sq" src={magic_grid_category_01} alt=""/>
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             categoryStyleArray :[
+                 {
+                   imageSq : magic_grid_category_01,
+                   typoTitleSq :"Special Item" 
+                 },
+                 {
+                    imageSq : magic_grid_category_02,
+                    typoTitleSq :"From Space" 
+                  },
+                  {
+                    imageSq : magic_grid_category_03,
+                    typoTitleSq :"NASA" 
+                  },
+                  {
+                    imageSq : magic_grid_category_04,
+                    typoTitleSq :"On The Moon" 
+                  },
+                  {
+                    imageSq : magic_grid_category_05,
+                    typoTitleSq :"Galaxy" 
+                  },
+                  {
+                    imageSq : magic_grid_category_06,
+                    typoTitleSq :"Another Earth" 
+                  },
+                  {
+                    imageSq : magic_grid_category_07,
+                    typoTitleSq :"Satellite" 
+                  }
+             ],
+
+             categorySpecialArray :[
+                {
+                  imageSq : magic_grid_category_special_01,
+                  typoTitleSq :"Wildlife" 
+                },
+                {
+                   imageSq : magic_grid_category_special_02,
+                   typoTitleSq :"Adventure" 
+                 },
+                 {
+                   imageSq : magic_grid_category_special_03,
+                   typoTitleSq :"Beaches" 
+                 },
+                 {
+                   imageSq : magic_grid_category_special_04,
+                   typoTitleSq :"Monuments" 
+                 },
+                 {
+                   imageSq : magic_grid_category_special_05,
+                   typoTitleSq :"Food" 
+                 },
+                 {
+                   imageSq : magic_grid_category_special_06,
+                   typoTitleSq :"Party" 
+                 },
+                 {
+                   imageSq : magic_grid_category_special_07,
+                   typoTitleSq :"Museum" 
+                 }
+            ]
+
+        }
+    }
+    
+    render(){
+    // category style array
+        const categoryStyle = this.state.categoryStyleArray.map((elem)=>{
+            return (
+          <div className="item">
+            <div className="item-inner">
+    
+                {/* <!-- image container --> */}
+                <div className="image-sq">
+                    <div className="image-wrapper">
+                        <div className="image-inner">
+                            <img className="image-sq" src={elem.imageSq} alt=""/>
+                        </div>
                     </div>
                 </div>
+    
+                {/* <!-- typography container--> */}
+                <Link to ="" className="typo-sq">
+                    <span className="typo-whitespace"></span>
+                    <p className="typo-title-sq">{elem.typoTitleSq}</p>
+                </Link>
+    
             </div>
-
-            {/* <!-- typography container--> */}
-            <Link to ="" className="typo-sq">
-                <span className="typo-whitespace"></span>
-                <p className="typo-title-sq">Special Item</p>
-            </Link>
-
         </div>
-    </div>
+            )
 
-    {/* <!-- item--> */}
-   <div className="item">
-        <div className="item-inner">
+        })
 
-            {/* <!-- image container --> */}
-            <div className="image-sq">
-                <div className="image-wrapper">
-                    <div className="image-inner">
-                        <img className="image-sq" src={magic_grid_category_02} alt=""/>
-                    </div>
-                </div>
+        // category special array
+        const categorySpecial = this.state.categorySpecialArray.map((elem)=>{
+         return (
+        <div className="item">
+          <div className="item-inner">
+    
+        {/* <!-- image container --> */}
+        <div className="image-sq">
+        <div className="image-wrapper">
+        <div className="image-inner">
+        <img className="image-sq" src={elem.imageSq} alt=""/>
+    
+        </div>
             </div>
-
-            {/* <!-- typography container--> */}
-            <Link to ="" className="typo-sq">
-                <span className="typo-whitespace"></span>
-                <p className="typo-title-sq">From Space</p>
-            </Link>
-
-        </div>
-    </div>
-
-    {/* <!-- item--> */}
-   <div className="item">
-        <div className="item-inner">
-
-            {/* <!-- image container --> */}
-            <div className="image-sq">
-                <div className="image-wrapper">
-                    <div className="image-inner">
-                        <img className="image-sq" src={magic_grid_category_03} alt=""/>
-                    </div>
-                </div>
             </div>
-
-            {/* <!-- typography container--> */}
-            <Link to ="" className="typo-sq">
-                <span className="typo-whitespace"></span>
-                <p className="typo-title-sq">NASA</p>
-            </Link>
-
+    
+         {/* <!-- typography container--> */}
+        <Link to ="" className="typo-sq">
+         <span className="typo-whitespace"></span>
+        <p className="typo-title-sq">{elem.typoTitleSq}</p>
+        </Link>
+    
         </div>
-    </div>
-
-
-    {/* <!-- item--> */}
-   <div className="item">
-        <div className="item-inner">
-
-            {/* <!-- image container --> */}
-            <div className="image-sq">
-                <div className="image-wrapper">
-                    <div className="image-inner">
-                        <img className="image-sq" src={magic_grid_category_04} alt=""/>
-                    </div>
-                </div>
-            </div>
-
-            {/* <!-- typography container--> */}
-            <Link to ="" className="typo-sq">
-                <span className="typo-whitespace"></span>
-                <p className="typo-title-sq">On the Moon</p>
-            </Link>
-
-        </div>
-    </div>
-
-    {/* <!-- item--> */}
-   <div className="item">
-        <div className="item-inner">
-
-            {/* <!-- image container --> */}
-            <div className="image-sq">
-                <div className="image-wrapper">
-                    <div className="image-inner">
-                        <img className="image-sq" src={magic_grid_category_05} alt=""/>
-                    </div>
-                </div>
-            </div>
-
-            {/* <!-- typography container--> */}
-            <Link to ="" className="typo-sq">
-                <span className="typo-whitespace"></span>
-                <p className="typo-title-sq">Galaxy</p>
-            </Link>
-
-        </div>
-    </div>
-    {/* <!-- item--> */}
-   <div className="item">
-        <div className="item-inner">
-
-            {/* <!-- image container --> */}
-            <div className="image-sq">
-                <div className="image-wrapper">
-                    <div className="image-inner">
-                        <img className="image-sq" src={magic_grid_category_06} alt=""/>
-                    </div>
-                </div>
-            </div>
-
-            {/* <!-- typography container--> */}
-            <Link to ="" className="typo-sq">
-                <span className="typo-whitespace"></span>
-                <p className="typo-title-sq">Another Earth</p>
-            </Link>
-
-        </div>
-    </div>
-
-    {/* <!-- item--> */}
-   <div className="item">
-        <div className="item-inner">
-
-            {/* <!-- image container --> */}
-            <div className="image-sq">
-                <div className="image-wrapper">
-                    <div className="image-inner">
-                        <img className="image-sq" src={magic_grid_category_07} alt=""/>
-                    </div>
-                </div>
-            </div>
-
-            {/* <!-- typography container--> */}
-            <Link to ="" className="typo-sq">
-                <span className="typo-whitespace"></span>
-                <p className="typo-title-sq">Satellite</p>
-            </Link>
-
-        </div>
-    </div>
-
-</div>
-                                        
-<pre><button className="clipboad-copy-sq button-sq link-sq">Copy</button>
-<code className="html">&lt;div className=&quot;magic-grid <mark className="markcode">category-sq</mark> hover-scale hover-default&quot;&gt;
-    ...
-&lt;/div&gt;</code></pre> 
-                                           <br/>
-                                           
-                                            <h4>Special Style</h4>
-                                            <p>When applying .special className, the first element from the grid will have a bigger height than the container. Check it out in the following example:</p>
-
-                                            <div className="magic-grid category-sq special-sq hover-scale">
-                                               {/* <!-- item--> */}
-                                               <div className="item">
-                                                    <div className="item-inner">
-
-                                                        {/* <!-- image container --> */}
-                                                        <div className="image-sq">
-                                                            <div className="image-wrapper">
-                                                                <div className="image-inner">
-                                                                    <img className="image-sq" src={magic_grid_category_special_01} alt=""/>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        {/* <!-- typography container--> */}
-                                                        <Link to ="" className="typo-sq">
-                                                           <span className="typo-whitespace"></span>
-                                                            <p className="typo-title-sq">Wildlife</p>
-                                                        </Link>
-
-                                                    </div>
-                                                </div>
-
-                                                {/* <!-- item--> */}
-                                               <div className="item">
-                                                    <div className="item-inner">
-
-                                                        {/* <!-- image container --> */}
-                                                        <div className="image-sq">
-                                                            <div className="image-wrapper">
-                                                                <div className="image-inner">
-                                                                    <img className="image-sq" src={magic_grid_category_special_02} alt=""/>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        {/* <!-- typography container--> */}
-                                                        <Link to ="" className="typo-sq">
-                                                           <span className="typo-whitespace"></span>
-                                                            <p className="typo-title-sq">Adventure</p>
-                                                        </Link>
-
-                                                    </div>
-                                                </div>
-
-                                                {/* <!-- item--> */}
-                                               <div className="item">
-                                                    <div className="item-inner">
-
-                                                        {/* <!-- image container --> */}
-                                                        <div className="image-sq">
-                                                            <div className="image-wrapper">
-                                                                <div className="image-inner">
-                                                                    <img className="image-sq" src={magic_grid_category_special_03} alt=""/>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        {/* <!-- typography container--> */}
-                                                        <Link to ="" className="typo-sq">
-                                                            <span className="typo-whitespace"></span>
-                                                            <p className="typo-title-sq">Beaches</p>
-                                                        </Link>
-
-                                                    </div>
-                                                </div>
-
-
-                                                {/* <!-- item--> */}
-                                               <div className="item">
-                                                    <div className="item-inner">
-
-                                                        {/* <!-- image container --> */}
-                                                        <div className="image-sq">
-                                                            <div className="image-wrapper">
-                                                                <div className="image-inner">
-                                                                    <img className="image-sq" src={magic_grid_category_special_04} alt=""/>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        {/* <!-- typography container--> */}
-                                                        <Link to ="" className="typo-sq">
-                                                           <span className="typo-whitespace"></span>
-                                                            <p className="typo-title-sq">Monuments</p>
-                                                        </Link>
-
-                                                    </div>
-                                                </div>
-
-                                                {/* <!-- item--> */}
-                                               <div className="item">
-                                                    <div className="item-inner">
-
-                                                        {/* <!-- image container --> */}
-                                                        <div className="image-sq">
-                                                            <div className="image-wrapper">
-                                                                <div className="image-inner">
-                                                                    <img className="image-sq" src={magic_grid_category_special_05} alt=""/>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        {/* <!-- typography container--> */}
-                                                        <Link to ="" className="typo-sq">
-                                                           <span className="typo-whitespace"></span>
-                                                            <p className="typo-title-sq">Food</p>
-                                                        </Link>
-
-                                                    </div>
-                                                </div>
-                                                {/* <!-- item--> */}
-                                               <div className="item">
-                                                    <div className="item-inner">
-
-                                                        {/* <!-- image container --> */}
-                                                        <div className="image-sq">
-                                                            <div className="image-wrapper">
-                                                                <div className="image-inner">
-                                                                    <img className="image-sq" src={magic_grid_category_special_06} alt=""/>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        {/* <!-- typography container--> */}
-                                                        <Link to ="" className="typo-sq">
-                                                           <span className="typo-whitespace"></span>
-                                                            <p className="typo-title-sq">Party</p>
-                                                        </Link>
-
-                                                    </div>
-                                                </div>
-
-                                                {/* <!-- item--> */}
-                                               <div className="item">
-                                                    <div className="item-inner">
-
-                                                        {/* <!-- image container --> */}
-                                                        <div className="image-sq">
-                                                            <div className="image-wrapper">
-                                                                <div className="image-inner">
-                                                                    <img className="image-sq" src={magic_grid_category_special_07} alt=""/>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        {/* <!-- typography container--> */}
-                                                        <Link to ="" className="typo-sq">
-                                                           <span className="typo-whitespace"></span>
-                                                            <p className="typo-title-sq">Museum</p>
-                                                        </Link>
-
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
+        </div>     
+         )
+        })
+        return (
+            <Fragment>
+            <h3>Category Style</h3>
+            <br/>
+            <p>To achieve this style you need to add <strong>.category-sq</strong> className.</p>
+            <p>This style is another category/articles listing representation. In its initial form, the first element represents 1/3 from the container width and the rest of the categories will have 1/3 each from the remaining space.
+            </p>
+            <br/>
                                             
-<pre><button className="clipboad-copy-sq button-sq link-sq">Copy</button>
-<code className="html">&lt;div className=&quot;magic-grid <mark className="markcode">category-sq</mark> <mark className="markcode">special-sq</mark> hover-scale&quot;&gt;
-    ...
-&lt;/div&gt;</code></pre> 
-
-                                            <h4>Responsive Behavior</h4>
+    <div className="magic-grid category-sq hover-scale hover-default">
+      
+    {categoryStyle}
+    </div>
                                             
-                                            <img src={magic_grid_photo_responsive} alt=""/>  
-        </Fragment>
-    )
+    <pre><button className="clipboad-copy-sq button-sq link-sq">Copy</button>
+    <code className="html">&lt;div className=&quot;magic-grid <mark className="markcode">category-sq</mark> hover-scale hover-default&quot;&gt;
+        ...
+    &lt;/div&gt;</code></pre> 
+    <br/>
+                                               
+    <h4>Special Style</h4>
+    <p>When applying .special className, the first element from the grid will have a bigger height than the container. Check it out in the following example:</p>
+    
+     <div className="magic-grid category-sq special-sq hover-scale">
+     {categorySpecial}                                            
+    </div>
+                                                
+    <pre><button className="clipboad-copy-sq button-sq link-sq">Copy</button>
+    <code className="html">&lt;div className=&quot;magic-grid <mark className="markcode">category-sq</mark> <mark className="markcode">special-sq</mark> hover-scale&quot;&gt;
+        ...
+    &lt;/div&gt;</code></pre> 
+    
+    <h4>Responsive Behavior</h4>
+                                                
+    <img src={magic_grid_photo_responsive} alt=""/>  
+            </Fragment>
+        )
+    }
+    
 }
 
 export default ArticleStyle

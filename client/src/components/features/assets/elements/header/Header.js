@@ -42,10 +42,10 @@ import Logo from './Logo'
     
     render() {
      const myBizArray = this.state.map((elem)=>{
-         return  <li><Link to={elem.url} class="item">
+         return  (<li><Link to={elem.url} class="item">
                    <span>{elem.item}</span>
                 </Link>
-               </li>
+               </li>)
      })
 
 
