@@ -9,7 +9,7 @@ import icon_google_plus from '../../assets/images/icon-google-plus.svg';
 
 function signUp() {
     return (
-        <div className="ui full modal" data-for="modal01">
+<div className="ui full modal" data-for="modal01">
 <div className="modal-full-background">
     <img src={modal_background_001} alt="modal_background_001.jpg"/>
 </div>

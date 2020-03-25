@@ -9,6 +9,7 @@ import store from "./store";
 
 // import Navbar from "./components/layout/Navbar";
 // import Landing from "./components/layout/Landing";
+import BecomeAvendor from './components/BecomeAvendor'
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
@@ -77,7 +78,7 @@ class App extends Component {
              {/* <Route exact path="/" component={Home} /> */}
 
 
-            
+          <Route exact path="/becomeavendor" component={BecomeAvendor} /> 
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/features/fts_default_grid.html" component={DefaultGrid}/>
