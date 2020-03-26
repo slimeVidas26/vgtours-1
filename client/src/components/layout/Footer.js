@@ -1,4 +1,11 @@
 import React from 'react'
+import {Link } from 'react-router-dom'
+
+//import images
+import logo_mybnb_transparent from '../../assets/images/logo-mybnb-transparent.png';
+import logo_mybnb_transparent2x from '../../assets/images/logo-mybnb-transparent@2x.png';
+// import logo_mybnb from '../../assets/images/logo-mybnb.png';
+// import logo_mybnb2x from '../../assets/images/logo-mybnb@2x.png';
 
 function Footer() {
     return (
@@ -44,9 +51,10 @@ function Footer() {
     <div class="ui grid container">
         <div class="row">
             <div class="ui twelve wide mobile eight wide computer column">
-                <a href="" class="footer-logo">
-                    <img src="assets/images/logo-mybnb-transparent.png" srcset="assets/images/logo-mybnb-transparent.png 1x, assets/images/logo-mybnb-transparent@2x.png 2x" alt="mybnb logo" />
-                    © SeventhQueen 2018                   </a>
+                <Link to="" class="footer-logo">
+                <img  src={logo_mybnb_transparent} srcSet={`${logo_mybnb_transparent} 1x ,${logo_mybnb_transparent2x} 2x `} alt="mybnb logo"/>
+
+                    © SeventhQueen 2018 </Link>
             </div>
             <div class="ui twelve wide mobile four wide computer column">
                 <ul class="social-links-sq list-style-inline-sq list-default-sq">

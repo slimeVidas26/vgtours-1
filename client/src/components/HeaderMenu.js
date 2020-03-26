@@ -28,7 +28,7 @@ constructor(props) {
     
     <ul className="main-menu">
                     
-        <li><Link to="become_a_vendor.html" className="item">
+        <li><Link to="/becomeavendor" className="item">
                 <span>Become a Vendor</span>
             </Link>
         </li>
@@ -61,3 +61,5 @@ constructor(props) {
 }
 
 export default HeaderMenu
+
+
