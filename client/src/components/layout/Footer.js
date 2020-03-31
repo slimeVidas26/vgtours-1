@@ -19,10 +19,10 @@ function Footer() {
                 <h5>Hosting</h5>
                 
                 <ul class="list-default-sq">
-                    <li><a href="">Etiam consequat</a></li>
-                    <li><a href="">Phasellus sed neque </a></li>
-                    <li><a href="">Morbi suscipit convallis</a></li>
-                    <li><a href="">Praesent diam</a></li>
+                    <li><Link to ="">Etiam consequat</Link></li>
+                    <li><Link to ="">Phasellus sed neque </Link></li>
+                    <li><Link to ="">Morbi suscipit convallis</Link></li>
+                    <li><Link to ="">Praesent diam</Link></li>
                 </ul>
                 
             </div>
@@ -30,10 +30,10 @@ function Footer() {
                 <h5>Useful Links</h5>
                 
                 <ul class="list-default-sq">
-                    <li><a href="">Aenean sit amet ipsum</a></li>
-                    <li><a href="">Sed mollis</a></li>
-                    <li><a href="">Aliquam porttitor</a></li>
-                    <li><a href="">Nulla vitae</a></li>
+                    <li><Link to ="">Aenean sit amet ipsum</Link></li>
+                    <li><Link to ="">Sed mollis</Link></li>
+                    <li><Link to ="">Aliquam porttitor</Link></li>
+                    <li><Link to ="">Nulla vitae</Link></li>
                 </ul>
             </div>
             <div class="ui twelve wide tablet four wide computer column">
@@ -58,11 +58,11 @@ function Footer() {
             </div>
             <div class="ui twelve wide mobile four wide computer column">
                 <ul class="social-links-sq list-style-inline-sq list-default-sq">
-                     <li><a href="" class="fb"><i class="icon icon-logo-facebook2"></i></a></li>
+                     <li><Link to ="" class="fb"><i class="icon icon-logo-facebook2"></i></Link></li>
 
-                     <li><a href="" class="tw"><i class="icon icon-logo-twitter-bird2"></i></a></li>
+                     <li><Link to ="" class="tw"><i class="icon icon-logo-twitter-bird2"></i></Link></li>
 
-                     <li><a href="" class="gp"><i class="icon icon-logo-circle-google-plus-22"></i></a></li>
+                     <li><Link to ="" class="gp"><i class="icon icon-logo-circle-google-plus-22"></i></Link></li>
                  </ul>
             </div>
         </div>

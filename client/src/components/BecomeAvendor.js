@@ -1,4 +1,5 @@
 import React, { Component , Fragment } from 'react'
+import {Link} from 'react-router-dom'
 
 // image
 import host_01 from '../assets/images/host/host_01.jpg'
@@ -99,20 +100,20 @@ import '../assets/icon/style.css'
             </div>
 
             <div className="content">
-                <a href="" className="button-sq fullwidth-sq modal-ui-trigger" data-trigger-for="modal03">
+                <Link to ="" className="button-sq fullwidth-sq modal-ui-trigger" data-trigger-for="modal03">
                     <i className="icon icon-email-2"></i>
                     Sign Up with Email
-                </a>
+                </Link>
 
-                <a href="" className="button-sq fullwidth-sq facebook-button">
+                <Link to ="" className="button-sq fullwidth-sq facebook-button">
                     <i className="icon icon-logo-facebook2"></i>
                     <span>Sign Up with Facebook</span>
-                </a>
+                </Link>
 
-                <a href="" className="button-sq fullwidth-sq google-button">
+                <Link to ="" className="button-sq fullwidth-sq google-button">
                     <img src="assets/images/icon-google-plus.svg" alt=""/>
                     Sign Up with Google
-                </a>
+                </Link>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
             </div>
 

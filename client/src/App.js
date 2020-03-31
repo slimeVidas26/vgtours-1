@@ -11,7 +11,10 @@ import store from "./store";
 // import Landing from "./components/layout/Landing";
 import BecomeAvendor from './components/BecomeAvendor'
 import Register from "./components/auth/Register";
-import Login from "./components/auth/Login";
+// import Login from "./components/auth/Login";
+import Login2 from "./components/auth/Login2";
+
+
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 // import ModalExample from "./components/semantic-ui-tests/ModalExample";
@@ -20,6 +23,7 @@ import HomePage from "./components/HomePage";
 import DefaultGrid from "./components/features/DefaultGrid";
 import DividedContainer from "./components/features/assets/dividedContainer/DividedContainer";
 import MagicGrid from "./components/features/assets/magicGrid/MagicGrid";
+import SignUpWithMail from "./components/auth/SignUpWithMail";
 
 
 // import ButtonExampleEmphasisShorthand from "./components/ButtonExampleEmphasisShorthand";
@@ -79,8 +83,14 @@ class App extends Component {
 
 
           <Route exact path="/becomeavendor" component={BecomeAvendor} /> 
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
+          {/* <Route exact path="/register" component={Register} /> */}
+          <Route exact path="/register" component={SignUpWithMail} />
+
+          {/* <Route exact path="/login" component={Login} /> */}
+          <Route exact path="/login" component={Login2} />
+
+
+
           <Route exact path="/features/fts_default_grid.html" component={DefaultGrid}/>
           <Route exact path="/features/fts_divided_container.html" component={DividedContainer} />
           <Route exact path="/features/fts_magic_grid.html" component={MagicGrid} />

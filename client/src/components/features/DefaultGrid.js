@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from "react-router-dom";
 import Sidebar from './assets/elements/Sidebar'
 import Header from './assets/elements/header/Header'
+import {Link} from 'react-router-dom'
 
 
 class DefaultGrid extends Component {
@@ -69,9 +70,9 @@ class DefaultGrid extends Component {
                                      <div className="typo-section-sq top-default bottom-default">
                                          <h2>Default Grid</h2>
                                          
-                                         <p className="definition-sq"><strong>Default Grid</strong> is actually the grid from <a href="https://semantic-ui.com/collections/grid.html" target="_blank">semantic UI</a>.</p>
+                                         <p className="definition-sq"><strong>Default Grid</strong> is actually the grid from <Link to ="https://semantic-ui.com/collections/grid.html" target="_blank">semantic UI</Link>.</p>
                                          <br/>
-                                         <p>You can see here all the details on how to use the semantic UI grid by <a href="https://semantic-ui.com/collections/grid.html" target="_blank">clicking here</a>.</p>
+                                         <p>You can see here all the details on how to use the semantic UI grid by <Link to ="https://semantic-ui.com/collections/grid.html" target="_blank">clicking here</Link>.</p>
                                          <hr className="padded-sq"/>
                                      </div>
                                  </div>
