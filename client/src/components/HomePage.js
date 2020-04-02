@@ -12,7 +12,7 @@ import Header from "./Header";
 import HeroSearchFullPage from './HeroSearchFullPage'
 import UiLayoutTop from './UiLayoutTop'
 import SignUp from './auth/SignUp'
-import Login2 from './auth/Login2'
+import Login2 from './auth/_Login2'
 import SignUpWithMail from './auth/SignUpWithMail'
 import Wishlist from './Wishlist'
 
@@ -46,10 +46,10 @@ class HomePage extends Component {
       
       {/* <!-- Sign Up --> */}
       
-      <SignUp/>
+      {/* <SignUp/> */}
       {/* <!-- Log In --> */}
       
-      <Login2/>
+      {/* <Login2/> */}
       
       {/* <!-- Sign Up with mail --> */}
       

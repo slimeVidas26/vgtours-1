@@ -1,23 +1,35 @@
-import React from 'react'
-import { Link } from "react-router-dom";
-import Modal from './Modal'
+import React, { Component } from "react";
+import { Route, Link } from "react-router-dom";
+import SignUpModal from "./SignUpModal";
 
-
-//import images
 import icon_google_plus from '../../assets/images/icon-google-plus.svg';
 
 
-function signUp() {
+export default class ProfilePage extends Component {
+  render() {
     return (
-        
-         <Modal>
-          <i className="icon icon-close close-modal"></i>
+      <div>
+        <Link to={`${this.props.match.url}/edit`}>Edit Profile</Link>
+        <Link to={{ pathname: this.props.match.url, search: "?login=true" }}>Login</Link>
 
-          <div className="header center">
-           Sign Up Now
-           </div>
+        <Route
+          path={`${this.props.match.url}/edit`}
+          render={() => {
+            return (
+              <SignUpModal
+                onClick={() => {
+                  this.props.history.push(this.props.match.url);
+                }}
+              >
+               
+                
+                  <i className="icon icon-close close-modal"></i>
 
-           <div className="content">
+                  <div className="header center">
+                   Sign Up Now
+                  </div>
+
+                  <div className="content">
     <Link to="" className="button-sq fullwidth-sq modal-ui-trigger" data-trigger-for="modal03">
         <i className="icon icon-email-2"></i>
         <span>Sign Up with Email</span>
@@ -46,10 +58,12 @@ function signUp() {
     </div>
 </div>
 
-        </Modal>
-
-
-    )
+              </SignUpModal>
+            );
+          }}
+        />
+      </div>
+    
+    );
+  }
 }
-
-export default signUp

@@ -27,6 +27,10 @@ constructor(props) {
             <div className="item menu-default burger-mobile-sidemenu burger-tablet-sidemenu sidemenu-open-right icons-left profile-priority slide-out-sq dimmed flexMenu dropdown-open-right" data-burger="menu01">
     
     <ul className="main-menu">
+
+   
+    <li><Link to="/profile" className="item">Go To Profile</Link></li>
+      
                     
         <li><Link to="/becomeavendor" className="item">
                 <span>Become a Vendor</span>
@@ -42,15 +46,19 @@ constructor(props) {
           <FeaturesSubMenu/>
         </li>
         
-        <li><Link to="#" className="item modal-ui-trigger" data-trigger-for="modal01">
-                <span>Sign Up</span>
+        <li>
+        <Link to="/signup" className="item">
+            <span>Sign Up</span>
             </Link>
-        </li>
+            </li> 
     
-        <li><Link to="#" className="item modal-ui-trigger" data-trigger-for="modal02">
-                <span>Log In</span>
+        
+            <li>
+            <Link to={{ pathname: "/login", search: "?login=true" }} className="item">
+            <span>Log In</span>
             </Link>
-        </li>
+            </li> 
+
     
     </ul>
     </div>

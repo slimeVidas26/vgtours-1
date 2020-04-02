@@ -11,8 +11,10 @@ import store from "./store";
 // import Landing from "./components/layout/Landing";
 import BecomeAvendor from './components/BecomeAvendor'
 import Register from "./components/auth/Register";
-// import Login from "./components/auth/Login";
-import Login2 from "./components/auth/Login2";
+ import Login from "./components/auth/login";
+// import Login2 from "./components/auth/Login2";
+import ProfilePage from "./components/auth//profile";
+import SignUp from './components/auth/SignUp'
 
 
 import PrivateRoute from "./components/private-route/PrivateRoute";
@@ -76,7 +78,7 @@ class App extends Component {
           {/* <Navbar /> */}
           {/* <ModalExample/> */}
           {/* <Route exact path="/" component={Landing} /> */}
-          <Route exact path="/" component={HomePage} />
+          {/* <Route exact path="/" component={HomePage} /> */}
            {/* <Route exact path="/" component={ButtonExampleEmphasisShorthand} /> */}
             {/* <Route exact path="/" component={ThemingLayout} />  */}
              {/* <Route exact path="/" component={Home} /> */}
@@ -87,7 +89,7 @@ class App extends Component {
           <Route exact path="/register" component={SignUpWithMail} />
 
           {/* <Route exact path="/login" component={Login} /> */}
-          <Route exact path="/login" component={Login2} />
+          {/* <Route exact path="/login" component={Login2} /> */}
 
 
 
@@ -101,6 +103,13 @@ class App extends Component {
           <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
+
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route path="/signup" component={SignUp} />
+    </Switch>
+
+    <Route path="/" component={Login} />
             {/* <Footer/> */}
             </Fragment>
         
