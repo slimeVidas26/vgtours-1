@@ -11,7 +11,7 @@ import '../assets/images/ico/favicon.ico'
 import Header from "./Header";
 import HeroSearchFullPage from './HeroSearchFullPage'
 import UiLayoutTop from './UiLayoutTop'
-import SignUp from './auth/SignUp'
+import SignUp from './auth/SignUpPage'
 import Login2 from './auth/_Login2'
 import SignUpWithMail from './auth/SignUpWithMail'
 import Wishlist from './Wishlist'

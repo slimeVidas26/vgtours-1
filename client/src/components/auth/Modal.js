@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { createPortal } from "react-dom";
 
+
 import modal_background_001 from '../../assets/images/modal/modal_background_001.jpg';
 
 
@@ -13,8 +14,16 @@ const modalStyle1 = {
    display: "block !important"
 }
 
+ 
 
-export default class LoginModal extends Component {
+
+export default class Modal extends Component {
+
+  // test = ()=>{
+  //  this.props.history.push("/")
+  // }
+
+
   render() {
     return createPortal(
       <div onClick={this.props.onClick} className="ui dimmer modals page full transition visible active" style={modalStyle}>
@@ -23,6 +32,8 @@ export default class LoginModal extends Component {
   <div className="modal-full-background">
          <img src={modal_background_001} alt="modal_background_001.jpg"/>
      </div>
+
+     <i  className="icon icon-close close-modal"></i>
         
         {this.props.children}
       </div>

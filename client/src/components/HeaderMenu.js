@@ -46,18 +46,26 @@ constructor(props) {
           <FeaturesSubMenu/>
         </li>
         
-        <li>
+        {/* <li>
         <Link to="/signup" className="item">
             <span>Sign Up</span>
             </Link>
-            </li> 
+            </li>  */}
     
+
+            <li>
+            <Link to={{ pathname: "/", search: "signup" }} className="item">
+            <span>Sign Up</span>
+            </Link>
+            </li> 
         
             <li>
-            <Link to={{ pathname: "/login", search: "?login=true" }} className="item">
+            <Link to="/login" className="item">
             <span>Log In</span>
             </Link>
             </li> 
+
+            
 
     
     </ul>
