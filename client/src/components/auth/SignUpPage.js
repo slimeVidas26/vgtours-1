@@ -11,9 +11,12 @@ export default class SignUpPage extends Component {
     render(){
         let params = new URLSearchParams(this.props.location.search);
         return (
-            params.get("signup") && (
+             params.get("signup") && (
              <Modal
-             
+             onClick={() => {
+            this.props.history.push(this.props.location.pathname);
+            
+          }}
              >
 
              {/* onClick={() => {

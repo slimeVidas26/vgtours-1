@@ -6,11 +6,6 @@ import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 
 
-
-
-
-
-
  class Login extends Component {
 
   constructor() {
@@ -24,7 +19,10 @@ import { loginUser } from "../../actions/authActions";
     
   }
 
+
+
   componentDidMount() {
+    // console.log(this.props.history)
     // If logged in and user navigates to Login page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
@@ -62,10 +60,15 @@ this.props.loginUser(userData);
   render() {
     //  let params = new URLSearchParams(this.props.location.search);
     const { errors } = this.state;
+    let params = new URLSearchParams(this.props.location.search);
 
     return (
-      //  params.get("login") && (
-        <Modal>
+        params.get("login") && (
+        <Modal
+        onClick={() => {
+            this.props.history.push(this.props.location.pathname);
+            
+          }}>
           <div className="header center">
          Log In
         </div>
@@ -140,7 +143,7 @@ this.props.loginUser(userData);
         
         </Modal>
       )
-    //  );
+     );
   }
 }
 
