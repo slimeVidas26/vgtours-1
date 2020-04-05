@@ -104,14 +104,15 @@ class App extends Component {
 
     <Switch>
       <Route exact path="/" component={HomePage} />
-     
+      <Route exact path="/signup" component={SignUpPage} />
       <PrivateRoute exact path="/dashboard" component={Dashboard} />
     </Switch>
 
     {/* <Route exact path="/login" component={Login} /> */}
     <Route exact path="/" component={Login} />
+    
 
-    <Route path="/" component={SignUpPage} />
+    {/* <Route path="/" component={SignUpPage} /> */}
             {/* <Footer/> */}
             </Fragment>
         
