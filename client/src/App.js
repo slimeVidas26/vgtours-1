@@ -26,6 +26,7 @@ import DefaultGrid from "./components/features/DefaultGrid";
 import DividedContainer from "./components/features/assets/dividedContainer/DividedContainer";
 import MagicGrid from "./components/features/assets/magicGrid/MagicGrid";
 import SignUpWithMail from "./components/auth/SignUpWithMail";
+import UrlParameters from "./components/features/assets/router/UrlParameters";
 
 
 // import ButtonExampleEmphasisShorthand from "./components/ButtonExampleEmphasisShorthand";
@@ -97,22 +98,19 @@ class App extends Component {
           <Route exact path="/features/fts_divided_container.html" component={DividedContainer} />
           <Route exact path="/features/fts_magic_grid.html" component={MagicGrid} />
 
-
-
-
-         
-
     <Switch>
       <Route exact path="/" component={HomePage} />
-      <Route exact path="/signup" component={SignUpPage} />
-      <PrivateRoute exact path="/dashboard" component={Dashboard} />
+      <Route  path="/signup" component={SignUpPage} />
+      <Route  path="/url-parameters" component={UrlParameters} />
+
+      <PrivateRoute  path="/dashboard" component={Dashboard} />
     </Switch>
 
     {/* <Route exact path="/login" component={Login} /> */}
     <Route exact path="/" component={Login} />
     
 
-    {/* <Route path="/" component={SignUpPage} /> */}
+      {/* <Route exact path="/" component={SignUpPage} />   */}
             {/* <Footer/> */}
             </Fragment>
         

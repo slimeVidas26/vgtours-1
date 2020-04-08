@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import Modal from './Modal'
 import classnames from "classnames";
-import { Link, withRouter , Route } from "react-router-dom";
+import { Link, withRouter , Route  , useLocation} from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
+import FormTitle from '../layout/FormTitle'
+import FormActions from '../layout/FormActions'
+
 
 
 //import images
@@ -19,7 +22,8 @@ import icon_google_plus from '../../assets/images/icon-google-plus.svg';
         // console.log(this.props.history + ' from signUpWithMail')
     
         this.state = {
-          name: "",
+          firstName: "",
+          lastName: "",
           email: "",
           password: "",
           password2: "",
@@ -52,7 +56,8 @@ onChange = e => {
 onSubmit = e => {
     e.preventDefault();
 const newUser = {
-      name: this.state.name,
+      firstName: this.state.firstName,
+      lastName : this.state.lastName,
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2
@@ -70,18 +75,17 @@ this.props.registerUser(newUser, this.props.history);
             //  params.get("signup") && (
              <Modal
              onClick={() => {
-            this.props.history.push(this.props.location.pathname);
+            {/* this.props.history.push(this.props.location.pathname); */}
+            window.location.href = "/";
+              {/* location.pathname.split('/').slice(0,-1); */}
+            
             
           }}
              >
 
-             {/* onClick={() => {
-                this.props.history.push(this.props.location.pathname); 
-              }} */}
-    
-              <div className="header center">
-               Sign Up Now
-               </div>
+            
+            {/* FORM TITLE */}
+              <FormTitle> Sign Up Now </FormTitle>
 
              
     
@@ -137,21 +141,35 @@ this.props.registerUser(newUser, this.props.history);
                 {/* <input type="text" placeholder=" Name"/> */}
                 <input
                   onChange={this.onChange}
-                  value={this.state.name}
-                  error={errors.name}
-                  id="name"
+                  value={this.state.firstName}
+                  error={errors.firstName}
+                  id="firstName"
                   type="text"
-                  placeholder=" Name"
+                  placeholder=" firstName"
                   className={classnames("", {
-                    invalid: errors.name
+                    invalid: errors.firstName
                   })}
                 />
-                <span className="red-text">{errors.name}</span>
+                <span className="red-text">{errors.firstName}</span>
 
              </div>
-             {/* <div className="divided-column">
-                <input type="text" placeholder="Last Name"/>
-             </div> */}
+             <div className="divided-column">
+                {/* <input type="text" placeholder=" Name"/> */}
+                <input
+                  onChange={this.onChange}
+                  value={this.state.lastName}
+                  error={errors.lastName}
+                  id="lastName"
+                  type="text"
+                  placeholder=" lastName"
+                  className={classnames("", {
+                    invalid: errors.lastName
+                  })}
+                />
+                <span className="red-text">{errors.lastName}</span>
+
+             </div>
+            
          </div>
      
          <div className="div-c">
@@ -258,33 +276,20 @@ this.props.registerUser(newUser, this.props.history);
          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>  
      </form>
      </div>
+
+      {/* form actions */}
+      <FormActions>Log In</FormActions>
      
-     <div className="actions">
-         <div className="border-container">
-             <div className="button-sq link-sq"></div>
-     
-             <div className="button-sq link-sq login-sq modal-ui-trigger" data-trigger-for="modal01">
-                 Log In
-                 <i className="icon icon-person-lock-2"></i>
-             </div>
-         </div>
-     </div>
+    
               </Modal>
                 )
             );
           }}
         />
+
+
+    <FormActions>Log In</FormActions>
     
-    <div className="actions">
-        <div className="border-container">
-            <div className="button-sq link-sq modal-ui-trigger" data-trigger-for="modal02">Already a member?</div>
-    
-            <div className="button-sq link-sq login-sq modal-ui-trigger" data-trigger-for="modal02">
-                Log In
-                <i className="icon icon-person-lock-2"></i>
-            </div>
-        </div>
-    </div>
     
             </Modal>
             )

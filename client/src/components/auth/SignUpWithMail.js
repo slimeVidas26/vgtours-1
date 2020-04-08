@@ -16,7 +16,7 @@ class SignUpWithMail extends Component {
         // console.log(this.props.history + ' from signUpWithMail')
     
         this.state = {
-          name: "",
+          firstName: "",
           email: "",
           password: "",
           password2: "",
@@ -49,7 +49,7 @@ onChange = e => {
 onSubmit = e => {
     e.preventDefault();
 const newUser = {
-      name: this.state.name,
+      firstName: this.state.firstName,
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2
@@ -68,7 +68,7 @@ this.props.registerUser(newUser, this.props.history);
      <i className="icon icon-close close-modal"></i>
      
      <div className="header center">
-         Sign Up Now
+         Sign Up Nowiriririri
      </div>
      
      <div className="content">
@@ -87,16 +87,16 @@ this.props.registerUser(newUser, this.props.history);
                 {/* <input type="text" placeholder=" Name"/> */}
                 <input
                   onChange={this.onChange}
-                  value={this.state.name}
-                  error={errors.name}
-                  id="name"
+                  value={this.state.firstName}
+                  error={errors.firstName}
+                  id="firstName"
                   type="text"
-                  placeholder=" Name"
+                  placeholder=" firstName"
                   className={classnames("", {
-                    invalid: errors.name
+                    invalid: errors.firstName
                   })}
                 />
-                <span className="red-text">{errors.name}</span>
+                <span className="red-text">{errors.firstName}</span>
 
              </div>
              {/* <div className="divided-column">

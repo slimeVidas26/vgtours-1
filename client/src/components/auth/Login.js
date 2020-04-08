@@ -4,6 +4,10 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
+import FormTitle from '../layout/FormTitle'
+import FormActions from '../layout/FormActions'
+
+
 
 
  class Login extends Component {
@@ -69,9 +73,9 @@ this.props.loginUser(userData);
             this.props.history.push(this.props.location.pathname);
             
           }}>
-          <div className="header center">
-         Log In
-        </div>
+         {/* FORM TITLE */}
+         <FormTitle> Log In </FormTitle>
+
           <div className="content">
           <form noValidate onSubmit={this.onSubmit}>
           <div className="div-c">
@@ -129,16 +133,9 @@ this.props.loginUser(userData);
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
           </form>
           </div>
-           <div className="actions">
-         <div className="border-container">
-             <div className="button-sq link-sq modal-ui-trigger" data-trigger-for="modal01">Don’t have an account?</div>
-    
-             <div className="button-sq link-sq login-sq modal-ui-trigger" data-trigger-for="modal01">
-                 Sign Up
-                 <i className="icon icon-person-add-1"></i>
-             </div>
-         </div>
-     </div>
+
+     {/* form actions */}
+      <FormActions>Sign Up</FormActions>
      
         
         </Modal>

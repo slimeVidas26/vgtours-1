@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { Link } from "react-router-dom";
+import React, { Component , Fragment } from 'react'
+import { Link , Route , BrowserRouter as Router } from "react-router-dom";
+import UrlParameters from './features/assets/router/UrlParameters'
 
 
  class FeaturesSubMenu extends Component {
@@ -12,9 +13,7 @@ import { Link } from "react-router-dom";
      }
  }
 
- getClass = ()=>{
-     alert("getClass")
- }
+ 
  
  
 
@@ -23,9 +22,17 @@ import { Link } from "react-router-dom";
    
     render() {
         return (
+            <Fragment>
+            {/* <Router>
+            <Route exact path = "/url-parameters" component = {UrlParameters}/>
+
+            </Router> */}
            
               <ul className="submenu" >
-                <li ><Link to="../features/fts_default_grid.html" onClick = {this.getClass}    className="item" ><span>Default Grid</span></Link></li>
+              <li ><Link to="/url-parameters" className="item" ><span>URL Parameters</span></Link></li>
+
+                  <hr/>
+                <li ><Link to="../features/fts_default_grid.html"    className="item" ><span>Default Grid</span></Link></li>
                 <li><Link to="../features/fts_divided_container.html" className="item"><span>Divided Container</span></Link></li>
                 <li><Link to="../features/fts_magic_grid.html" className="item"><span>Magic Grid</span></Link></li>
                 <li>
@@ -65,6 +72,8 @@ import { Link } from "react-router-dom";
                 <li><Link to="../features/fts_table.html" className="item"><span>Table</span></Link></li>
                 
             </ul>
+            </Fragment>
+        
         )
     }
 }

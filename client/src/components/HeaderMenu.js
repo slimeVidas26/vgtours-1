@@ -59,7 +59,11 @@ constructor(props) {
             </Link>
             </li>  */}
 
-            <li><Link to="/signup" className="item">
+            <li>
+            {/* <Link to={{ pathname: "/", search: "signupall=true" }} className="item"> */}
+ 
+                 <Link to="/signup" className="item">
+                {/* <Link to={{ pathname: "/", search: "all=true" }} className="item"> */}
                 <span>Sign Up</span>
             </Link>
            </li>
