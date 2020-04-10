@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import FormTitle from '../layout/FormTitle'
 import FormActions from '../layout/FormActions'
+import SignUpWith from '../layout/SignUpWith'
 
 
 
@@ -90,15 +91,15 @@ this.props.registerUser(newUser, this.props.history);
              
     
                <div className="content">
-               <Link to={{ pathname: "/signup", search: "mail=true" }} className="button-sq fullwidth-sq modal-ui-trigger">
-        {/* <Link to= {`${this.props.match.url}/signupwithemail`} className="button-sq fullwidth-sq modal-ui-trigger"> */}
+               <Link to={{ pathname: "/signup", search: "mail=true" }} className="button-sq fullwidth-sq">
             <i className="icon icon-email-2"></i>
             <span>Sign Up with Email</span>
         </Link>
     
         <Link to="" className="button-sq fullwidth-sq facebook-button">
-            <i className="icon icon-logo-facebook2"></i>
-            <span>Sign Up with Facebook</span>
+            {/* <i className="icon icon-logo-facebook2"></i>
+            <span>Sign Up with Facebook</span> */}
+            <SignUpWith>Sign Up with Facebook</SignUpWith>
         </Link>
     
         <Link to="" className="button-sq fullwidth-sq google-button">
@@ -122,9 +123,8 @@ this.props.registerUser(newUser, this.props.history);
                 }}
               >
                
-                <div className="header center">
-                   Sign Up Now
-               </div>
+               
+               <FormTitle>  Sign Up Now </FormTitle>
                <div className="content">
      <form noValidate onSubmit={this.onSubmit}>
 

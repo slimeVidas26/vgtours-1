@@ -134,7 +134,7 @@ this.props.loginUser(userData);
           </form>
           </div>
 
-     {/* form actions */}
+     {/* FORM ACTION */}
       <FormActions>Sign Up</FormActions>
      
         
