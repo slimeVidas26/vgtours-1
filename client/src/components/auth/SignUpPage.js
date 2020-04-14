@@ -102,7 +102,7 @@ this.props.registerUser(newUser, this.props.history);
             <SignUpWith>Sign Up with Facebook</SignUpWith>
         </Link>
     
-        <Link to="" className="button-sq fullwidth-sq google-button">
+        <Link to="/api/users/google" className="button-sq fullwidth-sq google-button">
             <img src={icon_google_plus} alt=""/>
             <span>Sign Up with Google</span>
         </Link>

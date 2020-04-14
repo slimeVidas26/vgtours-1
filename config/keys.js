@@ -5,7 +5,16 @@
 
   module.exports = {
     mongoURI: `mongodb+srv://${dbuser}:${dbpassword}@cluster0-3or9x.mongodb.net/test?retryWrites=true&w=majority`,
-    secretOrKey: "secret"
+    secretOrKey: "secret",
+
+    session : {
+      cookieKey : "vgtoursisawesome"
+    },
+
+    google : {
+      clientID: "707374088332-j3gutvrrr1d4b4cgvkh6j1qph6638r94.apps.googleusercontent.com",
+      clientSecret : "6cDXDV2RBJmQp0hk4jNuCxGi"
+    }
   };
 
 

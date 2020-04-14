@@ -3,7 +3,11 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
+const profileUser = require("./routes/api/profile-route");
 
+const passportSetup = require('./config/passport')
+const keys = require('./config/keys')
+const cookieSession = require('cookie-session');
 const app = express();
 
 
@@ -14,6 +18,16 @@ app.use(
   })
 );
 app.use(bodyParser.json());
+
+app.use(cookieSession({
+  maxAge : 24*60*60*1000,
+  keys : [keys.session.cookieKey]
+}))
+
+//initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 // DB Config
 const db = require("./config/keys").mongoURI;
 //console.log("db" , db)
@@ -33,6 +47,8 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
+app.use("/profile", profileUser); //route/api/profile-route
+
 
 
 

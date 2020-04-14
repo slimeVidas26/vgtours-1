@@ -1,4 +1,5 @@
 const express = require("express");
+const passport = require('passport');
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -8,6 +9,8 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/User");
+const GoogleUser = require("../../models/GoogleUser");
+
 
 // @route POST api/users/register
 // @desc Register user
@@ -93,6 +96,26 @@ router.post("/login", (req, res) => {
         }
       });
     });
+  });
+
+  //auth logout
+  router.get('/logout' , (req , res)=>{
+    //handle with passport
+    res.send('logging out')
+  })
+
+  //auth with google
+  router.get('/google' , passport.authenticate('google' , {
+    scope:['profile']
+  }));
+
+
+  //callback route for google to redirect to
+  router.get('/google/redirect' , passport.authenticate('google'), (req , res)=>{
+    // res.send("you reach the callback URI")
+     //res.send(req.user)
+     res.redirect('/profile')
+
   });
 
   module.exports = router;
