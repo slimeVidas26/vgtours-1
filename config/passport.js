@@ -10,7 +10,7 @@ const opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = keys.secretOrKey;
 
-
+//console.log(opts)
 
 
 module.exports = passport => {
@@ -25,8 +25,9 @@ module.exports = passport => {
       })
      
       });
-  passport.use(
 
+      //login with form
+  passport.use(
     new JwtStrategy(opts, (jwt_payload, done) => {
       User.findById(jwt_payload.id)
         .then(user => {
@@ -37,8 +38,9 @@ module.exports = passport => {
         })
         .catch(err => console.log(err));
     })
-  ) , 
-//google
+  ) ,
+
+//login with google
   passport.use(
     new GoogleStrategy({
       // options for google strategy
@@ -48,7 +50,7 @@ module.exports = passport => {
   }, (accessToken , refreshToken , profile , done) => {
       // passport callback function
       // console.log("passport callback function fired")
-      // console.log(profile);
+       //console.log(profile.photos[0].value);
 
       //check if user already exists in our db
       GoogleUser.findOne({
@@ -63,7 +65,9 @@ module.exports = passport => {
             //if not create new user
             new GoogleUser({
               username :profile.displayName,
-              googleId : profile.id
+              googleId : profile.id,
+              picture : profile.photos[0].value,
+              provider : profile.provider
             }).save().then((newGoogleUser)=>{
               console.log('new google user created' + newGoogleUser);
               done(null , newGoogleUser);

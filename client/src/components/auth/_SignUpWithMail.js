@@ -1,13 +1,12 @@
-import React, { Component, Fragment } from 'react'
-import { Link, withRouter  , useLocation} from "react-router-dom";
-import classnames from "classnames";
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
-import FormTitle from '../layout/FormTitle'
+import classnames from "classnames";
 
-
-
+//import images
+import modal_background_001 from '../../assets/images/modal/modal_background_001.jpg';
 
 class SignUpWithMail extends Component {
 
@@ -18,7 +17,6 @@ class SignUpWithMail extends Component {
     
         this.state = {
           firstName: "",
-          lastName: "",
           email: "",
           password: "",
           password2: "",
@@ -44,15 +42,14 @@ class SignUpWithMail extends Component {
     }
   }
 
-  onChange = e => {
+
+onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
-
-  onSubmit = e => {
+onSubmit = e => {
     e.preventDefault();
 const newUser = {
       firstName: this.state.firstName,
-      lastName : this.state.lastName,
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2
@@ -60,17 +57,21 @@ const newUser = {
 console.log(newUser);
 this.props.registerUser(newUser, this.props.history); 
   };
-
-
-    render() {
-
+    render(){
         const { errors } = this.state;
         return (
-         <Fragment>
-
-             <FormTitle>  Sign Up Now With Mail</FormTitle>
-             <div className="content">
-            
+            <div className="ui full modal" data-for="modal03">
+     <div className="modal-full-background">
+         <img src={modal_background_001} alt="modal_background_001.jpg"/>
+     </div>
+     
+     <i className="icon icon-close close-modal"></i>
+     
+     <div className="header center">
+         Sign Up Now
+     </div>
+     
+     <div className="content">
      <form noValidate onSubmit={this.onSubmit}>
 
         {/* <div className="div-c inline-2">
@@ -98,23 +99,9 @@ this.props.registerUser(newUser, this.props.history);
                 <span className="red-text">{errors.firstName}</span>
 
              </div>
-             <div className="divided-column">
-                {/* <input type="text" placeholder=" Name"/> */}
-                <input
-                  onChange={this.onChange}
-                  value={this.state.lastName}
-                  error={errors.lastName}
-                  id="lastName"
-                  type="text"
-                  placeholder=" lastName"
-                  className={classnames("", {
-                    invalid: errors.lastName
-                  })}
-                />
-                <span className="red-text">{errors.lastName}</span>
-
-             </div>
-            
+             {/* <div className="divided-column">
+                <input type="text" placeholder="Last Name"/>
+             </div> */}
          </div>
      
          <div className="div-c">
@@ -221,9 +208,22 @@ this.props.registerUser(newUser, this.props.history);
          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>  
      </form>
      </div>
-     </Fragment>
-        )
+     
+     <div className="actions">
+         <div className="border-container">
+             <div className="button-sq link-sq"></div>
+     
+             <div className="button-sq link-sq login-sq modal-ui-trigger" data-trigger-for="modal01">
+                 Log In
+                 <i className="icon icon-person-lock-2"></i>
+             </div>
+         </div>
+     </div>
+     </div>
+     
+         )
     }
+    
 }
 
 SignUpWithMail.propTypes = {
@@ -232,12 +232,10 @@ SignUpWithMail.propTypes = {
     errors: PropTypes.object.isRequired
   };
 
-  const mapStateToProps = state => ({
+const mapStateToProps = state => ({
     auth: state.auth,
     errors: state.errors
   });
-
-
 
 export default connect(
     mapStateToProps,

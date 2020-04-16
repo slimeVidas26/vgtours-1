@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 const googleUserSchema = new Schema({
     username: String,
-    googleId : String
+    googleId : String,
+    picture : String,
+    provider : String
 });
 
 //const googleUser = mongoose.model('googleUsers' , googleUserSchema);

@@ -2,10 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const users = require("./routes/api/users");
+const users = require("./routes/api/users-route");
 const profileUser = require("./routes/api/profile-route");
 
-const passportSetup = require('./config/passport')
+//const passportSetup = require('./config/passport')
 const keys = require('./config/keys')
 const cookieSession = require('cookie-session');
 const app = express();
@@ -47,7 +47,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 // Routes
 app.use("/api/users", users);
-app.use("/profile", profileUser); //route/api/profile-route
+app.use("/api/profile", profileUser); //route/api/profile-route
 
 
 
