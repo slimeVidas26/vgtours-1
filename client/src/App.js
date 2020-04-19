@@ -15,6 +15,8 @@ import Register from "./components/auth/Register";
 // import Login2 from "./components/auth/Login2";
 import ProfilePage from "./components/auth//profile";
 import SignUpPage from './components/auth/SignUpPage'
+import TotoPage from './components/auth/TotoPage'
+
 
 
 import PrivateRoute from "./components/private-route/PrivateRoute";
@@ -27,6 +29,7 @@ import DividedContainer from "./components/features/assets/dividedContainer/Divi
 import MagicGrid from "./components/features/assets/magicGrid/MagicGrid";
 import SignUpWithMail from "./components/auth/SignUpWithMail";
 import UrlParameters from "./components/features/assets/router/UrlParameters";
+//import GoogleUser from "./components/auth/GoogleUser";
 
 
 // import ButtonExampleEmphasisShorthand from "./components/ButtonExampleEmphasisShorthand";
@@ -101,6 +104,10 @@ class App extends Component {
     <Switch>
       <Route exact path="/" component={HomePage} />
       <Route  path="/signup" component={SignUpPage} />
+      <Route  path="/toto" component={TotoPage} />
+      <Route  path="/googleUser" component={Dashboard} />
+
+
       <Route  path="/url-parameters" component={UrlParameters} />
 
       <PrivateRoute  path="/dashboard" component={Dashboard} />

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+
 class Dashboard extends Component {
 
   constructor(props) {
@@ -18,6 +19,10 @@ class Dashboard extends Component {
   };
 render() {
     const { user } = this.props.auth;
+    // const user = {
+    //   name : "isaac"
+    // }
+    console.log("this.props.auth",this.props.auth)
 return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">

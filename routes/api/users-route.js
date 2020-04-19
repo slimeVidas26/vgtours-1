@@ -9,7 +9,6 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/User");
-const GoogleUser = require("../../models/GoogleUser");
 
 
 // @route POST api/users/register
