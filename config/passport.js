@@ -1,4 +1,4 @@
-//  const passport = require('passport')
+const passport = require('passport')
 const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const GoogleStrategy = require('passport-google-oauth20')
@@ -13,7 +13,6 @@ opts.secretOrKey = keys.secretOrKey;
 //console.log(opts)
 
 
-module.exports = passport => {
 
   passport.serializeUser((user , done)=>{
     done(null , user.id)
@@ -44,7 +43,7 @@ module.exports = passport => {
   passport.use(
     new GoogleStrategy({
       // options for google strategy
-      callbackURL:'/api/users/google/redirect',
+      callbackURL:'/auth/google/redirect',
       clientID :keys.google.clientID,
       clientSecret : keys.google.clientSecret
   }, (accessToken , refreshToken , profile , done) => {
@@ -78,4 +77,4 @@ module.exports = passport => {
   })
   ) 
 
-};
+module.exports = passport;
