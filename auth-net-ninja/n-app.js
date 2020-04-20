@@ -1,5 +1,7 @@
 const express = require('express');
-const ejs = require('ejs')
+
+const authRoutes = require('./routes/auth-routes')
+
 const app = express();
 
 // set template engine
@@ -7,9 +9,12 @@ app.set('view engine' , "ejs")
 
 
 //route 
-app.use('/' , (req , res)=>{
+app.get('/' , (req , res)=>{
 res.render('home')
 });
+
+//set up auth routes
+app.use('/auth' , authRoutes)
 
 const PORT = process.env.PORT || 3000
 app.listen(3000 , ()=>{
