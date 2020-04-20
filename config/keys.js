@@ -11,7 +11,7 @@
       cookieKey : "vgtoursisawesome"
     },
 
-    google : {
+    GOOGLE : {
       clientID: "707374088332-j3gutvrrr1d4b4cgvkh6j1qph6638r94.apps.googleusercontent.com",
       clientSecret : "6cDXDV2RBJmQp0hk4jNuCxGi"
     }

@@ -44,8 +44,8 @@ opts.secretOrKey = keys.secretOrKey;
     new GoogleStrategy({
       // options for google strategy
       callbackURL:'/auth/google/redirect',
-      clientID :keys.google.clientID,
-      clientSecret : keys.google.clientSecret
+      clientID :keys.GOOGLE.clientID,
+      clientSecret : keys.GOOGLE.clientSecret
   }, (accessToken , refreshToken , profile , done) => {
       // passport callback function
       // console.log("passport callback function fired")
