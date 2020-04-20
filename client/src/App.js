@@ -15,7 +15,6 @@ import Register from "./components/auth/Register";
 // import Login2 from "./components/auth/Login2";
 import ProfilePage from "./components/auth//profile";
 import SignUpPage from './components/auth/SignUpPage'
-import TotoPage from './components/auth/TotoPage'
 
 
 
@@ -104,7 +103,6 @@ class App extends Component {
     <Switch>
       <Route exact path="/" component={HomePage} />
       <Route  path="/signup" component={SignUpPage} />
-      <Route  path="/toto" component={TotoPage} />
       <Route  path="/googleUser" component={Dashboard} />
 
 

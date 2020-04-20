@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import Modal from './Modal'
+import { connect } from "react-redux";
+import { loginGoogleUser } from "../../actions/authActions";
+
 import { Link, withRouter , Route  , useLocation} from "react-router-dom";
+
 
 import FormTitle from '../layout/FormTitle'
 import FormActions from '../layout/FormActions'
@@ -15,7 +19,26 @@ import icon_google_plus from '../../assets/images/icon-google-plus.svg';
 
  class SignUpPage extends Component {
 
-    
+  componentWillReceiveProps(nextProps) {
+    console.log("nextProps" , nextProps)
+    if (nextProps.auth.isAuthenticated) {
+      this.props.history.push("/dashboard"); // push user to dashboard when they login
+    }
+if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors
+      });
+    }
+  }
+
+   connectGoogleUser = ()=>{
+    const payload = {
+      // id: req.user.id,
+      username: "isaac"
+    };
+     
+    this.props.loginGoogleUser(payload);
+   } 
 
      
 
@@ -54,11 +77,11 @@ import icon_google_plus from '../../assets/images/icon-google-plus.svg';
             <SignUpWith>Sign Up with Facebook</SignUpWith>
         </Link>
     
-        <Link to="/googleUser" className="button-sq fullwidth-sq google-button">
+        <div onClick = {this.connectGoogleUser} className="button-sq fullwidth-sq google-button">
         
             <img src={icon_google_plus} alt=""/>
             <span>Sign Up with Google</span>
-        </Link>
+        </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
     </div>
 
@@ -93,5 +116,13 @@ import icon_google_plus from '../../assets/images/icon-google-plus.svg';
     }   
 }
 
-export default (withRouter(SignUpPage));
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+export default connect(
+  mapStateToProps,
+  { loginGoogleUser }
+)(SignUpPage);
+
 

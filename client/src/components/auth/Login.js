@@ -20,13 +20,13 @@ import FormActions from '../layout/FormActions'
       errors: {}
     };
 
-    
+    console.log(this.state+ "from login const")
+
   }
 
 
-
   componentDidMount() {
-    // console.log(this.props.history)
+     console.log(this.props)
     // If logged in and user navigates to Login page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
@@ -35,6 +35,7 @@ import FormActions from '../layout/FormActions'
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log("nextProps" , nextProps)
     if (nextProps.auth.isAuthenticated) {
       this.props.history.push("/dashboard"); // push user to dashboard when they login
     }
