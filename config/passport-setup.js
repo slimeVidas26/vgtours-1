@@ -49,30 +49,10 @@ opts.secretOrKey = keys.secretOrKey;
   }, (accessToken , refreshToken , profile , done) => {
       // passport callback function
       // console.log("passport callback function fired")
-       //console.log(profile.photos[0].value);
+       console.log(profile);
 
-      //check if user already exists in our db
-      GoogleUser.findOne({
-        googleId : profile.id
-      }).then((currentGoogleUser)=>{
-          if(currentGoogleUser){
-            //already have a user
-            console.log("googleUser is :"+ currentGoogleUser);
-            done(null , currentGoogleUser)
-          }
-          else{
-            //if not create new user
-            new GoogleUser({
-              username :profile.displayName,
-              googleId : profile.id,
-              picture : profile.photos[0].value,
-              provider : profile.provider
-            }).save().then((newGoogleUser)=>{
-              console.log('new google user created' + newGoogleUser);
-              done(null , newGoogleUser);
-            })
-          }
-      });
+     
+     
      
   })
   ) 
