@@ -112,10 +112,10 @@ router.post("/login", (req, res) => {
 
 
   //callback route for google to redirect to
-  router.get('/google/redirect' , passport.authenticate('google'), (req , res)=>{
-    // res.send("you reach the callback URI")
+  router.get('/google/redirect' , (req , res)=>{
+     res.send("you reach the callback URI")
      //res.send(req.user)
-     res.redirect('/api/profile')
+     //res.redirect('/api/profile')
 
   });
 

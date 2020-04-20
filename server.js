@@ -5,7 +5,7 @@ const passport = require("passport");
 const authRoutes = require("./routes/api/auth-routes");
 const profileUser = require("./routes/api/profile-route");
 
-//const passportSetup = require('./config/passport')
+const passportSetup = require('./config/passport-setup')
 const keys = require('./config/keys')
 const cookieSession = require('cookie-session');
 const app = express();
