@@ -1,5 +1,7 @@
 const express = require('express');
-const authRoutes = require('./routes/auth-routes')
+const authRoutes = require('./routes/auth-routes');
+const profileRoutes = require('./routes/profile-routes')
+
 const app = express();
 const passport = require('passport');
 const passportSetup  = require('./config/passport-setup')
@@ -39,7 +41,12 @@ res.render('home')
 });
 
 //set up auth routes
-app.use('/auth' , authRoutes)
+app.use('/auth' , authRoutes);
+
+//set up profile routes
+app.use('/profile' , profileRoutes)
+
+
 
 const PORT = process.env.PORT || 3000
 app.listen(3000 , ()=>{

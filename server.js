@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const authRoutes = require("./routes/api/auth-routes");
-const profileUser = require("./routes/api/profile-route");
+const profileRoutes = require("./routes/api/profile-routes");
 
 const passportSetup = require('./config/passport-setup')
 const keys = require('./config/keys')
@@ -47,7 +47,7 @@ app.use(passport.initialize());
 require("./config/passport-setup");
 // Routes
 app.use("/auth", authRoutes);
-app.use("/api/profile", profileUser); //route/api/profile-route
+app.use("/profile", profileRoutes); //route/api/profile-route
 
 
 

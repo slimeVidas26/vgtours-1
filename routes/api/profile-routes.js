@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const GoogleUser = require("../../models/GoogleUser");
+//const GoogleUser = require("../../models/GoogleUser");
 
 
 
@@ -14,12 +14,9 @@ const authCheck  =(req , res , next)=>{
 }
 }
 
-router.get('/' , authCheck , (req  ,  res)=>{
+router.get('/' ,authCheck , (req  ,  res)=>{
     //console.log(req)
     res.send('you are logged in , this is your profile : '+ req.user.username)
-
-     
-  
     });
 
 
