@@ -51,16 +51,24 @@ opts.secretOrKey = keys.secretOrKey;
       // passport callback function
        console.log("passport callback function fired")
        console.log(profile);
-       new googleUser({
-         username:profile.displayName,
-         googleID : profile.id
-       }).save().then((newGoogleUser)=>{
-         console.log("new google user created : " + newGoogleUser)
-       })
 
-     
-     
-     
+      googleUser.findOne({
+        googleID : profile.id
+      }).then((currentGoogleUser)=>{
+        if(currentGoogleUser){
+          //already have the user
+         console.log("google user is" + currentGoogleUser)
+        }
+        else{
+          //if not , create new user
+          new googleUser({
+            username:profile.displayName,
+            googleID : profile.id
+          }).save().then((newGoogleUser)=>{
+            console.log("new google user created : " + newGoogleUser)
+          })
+        }
+      }) 
   })
   ) 
 

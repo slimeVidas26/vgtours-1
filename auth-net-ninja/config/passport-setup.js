@@ -14,11 +14,24 @@ passport.use(
      //passport callback fuction
      console.log(profile)
      console.log("pass cb func fired")
-     new googleUser({
-         username : profile.displayName,
+
+     googleUser.findOne({
          googleID : profile.id
-     }).save().then((newGoogleUser)=>{
-         console.log("New user created "  + newGoogleUser)
+     }).then((currentGoogleUser)=>{
+        if(currentGoogleUser){
+             //already have the user
+         console.log("google user is" + currentGoogleUser)
+
+        }else{
+              //if not , create new user
+            new googleUser({
+                username : profile.displayName,
+                googleID : profile.id
+            }).save().then((newGoogleUser)=>{
+                console.log("New user created "  + newGoogleUser)
+            })
+        }
      })
+    
     })
 )
