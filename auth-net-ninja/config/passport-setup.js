@@ -8,7 +8,8 @@ passport.use(
     callbackURL:'/auth/google/redirect',
     clientID :keys.GOOGLE.clientID,
     clientSecret : keys.GOOGLE.clientSecret
-    } , (accessToken , refreshToken , profile , done)=>{
+    } ,
+     (accessToken , refreshToken , profile , done)=>{
      //passport callback fuction
      console.log(profile)
      //console.log("pass cb func fired")
