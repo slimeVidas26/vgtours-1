@@ -15,16 +15,15 @@ opts.secretOrKey = keys.secretOrKey;
 
 
 
-  passport.serializeUser((user , done)=>{
-    done(null , user.id)
-    });
+passport.serializeUser((user , done)=>{
+  done(null , user.id)
+});
 
-    passport.deserializeUser((id , done)=>{
-      GoogleUser.findById(id).then((user)=>{
-        done(null , user)
-      })
-     
-      });
+passport.deserializeUser((id , done)=>{
+googleUser.findById(id).then((user)=>{
+done(null , user)
+})
+});
 
       //login with form
   passport.use(
@@ -57,7 +56,8 @@ opts.secretOrKey = keys.secretOrKey;
       }).then((currentGoogleUser)=>{
         if(currentGoogleUser){
           //already have the user
-         console.log("google user is" + currentGoogleUser)
+         console.log("google user is" + currentGoogleUser);
+         done(null , currentGoogleUser);
         }
         else{
           //if not , create new user
@@ -65,7 +65,8 @@ opts.secretOrKey = keys.secretOrKey;
             username:profile.displayName,
             googleID : profile.id
           }).save().then((newGoogleUser)=>{
-            console.log("new google user created : " + newGoogleUser)
+            console.log("new google user created : " + newGoogleUser);
+            done(null , newGoogleUser);
           })
         }
       }) 
