@@ -4,7 +4,8 @@ const ExtractJwt = require("passport-jwt").ExtractJwt;
 const GoogleStrategy = require('passport-google-oauth20')
 const mongoose = require("mongoose");
 const User = mongoose.model("users");
-const GoogleUser = mongoose.model("googleUsers")//require('../models/googleUser')
+//const GoogleUser = mongoose.model("googleUsers")//require('../models/googleUser')
+const googleUser = require('../models/google-user-model');
 const keys = require("./keys");
 const opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
@@ -48,8 +49,14 @@ opts.secretOrKey = keys.secretOrKey;
       clientSecret : keys.GOOGLE.clientSecret
   }, (accessToken , refreshToken , profile , done) => {
       // passport callback function
-      // console.log("passport callback function fired")
+       console.log("passport callback function fired")
        console.log(profile);
+       new googleUser({
+         username:profile.displayName,
+         googleID : profile.id
+       }).save().then((newGoogleUser)=>{
+         console.log("new google user created : " + newGoogleUser)
+       })
 
      
      
