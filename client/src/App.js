@@ -13,7 +13,7 @@ import BecomeAvendor from './components/BecomeAvendor'
 import Register from "./components/auth/Register";
  import Login from "./components/auth/Login";
 // import Login2 from "./components/auth/Login2";
-import ProfilePage from "./components/auth//profile";
+import Profile from "./components/dashboard/Profile";
 import SignUpPage from './components/auth/SignUpPage'
 
 
@@ -104,6 +104,8 @@ class App extends Component {
       <Route exact path="/" component={HomePage} />
       <Route  path="/signup" component={SignUpPage} />
       <Route  path="/googleUser" component={Dashboard} />
+      <Route  path="/profile" component={Profile} />
+
 
 
       <Route  path="/url-parameters" component={UrlParameters} />

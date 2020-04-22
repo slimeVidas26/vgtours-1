@@ -77,11 +77,11 @@ if (nextProps.errors) {
             <SignUpWith>Sign Up with Facebook</SignUpWith>
         </Link>
     
-        <div onClick = {this.connectGoogleUser} className="button-sq fullwidth-sq google-button">
+        <Link to = '/auth/google' className="button-sq fullwidth-sq google-button">
         
             <img src={icon_google_plus} alt=""/>
             <span>Sign Up with Google</span>
-        </div>
+        </Link>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
     </div>
 
