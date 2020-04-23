@@ -24,6 +24,9 @@ app.use(cookieSession({
   keys : [keys.session.cookieKey]
 }))
 
+// set template engine
+app.set('view engine' , "ejs");
+
 //initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
@@ -49,7 +52,10 @@ require("./config/passport-setup");
 app.use("/auth", authRoutes);
 app.use("/profile", profileRoutes); //route/api/profile-route
 
-
+//route 
+app.get('/' , (req , res)=>{
+  res.render('home' , {user : req.user})
+  });
 
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there

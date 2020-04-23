@@ -67,22 +67,12 @@ constructor(props) {
                 <span>Sign Up</span>
             </Link>
            </li>
-        
-            {/* <li>
-            <Link to="/login" className="item">
-            <span>Log In</span>
-            </Link>
-            </li>  */}
 
             <li>
             <Link to={{ pathname: "/", search: "login=true" }} className="item">
             <span>Log In</span>
             </Link>
             </li> 
-
-            
-
-    
     </ul>
     </div>
     

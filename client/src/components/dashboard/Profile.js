@@ -4,7 +4,7 @@ import React, { Component } from 'react'
     render() {
         return (
             <div>
-                <h2>Profile page</h2>
+               <img src="<% = user.thumbnail  %>" />
             </div>
         )
     }

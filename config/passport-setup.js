@@ -63,7 +63,8 @@ done(null , user)
           //if not , create new user
           new googleUser({
             username:profile.displayName,
-            googleID : profile.id
+            googleID : profile.id,
+            thumbnail : profile._json.picture
           }).save().then((newGoogleUser)=>{
             console.log("new google user created : " + newGoogleUser);
             done(null , newGoogleUser);
