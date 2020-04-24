@@ -1,7 +1,9 @@
 const passport = require('passport')
 const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
-const GoogleStrategy = require('passport-google-oauth20')
+const GoogleStrategy = require('passport-google-oauth20');
+const FacebookStrategy = require('passport-facebook')
+const chalk = require('chalk');
 const mongoose = require("mongoose");
 const User = mongoose.model("users");
 //const GoogleUser = mongoose.model("googleUsers")//require('../models/googleUser')
@@ -10,6 +12,8 @@ const keys = require("./keys");
 const opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = keys.secretOrKey;
+
+let facebookUser = {}
 
 //console.log(opts)
 
@@ -37,7 +41,7 @@ done(null , user)
         })
         .catch(err => console.log(err));
     })
-  ) ,
+  ) 
 
 //login with google
   passport.use(
@@ -71,6 +75,41 @@ done(null , user)
           })
         }
       }) 
+  })
+  ) 
+
+  //login with facebook
+  passport.use(
+    new FacebookStrategy({
+      // options for google strategy
+      callbackURL:'/auth/facebook/callback',
+      clientID :keys.FACEBOOK.clientID,
+      clientSecret : keys.FACEBOOK.clientSecret
+  }, (accessToken , refreshToken , profile , done) => {
+      // passport callback function
+       console.log(chalk.blue(JSON.stringify(profile)))
+       facebookUser = {...profile}
+
+      // facebookUser.findOne({
+      //   facebookID : profile.id
+      // }).then((currentFacebookUser)=>{
+      //   if(currentFacebookUser){
+      //     //already have the facebook user
+      //    console.log("facebook user is" + currentFacebookUser);
+      //    done(null , currentFacebookUser);
+      //   }
+      //   else{
+      //     //if not , create new facebook user
+      //     new facebookUser({
+      //       username:profile.displayName,
+      //       facebookID : profile.id,
+      //       thumbnail : profile._json.picture
+      //     }).save().then((newFacebookUser)=>{
+      //       console.log("new facebook user created : " + newFacebookUser);
+      //       done(null , newFacebookUser);
+      //     })
+      //   }
+      // }) 
   })
   ) 
 
