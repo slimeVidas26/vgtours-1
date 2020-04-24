@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require('cors')
+// const cors = require('cors')
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
@@ -30,7 +30,7 @@ app.use(cookieSession({
 //app.set('view engine' , "ejs");
 
 //initialize passport
-app.use(cors())
+//app.use(cors())
 app.use(passport.initialize());
 app.use(passport.session());
 
