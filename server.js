@@ -1,10 +1,16 @@
 const express = require("express");
+const cors = require('cors')
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
+const FacebookStrategy = require('passport-facebook')
 const users = require("./routes/api/users");
+const keys = require('./config/keys')
+const chalk = require('chalk')
 
 const app = express();
+
+let user = {}
 
 
 // Bodyparser middleware
