@@ -3,14 +3,13 @@ const cors = require('cors')
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const FacebookStrategy = require('passport-facebook')
-const users = require("./routes/api/users");
-const keys = require('./config/keys')
-const chalk = require('chalk')
+const authRoutes = require("./routes/api/auth-routes");
+const passport_setup = require("./config/passport")
+
 
 const app = express();
 
-let user = {}
+
 
 
 // Bodyparser middleware
@@ -36,10 +35,16 @@ mongoose
   // Passport middleware
 app.use(passport.initialize());
 // Passport config
-require("./config/passport")(passport);
+//require("./config/passport")(passport);
 // Routes
-app.use("/api/users", users);
+app.use("/auth", authRoutes);
 
+
+
+
+
+app.use(cors())
+app.use(passport.initialize())
 
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there

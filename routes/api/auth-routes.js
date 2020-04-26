@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
+const passport = require('passport')
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
@@ -94,5 +95,30 @@ router.post("/login", (req, res) => {
       });
     });
   });
+
+  //facebook
+  //router.get("/facebook" , passport.authenticate("facebook"))
+
+  router.get('/facebook',
+  passport.authenticate('facebook')
+);
+
+router.get("/facebook/redirect" , passport.authenticate("facebook") , 
+(req , res)=>{
+  //res.redirect("/profile")
+  res.send("you reach the cb url")
+})
+
+//google
+
+router.get('/google',
+  passport.authenticate('google', { scope: ['profile'] }));
+
+router.get("/google/redirect" , passport.authenticate("google") , 
+(req , res)=>{
+//res.redirect("/profile")
+res.send(req.user)
+})
+
 
   module.exports = router;
