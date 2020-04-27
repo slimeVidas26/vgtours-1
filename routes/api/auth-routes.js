@@ -109,15 +109,24 @@ router.get("/facebook/redirect" , passport.authenticate("facebook") ,
   res.send("you reach the cb url")
 })
 
-//google
-
+//google route
 router.get('/google',
   passport.authenticate('google', { scope: ['profile'] }));
 
 router.get("/google/redirect" , passport.authenticate("google") , 
 (req , res)=>{
-//res.redirect("/profile")
-res.send(req.user)
+res.redirect("/profile")
+//res.send(req.user)
+})
+
+//amazon route
+router.get('/amazon',
+  passport.authenticate('amazon', { scope: ['profile'] }));
+
+router.get("/amazon/redirect" , passport.authenticate("amazon") , 
+(req , res)=>{
+res.redirect("/profile")
+//res.send(req.user)
 })
 
 

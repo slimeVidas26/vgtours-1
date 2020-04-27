@@ -3,6 +3,11 @@ const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const GithubStrategy = require('passport-github').Strategy;
+const TwitterStrategy = require('passport-twitter').Strategy;
+const InstagramStrategy = require('passport-instagram').Strategy;
+const SpotifyStrategy = require('passport-spotify').Strategy;
+const AmazonStrategy = require('passport-amazon').Strategy;
 
 
 const mongoose = require("mongoose");
@@ -23,9 +28,9 @@ passport.deserializeUser((user , done)=>{
   done(null , user)
 })
 
+//jwt startegy
   passport.use(
     new JwtStrategy(opts, (jwt_payload, done) => {
-      
       User.findById(jwt_payload.id)
         .then(user => {
           if (user) {
@@ -38,7 +43,7 @@ passport.deserializeUser((user , done)=>{
   );
 
   
-  //facebook strategy
+//facebook strategy
 passport.use(new FacebookStrategy({
   clientID : keys.FACEBOOK.clientID,
   clientSecret : keys.FACEBOOK.clientSecret,
@@ -47,31 +52,38 @@ passport.use(new FacebookStrategy({
 
   (accessToken , verifyToken , profile , done)=>{
     console.log(chalk.blue(JSON.stringify(profile)));
-    console.log(accessToken)
-    console.log(verifyToken)
-    
-    fuser = {...profile}
+    user = {...profile}
     return done(null , profile)
   }
   
   ))
 
-  //google
+  //google strategy
   passport.use(new GoogleStrategy({
     clientID : keys.GOOGLE.clientID,
     clientSecret : keys.GOOGLE.clientSecret,
     callbackURL : "/auth/google/redirect"
     } , 
-  
     (accessToken , verifyToken , profile , done)=>{
-      console.log(chalk.blue(JSON.stringify(profile)));
-      console.log(accessToken)
-      console.log(verifyToken)
-      
+      console.log(chalk.red(JSON.stringify(profile)));
       user = {...profile}
       return done(null , profile)
     }
     
-    ))
+    ));
+
+    //amazon strategy
+  passport.use(new AmazonStrategy({
+    clientID : keys.AMAZON.clientID,
+    clientSecret : keys.AMAZON.clientSecret,
+    callbackURL : "/auth/amazon/redirect"
+    } , 
+    (accessToken , verifyToken , profile , done)=>{
+      console.log(chalk.red(JSON.stringify(profile)));
+      user = {...profile}
+      return done(null , profile)
+    }
+    
+    ));
 
 module.exports = passport
