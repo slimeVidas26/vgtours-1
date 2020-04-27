@@ -73,10 +73,23 @@ passport.use(new FacebookStrategy({
     ));
 
     //amazon strategy
-  passport.use(new AmazonStrategy({
-    clientID : keys.AMAZON.clientID,
-    clientSecret : keys.AMAZON.clientSecret,
-    callbackURL : "/auth/amazon/redirect"
+  // passport.use(new AmazonStrategy({
+  //   clientID : keys.AMAZON.clientID,
+  //   clientSecret : keys.AMAZON.clientSecret,
+  //   callbackURL : "/auth/amazon/redirect"
+  //   } , 
+  //   (accessToken , verifyToken , profile , done)=>{
+  //     console.log(chalk.red(JSON.stringify(profile)));
+  //     user = {...profile}
+  //     return done(null , profile)
+  //   }
+  //   ));
+
+     //github strategy
+  passport.use(new GithubStrategy({
+    clientID : keys.GITHUB.clientID,
+    clientSecret : keys.GITHUB.clientSecret,
+    callbackURL : "/auth/github/redirect"
     } , 
     (accessToken , verifyToken , profile , done)=>{
       console.log(chalk.red(JSON.stringify(profile)));
@@ -85,5 +98,49 @@ passport.use(new FacebookStrategy({
     }
     
     ));
+
+        //instagram strategy
+  // passport.use(new InstagramStrategy({
+  //   clientID : keys.INSTAGRAM.clientID,
+  //   clientSecret : keys.INSTAGRAM.clientSecret,
+  //   callbackURL : "/auth/instagram/redirect"
+  //   } , 
+  //   (accessToken , verifyToken , profile , done)=>{
+  //     console.log(chalk.red(JSON.stringify(profile)));
+  //     user = {...profile}
+  //     return done(null , profile)
+  //   }
+  //   ));
+
+  //spotify strategy
+  passport.use(new SpotifyStrategy({
+    clientID : keys.SPOTIFY.clientID,
+    clientSecret : keys.SPOTIFY.clientSecret,
+    callbackURL : "/auth/spotify/redirect"
+    } , 
+    (accessToken , verifyToken , profile , done)=>{
+      console.log(chalk.red(JSON.stringify(profile)));
+      user = {...profile}
+      return done(null , profile)
+    }
+    
+    ));
+
+    //twitter strategy
+  // passport.use(new TwitterStrategy({
+  //   clientID : keys.TWITTER.clientID,
+  //   clientSecret : keys.TWITTER.clientSecret,
+  //   callbackURL : "/auth/twitter/redirect"
+  //   } , 
+  //   (accessToken , verifyToken , profile , done)=>{
+  //     console.log(chalk.red(JSON.stringify(profile)));
+  //     user = {...profile}
+  //     return done(null , profile)
+  //   }
+    
+  //   ));
+
+    
+
 
 module.exports = passport

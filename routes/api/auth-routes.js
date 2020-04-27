@@ -97,7 +97,6 @@ router.post("/login", (req, res) => {
   });
 
   //facebook
-  //router.get("/facebook" , passport.authenticate("facebook"))
 
   router.get('/facebook',
   passport.authenticate('facebook')
@@ -111,22 +110,78 @@ router.get("/facebook/redirect" , passport.authenticate("facebook") ,
 
 //google route
 router.get('/google',
-  passport.authenticate('google', { scope: ['profile'] }));
+  passport.authenticate('google',  { scope: ['profile'] }));
 
 router.get("/google/redirect" , passport.authenticate("google") , 
+(req , res)=>{
+//res.redirect("/profile")
+res.send(req.user)
+})
+
+
+
+//github route
+router.get('/github',
+  passport.authenticate('github', { scope: ['profile'] }));
+
+router.get("/github/redirect" , passport.authenticate("github") , 
 (req , res)=>{
 res.redirect("/profile")
 //res.send(req.user)
 })
 
 //amazon route
-router.get('/amazon',
-  passport.authenticate('amazon', { scope: ['profile'] }));
+// router.get('/amazon',
+//   passport.authenticate('amazon', {options: { scope: ['profile'] }}));
 
-router.get("/amazon/redirect" , passport.authenticate("amazon") , 
+// router.get("/amazon/redirect" , passport.authenticate("amazon") , 
+// (req , res)=>{
+// res.redirect("/profile")
+// //res.send(req.user)
+// })
+
+//instagram route
+router.get('/instagram',
+  passport.authenticate('instagram'));
+
+router.get("/instagram/redirect" , passport.authenticate("instagram") , 
 (req , res)=>{
 res.redirect("/profile")
 //res.send(req.user)
+})
+
+//spotify route
+router.get('/spotify',
+  passport.authenticate('spotify'));
+
+router.get("/spotify/redirect" , passport.authenticate("spotify") , 
+(req , res)=>{
+res.redirect("/profile")
+//res.send(req.user)
+})
+
+//twitter route
+router.get('/twitter',
+  passport.authenticate('twitter'));
+
+router.get("/twitter/redirect" , passport.authenticate("twitter") , 
+(req , res)=>{
+res.redirect("/profile")
+//res.send(req.user)
+})
+
+// auth logout
+router.get('/logout', (req, res) => {
+  console.log("logging out");
+  user = {}
+  req.logout();
+  res.redirect('/');
+});
+
+router.get("/user" , (req , res)=>{
+  console.log("getting user data")
+  res.send(user)
+
 })
 
 
