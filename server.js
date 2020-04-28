@@ -5,11 +5,14 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const authRoutes = require("./routes/api/auth-routes");
 const passport_setup = require("./config/passport")
+//twitter
+var session = require('express-session');
 
 
 const app = express();
 
-
+//twitter startegy session
+app.use(session({ secret: 'TWITTER_SECRET' }));
 
 
 // Bodyparser middleware

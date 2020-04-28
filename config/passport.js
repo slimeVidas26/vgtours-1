@@ -18,15 +18,25 @@ const opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = keys.secretOrKey;
 
-let user = {}
+// let user = {}
 
-passport.serializeUser((user , done)=>{
-  done(null , user)
-})
+// passport.serializeUser((user , done)=>{
+//   done(null , user)
+// })
 
-passport.deserializeUser((user , done)=>{
-  done(null , user)
-})
+// passport.deserializeUser((user , done)=>{
+//   done(null , user)
+// })
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id).then((user) => {
+      done(null, user);
+  });
+});
 
 //jwt startegy
   passport.use(
@@ -43,102 +53,233 @@ passport.deserializeUser((user , done)=>{
   );
 
   
-//facebook strategy
-passport.use(new FacebookStrategy({
-  clientID : keys.FACEBOOK.clientID,
-  clientSecret : keys.FACEBOOK.clientSecret,
-  callbackURL : "/auth/facebook/redirect"
-  } , 
+//FACEBOOK STRATEGY
+passport.use(
+  new FacebookStrategy({
+      // options for google strategy
+      clientID: keys.FACEBOOK.clientID,
+      clientSecret: keys.FACEBOOK.clientSecret,
+      callbackURL: '/auth/facebook/redirect'
+  }, (accessToken, refreshToken, profile, done) => {
+    console.log(chalk.green(JSON.stringify(profile)));
 
-  (accessToken , verifyToken , profile , done)=>{
-    console.log(chalk.blue(JSON.stringify(profile)));
-    user = {...profile}
-    return done(null , profile)
-  }
-  
-  ))
+      // check if user already exists in our own db
+      User.findOne({facebookId: profile.id}).then((currentUser) => {
+          if(currentUser){
+              // already have this user
+              console.log('Facebook user already exists : ', chalk.red(JSON.stringify(currentUser)));
+              done(null, currentUser);
+          } else {
+              // if not, create user in our db
+              new User({
+                  facebookId: profile.id,
+                  displayName: profile.displayName,
+                  thumbnail: profile._json.picture,
+                  provider :profile.provider,
+                  location : profile._json.locale
+              }).save().then((newUser) => {
+                  console.log('created new facebook user: ', chalk.green(JSON.stringify(newUser)));
 
-  //google strategy
-  passport.use(new GoogleStrategy({
-    clientID : keys.GOOGLE.clientID,
-    clientSecret : keys.GOOGLE.clientSecret,
-    callbackURL : "/auth/google/redirect"
-    } , 
-    (accessToken , verifyToken , profile , done)=>{
-      console.log(chalk.red(JSON.stringify(profile)));
-      user = {...profile}
-      return done(null , profile)
-    }
+                  done(null, newUser);
+              });
+          }
+      });
+  })
+);
+
+  //GOOGLE STRATEGY
+    passport.use(
+      new GoogleStrategy({
+          // options for google strategy
+          clientID: keys.GOOGLE.clientID,
+          clientSecret: keys.GOOGLE.clientSecret,
+          callbackURL: '/auth/google/redirect'
+      }, (accessToken, refreshToken, profile, done) => {
+          // check if user already exists in our own db
+          User.findOne({googleId: profile.id}).then((currentUser) => {
+              if(currentUser){
+                  // already have this user
+                  console.log('Google user already exists : ', chalk.red(JSON.stringify(currentUser)));
+                  done(null, currentUser);
+              } else {
+                  // if not, create user in our db
+
+                  new User({
+                      googleId: profile.id,
+                      username: profile.displayName,
+                      thumbnail: profile._json.picture,
+                      provider :profile.provider,
+                      location : profile._json.locale
+                  }).save().then((newUser) => {
+
+                      console.log('created new google user: ', chalk.green(JSON.stringify(newUser)));
+
+                      done(null, newUser);
+                  });
+              }
+          });
+      })
+  );
+
+//AMAZON STARTEGY
+    passport.use(
+      new AmazonStrategy({
+          // options for google strategy
+          clientID: keys.AMAZON.clientID,
+          clientSecret: keys.AMAZON.clientSecret,
+          callbackURL: '/auth/amazon/redirect'
+      }, (accessToken, refreshToken, profile, done) => {
+        console.log(chalk.green(JSON.stringify(profile)));
     
-    ));
-
-    //amazon strategy
-  // passport.use(new AmazonStrategy({
-  //   clientID : keys.AMAZON.clientID,
-  //   clientSecret : keys.AMAZON.clientSecret,
-  //   callbackURL : "/auth/amazon/redirect"
-  //   } , 
-  //   (accessToken , verifyToken , profile , done)=>{
-  //     console.log(chalk.red(JSON.stringify(profile)));
-  //     user = {...profile}
-  //     return done(null , profile)
-  //   }
-  //   ));
-
-     //github strategy
-  passport.use(new GithubStrategy({
-    clientID : keys.GITHUB.clientID,
-    clientSecret : keys.GITHUB.clientSecret,
-    callbackURL : "/auth/github/redirect"
-    } , 
-    (accessToken , verifyToken , profile , done)=>{
-      console.log(chalk.red(JSON.stringify(profile)));
-      user = {...profile}
-      return done(null , profile)
-    }
+          // check if user already exists in our own db
+          User.findOne({amazonId: profile.id}).then((currentUser) => {
+              if(currentUser){
+                  // already have this user
+                  console.log('Amazon user already exists : ', chalk.red(JSON.stringify(currentUser)));
+                  done(null, currentUser);
+              } else {
+                  // if not, create user in our db
+                  new User({
+                      amazonId: profile.id,
+                      displayName: profile.displayName,
+                      name : profile._json.name,
+                      email : profile._json.email,
+                      thumbnail: profile._json.picture,
+                      provider :profile.provider,
+                      location : profile._json.locale
+                  }).save().then((newUser) => {
+                      console.log('created new amazon user: ', chalk.green(JSON.stringify(newUser)));
     
-    ));
+                      done(null, newUser);
+                  });
+              }
+          });
+      })
+    );
+
+//GITHUB STRATEGY
+     passport.use(
+      new GithubStrategy({
+          // options for github strategy
+          clientID: keys.GITHUB.clientID,
+          clientSecret: keys.GITHUB.clientSecret,
+          callbackURL: '/auth/github/redirect'
+      }, (accessToken, refreshToken, profile, done) => {
+        console.log(chalk.green(JSON.stringify(profile)));
+    
+          // check if user already exists in our own db
+          User.findOne({githubId: profile.id}).then((currentUser) => {
+              if(currentUser){
+                  // already have this user
+                  console.log('Github user already exists : ', chalk.red(JSON.stringify(currentUser)));
+                  done(null, currentUser);
+              } else {
+                  // if not, create user in our db
+                  new User({
+                      githubId: profile.id,
+                      displayName: profile.displayName,
+                      userName : profile.username,
+                      name : profile._json.name,
+                      email : profile._json.email,
+                      thumbnail: profile._json.avatar_url,
+                      provider :profile.provider,
+                      location : profile._json.locale
+                  }).save().then((newUser) => {
+                      console.log('created new github user: ', chalk.green(JSON.stringify(newUser)));
+    
+                      done(null, newUser);
+                  });
+              }
+          });
+      })
+    );
 
         //instagram strategy
-  // passport.use(new InstagramStrategy({
-  //   clientID : keys.INSTAGRAM.clientID,
-  //   clientSecret : keys.INSTAGRAM.clientSecret,
-  //   callbackURL : "/auth/instagram/redirect"
-  //   } , 
-  //   (accessToken , verifyToken , profile , done)=>{
-  //     console.log(chalk.red(JSON.stringify(profile)));
-  //     user = {...profile}
-  //     return done(null , profile)
-  //   }
-  //   ));
-
-  //spotify strategy
-  passport.use(new SpotifyStrategy({
-    clientID : keys.SPOTIFY.clientID,
-    clientSecret : keys.SPOTIFY.clientSecret,
-    callbackURL : "/auth/spotify/redirect"
+  passport.use(new InstagramStrategy({
+    clientID : keys.INSTAGRAM.clientID,
+    clientSecret : keys.INSTAGRAM.clientSecret,
+    callbackURL : "/auth/instagram/redirect"
     } , 
     (accessToken , verifyToken , profile , done)=>{
       console.log(chalk.red(JSON.stringify(profile)));
       user = {...profile}
       return done(null , profile)
     }
-    
     ));
 
-    //twitter strategy
-  // passport.use(new TwitterStrategy({
-  //   clientID : keys.TWITTER.clientID,
-  //   clientSecret : keys.TWITTER.clientSecret,
-  //   callbackURL : "/auth/twitter/redirect"
-  //   } , 
-  //   (accessToken , verifyToken , profile , done)=>{
-  //     console.log(chalk.red(JSON.stringify(profile)));
-  //     user = {...profile}
-  //     return done(null , profile)
-  //   }
+//SPOTIFY STARTEGY
+  passport.use(
+    new SpotifyStrategy({
+        // options for spotify strategy
+        clientID: keys.SPOTIFY.clientID,
+        clientSecret: keys.SPOTIFY.clientSecret,
+        callbackURL: '/auth/spotify/redirect'
+    }, (accessToken, refreshToken, profile, done) => {
+      console.log(chalk.green(JSON.stringify(profile)));
+  
+        // check if user already exists in our own db
+        User.findOne({spotifyId: profile.id}).then((currentUser) => {
+            if(currentUser){
+                // already have this user
+                console.log('Spotify user already exists : ', chalk.red(JSON.stringify(currentUser)));
+                done(null, currentUser);
+            } else {
+                // if not, create user in our db
+                new User({
+                    spotifyId: profile.id,
+                    displayName: profile.displayName,
+                    userName : profile.username,
+                    name : profile._json.name,
+                    email : profile._json.email,
+                    thumbnail: profile._json.images_url,
+                    provider :profile.provider,
+                    location : profile._json.locale
+                }).save().then((newUser) => {
+                    console.log('created new spotify user: ', chalk.green(JSON.stringify(newUser)));
+  
+                    done(null, newUser);
+                });
+            }
+        });
+    })
+  );
+
+//TWITTER STRATEGY
+    passport.use(
+      new TwitterStrategy({
+          // options for TWITTER strategy
+          consumerKey: keys.TWITTER.clientID,
+          consumerSecret: keys.TWITTER.clientSecret,
+          callbackURL: '/auth/twitter/redirect'
+      }, (accessToken, refreshToken, profile, done) => {
+        console.log(chalk.green(JSON.stringify(profile)));
     
-  //   ));
+          // check if user already exists in our own db
+          User.findOne({twitterId: profile.id}).then((currentUser) => {
+              if(currentUser){
+                  // already have this user
+                  console.log('Twitter user already exists : ', chalk.red(JSON.stringify(currentUser)));
+                  done(null, currentUser);
+              } else {
+                  // if not, create user in our db
+                  new User({
+                      twitterId: profile.id,
+                      displayName: profile.displayName,
+                      userName : profile.username,
+                      name : profile._json.name,
+                      email : profile._json.email,
+                      thumbnail: profile._json.images_url,
+                      provider :profile.provider,
+                      location : profile._json.locale
+                  }).save().then((newUser) => {
+                      console.log('created new twitter user: ', chalk.green(JSON.stringify(newUser)));
+    
+                      done(null, newUser);
+                  });
+              }
+          });
+      })
+    );
 
     
 

@@ -126,19 +126,19 @@ router.get('/github',
 
 router.get("/github/redirect" , passport.authenticate("github") , 
 (req , res)=>{
-res.redirect("/profile")
-//res.send(req.user)
+//res.redirect("/profile")
+res.send(req.user)
 })
 
 //amazon route
-// router.get('/amazon',
-//   passport.authenticate('amazon', {options: { scope: ['profile'] }}));
+router.get('/amazon',
+  passport.authenticate('amazon',  { scope: ['profile'] }));
 
-// router.get("/amazon/redirect" , passport.authenticate("amazon") , 
-// (req , res)=>{
-// res.redirect("/profile")
-// //res.send(req.user)
-// })
+router.get("/amazon/redirect" , passport.authenticate("amazon") , 
+(req , res)=>{
+//res.redirect("/profile")
+res.send(req.user)
+})
 
 //instagram route
 router.get('/instagram',
@@ -146,8 +146,8 @@ router.get('/instagram',
 
 router.get("/instagram/redirect" , passport.authenticate("instagram") , 
 (req , res)=>{
-res.redirect("/profile")
-//res.send(req.user)
+//res.redirect("/profile")
+res.send(req.user)
 })
 
 //spotify route
@@ -156,18 +156,18 @@ router.get('/spotify',
 
 router.get("/spotify/redirect" , passport.authenticate("spotify") , 
 (req , res)=>{
-res.redirect("/profile")
-//res.send(req.user)
+//res.redirect("/profile")
+res.send(req.user)
 })
 
 //twitter route
 router.get('/twitter',
   passport.authenticate('twitter'));
 
-router.get("/twitter/redirect" , passport.authenticate("twitter") , 
+router.get("/twitter/redirect" , passport.authenticate("twitter", { scope: ['profile'] }) , 
 (req , res)=>{
-res.redirect("/profile")
-//res.send(req.user)
+//res.redirect("/profile")
+res.send(req.user)
 })
 
 // auth logout
