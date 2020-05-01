@@ -9,11 +9,9 @@ const passport_setup = require("./config/passport")
 var session = require('express-session');
 
 
+
+
 const app = express();
-
-//twitter startegy session
-app.use(session({ secret: 'TWITTER_SECRET' }));
-
 
 // Bodyparser middleware
 app.use(
@@ -21,6 +19,76 @@ app.use(
     extended: false
   })
 );
+
+const requireJsonContent = () => {
+  return (req, res, next) => {
+    if (req.header('Authorization') !== '123456') {
+        res.status(400).send('incorrect token')
+    } else {
+      next()
+    }
+  }
+}
+
+
+
+app.get('/logon', (req, res, next) => {
+  res.send('Welcome Home');
+});
+
+app.post('/logon',requireJsonContent(), (req, res, next) => {
+  res.send('You are logged');
+})
+//home route
+app.get('/', (req , res)=>{
+  
+  res.send({
+    cookie : req.header("cookie"),
+    UserAgent : req.header("user-agent"),
+    Host : req.header("host"),
+    Connection : req.header("connection"),
+    Method : req.method,
+    tUrl : req.url,
+    Code : res.statusCode,
+    remoteAdress : req.connection.remoteAddress,
+    rawHeaders : req.rawHeaders, 
+  })
+  })
+
+  app.post('/contact/:id' , (req , res)=>{
+    //res.send("you are at http://localhost:5000")
+    //res.send(req.header("cookie"))
+    //res.send(req.header("content-type"))
+    if(!req.body.name){
+      res.status(400).send("Name is required")
+    }
+    else { 
+       res.status(201).send("Thank you " + req.body.name)
+    }
+    })
+
+    app.post('/logan' , (req , res)=>{
+      //if no token
+      if(!req.header("Authorization")){
+        return res.status(400).send("no token")
+      }
+      if(req.header("Authorization") !== "123456"){
+        return res.status(401).send("invalid token")
+
+
+      }
+      
+         res.write(req.header("Authorization"));
+         res.end("  logged")
+
+      
+    })
+
+//twitter startegy session
+app.use(session({ secret: 'TWITTER_SECRET' }));
+
+
+
 app.use(bodyParser.json());
 // DB Config
 const db = require("./config/keys").mongoURI;
