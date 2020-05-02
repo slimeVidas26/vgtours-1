@@ -9,6 +9,7 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/User");
+const CLIENT_HOME_PAGE_URL = "http://localhost:3000"
 
 // @route POST api/users/register
 // @desc Register user
@@ -160,29 +161,45 @@ router.get("/spotify/redirect" , passport.authenticate("spotify") ,
 res.send(req.user)
 })
 
-//twitter route
+// auth with twitter
 router.get('/twitter',
   passport.authenticate('twitter'));
 
-router.get("/twitter/redirect" , passport.authenticate("twitter", { scope: ['profile'] }) , 
-(req , res)=>{
-//res.redirect("/profile")
-res.send(req.user)
+  // redirect to home page after successfully login via twitter
+router.get("/twitter/redirect" , passport.authenticate('twitter',{
+  successRedirect : CLIENT_HOME_PAGE_URL,
+  failureRedirect : "/login/failed"
+}));
+
+//redirect url if not authenticate
+router.get("/login/failed", (req , res)=>{
+  //console.log("res" , res.writable)
+  res.status(401).send({
+    message : "User failed to authenticate",
+    success : false
+  })
+});
+
+// when login is successful, retrieve user info
+router.get('/login/success',(req , res)=>{
+  if(req.user){
+    res.json({
+      success : true,
+      message: 'user has successfully authenticated',
+      user : req.user,
+      cookies : req.cookies
+    })
+    console.log(req.cookies)
+  }
 })
 
 // auth logout
 router.get('/logout', (req, res) => {
-  console.log("logging out");
-  user = {}
   req.logout();
-  res.redirect('/');
+  res.redirect(CLIENT_HOME_PAGE_URL);
 });
 
-router.get("/user" , (req , res)=>{
-  console.log("getting user data")
-  res.send(user)
 
-})
 
 
   module.exports = router;

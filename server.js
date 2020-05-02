@@ -1,17 +1,20 @@
 const express = require("express");
-const cors = require('cors')
+const app = express();
+const cookieSession = require('cookie-session')
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const authRoutes = require("./routes/api/auth-routes");
-const passport_setup = require("./config/passport")
+const passportSetup = require("./config/passport_setup")
 //twitter
-var session = require('express-session');
+const session = require('express-session');
+const cors = require('cors');
+const cookieParser = require('cookie-parser')
+const keys = require("./config/keys")
 
 
 
 
-const app = express();
 
 // Bodyparser middleware
 app.use(
@@ -20,74 +23,33 @@ app.use(
   })
 );
 
-const requireJsonContent = () => {
-  return (req, res, next) => {
-    if (req.header('Authorization') !== '123456') {
-        res.status(400).send('incorrect token')
-    } else {
-      next()
-    }
-  }
-}
-
-
-
-app.get('/logon', (req, res, next) => {
-  res.send('Welcome Home');
-});
-
-app.post('/logon',requireJsonContent(), (req, res, next) => {
-  res.send('You are logged');
-})
-//home route
-app.get('/', (req , res)=>{
-  
-  res.send({
-    cookie : req.header("cookie"),
-    UserAgent : req.header("user-agent"),
-    Host : req.header("host"),
-    Connection : req.header("connection"),
-    Method : req.method,
-    tUrl : req.url,
-    Code : res.statusCode,
-    remoteAdress : req.connection.remoteAddress,
-    rawHeaders : req.rawHeaders, 
-  })
-  })
-
-  app.post('/contact/:id' , (req , res)=>{
-    //res.send("you are at http://localhost:5000")
-    //res.send(req.header("cookie"))
-    //res.send(req.header("content-type"))
-    if(!req.body.name){
-      res.status(400).send("Name is required")
-    }
-    else { 
-       res.status(201).send("Thank you " + req.body.name)
-    }
-    })
-
-    app.post('/logan' , (req , res)=>{
-      //if no token
-      if(!req.header("Authorization")){
-        return res.status(400).send("no token")
-      }
-      if(req.header("Authorization") !== "123456"){
-        return res.status(401).send("invalid token")
-
-
-      }
-      
-         res.write(req.header("Authorization"));
-         res.end("  logged")
-
-      
-    })
-
 //twitter startegy session
-app.use(session({ secret: 'TWITTER_SECRET' }));
+// app.use(session({ secret: 'TWITTER_SECRET' }));
+app.use(
+  cookieSession({
+    name : "session",
+    keys : [keys.SESSION.COOKIE_KEY],
+    maxAge : 24*60*60*100
+  })
+);
 
+// parse cookies
+app.use(cookieParser());
 
+// Passport INITIALIZE
+app.use(passport.initialize());
+
+// deserialize cookie from the browser
+app.use(passport.session());
+
+// set up cors to allow us to accept requests from our client
+app.use(
+  cors({
+    origin: "http://localhost:3000", // allow to server to accept request from different origin
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true // allow session cookie from browser to pass through
+  })
+);
 
 app.use(bodyParser.json());
 // DB Config
@@ -103,19 +65,37 @@ mongoose
   .catch(err => console.log(err));
 
 
-  // Passport middleware
-app.use(passport.initialize());
-// Passport config
-//require("./config/passport")(passport);
+  
+
 // Routes
 app.use("/auth", authRoutes);
 
+const authCheck = (req, res, next) => {
+  if (!req.user) {
+    res.status(401).json({
+      authenticated: false,
+      message: "user has not been authenticated"
+    });
+  } else {
+    next();
+  }
+};
+
+// if it's already login, send the profile response,
+// otherwise, send a 401 response that the user is not authenticated
+// authCheck before navigating to home page
+app.get("/", authCheck, (req, res) => {
+  res.status(200).json({
+    authenticated: true,
+    message: "user successfully authenticated",
+    user: req.user,
+    cookies: req.cookies
+  });
+});
 
 
 
 
-app.use(cors())
-app.use(passport.initialize())
 
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there

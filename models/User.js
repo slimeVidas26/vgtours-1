@@ -51,6 +51,10 @@ const UserSchema = new Schema({
     type: String,
     required: false
   },
+  screenName: {
+    type: String,
+    required: false
+  },
   
   thumbnail: {
     type: String,

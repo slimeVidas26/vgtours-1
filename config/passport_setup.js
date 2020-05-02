@@ -18,25 +18,24 @@ const opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = keys.secretOrKey;
 
-// let user = {}
 
-// passport.serializeUser((user , done)=>{
-//   done(null , user)
-// })
 
-// passport.deserializeUser((user , done)=>{
-//   done(null , user)
-// })
-
+// serialize the user.id to save in the cookie session
+// so the browser will remember the user when login
 passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
-
-passport.deserializeUser((id, done) => {
-  User.findById(id).then((user) => {
-      done(null, user);
+    done(null, user.id);
   });
-});
+  
+  // deserialize the cookieUserId to user in the database
+  passport.deserializeUser((id, done) => {
+    User.findById(id)
+      .then(user => {
+        done(null, user);
+      })
+      .catch(e => {
+        done(new Error("Failed to deserialize an user"));
+      });
+  });
 
 //jwt startegy
   passport.use(
@@ -248,8 +247,8 @@ passport.use(
     passport.use(
       new TwitterStrategy({
           // options for TWITTER strategy
-          consumerKey: keys.TWITTER.clientID,
-          consumerSecret: keys.TWITTER.clientSecret,
+          consumerKey: keys.TWITTER.CONSUMER_KEY,
+          consumerSecret: keys.TWITTER.CONSUMER_SECRET,
           callbackURL: '/auth/twitter/redirect'
       }, (accessToken, refreshToken, profile, done) => {
         console.log(chalk.green(JSON.stringify(profile)));
@@ -263,14 +262,10 @@ passport.use(
               } else {
                   // if not, create user in our db
                   new User({
-                      twitterId: profile.id,
-                      displayName: profile.displayName,
-                      userName : profile.username,
-                      name : profile._json.name,
-                      email : profile._json.email,
-                      thumbnail: profile._json.images_url,
-                      provider :profile.provider,
-                      location : profile._json.locale
+                    twitterId: profile._json.id_str,
+                    name: profile._json.name,
+                    screenName: profile._json.screen_name,
+                    thumbnail: profile._json.profile_image_url
                   }).save().then((newUser) => {
                       console.log('created new twitter user: ', chalk.green(JSON.stringify(newUser)));
     

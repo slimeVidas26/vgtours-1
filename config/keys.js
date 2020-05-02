@@ -1,11 +1,13 @@
- const dbuser = 'isaac';
- const dbpassword = 'trottinette';
-//   const  mongoURI = `mongodb+srv://${dbuser}:${dbpassword}@cluster0-3or9x.mongodb.net/test?retryWrites=true&w=majority` ;
-//   module.export = mongoURI;
+ const DB_USER = 'isaac';
+ const DB_PASSWORD = 'trottinette';
 
   module.exports = {
-     mongoURI: `mongodb+srv://${dbuser}:${dbpassword}@cluster0-3or9x.mongodb.net/test?retryWrites=true&w=majority`,
+     mongoURI: `mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0-3or9x.mongodb.net/test?retryWrites=true&w=majority`,
      secretOrKey: "secret",
+
+     SESSION: {
+      COOKIE_KEY: "thisappisawesome"
+     },
 
      AMAZON: {
        clientID: "amzn1.application-oa2-client.4c1282d262554962b2cb78702b120395",
@@ -32,8 +34,10 @@
       clientSecret : "2e7fcdb804b24dab809604cedcdf8c64"
     },
     TWITTER: {
-      clientID: "KgKqQm9rTy7O8dA2PjoaM4CdR",
-      clientSecret : "WfWREmLVZ6knX1tNrSHzmL0vs4IcHXvTDAeHoczab2yoFkTwlY"
+      CONSUMER_KEY: "KgKqQm9rTy7O8dA2PjoaM4CdR",
+      CONSUMER_SECRET: "WfWREmLVZ6knX1tNrSHzmL0vs4IcHXvTDAeHoczab2yoFkTwlY",
+      TWITTER_ACCESS_TOKEN: "224236256-dDx7VZhyDQsR1MXgLnkcCZS1Cjs5kIa5sEK3eD13",
+      TWITTER_TOKEN_SECRET: "ClXNXKwaTaOL01WomOD9W64FPvQ1UOOQ1381tn612lwFh"
     }
   };
 
