@@ -1,20 +1,16 @@
 const express = require("express");
 const app = express();
+const mongoConnection = require('./config/mongo-connection').mongoConnect;
 const cookieSession = require('cookie-session')
-const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const authRoutes = require("./routes/api/auth-routes");
 const passportSetup = require("./config/passport_setup")
 //twitter
-const session = require('express-session');
+//const session = require('express-session');
 const cors = require('cors');
 const cookieParser = require('cookie-parser')
 const keys = require("./config/keys")
-
-
-
-
 
 // Bodyparser middleware
 app.use(
@@ -24,7 +20,6 @@ app.use(
 );
 
 //twitter startegy session
-// app.use(session({ secret: 'TWITTER_SECRET' }));
 app.use(
   cookieSession({
     name : "session",
@@ -35,10 +30,8 @@ app.use(
 
 // parse cookies
 app.use(cookieParser());
-
 // Passport INITIALIZE
 app.use(passport.initialize());
-
 // deserialize cookie from the browser
 app.use(passport.session());
 
@@ -52,20 +45,11 @@ app.use(
 );
 
 app.use(bodyParser.json());
-// DB Config
-const db = require("./config/keys").mongoURI;
-//console.log("db" , db)
-// Connect to MongoDB
-mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true ,useUnifiedTopology: true }
-  )
-  .then(() => console.log("MongoDB successfully connected"))
-  .catch(err => console.log(err));
 
-
-  
+//debugging middleware
+// app.use((req , res)=>{
+//   console.log("req" , req)
+// })
 
 // Routes
 app.use("/auth", authRoutes);
@@ -74,7 +58,8 @@ const authCheck = (req, res, next) => {
   if (!req.user) {
     res.status(401).json({
       authenticated: false,
-      message: "user has not been authenticated"
+      message: "user has not been authenticated",
+      landingPage : "SERVER HOME PAGE"
     });
   } else {
     next();
@@ -89,13 +74,10 @@ app.get("/", authCheck, (req, res) => {
     authenticated: true,
     message: "user successfully authenticated",
     user: req.user,
-    cookies: req.cookies
+    cookies: req.cookies,
+    landingPage : "SERVER HOME PAGE"
   });
 });
-
-
-
-
 
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there

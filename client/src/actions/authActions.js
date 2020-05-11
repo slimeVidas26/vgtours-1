@@ -65,3 +65,11 @@ export const logoutUser = () => dispatch => {
   dispatch(setCurrentUser({}));
   window.location.href = "./?login=true";
 };
+
+//log twitter user out
+export const twitterLogoutUser = () => dispatch =>{
+  console.log("twitter user is logged out")
+  window.open("http://localhost:5000/auth/logout", "_self");
+
+
+}

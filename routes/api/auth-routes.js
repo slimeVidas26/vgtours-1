@@ -11,6 +11,20 @@ const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 const CLIENT_HOME_PAGE_URL = "http://localhost:3000"
 
+//test
+
+
+
+// bcrypt.hash('mypassword', 10, function(err, hash) {
+//   if (err) { throw (err); }
+//   console.log(hash)
+//   bcrypt.compare('mypassword', hash, function(err, result) {
+//       if (err) { throw (err); }
+//       console.log(result);
+//   });
+// });
+
+
 // @route POST api/users/register
 // @desc Register user
 // @access Public
@@ -51,6 +65,7 @@ router.post("/register", (req, res) => {
 // @desc Login user and return JWT token
 // @access Public
 router.post("/login", (req, res) => {
+
     // Form validation
   const { errors, isValid } = validateLoginInput(req.body);
   // Check validation
@@ -67,6 +82,7 @@ router.post("/login", (req, res) => {
       }
   // Check password
       bcrypt.compare(password, user.password).then(isMatch => {
+      
         if (isMatch) {
           // User matched
           // Create JWT Payload
@@ -113,10 +129,13 @@ router.get("/facebook/redirect" , passport.authenticate("facebook") ,
 router.get('/google',
   passport.authenticate('google',  { scope: ['profile'] }));
 
-router.get("/google/redirect" , passport.authenticate("google") , 
+router.get("/google/redirect" , passport.authenticate("google" , {
+  successRedirect : CLIENT_HOME_PAGE_URL ,
+  failureRedirect : "/login/failed" 
+}) , 
 (req , res)=>{
 //res.redirect("/profile")
-res.send(req.user)
+console.log(req.user)
 })
 
 
@@ -167,15 +186,15 @@ router.get('/twitter',
 
   // redirect to home page after successfully login via twitter
 router.get("/twitter/redirect" , passport.authenticate('twitter',{
-  successRedirect : CLIENT_HOME_PAGE_URL,
+  successRedirect : CLIENT_HOME_PAGE_URL + "/twitter-auth",
   failureRedirect : "/login/failed"
 }));
 
 //redirect url if not authenticate
 router.get("/login/failed", (req , res)=>{
   //console.log("res" , res.writable)
-  res.status(401).send({
-    message : "User failed to authenticate",
+  res.status(401).json({
+    message : "<h2>User failed to authenticate</h2>",
     success : false
   })
 });
@@ -190,6 +209,7 @@ router.get('/login/success',(req , res)=>{
       cookies : req.cookies
     })
     console.log(req.cookies)
+    console.log(req.user)
   }
 })
 
@@ -197,6 +217,8 @@ router.get('/login/success',(req , res)=>{
 router.get('/logout', (req, res) => {
   req.logout();
   res.redirect(CLIENT_HOME_PAGE_URL);
+  console.log(req.user);
+  console.log(req.cookies);
 });
 
 

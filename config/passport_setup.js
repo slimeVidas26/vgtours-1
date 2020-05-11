@@ -109,6 +109,8 @@ passport.use(
                       thumbnail: profile._json.picture,
                       provider :profile.provider,
                       location : profile._json.locale
+
+                      
                   }).save().then((newUser) => {
 
                       console.log('created new google user: ', chalk.green(JSON.stringify(newUser)));

@@ -14,7 +14,9 @@ import Register from "./components/auth/Register";
  import Login from "./components/auth/Login";
 // import Login2 from "./components/auth/Login2";
 import ProfilePage from "./components/auth//profile";
-import SignUpPage from './components/auth/SignUpPage'
+import SignUpPage from './components/auth/SignUpPage';
+import TwitterAuth from './components/TwitterAuth'
+
 
 
 import PrivateRoute from "./components/private-route/PrivateRoute";
@@ -102,6 +104,7 @@ class App extends Component {
       <Route exact path="/" component={HomePage} />
       <Route  path="/signup" component={SignUpPage} />
       <Route  path="/url-parameters" component={UrlParameters} />
+      <Route  path="/twitter-auth" component={TwitterAuth} />
 
       <PrivateRoute  path="/dashboard" component={Dashboard} />
     </Switch>
