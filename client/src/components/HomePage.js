@@ -1,9 +1,9 @@
 import React, { Component , Fragment  } from 'react'
 // import {withRouter} from 'react-router-dom'
-import '../assets/less/base.css'
-import '../assets/less/header.css'
-import '../assets/less/theme.css'
-import '../assets/icon/style.css'
+// import '../assets/less/base.css'
+// import '../assets/less/header.css'
+// import '../assets/less/theme.css'
+// import '../assets/icon/style.css'
 
 
 import '../assets/images/ico/favicon.ico'
@@ -12,7 +12,6 @@ import Header from "./Header";
 import HeroSearchFullPage from './HeroSearchFullPage'
 import UiLayoutTop from './UiLayoutTop'
 import SignUp from './auth/SignUpPage'
-import Login2 from './auth/_Login2'
 import SignUpWithMail from './auth/SignUpWithMail'
 import Wishlist from './Wishlist'
 

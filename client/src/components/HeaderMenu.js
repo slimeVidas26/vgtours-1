@@ -28,10 +28,7 @@ constructor(props) {
     
     <ul className="main-menu">
 
-   
-    <li><Link to="/profile" className="item">Go To Profile</Link></li>
-      
-                    
+              
         <li><Link to="/becomeavendor" className="item">
                 <span>Become a Vendor</span>
             </Link>

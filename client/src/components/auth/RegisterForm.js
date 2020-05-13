@@ -1,9 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import classnames from "classnames";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import { withRouter} from "react-router-dom";
+import FormTitle from '../layout/FormTitle';
+import FormActions from '../layout/FormActions'
+import { Route } from "react-router-dom";
+import Modal from './Modal'
+
+
+
 
 
 
@@ -60,9 +67,21 @@ import { withRouter} from "react-router-dom";
       };
     render() {
         const { errors } = this.state;
-        return (
-              <div className="content">
+        let params = new URLSearchParams(this.props.location.search);
 
+        return (
+            <Fragment>
+              <Route render={() => {
+            return (
+                params.get("mail") && (
+              <Modal
+                onClick={() => {
+                  this.props.history.push(this.props.match.url);
+                }}>
+                
+               {/* FORM REGISTER */}
+               <FormTitle>  Sign Up Now </FormTitle>
+<div className="content">
 <form noValidate onSubmit={this.onSubmit}>
 
    {/* <div className="div-c inline-2">
@@ -181,7 +200,15 @@ import { withRouter} from "react-router-dom";
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>  
 </form>
 </div>
+</Modal>
+                )
+            );
+          }}
+        />
 
+ {/* form actions */}
+ <FormActions>Log In</FormActions>
+</Fragment>
         )
     }
 }

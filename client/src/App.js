@@ -6,39 +6,26 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 // import './App.css';
+import './assets/less/base.css'
+import './assets/less/header.css'
+import './assets/less/theme.css'
+import './assets/icon/style.css'
 
 // import Navbar from "./components/layout/Navbar";
 // import Landing from "./components/layout/Landing";
 import BecomeAvendor from './components/BecomeAvendor'
 import Register from "./components/auth/Register";
  import Login from "./components/auth/Login";
-// import Login2 from "./components/auth/Login2";
-import ProfilePage from "./components/auth//profile";
 import SignUpPage from './components/auth/SignUpPage';
 import TwitterAuth from './components/TwitterAuth'
-
-
-
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
-// import ModalExample from "./components/semantic-ui-tests/ModalExample";
-//import Footer from "./components/layout/Footer";
 import HomePage from "./components/HomePage";
 import DefaultGrid from "./components/features/DefaultGrid";
 import DividedContainer from "./components/features/assets/dividedContainer/DividedContainer";
 import MagicGrid from "./components/features/assets/magicGrid/MagicGrid";
 import SignUpWithMail from "./components/auth/SignUpWithMail";
 import UrlParameters from "./components/features/assets/router/UrlParameters";
-
-
-// import ButtonExampleEmphasisShorthand from "./components/ButtonExampleEmphasisShorthand";
-//  import ThemingLayout from "./components/ThemingLayout";
-// import Home from './components/Home'
-// import HeaderMenu from './components/layout/HeaderMenu'
-
-
-
-
 
 
 // Check for token to keep user logged in
@@ -66,36 +53,16 @@ class App extends Component {
 
   
 
-//   componentWillMount() {
-//     console.log('componentWillMount is called');
-//     const script = document.createElement('script');
-//     script.src = 'assets/library/jquery-2.2.0.min.js';
-//     document.body.appendChild(script);
-// }
+
   render() {
     return (
        <Provider store={store}>
       <Router>
       <Fragment>
         
-          {/* <Navbar /> */}
-          {/* <ModalExample/> */}
-          {/* <Route exact path="/" component={Landing} /> */}
-          {/* <Route exact path="/" component={HomePage} /> */}
-           {/* <Route exact path="/" component={ButtonExampleEmphasisShorthand} /> */}
-            {/* <Route exact path="/" component={ThemingLayout} />  */}
-             {/* <Route exact path="/" component={Home} /> */}
-
-
+         
           <Route exact path="/becomeavendor" component={BecomeAvendor} /> 
-          {/* <Route exact path="/register" component={Register} /> */}
           <Route exact path="/register" component={SignUpWithMail} />
-
-          {/* <Route exact path="/login" component={Login} /> */}
-          {/* <Route exact path="/login" component={Login2} /> */}
-
-
-
           <Route exact path="/features/fts_default_grid.html" component={DefaultGrid}/>
           <Route exact path="/features/fts_divided_container.html" component={DividedContainer} />
           <Route exact path="/features/fts_magic_grid.html" component={MagicGrid} />
@@ -109,15 +76,9 @@ class App extends Component {
       <PrivateRoute  path="/dashboard" component={Dashboard} />
     </Switch>
 
-    {/* <Route exact path="/login" component={Login} /> */}
     <Route exact path="/" component={Login} />
-    
-
-      {/* <Route exact path="/" component={SignUpPage} />   */}
-            {/* <Footer/> */}
+  
             </Fragment>
-        
-      
       </Router>
       </Provider>
     );
