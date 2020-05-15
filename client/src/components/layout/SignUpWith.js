@@ -53,12 +53,12 @@ class SignUpWith extends Component {
 
       _googleSignIn = () => {
         // Authenticate using via passport api in the backend
-        // Open Twitter login page
+        // Open google login page
         window.open("http://localhost:5000/auth/google", "_self");
       };
       _facebookSignIn = () => {
         // Authenticate using via passport api in the backend
-        // Open Twitter login page
+        // Open facebook login page
         window.open("http://localhost:5000/auth/facebook", "_self");
       };
 
@@ -85,10 +85,8 @@ class SignUpWith extends Component {
         })
 
         
-        return 
-           <div>
-            {socialNetwork}
-           </div>
+        return socialNetwork
+        
         
     }
 }
