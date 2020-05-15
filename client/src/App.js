@@ -14,8 +14,7 @@ import './assets/icon/style.css'
 // import Navbar from "./components/layout/Navbar";
 // import Landing from "./components/layout/Landing";
 import BecomeAvendor from './components/BecomeAvendor'
-import Register from "./components/auth/Register";
- import Login from "./components/auth/Login";
+ import LoginPage from "./components/auth/LoginPage";
 import SignUpPage from './components/auth/SignUpPage';
 import TwitterAuth from './components/TwitterAuth'
 import PrivateRoute from "./components/private-route/PrivateRoute";
@@ -24,7 +23,6 @@ import HomePage from "./components/HomePage";
 import DefaultGrid from "./components/features/DefaultGrid";
 import DividedContainer from "./components/features/assets/dividedContainer/DividedContainer";
 import MagicGrid from "./components/features/assets/magicGrid/MagicGrid";
-import SignUpWithMail from "./components/auth/SignUpWithMail";
 import UrlParameters from "./components/features/assets/router/UrlParameters";
 
 
@@ -62,7 +60,6 @@ class App extends Component {
         
          
           <Route exact path="/becomeavendor" component={BecomeAvendor} /> 
-          <Route exact path="/register" component={SignUpWithMail} />
           <Route exact path="/features/fts_default_grid.html" component={DefaultGrid}/>
           <Route exact path="/features/fts_divided_container.html" component={DividedContainer} />
           <Route exact path="/features/fts_magic_grid.html" component={MagicGrid} />
@@ -76,7 +73,7 @@ class App extends Component {
       <PrivateRoute  path="/dashboard" component={Dashboard} />
     </Switch>
 
-    <Route exact path="/" component={Login} />
+    <Route exact path="/" component={LoginPage} />
   
             </Fragment>
       </Router>

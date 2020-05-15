@@ -1,9 +1,5 @@
 import React, { Component , Fragment  } from 'react'
-// import {withRouter} from 'react-router-dom'
-// import '../assets/less/base.css'
-// import '../assets/less/header.css'
-// import '../assets/less/theme.css'
-// import '../assets/icon/style.css'
+
 
 
 import '../assets/images/ico/favicon.ico'
@@ -11,8 +7,6 @@ import '../assets/images/ico/favicon.ico'
 import Header from "./Header";
 import HeroSearchFullPage from './HeroSearchFullPage'
 import UiLayoutTop from './UiLayoutTop'
-import SignUp from './auth/SignUpPage'
-import SignUpWithMail from './auth/SignUpWithMail'
 import Wishlist from './Wishlist'
 
 import Footer from "./Footer";
@@ -52,7 +46,7 @@ class HomePage extends Component {
       
       {/* <!-- Sign Up with mail --> */}
       
-      <SignUpWithMail/>
+      {/* <SignUpWithMail/> */}
       {/* <!-- Wishlist --> */}
       
       <Wishlist/>           

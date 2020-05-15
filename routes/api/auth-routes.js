@@ -29,6 +29,10 @@ const CLIENT_HOME_PAGE_URL = "http://localhost:3000"
 // @desc Register user
 // @access Public
 router.post("/register", (req, res) => {
+console.log("req.body",req.body)
+
+
+  
     // Form validation
   const { errors, isValid } = validateRegisterInput(req.body);
   // Check validation
@@ -47,7 +51,9 @@ router.post("/register", (req, res) => {
         });
   // Hash password before saving in database
         bcrypt.genSalt(10, (err, salt) => {
+          console.log("salt" , salt)
           bcrypt.hash(newUser.password, salt, (err, hash) => {
+            console.log("hash" , hash)
             if (err) throw err;
             newUser.password = hash;
             newUser

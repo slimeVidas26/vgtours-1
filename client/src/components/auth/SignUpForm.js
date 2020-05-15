@@ -37,9 +37,13 @@ import Modal from './Modal'
 
     // If logged in and user navigates to Register page, should redirect them to dashboard
     
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
-    }
+    // if (this.props.auth.isAuthenticated) {
+    //   console.log("this.props.auth",this.props.auth)
+    //   this.props.history.push("/dashboard");
+    // }
+    // else{
+    //   console.log("no auth")
+    // }
   }
 
       componentWillReceiveProps(nextProps) {
@@ -64,6 +68,7 @@ import Modal from './Modal'
         };
     console.log(newUser);
     this.props.registerUser(newUser, this.props.history); 
+    console.log("this.state form register submit function" , this.state)
       };
     render() {
         const { errors } = this.state;
@@ -217,14 +222,15 @@ import Modal from './Modal'
 
 RegisterForm.propTypes = {
     registerUser: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired,
+    //auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
   };
 
 const mapStateToProps = state => ({
-    auth: state.auth,
+    //auth: state.auth,
     errors: state.errors
   });
+
 
 export default connect(
     mapStateToProps,

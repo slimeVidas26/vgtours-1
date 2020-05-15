@@ -1,82 +1,63 @@
-import React, { Component } from "react";
-import Modal from "./Modal";
+import React, { Component } from 'react'
 import classnames from "classnames";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
-import FormTitle from '../layout/FormTitle'
-import FormActions from '../layout/FormActions'
+import { withRouter} from "react-router-dom";
 
+ class LoginForm extends Component {
 
+    constructor() {
+        super();
+        this.state = {
+          email: "",
+          password: "",
+          errors: {}
+        }; 
+      }
 
-
- class Login extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      email: "",
-      password: "",
-      errors: {}
-    };
-
+      componentDidMount() {
+        // console.log(this.props.history)
+        // If logged in and user navigates to Login page, should redirect them to dashboard
+        if (this.props.auth.isAuthenticated) {
+          this.props.history.push("/dashboard");
+          
+        }
+      }
     
-  }
+      componentWillReceiveProps(nextProps) {
+        if (nextProps.auth.isAuthenticated) {
+          console.log("nextProps.auth.isAuthenticated" , nextProps.auth.isAuthenticated)
+          this.props.history.push("/dashboard"); // push user to dashboard when they login
+        }
+    if (nextProps.errors) {
+          this.setState({
+            errors: nextProps.errors
+          });
+        }
+      }
+    
+    
+    onChange = e => {
+        this.setState({ [e.target.id]: e.target.value });
+      };
+    onSubmit = e => {
+        e.preventDefault();
+    const userData = {
+          email: this.state.email,
+          password: this.state.password
+        };
+    console.log(userData);
+    this.props.loginUser(userData);
+     // since we handle the redirect within our component,
+     // we don't need to pass in this.props.history as
+     // a parameter
+      };
 
-
-
-  componentDidMount() {
-    // console.log(this.props.history)
-    // If logged in and user navigates to Login page, should redirect them to dashboard
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
-      
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/dashboard"); // push user to dashboard when they login
-    }
-if (nextProps.errors) {
-      this.setState({
-        errors: nextProps.errors
-      });
-    }
-  }
-
-
-onChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
-  };
-onSubmit = e => {
-    e.preventDefault();
-const userData = {
-      email: this.state.email,
-      password: this.state.password
-    };
-console.log(userData);
-this.props.loginUser(userData);
- // since we handle the redirect within our component,
- // we don't need to pass in this.props.history as
- // a parameter
-  };
-  render() {
-    //  let params = new URLSearchParams(this.props.location.search);
-    const { errors } = this.state;
-    let params = new URLSearchParams(this.props.location.search);
-
-    return (
-        params.get("login") && (
-        <Modal
-        onClick={() => {
-            this.props.history.push(this.props.location.pathname);
-            
-          }}>
-         {/* FORM TITLE */}
-         <FormTitle> Log In </FormTitle>
-
-          <div className="content">
+    render() {
+        const { errors } = this.state;
+        return (
+             <div className="content">
           <form noValidate onSubmit={this.onSubmit}>
           <div className="div-c">
            <div className="divided-column">
@@ -134,26 +115,20 @@ this.props.loginUser(userData);
           </form>
           </div>
 
-     {/* FORM ACTION */}
-      <FormActions>Sign Up</FormActions>
-     
-        
-        </Modal>
-      )
-     );
-  }
+        )
+    }
 }
 
-Login.propTypes = {
-  loginUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
-};
-const mapStateToProps = state => ({
-  auth: state.auth,
-  errors: state.errors
-});
-export default connect(
-  mapStateToProps,
-  { loginUser }
-)(Login);
+LoginForm.propTypes = {
+    loginUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
+  };
+  const mapStateToProps = state => ({
+    auth: state.auth,
+    errors: state.errors
+  });
+  export default connect(
+    mapStateToProps,
+    { loginUser }
+  )(withRouter(LoginForm));

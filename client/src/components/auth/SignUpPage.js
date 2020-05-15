@@ -3,7 +3,7 @@ import Modal from './Modal'
 import FormActions from '../layout/FormActions'
 import FormTitle from '../layout/FormTitle'
 import SignUpWith from '../layout/SignUpWith'
-import RegisterForm from './RegisterForm'
+import RegisterForm from './SignUpForm'
 
 
 
