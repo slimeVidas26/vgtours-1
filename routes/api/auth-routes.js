@@ -122,14 +122,19 @@ router.post("/login", (req, res) => {
   //facebook
 
   router.get('/facebook',
-  passport.authenticate('facebook')
+  passport.authenticate('facebook', {
+    scope: ['email']
+    })
 );
 
-router.get("/facebook/redirect" , passport.authenticate("facebook") , 
+router.get("/facebook/redirect" , passport.authenticate("facebook" , {
+  successRedirect : CLIENT_HOME_PAGE_URL + "/facebook-auth" ,
+  failureRedirect : "/login/failed" 
+}) , 
 (req , res)=>{
-  //res.redirect("/profile")
-  res.send("you reach the cb url")
-})
+//res.redirect("/profile")
+console.log(req.user)
+});
 
 //google route
 router.get('/google',
@@ -142,7 +147,7 @@ router.get("/google/redirect" , passport.authenticate("google" , {
 (req , res)=>{
 //res.redirect("/profile")
 console.log(req.user)
-})
+});
 
 
 

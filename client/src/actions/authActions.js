@@ -73,6 +73,10 @@ export const logoutUser = () => dispatch => {
 export const twitterLogoutUser = () => dispatch =>{
   console.log("twitter user is logged out")
   window.open("http://localhost:5000/auth/logout", "_self");
+}
 
-
+//log facebook user out
+export const facebookLogoutUser = () => dispatch =>{
+  console.log("facebook user is logged out")
+  window.open("http://localhost:5000/auth/logout", "_self");
 }

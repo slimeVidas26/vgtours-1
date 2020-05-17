@@ -7,6 +7,8 @@ export const AppRouter = () => {
     <Router>
       <div>
         <Route exact path="/" component={TwitterHome} />
+        <Route exact path="/" component={FacebookHome} />
+
       </div>
     </Router>
   );

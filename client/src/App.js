@@ -17,6 +17,8 @@ import BecomeAvendor from './components/BecomeAvendor'
  import LoginPage from "./components/auth/LoginPage";
 import SignUpPage from './components/auth/SignUpPage';
 import TwitterAuth from './components/TwitterAuth'
+import FacebookAuth from './components/FacebookAuth'
+
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import HomePage from "./components/HomePage";
@@ -66,7 +68,7 @@ class App extends Component {
 
     <Switch>
       <Route exact path="/" component={HomePage} />
-      
+
       {/*1. CLICK ON THE "SignUp" BUTTON ON THE HEADER MENU
       WILL REDIRECT TO THE SIGNUP PAGE FOR REGISTER OR SOCIAL CONNECT
       AND 
@@ -74,6 +76,8 @@ class App extends Component {
       <Route  path="/signup" component={SignUpPage} />
       <Route  path="/url-parameters" component={UrlParameters} />
       <Route  path="/twitter-auth" component={TwitterAuth} />
+      <Route  path="/facebook-auth" component={FacebookAuth} />
+
 
       <PrivateRoute  path="/dashboard" component={Dashboard} />
     </Switch>
