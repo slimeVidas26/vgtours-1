@@ -65,7 +65,7 @@ class SignUpWith extends Component {
 
     render(){
         const socialNetwork = this.state.map((item , index)=>{
-          
+      //  WILL REDIRECT TO THE SignUpForm COMPONENT   
              return item.socialNetwork === "Email" ?
                  <Link to= {{ pathname:item.linkTo.pathName, search: item.linkTo.search }}
                     onClick={item.func}

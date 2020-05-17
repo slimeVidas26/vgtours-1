@@ -6,6 +6,8 @@ import SignUpWith from '../layout/SignUpWith'
 import RegisterForm from './SignUpForm'
 
 
+// NEXT STEP : SignUpWith COMPONENT
+
 
 //import images
 import icon_google_plus from '../../assets/images/icon-google-plus.svg';

@@ -66,6 +66,11 @@ class App extends Component {
 
     <Switch>
       <Route exact path="/" component={HomePage} />
+      
+      {/*1. CLICK ON THE "SignUp" BUTTON ON THE HEADER MENU
+      WILL REDIRECT TO THE SIGNUP PAGE FOR REGISTER OR SOCIAL CONNECT
+      AND 
+      2. THEN CLICK ON "SIGN UP WITH MAIL" */}
       <Route  path="/signup" component={SignUpPage} />
       <Route  path="/url-parameters" component={UrlParameters} />
       <Route  path="/twitter-auth" component={TwitterAuth} />
