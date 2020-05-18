@@ -1,16 +1,16 @@
-import FacebookHeader from "./FacebookHeader";
+import TwitterHeader from "./TwitterHeader";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { facebookLogoutUser } from "../actions/authActions";
+import { googleLogoutUser } from "../actions/authActions";
 
 
 
- class FacebookAuth extends Component {
+ class GoogleAuth extends Component {
 
   constructor(props) {
     super(props)
-  console.log(this.props + ' from facebookAuth')
+  console.log(this.props + ' from googleAuth')
     this.state = {
        
     }
@@ -115,13 +115,13 @@ import { facebookLogoutUser } from "../actions/authActions";
 
   onLogoutClick = e => {
     e.preventDefault();
-    this.props.facebookLogoutUser();
+    this.props.googleLogoutUser();
     this.setState({ authenticated: false });
   };
 }
 
-FacebookAuth.propTypes = {
-  facebookLogoutUser: PropTypes.func.isRequired,
+GoogleAuth.propTypes = {
+  googleLogoutUser: PropTypes.func.isRequired,
   //auth: PropTypes.object.isRequired,
   authenticated: PropTypes.bool.isRequired
 };
@@ -131,5 +131,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  {facebookLogoutUser}
-)(FacebookAuth)
+  {googleLogoutUser}
+)(GoogleAuth)

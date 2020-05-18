@@ -18,6 +18,8 @@ import BecomeAvendor from './components/BecomeAvendor'
 import SignUpPage from './components/auth/SignUpPage';
 import TwitterAuth from './components/TwitterAuth'
 import FacebookAuth from './components/FacebookAuth'
+import GoogleAuth from './components/GoogleAuth'
+
 
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
@@ -77,9 +79,14 @@ class App extends Component {
       <Route  path="/url-parameters" component={UrlParameters} />
       <Route  path="/twitter-auth" component={TwitterAuth} />
       <Route  path="/facebook-auth" component={FacebookAuth} />
+      <Route  path="/google-auth" component={GoogleAuth} />
+
 
 
       <PrivateRoute  path="/dashboard" component={Dashboard} />
+      <PrivateRoute  path="/twitter-auth" component={TwitterAuth} />
+      <PrivateRoute  path="/facebook-auth" component={FacebookAuth} />
+      <PrivateRoute  path="/google-auth" component={GoogleAuth} />
     </Switch>
 
     <Route exact path="/" component={LoginPage} />

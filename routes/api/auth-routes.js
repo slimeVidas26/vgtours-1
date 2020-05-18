@@ -141,7 +141,7 @@ router.get('/google',
   passport.authenticate('google',  { scope: ['profile'] }));
 
 router.get("/google/redirect" , passport.authenticate("google" , {
-  successRedirect : CLIENT_HOME_PAGE_URL ,
+  successRedirect : CLIENT_HOME_PAGE_URL + "/google-auth",
   failureRedirect : "/login/failed" 
 }) , 
 (req , res)=>{

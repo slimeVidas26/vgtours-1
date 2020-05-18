@@ -65,7 +65,7 @@ import { twitterLogoutUser } from "../actions/authActions";
         /> */}
         <div>
           {!authenticated ? (
-            <h1>Welcome!</h1>
+            ""
           ) : (
             <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">

@@ -80,3 +80,9 @@ export const facebookLogoutUser = () => dispatch =>{
   console.log("facebook user is logged out")
   window.open("http://localhost:5000/auth/logout", "_self");
 }
+
+//log google user out
+export const googleLogoutUser = () => dispatch =>{
+  console.log("google user is logged out")
+  window.open("http://localhost:5000/auth/logout", "_self");
+}
