@@ -11,6 +11,7 @@ import './assets/less/header.css'
 import './assets/less/theme.css'
 import './assets/icon/style.css'
 
+
 // import Navbar from "./components/layout/Navbar";
 // import Landing from "./components/layout/Landing";
 import BecomeAvendor from './components/BecomeAvendor'
