@@ -165,11 +165,12 @@ res.send(req.user)
 router.get('/amazon',
   passport.authenticate('amazon',  { scope: ['profile'] }));
 
-router.get("/amazon/redirect" , passport.authenticate("amazon") , 
-(req , res)=>{
-//res.redirect("/profile")
-res.send(req.user)
-})
+router.get("/amazon/redirect" , passport.authenticate("amazon",{
+  successRedirect : CLIENT_HOME_PAGE_URL + "/amazon-auth",
+  failureRedirect : "/login/failed"
+}));
+
+
 
 //instagram route
 router.get('/instagram',

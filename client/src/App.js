@@ -20,6 +20,8 @@ import SignUpPage from './components/auth/SignUpPage';
 import TwitterAuth from './components/TwitterAuth'
 import FacebookAuth from './components/FacebookAuth'
 import GoogleAuth from './components/GoogleAuth'
+import AmazonAuth from './components/AmazonAuth'
+
 
 
 import PrivateRoute from "./components/private-route/PrivateRoute";
@@ -81,6 +83,7 @@ class App extends Component {
       <Route  path="/twitter-auth" component={TwitterAuth} />
       <Route  path="/facebook-auth" component={FacebookAuth} />
       <Route  path="/google-auth" component={GoogleAuth} />
+      <Route  path="/amazon-auth" component={AmazonAuth} />
 
 
 
@@ -88,6 +91,8 @@ class App extends Component {
       <PrivateRoute  path="/twitter-auth" component={TwitterAuth} />
       <PrivateRoute  path="/facebook-auth" component={FacebookAuth} />
       <PrivateRoute  path="/google-auth" component={GoogleAuth} />
+      <PrivateRoute  path="/amazon-auth" component={AmazonAuth} />
+
     </Switch>
 
     <Route exact path="/" component={LoginPage} />

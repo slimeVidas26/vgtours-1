@@ -86,3 +86,8 @@ export const googleLogoutUser = () => dispatch =>{
   console.log("google user is logged out")
   window.open("http://localhost:5000/auth/logout", "_self");
 }
+//log amazon user out
+export const amazonLogoutUser = () => dispatch =>{
+  console.log("amazon user is logged out")
+  window.open("http://localhost:5000/auth/logout", "_self");
+}

@@ -41,7 +41,15 @@ class SignUpWith extends Component {
                 Text : "Sign Up With Facebook",
                 func : this._facebookSignIn
 
-            }
+            },
+            {   
+              socialNetwork : "amazon",
+              className : "button-sq fullwidth-sq amazon-button",
+              icon : "icon icon-logo-amazon",
+              Text : "Sign Up With Amazon",
+              func : this._amazonSignIn
+
+          }
         ]   
     }
 
@@ -60,6 +68,11 @@ class SignUpWith extends Component {
         // Authenticate using via passport api in the backend
         // Open facebook login page
         window.open("http://localhost:5000/auth/facebook", "_self");
+      };
+      _amazonSignIn = () => {
+        // Authenticate using via passport api in the backend
+        // Open facebook login page
+        window.open("http://localhost:5000/auth/amazon", "_self");
       };
 
 
