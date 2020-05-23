@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+
 class Dashboard extends Component {
 
   constructor(props) {
@@ -18,6 +19,7 @@ class Dashboard extends Component {
   };
 render() {
     const { user } = this.props.auth;
+    console.log("user from dash",user)
 return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         

@@ -23,7 +23,7 @@ import { twitterLogoutUser } from "../actions/authActions";
   state = {
     user: {},
     error: null,
-    authenticated: false
+    isAuthenticated: false
   };
 
   componentDidMount() {
@@ -42,21 +42,23 @@ import { twitterLogoutUser } from "../actions/authActions";
       })
       .then(responseJson => {
         this.setState({
-          authenticated: true,
+          isAuthenticated: true,
           user: responseJson.user
         });
         console.log(this.state)
       })
       .catch(error => {
         this.setState({
-          authenticated: false,
+          isAuthenticated: false,
           error: "Failed to authenticate user"
         });
       });
   }
 
   render() {
-    const { authenticated } = this.state;
+    const { isAuthenticated } = this.state;
+    const {user} = this.state
+    console.log("user from twitterAuth" , user)
     return (
       <div>
         {/* <TwitterHeader
@@ -64,15 +66,15 @@ import { twitterLogoutUser } from "../actions/authActions";
           handleNotAuthenticated={this._handleNotAuthenticated}
         /> */}
         <div>
-          {!authenticated ? (
-            ""
+          {!isAuthenticated ? (
+            <h1>You must login!</h1>
           ) : (
             <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
             <h4>
-              <b>Hey there,</b>  {this.state.user.name}
-              <p><b>Authenticated,</b>  {this.state.authenticated}</p>
+              <b>Hey there,</b>{user.name}
+              <p><b>Authenticated!!!</b>  {this.state.isAuthenticated}</p>
               <p className="flow-text grey-text text-darken-1">
                 You are logged into vg-tours{" "}
                 <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
@@ -116,18 +118,18 @@ import { twitterLogoutUser } from "../actions/authActions";
   onLogoutClick = e => {
     e.preventDefault();
     this.props.twitterLogoutUser();
-    this.setState({ authenticated: false });
+    this.setState({ isAuthenticated: false });
   };
 }
 
 TwitterAuth.propTypes = {
   twitterLogoutUser: PropTypes.func.isRequired,
-  //auth: PropTypes.object.isRequired,
-  authenticated: PropTypes.bool.isRequired
+  auth: PropTypes.object.isRequired,
+  //isAuthenticated: PropTypes.bool.isRequired
 };
 const mapStateToProps = state => ({
-  //auth: state.auth,
-  authenticated: state.authenticated
+  auth: state.auth,
+  //isAuthenticated: state.isAuthenticated
 });
 export default connect(
   mapStateToProps,

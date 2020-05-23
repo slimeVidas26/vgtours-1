@@ -80,7 +80,7 @@ class App extends Component {
       2. THEN CLICK ON "SIGN UP WITH MAIL" */}
       <Route  path="/signup" component={SignUpPage} />
       <Route  path="/url-parameters" component={UrlParameters} />
-      <Route  path="/twitter-auth" component={TwitterAuth} />
+       <Route  path="/twitter-auth" component={TwitterAuth} /> 
       <Route  path="/facebook-auth" component={FacebookAuth} />
       <Route  path="/google-auth" component={GoogleAuth} />
       <Route  path="/amazon-auth" component={AmazonAuth} />
