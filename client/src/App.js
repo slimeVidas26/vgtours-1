@@ -17,7 +17,8 @@ import './assets/icon/style.css'
 import BecomeAvendor from './components/BecomeAvendor'
  import LoginPage from "./components/auth/LoginPage";
 import SignUpPage from './components/auth/SignUpPage';
-import TwitterAuth from './components/TwitterAuth'
+import TwitterAuthentication from './components/auth/TwitterAuthentication';
+
 import FacebookAuth from './components/FacebookAuth'
 import GoogleAuth from './components/GoogleAuth'
 import AmazonAuth from './components/AmazonAuth'
@@ -80,7 +81,9 @@ class App extends Component {
       2. THEN CLICK ON "SIGN UP WITH MAIL" */}
       <Route  path="/signup" component={SignUpPage} />
       <Route  path="/url-parameters" component={UrlParameters} />
-       <Route  path="/twitter-auth" component={TwitterAuth} /> 
+       {/* <Route  path="/twitter-auth" component={TwitterAuth} />  */}
+        <Route  path="/twitter-authentication" component={TwitterAuthentication} /> 
+
       <Route  path="/facebook-auth" component={FacebookAuth} />
       <Route  path="/google-auth" component={GoogleAuth} />
       <Route  path="/amazon-auth" component={AmazonAuth} />
@@ -88,7 +91,7 @@ class App extends Component {
 
 
       <PrivateRoute  path="/dashboard" component={Dashboard} />
-      <PrivateRoute  path="/twitter-auth" component={TwitterAuth} />
+      {/* <PrivateRoute  path="/twitter-auth" component={TwitterAuth} /> */}
       <PrivateRoute  path="/facebook-auth" component={FacebookAuth} />
       <PrivateRoute  path="/google-auth" component={GoogleAuth} />
       <PrivateRoute  path="/amazon-auth" component={AmazonAuth} />

@@ -44,8 +44,59 @@ export const loginUser = userData => dispatch => {
       })
     );
 };
+
+//login with twitter
+export const loginTwitterUser = () => dispatch => {
+console.log("from loginTwitter");
+fetch("/auth/login/success", {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Credentials": true
+      }
+    })
+      .then(response => {
+        if (response.status === 200) return response.json();
+        throw new Error("failed to authenticate user");
+      })
+      .then(responseJson => {
+        console.log("responseJson" , responseJson)
+        // this.setState({
+        //   authenticated: true,
+        //   user: responseJson.user
+        // });
+         // Save to localStorage
+// Set token to localStorage
+      // const token = responseJson.cookies.session;
+      // console.log("token" , token)
+      // localStorage.setItem("jwtToken", token);
+      const decoded = responseJson.user;
+      decoded.isAuthenticated = true
+      console.log("decoded" , decoded)
+        // Set current user
+        dispatch(setCurrentTwitterUser(decoded));
+      
+      })
+      .catch(err => {
+        dispatch({
+          type: GET_ERRORS,
+          payload: err.response.data
+        })
+      });
+
+}
 // Set logged in user
 export const setCurrentUser = decoded => {
+  return {
+    type: SET_CURRENT_USER,
+    payload: decoded
+  };
+};
+
+// Set logged in twitterUser
+export const setCurrentTwitterUser = decoded => {
   return {
     type: SET_CURRENT_USER,
     payload: decoded
