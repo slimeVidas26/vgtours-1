@@ -11,13 +11,13 @@ import './assets/less/header.css'
 import './assets/less/theme.css'
 import './assets/icon/style.css'
 
-
 // import Navbar from "./components/layout/Navbar";
 // import Landing from "./components/layout/Landing";
 import BecomeAvendor from './components/BecomeAvendor'
  import LoginPage from "./components/auth/LoginPage";
 import SignUpPage from './components/auth/SignUpPage';
 import TwitterAuth from './components/TwitterAuth'
+import TwitterHomePage from "./components/TwitterHomePage";
 import FacebookAuth from './components/FacebookAuth'
 import GoogleAuth from './components/GoogleAuth'
 import AmazonAuth from './components/AmazonAuth'
@@ -81,6 +81,7 @@ class App extends Component {
       <Route  path="/signup" component={SignUpPage} />
       <Route  path="/url-parameters" component={UrlParameters} />
        <Route  path="/twitter-auth" component={TwitterAuth} /> 
+       <Route exact path="/twitter-home-page" component={TwitterHomePage} />
       <Route  path="/facebook-auth" component={FacebookAuth} />
       <Route  path="/google-auth" component={GoogleAuth} />
       <Route  path="/amazon-auth" component={AmazonAuth} />

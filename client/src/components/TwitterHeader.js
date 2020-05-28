@@ -17,7 +17,7 @@ export default class TwitterHeader extends Component {
         {authenticated ? (
           <li onClick={this._handleLogoutClick}>Logout</li>
         ) : (
-          <li onClick={this._handleSignInClick}>Login</li>
+          <li onClick={this._handleSignInClick}>TwitterLogin</li>
         )}
       </ul>
     );
@@ -26,12 +26,13 @@ export default class TwitterHeader extends Component {
   _handleSignInClick = () => {
     // Authenticate using via passport api in the backend
     // Open Twitter login page
+    // Upon successful login, a cookie session will be stored in the client
     window.open("http://localhost:5000/auth/twitter", "_self");
   };
 
   _handleLogoutClick = () => {
     // Logout using Twitter passport api
-    // Set authenticated state to false in the HomePage component
+    // Set authenticated state to false in the HomePage
     window.open("http://localhost:5000/auth/logout", "_self");
     this.props.handleNotAuthenticated();
   };
