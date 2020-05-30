@@ -12,18 +12,17 @@ export class TwitterAuthentication extends Component {
     constructor() {
         super();
         this.state = {
-          isAuthenticated:false,
-          user: {},
-          errors: {}
-        }; 
+         
+        };
+        
       }
    
-   
-   
-   
-   
     componentDidMount() {
-        this.props.loginTwitterUser()  
+        this.props.loginTwitterUser()
+        console.log("this.props.loginTwitterUser()" , this.props.loginTwitterUser)
+ 
+        console.log("this.props from twitterAuthentication" , this.props)
+ 
         }
 
         onLogoutClick = e => {
@@ -32,8 +31,9 @@ export class TwitterAuthentication extends Component {
           };
 
     render() {
-        const { isAuthenticated } = this.props.auth;
-        const {user} = this.props.auth
+        console.log("render this.props.auth from twitterAuthentication" , this.props)
+
+        const { isAuthenticated , user } = this.props.auth;
        
 
           return (
@@ -46,7 +46,13 @@ export class TwitterAuthentication extends Component {
                 ) : (
                   <div>
                   <h4>
-                    <b>Hey there,</b> {user.name}
+                    <b>Hey there,</b> {user.name} <br/>
+                    <b>Your ID is : ,</b> {user._id} <br/>
+                    <b>Your TwitterId  is : ,</b> {user.twitterId} <br/>
+                    <b>Your screenName  is : ,</b> {user.screenName} <br/>
+                    <b>Date  is : ,</b> {user.date} <br/>
+
+                    <img src={user.thumbnail} alt=""/>
                     <p className="flow-text grey-text text-darken-1">
                       You are logged into vg-tours{" "}
                       <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
@@ -78,11 +84,18 @@ TwitterAuthentication.propTypes = {
     logoutUser: PropTypes.func.isRequired,
     loginTwitterUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
+    errors: PropTypes.object.isRequired,
+    // user: PropTypes.shape({
+    //     name: PropTypes.string,
+    //     profileImageUrl: PropTypes.string,
+    //     twitterId: PropTypes.string,
+    //     screenName: PropTypes.string,
+    //     _id: PropTypes.string
+    //   })
   };
   const mapStateToProps = state => ({
     auth: state.auth,
-    errors: state.errors
+    errors: state.errors,
   });
   export default connect(
     mapStateToProps,

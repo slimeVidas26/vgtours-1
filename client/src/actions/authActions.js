@@ -76,7 +76,7 @@ fetch("/auth/login/success", {
       decoded.isAuthenticated = true
       console.log("decoded" , decoded)
         // Set current user
-        dispatch(setCurrentTwitterUser(decoded));
+        dispatch(setCurrentUser(decoded));
       
       })
       .catch(err => {
@@ -95,13 +95,7 @@ export const setCurrentUser = decoded => {
   };
 };
 
-// Set logged in twitterUser
-export const setCurrentTwitterUser = decoded => {
-  return {
-    type: SET_CURRENT_USER,
-    payload: decoded
-  };
-};
+
 // User loading
 export const setUserLoading = () => {
   return {

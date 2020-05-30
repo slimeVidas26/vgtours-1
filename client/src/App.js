@@ -82,7 +82,7 @@ class App extends Component {
       <Route  path="/signup" component={SignUpPage} />
       <Route  path="/url-parameters" component={UrlParameters} />
        {/* <Route  path="/twitter-auth" component={TwitterAuth} />  */}
-        <Route  path="/twitter-authentication" component={TwitterAuthentication} /> 
+         <Route  path="/twitter-authentication" component={TwitterAuthentication} />
 
       <Route  path="/facebook-auth" component={FacebookAuth} />
       <Route  path="/google-auth" component={GoogleAuth} />
@@ -91,6 +91,8 @@ class App extends Component {
 
 
       <PrivateRoute  path="/dashboard" component={Dashboard} />
+      <PrivateRoute  path="/twitter-authentication" component={TwitterAuthentication} />
+
       {/* <PrivateRoute  path="/twitter-auth" component={TwitterAuth} /> */}
       <PrivateRoute  path="/facebook-auth" component={FacebookAuth} />
       <PrivateRoute  path="/google-auth" component={GoogleAuth} />
