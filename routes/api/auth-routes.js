@@ -145,7 +145,7 @@ router.get("/google/redirect" , passport.authenticate("google" , {
   failureRedirect : "/login/failed" 
 }) , 
 (req , res)=>{
-//res.redirect("/profile")
+res.send(req.user)
 console.log(req.user)
 });
 
@@ -155,11 +155,16 @@ console.log(req.user)
 router.get('/github',
   passport.authenticate('github', { scope: ['profile'] }));
 
-router.get("/github/redirect" , passport.authenticate("github") , 
-(req , res)=>{
+// router.get("/github/redirect" , passport.authenticate("github") , 
+// (req , res)=>{
 //res.redirect("/profile")
-res.send(req.user)
-})
+// res.send(req.user)
+// })
+
+router.get("/github/redirect" , passport.authenticate("github",{
+  successRedirect : CLIENT_HOME_PAGE_URL + "/github-auth",
+  failureRedirect : "/login/failed"
+}));
 
 //amazon route
 router.get('/amazon',
@@ -176,21 +181,30 @@ router.get("/amazon/redirect" , passport.authenticate("amazon",{
 router.get('/instagram',
   passport.authenticate('instagram'));
 
-router.get("/instagram/redirect" , passport.authenticate("instagram") , 
-(req , res)=>{
+// router.get("/instagram/redirect" , passport.authenticate("instagram") , 
+// (req , res)=>{
 //res.redirect("/profile")
-res.send(req.user)
-})
+// res.send(req.user)
+// })
+router.get("/instagram/redirect" , passport.authenticate("instagram",{
+  successRedirect : CLIENT_HOME_PAGE_URL + "/instagram-auth",
+  failureRedirect : "/login/failed"
+}));
 
 //spotify route
 router.get('/spotify',
   passport.authenticate('spotify'));
 
-router.get("/spotify/redirect" , passport.authenticate("spotify") , 
-(req , res)=>{
+// router.get("/spotify/redirect" , passport.authenticate("spotify") , 
+// (req , res)=>{
 //res.redirect("/profile")
-res.send(req.user)
-})
+// res.send(req.user)
+// })
+ // redirect to home page after successfully login via twitter
+ router.get("/spotify/redirect" , passport.authenticate('spotify',{
+  successRedirect : CLIENT_HOME_PAGE_URL + "/spotify-auth",
+  failureRedirect : "/login/failed"
+}));
 
 // auth with twitter
 router.get('/twitter',

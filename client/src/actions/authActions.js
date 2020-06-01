@@ -184,6 +184,111 @@ export const facebookLoginUser = () => dispatch => {
           })
         });
   }
+
+   //login with spotify
+export const spotifyLoginUser = () => dispatch => {
+  console.log("from loginSpotify");
+  //dispatch(setUserLoading("Loading......."));
+  fetch("/auth/login/success", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": true
+        }
+      })
+        .then(response => {
+          if (response.status === 200) return response.json();
+          throw new Error("failed to authenticate user");
+        })
+        .then(responseJson => {
+          console.log("responseJson" , responseJson)
+        
+        const decoded = responseJson.user;
+        decoded.isAuthenticated = true
+        console.log("decoded" , decoded)
+          // Set current user
+          dispatch(setCurrentUser(decoded));
+        
+        })
+        .catch(err => {
+          dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
+          })
+        });
+  }
+
+   //login with instagram
+export const instagramLoginUser = () => dispatch => {
+  console.log("from loginInstagram");
+  //dispatch(setUserLoading("Loading......."));
+  fetch("/auth/login/success", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": true
+        }
+      })
+        .then(response => {
+          if (response.status === 200) return response.json();
+          throw new Error("failed to authenticate user");
+        })
+        .then(responseJson => {
+          console.log("responseJson" , responseJson)
+        
+        const decoded = responseJson.user;
+        decoded.isAuthenticated = true
+        console.log("decoded" , decoded)
+          // Set current user
+          dispatch(setCurrentUser(decoded));
+        
+        })
+        .catch(err => {
+          dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
+          })
+        });
+  }
+
+    //login with github
+export const githubLoginUser = () => dispatch => {
+  console.log("from loginGithub");
+  //dispatch(setUserLoading("Loading......."));
+  fetch("/auth/login/success", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": true
+        }
+      })
+        .then(response => {
+          if (response.status === 200) return response.json();
+          throw new Error("failed to authenticate user");
+        })
+        .then(responseJson => {
+          console.log("responseJson" , responseJson)
+        
+        const decoded = responseJson.user;
+        decoded.isAuthenticated = true
+        console.log("decoded" , decoded)
+          // Set current user
+          dispatch(setCurrentUser(decoded));
+        
+        })
+        .catch(err => {
+          dispatch({
+            type: GET_ERRORS,
+            payload: err.response.data
+          })
+        });
+  }
 // Set logged in user
 export const setCurrentUser = decoded => {
   return {
@@ -241,6 +346,33 @@ export const amazonLogoutUser = () => dispatch =>{
 //log facebook user out
 export const facebookLogoutUser = () => dispatch =>{
   console.log("facebook user is logged out")
+  dispatch(setCurrentUser({}));
+  window.open("http://localhost:5000/auth/logout", "_self");
+  window.location.href = "./signup";
+
+}
+
+//log spotify user out
+export const spotifyLogoutUser = () => dispatch =>{
+  console.log("spotify user is logged out")
+  dispatch(setCurrentUser({}));
+  window.open("http://localhost:5000/auth/logout", "_self");
+  window.location.href = "./signup";
+
+}
+
+//log instagram user out
+export const instagramLogoutUser = () => dispatch =>{
+  console.log("instagram user is logged out")
+  dispatch(setCurrentUser({}));
+  window.open("http://localhost:5000/auth/logout", "_self");
+  window.location.href = "./signup";
+
+}
+
+//log github user out
+export const githubLogoutUser = () => dispatch =>{
+  console.log("github user is logged out")
   dispatch(setCurrentUser({}));
   window.open("http://localhost:5000/auth/logout", "_self");
   window.location.href = "./signup";

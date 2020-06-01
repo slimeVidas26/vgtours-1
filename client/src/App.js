@@ -22,6 +22,9 @@ import TwitterAuth from './components/auth/TwitterAuth';
 import FacebookAuth from './components/auth/FacebookAuth'
 import GoogleAuth from './components/auth/GoogleAuth'
 import AmazonAuth from './components/auth/AmazonAuth'
+import SpotifyAuth from './components/auth/SpotifyAuth'
+import InstagramAuth from './components/auth/InstagramAuth'
+import GithubAuth from './components/auth/GithubAuth'
 
 
 
@@ -87,6 +90,9 @@ class App extends Component {
       <Route  path="/facebook-auth" component={FacebookAuth} />
       <Route  path="/google-auth" component={GoogleAuth} />
       <Route  path="/amazon-auth" component={AmazonAuth} />
+      <Route  path="/spotify-auth" component={SpotifyAuth} />
+      <Route  path="/instagram-auth" component={InstagramAuth} />
+      <Route  path="/github-auth" component={GithubAuth} />
 
       <PrivateRoute  path="/dashboard" component={Dashboard} />
       {/* <PrivateRoute  path="/twitter-authentication" component={TwitterAuthentication} /> */}

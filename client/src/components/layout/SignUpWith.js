@@ -49,7 +49,31 @@ class SignUpWith extends Component {
               Text : "Sign Up With Amazon",
               func : this._amazonSignIn
 
-          }
+          },
+          {   
+            socialNetwork : "spotify",
+            className : "button-sq fullwidth-sq amazon-button",
+            icon : "icon icon-logo-amazon",
+            Text : "Sign Up With Spotify",
+            func : this._spotifySignIn
+
+        },
+        {   
+          socialNetwork : "instagram",
+          className : "button-sq fullwidth-sq amazon-button",
+          icon : "icon icon-logo-amazon",
+          Text : "Sign Up With Instagram",
+          func : this._instagramSignIn
+
+      },
+      {   
+        socialNetwork : "github",
+        className : "button-sq fullwidth-sq amazon-button",
+        icon : "icon icon-logo-amazon",
+        Text : "Sign Up With Github",
+        func : this._githubSignIn
+
+    }
         ]   
     }
 
@@ -73,6 +97,21 @@ class SignUpWith extends Component {
         // Authenticate using via passport api in the backend
         // Open facebook login page
         window.open("http://localhost:5000/auth/amazon", "_self");
+      };
+      _spotifySignIn = () => {
+        // Authenticate using via passport api in the backend
+        // Open facebook login page
+        window.open("http://localhost:5000/auth/spotify", "_self");
+      };
+      _instagramSignIn = () => {
+        // Authenticate using via passport api in the backend
+        // Open facebook login page
+        window.open("http://localhost:5000/auth/instagram", "_self");
+      };
+      _githubSignIn = () => {
+        // Authenticate using via passport api in the backend
+        // Open facebook login page
+        window.open("http://localhost:5000/auth/github", "_self");
       };
 
 

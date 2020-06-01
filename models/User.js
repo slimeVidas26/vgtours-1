@@ -31,6 +31,10 @@ const UserSchema = new Schema({
     type: String,
     required: false
   },
+  instagramId: {
+    type: String,
+    required: false
+  },
   name: {
     type: String,
     required: false
@@ -44,6 +48,10 @@ const UserSchema = new Schema({
     required: false
   },
   displayName: {
+    type: String,
+    required: false
+  },
+  username: {
     type: String,
     required: false
   },

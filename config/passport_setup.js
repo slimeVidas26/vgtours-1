@@ -55,7 +55,7 @@ passport.serializeUser((user, done) => {
 //FACEBOOK STRATEGY
 passport.use(
   new FacebookStrategy({
-      // options for google strategy
+      // options for facebook strategy
       clientID: keys.FACEBOOK.clientID,
       clientSecret: keys.FACEBOOK.clientSecret,
       callbackURL: '/auth/facebook/redirect'
@@ -102,10 +102,11 @@ passport.use(
                   done(null, currentUser);
               } else {
                   // if not, create user in our db
+                  console.log("profile" , JSON.stringify(profile))
 
                   new User({
+                      username: profile._json.name,
                       googleId: profile.id,
-                      username: profile.displayName,
                       thumbnail: profile._json.picture,
                       provider :profile.provider,
                       location : profile._json.locale
@@ -125,7 +126,7 @@ passport.use(
 //AMAZON STARTEGY
     passport.use(
       new AmazonStrategy({
-          // options for google strategy
+          // options for amazon strategy
           clientID: keys.AMAZON.clientID,
           clientSecret: keys.AMAZON.clientSecret,
           callbackURL: '/auth/amazon/redirect'
@@ -177,14 +178,14 @@ passport.use(
               } else {
                   // if not, create user in our db
                   new User({
-                      githubId: profile.id,
+                      githubId: profile.githubId,
                       displayName: profile.displayName,
-                      userName : profile.username,
-                      name : profile._json.name,
-                      email : profile._json.email,
-                      thumbnail: profile._json.avatar_url,
+                      userName : profile.userName,
+                      name : profile.name,
+                      email : profile.email,
+                      thumbnail: profile.thunbnail,
                       provider :profile.provider,
-                      location : profile._json.locale
+                      // location : profile._json.locale
                   }).save().then((newUser) => {
                       console.log('created new github user: ', chalk.green(JSON.stringify(newUser)));
     
@@ -227,14 +228,12 @@ passport.use(
             } else {
                 // if not, create user in our db
                 new User({
-                    spotifyId: profile.id,
+                    spotifyId: profile.spotifyId,
                     displayName: profile.displayName,
-                    userName : profile.username,
-                    name : profile._json.name,
-                    email : profile._json.email,
+                    userName : profile.userName,
                     thumbnail: profile._json.images_url,
                     provider :profile.provider,
-                    location : profile._json.locale
+                    country : profile._json.locale
                 }).save().then((newUser) => {
                     console.log('created new spotify user: ', chalk.green(JSON.stringify(newUser)));
   
@@ -270,6 +269,39 @@ passport.use(
                     thumbnail: profile._json.profile_image_url
                   }).save().then((newUser) => {
                       console.log('created new twitter user: ', chalk.green(JSON.stringify(newUser)));
+    
+                      done(null, newUser);
+                  });
+              }
+          });
+      })
+    );
+
+    //TWITTER STRATEGY
+    passport.use(
+      new InstagramStrategy({
+          // options for TWITTER strategy
+          clientID: keys.INSTAGRAM.clientID,
+          clientSecret: keys.INSTAGRAM.clientSecret,
+          callbackURL: '/auth/instagram/redirect'
+      }, (accessToken, refreshToken, profile, done) => {
+        console.log(chalk.green(JSON.stringify(profile)));
+    
+          // check if user already exists in our own db
+          User.findOne({instagramId: profile.id}).then((currentUser) => {
+              if(currentUser){
+                  // already have this user
+                  console.log('Instagram user already exists : ', chalk.red(JSON.stringify(currentUser)));
+                  done(null, currentUser);
+              } else {
+                  // if not, create user in our db
+                  new User({
+                    instagramId: profile._json.id_str,
+                    name: profile._json.name,
+                    screenName: profile._json.screen_name,
+                    thumbnail: profile._json.profile_image_url
+                  }).save().then((newUser) => {
+                      console.log('created new instagram user: ', chalk.green(JSON.stringify(newUser)));
     
                       done(null, newUser);
                   });

@@ -49,7 +49,6 @@ export class AmazonAuth extends Component {
                     <b>Hey there,</b> {user.name} <br/>
                     <b>Your displayName : </b> {user.displayName} <br/>
                     <b>Your email : </b> {user.email} <br/>
-
                     <b>Your ID is :</b> {user._id} <br/>
                     <b>Your amazonId  is :</b> {user.amazonId} <br/>
                     <b>Your location  is :</b> {user.location} <br/>

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { googleLoginUser , googleLogoutUser } from "../../actions/authActions";
+import { spotifyLoginUser , spotifyLogoutUser } from "../../actions/authActions";
 import { withRouter} from "react-router-dom";
 import Loader from 'react-loader-spinner'
 
 
-export class GoogleAuth extends Component {
+export class SpotifyAuth extends Component {
     constructor() {
         super();
         this.state = {
@@ -16,7 +16,7 @@ export class GoogleAuth extends Component {
       }
    
     componentDidMount() {
-        this.props.googleLoginUser()
+        this.props.spotifyLoginUser()
 
 
         }
@@ -24,7 +24,7 @@ export class GoogleAuth extends Component {
 
         onLogoutClick = e => {
             e.preventDefault();
-            this.props.googleLogoutUser();
+            this.props.spotifyLogoutUser();
             console.log("this.props.auth",this.props.auth)
 
           };
@@ -49,10 +49,11 @@ export class GoogleAuth extends Component {
                   <div>
                     
                   <h4>
-                    <b>Hey there,</b> {user.username} <br/>
+                    <b>Hey there,</b> {user.displayName} <br/>
+                    <b>Your userName is : </b> {user.userName} <br/>
                     <b>Your ID is : </b> {user._id} <br/>
-                    <b>Your googleId  is : </b> {user.googleId} <br/>
-                    <b>Your location  is : </b> {user.location} <br/>
+                    <b>Your spotifyId  is : </b> {user.spotifyId} <br/>
+                    <b>Your country  is : </b> {user.country} <br/>
                     <b>Date  is : </b> {user.date} <br/>
                     <b>provider  is : </b> {user.provider} <br/>
                     <img src={user.thumbnail} width = "100" alt=""/>
@@ -83,9 +84,9 @@ export class GoogleAuth extends Component {
     }
 }
 
-GoogleAuth.propTypes = {
-    googleLogoutUser: PropTypes.func.isRequired,
-    googleLoginUser: PropTypes.func.isRequired,
+SpotifyAuth.propTypes = {
+    spotifyLogoutUser: PropTypes.func.isRequired,
+    spotifyLoginUser: PropTypes.func.isRequired,
 
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired,
@@ -97,5 +98,5 @@ GoogleAuth.propTypes = {
   });
   export default connect(
     mapStateToProps,
-    { googleLoginUser , googleLogoutUser }
-  )(withRouter(GoogleAuth));
+    { spotifyLoginUser , spotifyLogoutUser }
+  )(withRouter(SpotifyAuth));
