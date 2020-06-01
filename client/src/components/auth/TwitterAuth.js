@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
-import classnames from "classnames";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { loginTwitterUser } from "../../actions/authActions";
+import { twitterLoginUser , twitterLogoutUser } from "../../actions/authActions";
 import { withRouter} from "react-router-dom";
-import { logoutUser } from "../../actions/authActions";
+import Loader from 'react-loader-spinner'
 
 
-
-export class TwitterAuthentication extends Component {
+export class TwitterAuth extends Component {
     constructor() {
         super();
         this.state = {
@@ -18,32 +16,34 @@ export class TwitterAuthentication extends Component {
       }
    
     componentDidMount() {
-        this.props.loginTwitterUser()
-        console.log("this.props.loginTwitterUser()" , this.props.loginTwitterUser)
- 
-        console.log("this.props from twitterAuthentication" , this.props)
- 
+        this.props.twitterLoginUser()
+
+
         }
+
 
         onLogoutClick = e => {
             e.preventDefault();
-            this.props.logoutUser();
+            this.props.twitterLogoutUser();
           };
 
     render() {
-        console.log("render this.props.auth from twitterAuthentication" , this.props)
-
         const { isAuthenticated , user } = this.props.auth;
-       
-
           return (
             <div style={{ height: "75vh" }} className="container valign-wrapper">
               
               <div className="row">
                 <div className="col s12 center-align">
-                  {!isAuthenticated ? (
-                  <h1>Welcome!</h1>
-                ) : (
+                   {!isAuthenticated ? (
+        <Loader
+         type="Puff"
+         color="#00BFFF"
+         height={100}
+         width={100}
+         timeout={3000} //3 secs
+ 
+      />
+                ) : ( 
                   <div>
                   <h4>
                     <b>Hey there,</b> {user.name} <br/>
@@ -59,7 +59,7 @@ export class TwitterAuthentication extends Component {
                     </p>
                   </h4>
                   </div>
-                )}
+                 )} 
                   <button
                     style={{
                       width: "150px",
@@ -80,18 +80,13 @@ export class TwitterAuthentication extends Component {
     }
 }
 
-TwitterAuthentication.propTypes = {
-    logoutUser: PropTypes.func.isRequired,
-    loginTwitterUser: PropTypes.func.isRequired,
+TwitterAuth.propTypes = {
+    twitterLogoutUser: PropTypes.func.isRequired,
+    twitterLoginUser: PropTypes.func.isRequired,
+
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired,
-    // user: PropTypes.shape({
-    //     name: PropTypes.string,
-    //     profileImageUrl: PropTypes.string,
-    //     twitterId: PropTypes.string,
-    //     screenName: PropTypes.string,
-    //     _id: PropTypes.string
-    //   })
+    
   };
   const mapStateToProps = state => ({
     auth: state.auth,
@@ -99,5 +94,5 @@ TwitterAuthentication.propTypes = {
   });
   export default connect(
     mapStateToProps,
-    { loginTwitterUser , logoutUser }
-  )(withRouter(TwitterAuthentication));
+    { twitterLoginUser , twitterLogoutUser }
+  )(withRouter(TwitterAuth));

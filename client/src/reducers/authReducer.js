@@ -6,7 +6,8 @@ import {
   const initialState = {
     isAuthenticated: false,
     user: {},
-    loading: false
+    loading: false , 
+    loadingText : ""
   };
   export default function(state = initialState, action) {
     switch (action.type) {

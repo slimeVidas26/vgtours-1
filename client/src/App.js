@@ -17,11 +17,11 @@ import './assets/icon/style.css'
 import BecomeAvendor from './components/BecomeAvendor'
  import LoginPage from "./components/auth/LoginPage";
 import SignUpPage from './components/auth/SignUpPage';
-import TwitterAuthentication from './components/auth/TwitterAuthentication';
+import TwitterAuth from './components/auth/TwitterAuth';
 
-import FacebookAuth from './components/FacebookAuth'
-import GoogleAuth from './components/GoogleAuth'
-import AmazonAuth from './components/AmazonAuth'
+import FacebookAuth from './components/auth/FacebookAuth'
+import GoogleAuth from './components/auth/GoogleAuth'
+import AmazonAuth from './components/auth/AmazonAuth'
 
 
 
@@ -82,20 +82,18 @@ class App extends Component {
       <Route  path="/signup" component={SignUpPage} />
       <Route  path="/url-parameters" component={UrlParameters} />
        {/* <Route  path="/twitter-auth" component={TwitterAuth} />  */}
-         <Route  path="/twitter-authentication" component={TwitterAuthentication} />
+         <Route  path="/twitter-auth" component={TwitterAuth} />
 
       <Route  path="/facebook-auth" component={FacebookAuth} />
       <Route  path="/google-auth" component={GoogleAuth} />
       <Route  path="/amazon-auth" component={AmazonAuth} />
 
-
-
       <PrivateRoute  path="/dashboard" component={Dashboard} />
-      <PrivateRoute  path="/twitter-authentication" component={TwitterAuthentication} />
+      {/* <PrivateRoute  path="/twitter-authentication" component={TwitterAuthentication} /> */}
 
       {/* <PrivateRoute  path="/twitter-auth" component={TwitterAuth} /> */}
       <PrivateRoute  path="/facebook-auth" component={FacebookAuth} />
-      <PrivateRoute  path="/google-auth" component={GoogleAuth} />
+      {/* <PrivateRoute  path="/google-auth" component={GoogleAuth} /> */}
       <PrivateRoute  path="/amazon-auth" component={AmazonAuth} />
 
     </Switch>
