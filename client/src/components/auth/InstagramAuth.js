@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { instagramLoginUser , instagramLogoutUser } from "../../actions/authActions";
+import { socialLoginUser , socialLogoutUser } from "../../actions/authActions";
 import { withRouter} from "react-router-dom";
 import Loader from 'react-loader-spinner'
 
@@ -16,7 +16,7 @@ export class InstagramAuth extends Component {
       }
    
     componentDidMount() {
-        this.props.instagramLoginUser()
+        this.props.socialLoginUser()
 
 
         }
@@ -24,7 +24,7 @@ export class InstagramAuth extends Component {
 
         onLogoutClick = e => {
             e.preventDefault();
-            this.props.instagramLogoutUser();
+            this.props.socialLogoutUser();
             console.log("this.props.auth",this.props.auth)
 
           };
@@ -85,8 +85,8 @@ export class InstagramAuth extends Component {
 }
 
 InstagramAuth.propTypes = {
-    instagramLogoutUser: PropTypes.func.isRequired,
-    instagramLoginUser: PropTypes.func.isRequired,
+    socialLogoutUser: PropTypes.func.isRequired,
+    socialLoginUser: PropTypes.func.isRequired,
 
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired,
@@ -98,5 +98,5 @@ InstagramAuth.propTypes = {
   });
   export default connect(
     mapStateToProps,
-    { instagramLoginUser , instagramLogoutUser }
+    { socialLoginUser , socialLogoutUser }
   )(withRouter(InstagramAuth));

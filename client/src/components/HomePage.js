@@ -1,7 +1,6 @@
 import React, { Component , Fragment  } from 'react'
 
 
-import ButtonExampleButton from './elements/Btn.js'
 import '../assets/images/ico/favicon.ico'
 //import components
 import Header from "./Header";
@@ -29,7 +28,6 @@ class HomePage extends Component {
 
       <Header/>
       
-      <ButtonExampleButton />
       {/* <!-- Hero Full Page --> */}
       <HeroSearchFullPage/>
       

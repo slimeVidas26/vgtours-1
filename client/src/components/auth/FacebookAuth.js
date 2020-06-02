@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { facebookLoginUser , facebookLogoutUser } from "../../actions/authActions";
+import { socialLoginUser , socialLogoutUser } from "../../actions/authActions";
 import { withRouter} from "react-router-dom";
 import Loader from 'react-loader-spinner'
 
@@ -16,7 +16,7 @@ export class FacebookAuth extends Component {
       }
    
     componentDidMount() {
-        this.props.facebookLoginUser()
+        this.props.socialLoginUser()
 
 
         }
@@ -24,7 +24,7 @@ export class FacebookAuth extends Component {
 
         onLogoutClick = e => {
             e.preventDefault();
-            this.props.facebookLogoutUser();
+            this.props.socialLogoutUser();
           };
 
     render() {
@@ -84,8 +84,8 @@ export class FacebookAuth extends Component {
 }
 
 FacebookAuth.propTypes = {
-    facebookLogoutUser: PropTypes.func.isRequired,
-    facebookLoginUser: PropTypes.func.isRequired,
+    socialLogoutUser: PropTypes.func.isRequired,
+    socialLoginUser: PropTypes.func.isRequired,
 
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired,
@@ -97,5 +97,5 @@ FacebookAuth.propTypes = {
   });
   export default connect(
     mapStateToProps,
-    { facebookLoginUser , facebookLogoutUser }
+    { socialLoginUser , socialLogoutUser }
   )(withRouter(FacebookAuth));

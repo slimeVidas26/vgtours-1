@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { amazonLoginUser , amazonLogoutUser } from "../../actions/authActions";
+import { socialLoginUser , socialLogoutUser } from "../../actions/authActions";
 import { withRouter} from "react-router-dom";
 import Loader from 'react-loader-spinner'
 
@@ -16,7 +16,7 @@ export class AmazonAuth extends Component {
       }
    
     componentDidMount() {
-        this.props.amazonLoginUser()
+        this.props.socialLoginUser()
 
 
         }
@@ -24,7 +24,7 @@ export class AmazonAuth extends Component {
 
         onLogoutClick = e => {
             e.preventDefault();
-            this.props.amazonLogoutUser();
+            this.props.socialLogoutUser();
           };
 
     render() {
@@ -85,8 +85,8 @@ export class AmazonAuth extends Component {
 }
 
 AmazonAuth.propTypes = {
-    amazonLogoutUser: PropTypes.func.isRequired,
-    amazonLoginUser: PropTypes.func.isRequired,
+    socialLogoutUser: PropTypes.func.isRequired,
+    socialLoginUser: PropTypes.func.isRequired,
 
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired,
@@ -98,5 +98,5 @@ AmazonAuth.propTypes = {
   });
   export default connect(
     mapStateToProps,
-    { amazonLoginUser , amazonLogoutUser }
+    { socialLoginUser , socialLogoutUser }
   )(withRouter(AmazonAuth));

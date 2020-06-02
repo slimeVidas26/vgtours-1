@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { twitterLoginUser , twitterLogoutUser } from "../../actions/authActions";
+import { socialLoginUser , socialLogoutUser } from "../../actions/authActions";
 import { withRouter} from "react-router-dom";
 import Loader from 'react-loader-spinner'
 
@@ -16,7 +16,7 @@ export class TwitterAuth extends Component {
       }
    
     componentDidMount() {
-        this.props.twitterLoginUser()
+        this.props.socialLoginUser()
 
 
         }
@@ -24,7 +24,7 @@ export class TwitterAuth extends Component {
 
         onLogoutClick = e => {
             e.preventDefault();
-            this.props.twitterLogoutUser();
+            this.props.socialLogoutUser();
           };
 
     render() {
@@ -51,7 +51,6 @@ export class TwitterAuth extends Component {
                     <b>Your TwitterId  is : ,</b> {user.twitterId} <br/>
                     <b>Your screenName  is : ,</b> {user.screenName} <br/>
                     <b>Date  is : ,</b> {user.date} <br/>
-
                     <img src={user.thumbnail} alt=""/>
                     <p className="flow-text grey-text text-darken-1">
                       You are logged into vg-tours{" "}
@@ -81,8 +80,8 @@ export class TwitterAuth extends Component {
 }
 
 TwitterAuth.propTypes = {
-    twitterLogoutUser: PropTypes.func.isRequired,
-    twitterLoginUser: PropTypes.func.isRequired,
+    socialLogoutUser: PropTypes.func.isRequired,
+    socialLoginUser: PropTypes.func.isRequired,
 
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired,
@@ -94,5 +93,5 @@ TwitterAuth.propTypes = {
   });
   export default connect(
     mapStateToProps,
-    { twitterLoginUser , twitterLogoutUser }
+    { socialLoginUser , socialLogoutUser }
   )(withRouter(TwitterAuth));

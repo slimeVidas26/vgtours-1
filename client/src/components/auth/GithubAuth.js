@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { githubLoginUser , githubLogoutUser } from "../../actions/authActions";
+import { socialLoginUser , socialLogoutUser } from "../../actions/authActions";
 import { withRouter} from "react-router-dom";
 import Loader from 'react-loader-spinner'
 
@@ -16,7 +16,7 @@ export class GithubAuth extends Component {
       }
    
     componentDidMount() {
-        this.props.githubLoginUser()
+        this.props.socialLoginUser()
 
 
         }
@@ -24,7 +24,7 @@ export class GithubAuth extends Component {
 
         onLogoutClick = e => {
             e.preventDefault();
-            this.props.githubLogoutUser();
+            this.props.socialLogoutUser();
             console.log("this.props.auth",this.props.auth)
 
           };
@@ -86,8 +86,8 @@ export class GithubAuth extends Component {
 }
 
 GithubAuth.propTypes = {
-    githubLogoutUser: PropTypes.func.isRequired,
-    githubLoginUser: PropTypes.func.isRequired,
+    socialLogoutUser: PropTypes.func.isRequired,
+    socialLoginUser: PropTypes.func.isRequired,
 
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired,
@@ -99,5 +99,5 @@ GithubAuth.propTypes = {
   });
   export default connect(
     mapStateToProps,
-    { githubLoginUser , githubLogoutUser }
+    { socialLoginUser , socialLogoutUser }
   )(withRouter(GithubAuth));

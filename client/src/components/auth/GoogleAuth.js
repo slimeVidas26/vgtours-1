@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { googleLoginUser , googleLogoutUser } from "../../actions/authActions";
+import { socialLoginUser , socialLogoutUser } from "../../actions/authActions";
 import { withRouter} from "react-router-dom";
 import Loader from 'react-loader-spinner'
 
@@ -16,7 +16,7 @@ export class GoogleAuth extends Component {
       }
    
     componentDidMount() {
-        this.props.googleLoginUser()
+        this.props.socialLoginUser()
 
 
         }
@@ -24,7 +24,7 @@ export class GoogleAuth extends Component {
 
         onLogoutClick = e => {
             e.preventDefault();
-            this.props.googleLogoutUser();
+            this.props.socialLogoutUser();
             console.log("this.props.auth",this.props.auth)
 
           };
@@ -84,8 +84,8 @@ export class GoogleAuth extends Component {
 }
 
 GoogleAuth.propTypes = {
-    googleLogoutUser: PropTypes.func.isRequired,
-    googleLoginUser: PropTypes.func.isRequired,
+    socialLogoutUser: PropTypes.func.isRequired,
+    socialLoginUser: PropTypes.func.isRequired,
 
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired,
@@ -97,5 +97,5 @@ GoogleAuth.propTypes = {
   });
   export default connect(
     mapStateToProps,
-    { googleLoginUser , googleLogoutUser }
+    { socialLoginUser , socialLogoutUser }
   )(withRouter(GoogleAuth));

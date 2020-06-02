@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { spotifyLoginUser , spotifyLogoutUser } from "../../actions/authActions";
+import { socialLoginUser , socialLogoutUser } from "../../actions/authActions";
 import { withRouter} from "react-router-dom";
 import Loader from 'react-loader-spinner'
 
@@ -16,7 +16,7 @@ export class SpotifyAuth extends Component {
       }
    
     componentDidMount() {
-        this.props.spotifyLoginUser()
+        this.props.socialLoginUser()
 
 
         }
@@ -24,7 +24,7 @@ export class SpotifyAuth extends Component {
 
         onLogoutClick = e => {
             e.preventDefault();
-            this.props.spotifyLogoutUser();
+            this.props.socialLogoutUser();
             console.log("this.props.auth",this.props.auth)
 
           };
@@ -85,8 +85,8 @@ export class SpotifyAuth extends Component {
 }
 
 SpotifyAuth.propTypes = {
-    spotifyLogoutUser: PropTypes.func.isRequired,
-    spotifyLoginUser: PropTypes.func.isRequired,
+    socialLogoutUser: PropTypes.func.isRequired,
+    socialLoginUser: PropTypes.func.isRequired,
 
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired,
@@ -98,5 +98,5 @@ SpotifyAuth.propTypes = {
   });
   export default connect(
     mapStateToProps,
-    { spotifyLoginUser , spotifyLogoutUser }
+    { socialLoginUser , socialLogoutUser }
   )(withRouter(SpotifyAuth));
