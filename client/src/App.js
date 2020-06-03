@@ -17,14 +17,15 @@ import './assets/icon/style.css'
 import BecomeAvendor from './components/BecomeAvendor'
  import LoginPage from "./components/auth/LoginPage";
 import SignUpPage from './components/auth/SignUpPage';
-import TwitterAuth from './components/auth/TwitterAuth';
+// import TwitterAuth from './components/auth/TwitterAuth';
 
-import FacebookAuth from './components/auth/FacebookAuth'
-import GoogleAuth from './components/auth/GoogleAuth'
-import AmazonAuth from './components/auth/AmazonAuth'
-import SpotifyAuth from './components/auth/SpotifyAuth'
-import InstagramAuth from './components/auth/InstagramAuth'
-import GithubAuth from './components/auth/GithubAuth'
+// import FacebookAuth from './components/auth/FacebookAuth'
+// import GoogleAuth from './components/auth/GoogleAuth'
+// import AmazonAuth from './components/auth/AmazonAuth'
+// import SpotifyAuth from './components/auth/SpotifyAuth'
+// import InstagramAuth from './components/auth/InstagramAuth'
+// import GithubAuth from './components/auth/GithubAuth'
+import Profile from './components/auth/Profile'
 
 
 
@@ -84,23 +85,22 @@ class App extends Component {
       2. THEN CLICK ON "SIGN UP WITH MAIL" */}
       <Route  path="/signup" component={SignUpPage} />
       <Route  path="/url-parameters" component={UrlParameters} />
-       {/* <Route  path="/twitter-auth" component={TwitterAuth} />  */}
-         <Route  path="/twitter-auth" component={TwitterAuth} />
+         {/* <Route  path="/twitter-auth" component={TwitterAuth} /> */}
 
-      <Route  path="/facebook-auth" component={FacebookAuth} />
-      <Route  path="/google-auth" component={GoogleAuth} />
-      <Route  path="/amazon-auth" component={AmazonAuth} />
+      {/* <Route  path="/facebook-auth" component={FacebookAuth} /> */}
+      {/* <Route  path="/google-auth" component={GoogleAuth} /> */}
+      {/* <Route  path="/amazon-auth" component={AmazonAuth} />
       <Route  path="/spotify-auth" component={SpotifyAuth} />
       <Route  path="/instagram-auth" component={InstagramAuth} />
-      <Route  path="/github-auth" component={GithubAuth} />
-
+      <Route  path="/github-auth" component={GithubAuth} /> */}
+      <Route path='/:handle' component={Profile} />
       <PrivateRoute  path="/dashboard" component={Dashboard} />
       {/* <PrivateRoute  path="/twitter-authentication" component={TwitterAuthentication} /> */}
 
       {/* <PrivateRoute  path="/twitter-auth" component={TwitterAuth} /> */}
-      <PrivateRoute  path="/facebook-auth" component={FacebookAuth} />
+      {/* <PrivateRoute  path="/facebook-auth" component={FacebookAuth} /> */}
       {/* <PrivateRoute  path="/google-auth" component={GoogleAuth} /> */}
-      <PrivateRoute  path="/amazon-auth" component={AmazonAuth} />
+      {/* <PrivateRoute  path="/amazon-auth" component={AmazonAuth} /> */}
 
     </Switch>
 

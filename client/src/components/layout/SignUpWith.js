@@ -77,6 +77,10 @@ class SignUpWith extends Component {
         ]   
     }
 
+    componentWillMount(){
+    
+    }
+
     _twitterSignIn = () => {
         // Authenticate using via passport api in the backend
         // Open Twitter login page
