@@ -5,11 +5,44 @@ import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
+// import { $ } from "jquery";
 // import './App.css';
 import './assets/less/base.css'
 import './assets/less/header.css'
 import './assets/less/theme.css'
 import './assets/icon/style.css'
+
+//javascript
+import {
+   //modernizrCustomFunc,
+  jqueryFunc,
+  flexmenuFunc,
+  nouisliderFunc,
+  wNumbFunc,
+  jrespondFunc,
+  scrollspyFunc,
+  visibilityFunc,
+   accordionFunc,
+  stickyFunc,
+  pageTransitionFunc ,
+  checkboxFunc ,
+  transitionFunc ,
+  sidebarFunc ,
+  modalFunc ,
+  dimmerFunc ,
+  popupFunc ,
+  calendarFunc ,
+  slickFunc ,
+  jqueryFancyboxFunc ,
+  highlightPackFunc ,
+  hljsFunc,
+  clipboardFunc ,
+  headerFunc ,
+  functionsFunc ,
+dividedContainerFunc,
+magicGridFunc
+ } from './scriptsJS'
+
 
 
 // import Navbar from "./components/layout/Navbar";
@@ -61,7 +94,46 @@ if (localStorage.jwtToken) {
 
 class App extends Component {
 
+  // getJsScripts = (scripts , callback)=>{
+
+  // }
+
   
+
+  componentDidMount(){
+    //modernizrCustomFunc();
+    jqueryFunc();
+    flexmenuFunc();
+    nouisliderFunc();
+    wNumbFunc();
+    jrespondFunc();
+    scrollspyFunc();
+    visibilityFunc();
+    accordionFunc();
+    stickyFunc();
+    pageTransitionFunc();
+    checkboxFunc();
+    transitionFunc();
+    sidebarFunc();
+    modalFunc();
+    dimmerFunc();
+    popupFunc();
+    calendarFunc();
+    slickFunc();
+    jqueryFancyboxFunc();
+    highlightPackFunc();
+    //hljsFunc();
+    clipboardFunc();
+    headerFunc();
+    functionsFunc();
+    // dividedContainerFunc();
+    // magicGridFunc()
+
+  }
+
+  
+
+
 
 
   render() {
