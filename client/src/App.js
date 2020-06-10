@@ -13,36 +13,7 @@ import './assets/less/header.css'
 import './assets/less/theme.css'
 import './assets/icon/style.css'
 
-//javascript
-import {
-   //modernizrCustomFunc,
-  //jqueryFunc,
-  //flexmenuFunc,
-  //nouisliderFunc,
-  //wNumbFunc,
-  //jrespondFunc,
-  //scrollspyFunc,
-  //visibilityFunc,
-   //accordionFunc,
-  //stickyFunc,
-  //pageTransitionFunc ,
-  //checkboxFunc ,
-  //transitionFunc ,
-  //sidebarFunc ,
-  //modalFunc ,
-  //dimmerFunc ,
-  //popupFunc ,
-  //calendarFunc ,
-  //slickFunc ,
-  //jqueryFancyboxFunc ,
-  //highlightPackFunc ,
-  //hljsFunc,
-  //clipboardFunc ,
-  //headerFunc ,
-  //functionsFunc ,
-//dividedContainerFunc,
-//magicGridFunc
- } from './scriptsJS'
+
 
 
 
@@ -95,44 +66,6 @@ if (localStorage.jwtToken) {
 
 class App extends Component {
 
-  // getJsScripts = (scripts , callback)=>{
-
-  // }
-
-  
-
-  componentDidMount(){
-    //modernizrCustomFunc()
-    //jqueryFunc()
-    //flexmenuFunc()
-    //nouisliderFunc()
-    //wNumbFunc()
-    //jrespondFunc()
-    //scrollspyFunc()
-    //visibilityFunc()
-    //accordionFunc()
-    //stickyFunc()
-    //pageTransitionFunc()
-    //checkboxFunc()
-    //transitionFunc()
-    //sidebarFunc()
-    //modalFunc()
-    //dimmerFunc()
-    //popupFunc()
-    //calendarFunc()
-    //slickFunc()
-    //jqueryFancyboxFunc()
-    //highlightPackFunc()
-    //hljsFunc()
-    //clipboardFunc()
-    //headerFunc()
-    //functionsFunc()
-     //dividedContainerFunc()
-     //magicGridFunc()
-
-  }
-
-  
 
   handleScriptCreate() {
     this.setState({ scriptLoaded: false })
@@ -191,7 +124,7 @@ class App extends Component {
       onLoad={this.handleScriptLoad.bind(this)}
     />
       <Script
-      url="./assets/library/scrollspy.js"
+      url="./assets/library/scrollspy.min.js"
       onCreate={this.handleScriptCreate.bind(this)}
       onError={this.handleScriptError.bind(this)}
       onLoad={this.handleScriptLoad.bind(this)}
@@ -321,13 +254,13 @@ class App extends Component {
     />
 
     <Script
-      url="./assets/library/dividedContainer.js"
+      url="./assets/library/dividedcontainer.js"
       onCreate={this.handleScriptCreate.bind(this)}
       onError={this.handleScriptError.bind(this)}
       onLoad={this.handleScriptLoad.bind(this)}
     />
     <Script
-      url="./assets/library/magicGrid.js"
+      url="./assets/library/magicgrid.js"
       onCreate={this.handleScriptCreate.bind(this)}
       onError={this.handleScriptError.bind(this)}
       onLoad={this.handleScriptLoad.bind(this)}
@@ -374,4 +307,4 @@ class App extends Component {
     );
   }
 }
-export default App;
+export Default App;
