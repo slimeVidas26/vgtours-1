@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 // import DefaultGrid from '../features/DefaultGrid'
 import FeaturesSubMenu from './FeaturesSubMenu'
-  import '../assets/less/header.css'
+//   import '../assets/less/header.css'
 
 
 class  HeaderMenu extends Component {

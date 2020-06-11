@@ -5,42 +5,17 @@ import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
-import Script from 'react-load-script'
 // import { $ } from "jquery";
  import './App.css';
 
+  import './assets/less/base.css'
+  import './assets/less/header.css'
+  import './assets/less/theme.css'
+  import './assets/icon/style.css'
+
  
 
-//javascript
-import {
-   //modernizrCustomFunc,
-  //jqueryFunc,
-  //flexmenuFunc,
-  //nouisliderFunc,
-  //wNumbFunc,
-  //jrespondFunc,
-  //scrollspyFunc,
-  //visibilityFunc,
-   //accordionFunc,
-  //stickyFunc,
-  //pageTransitionFunc ,
-  //checkboxFunc ,
-  //transitionFunc ,
-  //sidebarFunc ,
-  //modalFunc ,
-  //dimmerFunc ,
-  //popupFunc ,
-  //calendarFunc ,
-  //slickFunc ,
-  //jqueryFancyboxFunc ,
-  //highlightPackFunc ,
-  //hljsFunc,
-  //clipboardFunc ,
-  //headerFunc ,
-  //functionsFunc ,
-//dividedContainerFunc,
-//magicGridFunc
- } from './scriptsJS'
+
 
 
 
@@ -93,55 +68,50 @@ if (localStorage.jwtToken) {
 
 class App extends Component {
 
-  // getJsScripts = (scripts , callback)=>{
+   loadScriptHead = function(src) {
+    const tag = document.createElement('script');
+    tag.async = false;
+    tag.src = src;
+    document.head.appendChild(tag);
+  }
 
-  // }
-
-  
+  loadScript = function(src) {
+    const tag = document.createElement('script');
+    tag.async = false;
+    tag.src = src;
+    document.body.appendChild(tag);
+  }
+   
+ 
 
   componentDidMount(){
-    //modernizrCustomFunc()
-    //jqueryFunc()
-    //flexmenuFunc()
-    //nouisliderFunc()
-    //wNumbFunc()
-    //jrespondFunc()
-    //scrollspyFunc()
-    //visibilityFunc()
-    //accordionFunc()
-    //stickyFunc()
-    //pageTransitionFunc()
-    //checkboxFunc()
-    //transitionFunc()
-    //sidebarFunc()
-    //modalFunc()
-    //dimmerFunc()
-    //popupFunc()
-    //calendarFunc()
-    //slickFunc()
-    //jqueryFancyboxFunc()
-    //highlightPackFunc()
-    //hljsFunc()
-    //clipboardFunc()
-    //headerFunc()
-    //functionsFunc()
-     //dividedContainerFunc()
-     //magicGridFunc()
+    this.loadScriptHead('/assets/library/modernizr-custom.js')
+    this.loadScript('/assets/library/jquery-2.2.0.min.js')
+    this.loadScript('/assets/library/flexmenu.js')
+    this.loadScript('/assets/library/nouislider.min.js')
+    this.loadScript('/assets/library/wNumb.js')
+    this.loadScript('/assets/library/jrespond.min.js')
+    this.loadScript('/assets/library/scrollspy.min.js')
+    this.loadScript('/assets/library/visibility.js')
+    this.loadScript('/assets/library/accordion.js')
+    this.loadScript('/assets/library/dropdown-custom.js')
+    this.loadScript('/assets/library/sticky.js')
+    this.loadScript('/assets/library/page-transition.js')
+    this.loadScript('/assets/library/checkbox.js')
+    this.loadScript('/assets/library/transition.js')
+    this.loadScript('/assets/library/sidebar.js')
+    this.loadScript('/assets/library/modal.js')
+    this.loadScript('/assets/library/dimmer.js')
 
-  }
-
-  
-
-  handleScriptCreate() {
-    this.setState({ scriptLoaded: false })
-  }
-   
-  handleScriptError() {
-    this.setState({ scriptError: true })
-  }
-   
-  handleScriptLoad() {
-    this.setState({ scriptLoaded: true })
+      //Datepicker
+    this.loadScript('/assets/library/popup.js')
+    this.loadScript('/assets/library/calendar.js')
+    this.loadScript('/assets/library/slick.js')
+    this.loadScript('/assets/library/jquery.fancybox.js')
+    this.loadScript('/assets/library/highlight.pack.js')
+    this.loadScript('/assets/library/clipboard.min.js')
+    this.loadScript('/assets/library/header.js')
+    this.loadScript('/assets/library/functions.js') 
   }
 
 
@@ -152,185 +122,7 @@ class App extends Component {
        <Provider store={store}>
       <Router>
       <Fragment>
-      {/* <Script
-      url="./assets/library/modernizr-custom.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/jquery-2.2.0.min.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/flexmenu.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/nouislider.min.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/wNumb.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/jrespond.min.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/scrollspy.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/visibility.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/accordion.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/dropdown-custom.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/sticky.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/page-transition.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/checkbox.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/transition.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/sidebar.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/sidebar.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/modal.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/dimmer.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/popup.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/calendar.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/slick.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/jquery.fancybox.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/highlight.pack.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
 
-    <Script
-      url="./assets/library/initHighlightingOnLoad.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      
-      <Script
-      url="./assets/library/clipboard.min.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-      <Script
-      url="./assets/library/header.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-       
-      <Script
-      url="./assets/library/functions.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-
-    <Script
-      url="./assets/library/dividedContainer.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    />
-    <Script
-      url="./assets/library/magicGrid.js"
-      onCreate={this.handleScriptCreate.bind(this)}
-      onError={this.handleScriptError.bind(this)}
-      onLoad={this.handleScriptLoad.bind(this)}
-    /> */}
-   
           <Route exact path="/becomeavendor" component={BecomeAvendor} /> 
           <Route exact path="/features/fts_default_grid.html" component={DefaultGrid}/>
           <Route exact path="/features/fts_divided_container.html" component={DividedContainer} />
