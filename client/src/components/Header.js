@@ -1,6 +1,7 @@
 import React , {Component} from 'react'
 import { Link , withRouter} from "react-router-dom";
 import HeaderMenu from './HeaderMenu'
+  import '../assets/less/header.css'
 
 //import images
  import logo_mybnb_transparent from '../assets/images/logo-mybnb-transparent.png';

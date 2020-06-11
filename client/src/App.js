@@ -7,11 +7,9 @@ import { Provider } from "react-redux";
 import store from "./store";
 import Script from 'react-load-script'
 // import { $ } from "jquery";
-// import './App.css';
-import './assets/less/base.css'
-import './assets/less/header.css'
-import './assets/less/theme.css'
-import './assets/icon/style.css'
+ import './App.css';
+
+ 
 
 //javascript
 import {
@@ -154,7 +152,7 @@ class App extends Component {
        <Provider store={store}>
       <Router>
       <Fragment>
-      <Script
+      {/* <Script
       url="./assets/library/modernizr-custom.js"
       onCreate={this.handleScriptCreate.bind(this)}
       onError={this.handleScriptError.bind(this)}
@@ -331,7 +329,7 @@ class App extends Component {
       onCreate={this.handleScriptCreate.bind(this)}
       onError={this.handleScriptError.bind(this)}
       onLoad={this.handleScriptLoad.bind(this)}
-    />
+    /> */}
    
           <Route exact path="/becomeavendor" component={BecomeAvendor} /> 
           <Route exact path="/features/fts_default_grid.html" component={DefaultGrid}/>
