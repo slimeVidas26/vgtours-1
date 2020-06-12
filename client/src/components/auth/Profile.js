@@ -20,9 +20,6 @@ export class Profile extends Component {
         };
         
       }
-
-     
-
        profNet() {
 
         const {handle} = this.props.match.params
