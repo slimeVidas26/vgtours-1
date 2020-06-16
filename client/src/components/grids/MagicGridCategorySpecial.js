@@ -1,4 +1,4 @@
-import React from 'react'
+import React  ,{useState} from 'react'
 import { Link } from "react-router-dom";
 import MagicGridArticles from './MagicGridArticles'
 
@@ -15,6 +15,16 @@ import magic_grid_category_special_07 from '../../assets/images/magic_grid/magic
 
 
 function MagicGridCategorySpecial() {
+    const [magicGridCategorySpecial ,setMagicGridCategorySpecial ] = useState([
+        {image : magic_grid_category_special_01 , title : "Wildlife"},
+        {image : magic_grid_category_special_02 , title : "Adventure"},
+        {image : magic_grid_category_special_03 , title : "Beaches"},
+        {image : magic_grid_category_special_04 , title : "Monuments"},
+        {image : magic_grid_category_special_05 , title : "Food"},
+        {image : magic_grid_category_special_06 , title : "Party"},
+        {image : magic_grid_category_special_07 , title : "Museum"},
+
+    ])
     return (
         <div className="row">
         <div className="ui column">
@@ -26,15 +36,17 @@ function MagicGridCategorySpecial() {
                 </div>
                 
                 <div className="magic-grid category-sq special-sq hover-scale">
-                   {/* <!-- item--> */}
-                   <div className="item">
+                    {magicGridCategorySpecial.map((mgcs)=>{
+                        const alterImage = mgcs.image.split('/');
+                    return (
+                        <div className="item">
                         <div className="item-inner">
                 
                             {/* <!-- image container --> */}
                             <div className="image-sq">
                                 <div className="image-wrapper">
                                     <div className="image-inner">
-                                        <img className="image-sq" src={magic_grid_category_special_01} alt=""/>
+                                        <img className="image-sq" src={mgcs.image} alt={alterImage[3]}/>
                 
                                     </div>
                                 </div>
@@ -42,137 +54,15 @@ function MagicGridCategorySpecial() {
                 
                             {/* <!-- typography container--> */}
                             <Link to="article_listing.html" className="typo-sq">
-                                <p className="typo-title-sq">Wildlife</p>
+                                <p className="typo-title-sq">{mgcs.title}</p>
                             </Link>
                 
                         </div>
                     </div>
-                
-                   {/* <!-- item--> */}
-                   <div className="item">
-                        <div className="item-inner">
-                
-                            {/* <!-- image container --> */}
-                            <div className="image-sq">
-                                <div className="image-wrapper">
-                                    <div className="image-inner">
-                                        <img className="image-sq" src={magic_grid_category_special_02} alt=""/>
-                                    </div>
-                                </div>
-                            </div>
-                
-                            {/* <!-- typography container--> */}
-                            <Link to="article_listing.html" className="typo-sq">
-                                <p className="typo-title-sq">Adventure</p>
-                            </Link>
-                
-                        </div>
-                    </div>
-                
-                   {/* <!-- item--> */}
-                   <div className="item">
-                        <div className="item-inner">
-                
-                            {/* <!-- image container --> */}
-                            <div className="image-sq">
-                                <div className="image-wrapper">
-                                    <div className="image-inner">
-                                        <img className="image-sq" src={magic_grid_category_special_03} alt=""/>
-                                    </div>
-                                </div>
-                            </div>
-                
-                            {/* <!-- typography container--> */}
-                            <Link to="article_listing.html" className="typo-sq">
-                                <p className="typo-title-sq">Beaches</p>
-                            </Link>
-                
-                        </div>
-                    </div>
-                
-                   {/* <!-- item--> */}
-                   <div className="item">
-                        <div className="item-inner">
-                
-                            {/* <!-- image container --> */}
-                            <div className="image-sq">
-                                <div className="image-wrapper">
-                                    <div className="image-inner">
-                                        <img className="image-sq" src={magic_grid_category_special_04} alt=""/>
-                                    </div>
-                                </div>
-                            </div>
-                
-                            {/* <!-- typography container--> */}
-                            <Link to="article_listing.html" className="typo-sq">
-                                <p className="typo-title-sq">Monuments</p>
-                            </Link>
-                
-                        </div>
-                    </div>
-                
-                   {/* <!-- item--> */}
-                   <div className="item">
-                        <div className="item-inner">
-                
-                            {/* <!-- image container --> */}
-                            <div className="image-sq">
-                                <div className="image-wrapper">
-                                    <div className="image-inner">
-                                        <img className="image-sq" src={magic_grid_category_special_05} alt=""/>
-                                    </div>
-                                </div>
-                            </div>
-                
-                            {/* <!-- typography container--> */}
-                            <Link to="article_listing.html" className="typo-sq">
-                                <p className="typo-title-sq">Food</p>
-                            </Link>
-                
-                        </div>
-                    </div>
-                    
-                   {/* <!-- item--> */}
-                   <div className="item">
-                        <div className="item-inner">
-                
-                            {/* <!-- image container --> */}
-                            <div className="image-sq">
-                                <div className="image-wrapper">
-                                    <div className="image-inner">
-                                        <img className="image-sq" src={magic_grid_category_special_06} alt=""/>
-                                    </div>
-                                </div>
-                            </div>
-                
-                            {/* <!-- typography container--> */}
-                            <Link to="article_listing.html" className="typo-sq">
-                                <p className="typo-title-sq">Party</p>
-                            </Link>
-                
-                        </div>
-                    </div>
-                
-                   {/* <!-- item--> */}
-                   <div className="item">
-                        <div className="item-inner">
-                
-                            {/* <!-- image container --> */}
-                            <div className="image-sq">
-                                <div className="image-wrapper">
-                                    <div className="image-inner">
-                                        <img className="image-sq" src={magic_grid_category_special_07} alt=""/>
-                                    </div>
-                                </div>
-                            </div>
-                
-                            {/* <!-- typography container--> */}
-                            <Link to="article_listing.html" className="typo-sq">
-                                <p className="typo-title-sq">Museum</p>
-                            </Link>
-                
-                        </div>
-                    </div>
+                   
+                    )
+                    })}
+                 
                 </div>
             </div>
             
