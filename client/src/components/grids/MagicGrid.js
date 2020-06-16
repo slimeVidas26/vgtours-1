@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState} from 'react'
 import { Link } from "react-router-dom";
 
 
@@ -9,6 +9,16 @@ import magic_grid_photo_03 from '../../assets/images/magic_grid/magic_grid_photo
 import magic_grid_photo_04 from '../../assets/images/magic_grid/magic_grid_photo_04.jpg';
 
 function MagicGrid() {
+
+    const [magicGrid , setMagicGric] = useState([
+          {image : magic_grid_photo_01 , title : "Lefkada" , country : "Greece"},
+          {image : magic_grid_photo_02 , title : "Amsterdam" , country : "Nederland"},
+          {image : magic_grid_photo_03 , title : "Paris" , country : "France"},
+          {image : magic_grid_photo_04 , title : "Prague" , country : "Republic Cheque"},
+
+    ]);
+    const dataLabelAfter = "Book a home in";
+
     return (
          <div className="row">
         <div className="ui twelve wide computer column">
@@ -21,7 +31,9 @@ function MagicGrid() {
                 
                 <div className="magic-grid photo-sq hover-default hover-center">
 
-                    {/* <!-- item--> */}
+                {magicGrid.map((magic)=>{
+                 const alterImage = magic.image.split('/');
+                 return (
                    <div className="item">
                         <div className="item-inner">
 
@@ -29,7 +41,7 @@ function MagicGrid() {
                             <div className="image-sq">
                                 <div className="image-wrapper">
                                     <div className="image-inner">
-                                        <img className="image-sq" src={magic_grid_photo_01} alt=""/>
+                                        <img className="image-sq" src={magic.image} alt={alterImage[3]}/>
                                     </div>
                                 </div>
                             </div>
@@ -37,82 +49,18 @@ function MagicGrid() {
                             {/* <!-- typography container--> */}
                             <Link to="listing_page.html" className="typo-sq">
                                 <span className="typo-whitespace"></span>
-                                <p className="typo-label-sq" data-label-before="Greece" data-label-after="Book a home in"></p>
-                                <p className="typo-title-sq">Lefkada</p>
+                                <p className="typo-label-sq" data-label-before={magic.country} data-label-after={dataLabelAfter}></p>
+                                <p className="typo-title-sq">{magic.title}</p>
                             </Link>
 
                         </div>
                     </div>
 
-                    {/* <!-- item--> */}
-                   <div className="item">
-                        <div className="item-inner">
+                 )
+                })}
 
-                            {/* <!-- image container --> */}
-                            <div className="image-sq">
-                                <div className="image-wrapper">
-                                    <div className="image-inner">
-                                        <img className="image-sq" src={magic_grid_photo_02} alt=""/>
-                                    </div>
-                                </div>       
-                            </div>
 
-                            {/* <!-- typography container--> */}
-                            <Link to="listing_page.html" className="typo-sq">
-                                <span className="typo-whitespace"></span>
-                                <p className="typo-label-sq" data-label-before="Netherlands" data-label-after="Book a home in"></p>
-                                <p className="typo-title-sq">Amsterdam</p>
-                            </Link>
-
-                        </div>
-                    </div>
-
-                    {/* <!-- item--> */}
-                   <div className="item">
-                        <div className="item-inner">
-
-                            {/* <!-- image container --> */}
-                            <div className="image-sq">
-                                <div className="image-wrapper">
-                                    <div className="image-inner">
-                                        <img className="image-sq" src={magic_grid_photo_03} alt=""/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* <!-- typography container--> */}
-                            <Link to="listing_page.html" className="typo-sq">
-                                <span className="typo-whitespace"></span>
-                                <p className="typo-label-sq" data-label-before="France" data-label-after="Book a home in"></p>
-                                <p className="typo-title-sq">Paris</p>
-                            </Link>
-
-                        </div>
-                    </div>
-
-                    {/* <!-- item--> */}
-                   <div className="item">
-                        <div className="item-inner">
-
-                            {/* <!-- image container --> */}
-                            <div className="image-sq">
-                                <div className="image-wrapper">
-                                    <div className="image-inner">
-                                        <img className="image-sq" src={magic_grid_photo_04} alt=""/>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* <!-- typography container--> */}
-                            <Link to="listing_page.html" className="typo-sq">
-                                <span className="typo-whitespace"></span>
-                                <p className="typo-label-sq" data-label-before="Czech" data-label-after="Book a home in"></p>
-                                <p className="typo-title-sq">Prague</p>
-                            </Link>
-
-                        </div>
-                    </div>
-
+                   
                 </div>
                 
                 <Link to = "listing_page.html" className="more-trigger" data-more="See All">

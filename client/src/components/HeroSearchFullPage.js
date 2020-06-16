@@ -11,6 +11,8 @@ import  hero_big_32  from "../assets/images/hero/hero_big_32.jpg";
 
 function HeroSearchFullPage() {
 
+   
+
     const [heroes , setHeroes] = useState([
         {title : "New Experiences" , image : hero_big_28 , verb : "Explore"},
         {title : "New Feelings" , image : hero_big_29 , verb : "Find"},
@@ -29,7 +31,12 @@ function HeroSearchFullPage() {
 {/* <!-- Hero Big - Slick --> */}
 <div className="sq-slick hero-big slide-up-sq" data-mobile-arrows="false" data-tablet-arrows="false" data-mobile-dots="true" data-tablet-dots="true" data-fade="true" data-speed="500" data-ease="linear">
   {/* <!-- .slide-up .fade .top .bottom --> */}
+
+    
+    
+    
     {heroes.map((hero)=>{
+        const alterImage = hero.image.split('/');
         return (
             <div className="">
         <div className="caption-content">
@@ -42,9 +49,11 @@ function HeroSearchFullPage() {
             </Link>
         </div>
 
+        
+
         <div className="image-wrapper">
             <div className="image-inner">
-                <img className="image-sq" src={hero.image} alt="hero_big_28.jpg"/>
+                <img className="image-sq" src={hero.image} alt={alterImage[3]}/>
             </div>
         </div>
     </div>
