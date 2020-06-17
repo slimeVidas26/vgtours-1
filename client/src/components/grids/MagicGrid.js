@@ -47,7 +47,7 @@ function MagicGrid() {
                             </div>
 
                             {/* <!-- typography container--> */}
-                            <Link to="listing_page.html" className="typo-sq">
+                            <Link to="/listing-page" className="typo-sq">
                                 <span className="typo-whitespace"></span>
                                 <p className="typo-label-sq" data-label-before={magic.country} data-label-after={dataLabelAfter}></p>
                                 <p className="typo-title-sq">{magic.title}</p>

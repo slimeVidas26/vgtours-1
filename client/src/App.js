@@ -35,6 +35,7 @@ import DefaultGrid from "./components/features/DefaultGrid";
 import DividedContainer from "./components/features/assets/dividedContainer/DividedContainer";
 import MagicGrid from "./components/features/assets/magicGrid/MagicGrid";
 import UrlParameters from "./components/features/assets/router/UrlParameters";
+import ListingPage from "./components/ListingPage";
 
 
 // Check for token to keep user logged in
@@ -96,6 +97,8 @@ class App extends Component {
       2. THEN CLICK ON "SIGN UP WITH MAIL" */}
       <Route  path="/signup" component={SignUpPage} />
       <Route  path="/url-parameters" component={UrlParameters} />
+      <Route exact path="/listing-page" component={ListingPage} />
+
          {/* <Route  path="/twitter-auth" component={TwitterAuth} /> */}
 
       {/* <Route  path="/facebook-auth" component={FacebookAuth} /> */}
