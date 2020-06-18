@@ -8,6 +8,7 @@ import HeaderMenu from './HeaderMenu'
  import logo_mybnb_transparent2x from '../assets/images/logo-mybnb-transparent@2x.png';
 import logo_mybnb from '../assets/images/logo-mybnb.png';
 import logo_mybnb2x from '../assets/images/logo-mybnb@2x.png';
+import { JsContext } from '../contexts/JsContext';
 
 
 class Header extends Component{
@@ -16,8 +17,8 @@ class Header extends Component{
         super(props)
     
         this.state = {
-            headerTransparent : "header-transparent" ,
-            isTransparent : "is-transparent"
+            // headerTransparent : "header-transparent" ,
+            // isTransparent : "is-transparent"
         }
     }
 
@@ -27,22 +28,26 @@ class Header extends Component{
                 const header = document.getElementsByClassName('header');
                       header.classList.add(...this.state)
                       //header.classList.add(this.state.isTransparent)
-
-
                 break;
-                
-        
             default:
                 break;
-        }
-       
+        }  
     }
     
    render(){
-   
     return (
-
-        <header className="header-section ths header-shadow header-sticky header-slide-up equal-tablet-header-items equal-mobile-header-items header-transparent is-transparent">
+        <JsContext.Consumer>{(context)=>{
+        context.scriptsArray.map((item , index)=>{
+       if(index === 0){
+        return context.loadScriptHead(`/assets/library/${item}`)
+       }
+       else { 
+        return context.loadScriptBody(`/assets/library/${item}`)
+       }
+    })
+    
+            return (
+                <header className="header-section ths header-shadow header-sticky header-slide-up equal-tablet-header-items equal-mobile-header-items header-transparent is-transparent">
         <div className="header-content">
         
         
@@ -70,23 +75,18 @@ class Header extends Component{
                     <span className="hamburger-box">
                       <span className="hamburger-inner"></span>
                     </span>
-                </a>
-              
-                {/* <!-- Include Menu --> */}
-                
-        {/* <!-- Header Menu--> */}
-                
-        <HeaderMenu/>
-        {/* <!-- End of Header Menu--> */}
-        
-                
+                </a>      
+        <HeaderMenu/>    
             </div>
         </div>
-        
         </div>   
-        
-        
         </header>
+            )
+            }}
+
+        </JsContext.Consumer>
+
+       
             )
    }
    

@@ -9,6 +9,7 @@ import UiLayoutTop from './UiLayoutTop'
 import Wishlist from './Wishlist'
 
 import Footer from "./Footer";
+import JsContextProvider from '../contexts/JsContext';
 
 class HomePage extends Component {
 
@@ -23,35 +24,16 @@ class HomePage extends Component {
 
     render(){
         return (
-            <Fragment>
-            {/* <!-- Header menu --> */}
-
-      <Header/>
-      
-      {/* <!-- Hero Full Page --> */}
+    <Fragment>
+    <JsContextProvider>
+    <Header/>
       <HeroSearchFullPage/>
-      
-      {/* <!-- ui layout top --> */}
       <UiLayoutTop/>
-      {/* <!-- Modals --> */}
-      
-      {/* <!-- Sign Up --> */}
-      
-      {/* <SignUp/> */}
-      {/* <!-- Log In --> */}
-      
-      {/* <Login2/> */}
-      
-      {/* <!-- Sign Up with mail --> */}
-      
-      {/* <SignUpWithMail/> */}
-      {/* <!-- Wishlist --> */}
-      
       <Wishlist/>           
-      
-      {/* <!--FOOTER--> */}
-      
       <Footer/>
+    </JsContextProvider>
+     
+
       </Fragment>
           )
     }

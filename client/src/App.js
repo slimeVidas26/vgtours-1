@@ -5,7 +5,6 @@ import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
-import {loadScriptHead , loadScript , scriptsArray} from "./scriptsJS"
  import './App.css';
 
   import './assets/less/base.css'
@@ -60,19 +59,6 @@ if (localStorage.jwtToken) {
 class App extends Component {
 
   componentDidMount(){
-
-     const res = scriptsArray.map((item , index)=>{
-       if(index === 0){
-        return loadScriptHead(`/assets/library/${item}`)
-       }
-       else { 
-        return loadScript(`/assets/library/${item}`)
-   
-       }
-     
-    })
-
-    
   }
 
   render() {
