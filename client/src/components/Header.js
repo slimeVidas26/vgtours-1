@@ -1,50 +1,28 @@
-import React , {Component} from 'react'
+import React , {useContext} from 'react'
 import { Link , withRouter} from "react-router-dom";
 import HeaderMenu from './HeaderMenu'
-//   import '../assets/less/header.css'
+import { JsContext } from '../contexts/JsContext';
 
 //import images
  import logo_mybnb_transparent from '../assets/images/logo-mybnb-transparent.png';
  import logo_mybnb_transparent2x from '../assets/images/logo-mybnb-transparent@2x.png';
 import logo_mybnb from '../assets/images/logo-mybnb.png';
 import logo_mybnb2x from '../assets/images/logo-mybnb@2x.png';
-import { JsContext } from '../contexts/JsContext';
 
 
-class Header extends Component{
+const Header = ()=>{
 
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-            // headerTransparent : "header-transparent" ,
-            // isTransparent : "is-transparent"
-        }
-    }
-
-    componentDidMount(){
-        switch (this.props.location.pathname) {
-            case "/becomeavendor":
-                const header = document.getElementsByClassName('header');
-                      header.classList.add(...this.state)
-                      //header.classList.add(this.state.isTransparent)
-                break;
-            default:
-                break;
-        }  
-    }
-    
-   render(){
-    return (
-        <JsContext.Consumer>{(context)=>{
-        context.scriptsArray.map((item , index)=>{
-       if(index === 0){
-        return context.loadScriptHead(`/assets/library/${item}`)
+    const {scriptsArray , loadScriptHead , loadScriptBody} = useContext(JsContext);
+     console.log("scriptsArray",scriptsArray)
+       {scriptsArray.map((item , index)=>{
+            if(index === 0){
+             return loadScriptHead(`/assets/library/${item}`)
+            }
+            else { 
+             return loadScriptBody(`/assets/library/${item}`)
+            }
+         })
        }
-       else { 
-        return context.loadScriptBody(`/assets/library/${item}`)
-       }
-    })
     
             return (
                 <header className="header-section ths header-shadow header-sticky header-slide-up equal-tablet-header-items equal-mobile-header-items header-transparent is-transparent">
@@ -81,16 +59,11 @@ class Header extends Component{
         </div>
         </div>   
         </header>
-            )
-            }}
-
-        </JsContext.Consumer>
-
-       
-            )
+             )
+          
    }
    
-}
+
 
 export default withRouter(Header)
 
