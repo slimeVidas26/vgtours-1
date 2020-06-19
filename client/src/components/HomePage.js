@@ -10,6 +10,7 @@ import Wishlist from './Wishlist'
 
 import Footer from "./Footer";
 import JsContextProvider from '../contexts/JsContext';
+import HeroSearchContextProvider from '../contexts/HeroSearchContext';
 
 class HomePage extends Component {
 
@@ -27,7 +28,9 @@ class HomePage extends Component {
     <Fragment>
     <JsContextProvider>
       <Header/>
-      <HeroSearchFullPage/>
+      <HeroSearchContextProvider>
+        <HeroSearchFullPage/>
+      </HeroSearchContextProvider>
       <UiLayoutTop/>
       <Wishlist/>           
       <Footer/>
