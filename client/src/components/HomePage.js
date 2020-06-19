@@ -26,7 +26,7 @@ class HomePage extends Component {
         return (
     <Fragment>
     <JsContextProvider>
-    <Header/>
+      <Header/>
       <HeroSearchFullPage/>
       <UiLayoutTop/>
       <Wishlist/>           
