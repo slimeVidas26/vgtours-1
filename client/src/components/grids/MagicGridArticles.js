@@ -21,6 +21,8 @@ function MagicGridArticles() {
 
     ])
     return (
+          <div className="row">
+        <div className="ui column">
           <div className="typo-section-sq bottom-big">	
                 <div className="typo-section-header-sq">
                     <h2 className="text-align-center-sq">News</h2>
@@ -64,6 +66,8 @@ function MagicGridArticles() {
                    <i className="icon icon-arrow-down-122"></i>
                 </Link>
             </div>
+            </div>
+    </div>
     )
 }
 

@@ -1,22 +1,14 @@
-import React , {useState} from 'react'
+import React , {useContext} from 'react'
 import { Link } from "react-router-dom";
+import { MagicGridContext } from '../../contexts/MagicGridContext';
 
 
-//import photos
-import magic_grid_photo_01 from '../../assets/images/magic_grid/magic_grid_photo_01.jpg';
-import magic_grid_photo_02 from '../../assets/images/magic_grid/magic_grid_photo_02.jpg';
-import magic_grid_photo_03 from '../../assets/images/magic_grid/magic_grid_photo_03.jpg';
-import magic_grid_photo_04 from '../../assets/images/magic_grid/magic_grid_photo_04.jpg';
+
 
 function MagicGrid() {
 
-    const [magicGrid , setMagicGric] = useState([
-          {image : magic_grid_photo_01 , title : "Lefkada" , country : "Greece"},
-          {image : magic_grid_photo_02 , title : "Amsterdam" , country : "Nederland"},
-          {image : magic_grid_photo_03 , title : "Paris" , country : "France"},
-          {image : magic_grid_photo_04 , title : "Prague" , country : "Republic Cheque"},
+    const {MagicGrid} = useContext(MagicGridContext);
 
-    ]);
     const dataLabelAfter = "Book a home in";
 
     return (
@@ -31,7 +23,7 @@ function MagicGrid() {
                 
                 <div className="magic-grid photo-sq hover-default hover-center">
 
-                {magicGrid.map((magic)=>{
+                {MagicGrid.map((magic)=>{
                  const alterImage = magic.image.split('/');
                  return (
                    <div className="item">

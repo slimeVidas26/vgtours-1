@@ -4,12 +4,17 @@ import PromoSection1 from './promo/PromoSection1'
 import Property from './grids/Property'
 import PromoSection2 from './promo/PromoSection2'
 import MagicGridCategorySpecial from './grids/MagicGridCategorySpecial'
+import MagicGridArticles from './grids/MagicGridArticles'
+import MagicGridContextProvider from '../contexts/MagicGridContext';
 
 function UiLayoutTop() {
     return (
       <div className="ui layout" id="top">
 <div className="ui grid container">
-  <MagicGrid/>
+<MagicGridContextProvider>
+<MagicGrid/>
+</MagicGridContextProvider>
+  
 </div>
 
 <div className="promo-section">
@@ -26,14 +31,17 @@ function UiLayoutTop() {
 </div>
 
 <div className="promo-section">
-   
-   {/* <!-- content --> */}
    <PromoSection2/>
-
 </div>
+
+
 
 <div className="ui grid container">
    <MagicGridCategorySpecial/>
+</div>
+
+<div className="ui grid container">
+   <MagicGridArticles/>
 </div>
 
 </div>

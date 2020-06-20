@@ -68,7 +68,6 @@ function MagicGridCategorySpecial() {
             
             <hr/>
            
-         <MagicGridArticles/>
             
         </div>
     </div>
