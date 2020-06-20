@@ -4,8 +4,9 @@ import PromoSection1 from './promo/PromoSection1'
 import Property from './grids/Property'
 import PromoSection2 from './promo/PromoSection2'
 import MagicGridCategorySpecial from './grids/MagicGridCategorySpecial'
-import MagicGridArticles from './grids/MagicGridArticles'
+import MagicGridArticles from './grids/MagicGridArticle'
 import MagicGridContextProvider from '../contexts/MagicGridContext';
+import MagicGridArticleContextProvider from '../contexts/MagicGridArticleContext';
 
 function UiLayoutTop() {
     return (
@@ -41,7 +42,9 @@ function UiLayoutTop() {
 </div>
 
 <div className="ui grid container">
+<MagicGridArticleContextProvider>
    <MagicGridArticles/>
+</MagicGridArticleContextProvider>
 </div>
 
 </div>

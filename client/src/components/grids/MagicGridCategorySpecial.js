@@ -1,6 +1,6 @@
 import React  ,{useState} from 'react'
 import { Link } from "react-router-dom";
-import MagicGridArticles from './MagicGridArticles'
+import MagicGridArticles from './MagicGridArticle'
 
 
 //import images
