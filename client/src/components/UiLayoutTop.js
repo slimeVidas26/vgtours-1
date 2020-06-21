@@ -8,6 +8,7 @@ import MagicGridArticles from './grids/MagicGridArticle'
 import MagicGridContextProvider from '../contexts/MagicGridContext';
 import MagicGridArticleContextProvider from '../contexts/MagicGridArticleContext';
 import CategorySpecialGridContextProvider from '../contexts/CategorySpecialGridContext';
+import PropertyContextProvider from '../contexts/PropertyContext';
 
 function UiLayoutTop() {
     return (
@@ -29,7 +30,11 @@ function UiLayoutTop() {
 </div>
 
 <div className="ui grid container">
-  <Property/>
+   <PropertyContextProvider>
+   <Property/>
+   </PropertyContextProvider>
+
+
 </div>
 
 <div className="promo-section">
