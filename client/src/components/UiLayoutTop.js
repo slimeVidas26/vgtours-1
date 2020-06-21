@@ -3,10 +3,11 @@ import MagicGrid from './grids/MagicGrid'
 import PromoSection1 from './promo/PromoSection1'
 import Property from './grids/Property'
 import PromoSection2 from './promo/PromoSection2'
-import MagicGridCategorySpecial from './grids/MagicGridCategorySpecial'
+import CategorySpecialGrid from './grids/CategorySpecialGrid'
 import MagicGridArticles from './grids/MagicGridArticle'
 import MagicGridContextProvider from '../contexts/MagicGridContext';
 import MagicGridArticleContextProvider from '../contexts/MagicGridArticleContext';
+import CategorySpecialGridContextProvider from '../contexts/CategorySpecialGridContext';
 
 function UiLayoutTop() {
     return (
@@ -38,7 +39,10 @@ function UiLayoutTop() {
 
 
 <div className="ui grid container">
-   <MagicGridCategorySpecial/>
+<CategorySpecialGridContextProvider>
+   <CategorySpecialGrid/>
+   </CategorySpecialGridContextProvider>
+
 </div>
 
 <div className="ui grid container">
