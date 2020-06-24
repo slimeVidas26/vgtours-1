@@ -18,6 +18,8 @@ import store from "./store";
 import BecomeAvendor from './components/BecomeAvendor'
  import LoginPage from "./components/auth/LoginPage";
 import SignUpPage from './components/auth/SignUpPage';
+import ConnectPage from './components/auth/ConnectPage';
+
 // import TwitterAuth from './components/auth/TwitterAuth';
 
 // import FacebookAuth from './components/auth/FacebookAuth'
@@ -35,7 +37,8 @@ import DividedContainer from "./components/features/assets/dividedContainer/Divi
 import MagicGrid from "./components/features/assets/magicGrid/MagicGrid";
 import UrlParameters from "./components/features/assets/router/UrlParameters";
 import ListingPage from "./components/ListingPage";
-
+import RegisterFormHooks from "./components/auth/RegisterFormHooks"
+import AuthContextProvider from "./contexts/AuthContext";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -82,6 +85,14 @@ class App extends Component {
       AND 
       2. THEN CLICK ON "SIGN UP WITH MAIL" */}
       <Route  path="/signup" component={SignUpPage} />
+    
+      <Route  path="/connect" component={ConnectPage} />
+ 
+    
+      <Route  path="/connect" component={ConnectPage} />
+
+      <Route  path="/register" component={RegisterFormHooks} />
+
       <Route  path="/url-parameters" component={UrlParameters} />
       <Route exact path="/listing-page" component={ListingPage} />
 

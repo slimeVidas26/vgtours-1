@@ -30,9 +30,6 @@ const CLIENT_HOME_PAGE_URL = "http://localhost:3000"
 // @access Public
 router.post("/register", (req, res) => {
 console.log("req.body",req.body)
-
-
-  
     // Form validation
   const { errors, isValid } = validateRegisterInput(req.body);
   // Check validation

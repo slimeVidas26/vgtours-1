@@ -11,7 +11,7 @@ class SignUpWith extends Component {
             {   
                 socialNetwork : "Email",
                 linkTo : {
-                    pathName : "/signup",
+                    pathName : "/register",
                     search : "mail=true"
                 },
                 className : "button-sq fullwidth-sq ",

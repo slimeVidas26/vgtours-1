@@ -8,6 +8,7 @@ import { JsContext } from '../contexts/JsContext';
  import logo_mybnb_transparent2x from '../assets/images/logo-mybnb-transparent@2x.png';
 import logo_mybnb from '../assets/images/logo-mybnb.png';
 import logo_mybnb2x from '../assets/images/logo-mybnb@2x.png';
+import AuthContextProvider from '../contexts/AuthContext';
 
 
 const Header = ()=>{
@@ -53,8 +54,12 @@ const Header = ()=>{
                     <span className="hamburger-box">
                       <span className="hamburger-inner"></span>
                     </span>
-                </a>      
-        <HeaderMenu/>    
+                </a> 
+       
+        <HeaderMenu/>
+       
+      
+           
             </div>
         </div>
         </div>   

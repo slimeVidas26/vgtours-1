@@ -14,7 +14,7 @@ import icon_google_plus from '../../assets/images/icon-google-plus.svg';
 import AuthContextProvider from '../../contexts/AuthContext'
 
 
- class SignUpPage extends Component {
+ class ConnectPage extends Component {
 
     constructor(props) {
         super(props);
@@ -29,19 +29,23 @@ import AuthContextProvider from '../../contexts/AuthContext'
           }} >
 
             {/* FORM TITLE */}
-              <FormTitle> Sign Up Now </FormTitle>
+              <FormTitle> Connect Now </FormTitle>
 
         <div className="content">
-          <SignUpWith/>
+      <SignUpWith/>
+     
+      
        
+      
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
     </div>  
                {/* FORM REGISTER */}
             <RegisterForm/>
             <FormActions>Log In</FormActions>
             </Modal>
+            
             )
     }   
 }
-export default SignUpPage
+export default ConnectPage
 

@@ -11,6 +11,8 @@ import Wishlist from './Wishlist'
 import Footer from "./Footer";
 import JsContextProvider from '../contexts/JsContext';
 import HeroSearchContextProvider from '../contexts/HeroSearchContext';
+import RegisterFormHooks from './auth/RegisterFormHooks';
+import AuthContextProvider from '../contexts/AuthContext';
 
 class HomePage extends Component {
 
