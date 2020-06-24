@@ -68,3 +68,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 git recent-branches --count=1
+
+git branch --sort=-committerdate  # DESC
+git branch --sort=committerdate  # ASC
