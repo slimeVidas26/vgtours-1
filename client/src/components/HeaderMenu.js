@@ -87,6 +87,12 @@ constructor(props) {
             </Link>
             </li> 
 
+            <li>
+            <Link to={{ pathname: "/", search: "signin=true" }} className="item">
+            <span>Sign In</span>
+            </Link>
+            </li> 
+
             
 
     

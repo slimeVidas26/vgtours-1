@@ -19,7 +19,7 @@ import BecomeAvendor from './components/BecomeAvendor'
  import LoginPage from "./components/auth/LoginPage";
 import SignUpPage from './components/auth/SignUpPage';
 import ConnectPage from './components/auth/ConnectPage';
-
+import SignInPage from './components/auth/SignInPage'
 // import TwitterAuth from './components/auth/TwitterAuth';
 
 // import FacebookAuth from './components/auth/FacebookAuth'
@@ -89,9 +89,9 @@ class App extends Component {
       <Route  path="/connect" component={ConnectPage} />
  
     
-      <Route  path="/connect" component={ConnectPage} />
 
       <Route  path="/register" component={RegisterFormHooks} />
+      {/* <Route  path="/signin" component={SignInPage} /> */}
 
       <Route  path="/url-parameters" component={UrlParameters} />
       <Route exact path="/listing-page" component={ListingPage} />
@@ -116,6 +116,8 @@ class App extends Component {
     </Switch>
 
     <Route exact path="/" component={LoginPage} />
+    <Route exact path="/" component={SignInPage} />
+
   
             </Fragment>
       </Router>

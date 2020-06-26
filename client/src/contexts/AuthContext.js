@@ -1,16 +1,24 @@
-import React , {createContext , useState , useEffect} from 'react'
+import React , {createContext , useState} from 'react'
 import axios from 'axios'
+import setAuthToken from "../utils/setAuthToken";
+import jwt_decode from "jwt-decode";
 export const AuthContext = createContext();
+const isEmpty = require("is-empty");
+
+
 
 const AuthContextProvider  = (props) => {
     
     const [User , setUser] = useState([
-        {firstName : null ,
-         lastName : null ,
+        {
+          firstName : null ,
+          lastName : null ,
           email : null ,
           password : null ,
           password2 : null ,
-           errors : {} }
+          errors : {} ,
+          isAuthenticated :false
+           }
         
     ]);
 
@@ -31,10 +39,43 @@ const AuthContextProvider  = (props) => {
           );
       };
 
-    const loginUser = ()=>{
-        console.log("User is logged")
+    
 
-    }
+     const signInUser = (userData ) => {
+        axios
+          .post("/auth/login", userData)
+          .then(res => {
+              console.log("res.data" , res)
+            // Save to localStorage
+      // Set token to localStorage
+            const { token } = res.data;
+            localStorage.setItem("jwtToken", token);
+            // Set token to Auth header
+            setAuthToken(token);
+            // Decode token to get user data
+            const decoded = jwt_decode(token);
+
+            const {email , password} = userData;
+            User[0].email = email
+            User[0].password = password
+            User[0].isAuthenticated = !isEmpty(decoded)
+            User[0].errors = !isEmpty(decoded)
+            Object.keys(User[0]).forEach((key) => (User[0][key] == null) && delete User[0][key]);
+            //console.log("User[0]" , User[0])
+            User[0].isAuthenticated &&  !Object.keys(User[0].errors).length
+             ?
+             window.location.href = "/dashboard" :
+            console.log(false)
+        })
+          .catch(err =>{
+             const signInErrors = err.response.data;
+            //  console.log("signInErrors",signInErrors)
+           setUser([...User ,Object.assign(User[0].errors , signInErrors)])
+          }
+           
+          );
+        
+      };
 
     const logoutUser = ()=>{
         console.log("User is logged out")
@@ -43,7 +84,7 @@ const AuthContextProvider  = (props) => {
     
 
     return ( 
-        <AuthContext.Provider value = {{User , registerUser , loginUser , logoutUser}}>
+        <AuthContext.Provider value = {{User , registerUser , signInUser , logoutUser}}>
          {props.children}
         </AuthContext.Provider>
      );
