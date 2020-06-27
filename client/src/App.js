@@ -104,7 +104,7 @@ class App extends Component {
       <Route  path="/spotify-auth" component={SpotifyAuth} />
       <Route  path="/instagram-auth" component={InstagramAuth} />
       <Route  path="/github-auth" component={GithubAuth} /> */}
-      <Route path='/:handle' component={Profile} />
+      <Route path='/net/:handle' component={Profile} />
       <PrivateRoute  path="/dashboard" component={Dashboard} />
       {/* <PrivateRoute  path="/twitter-authentication" component={TwitterAuthentication} /> */}
 

@@ -125,7 +125,7 @@ router.post("/login", (req, res) => {
 );
 
 router.get("/facebook/redirect" , passport.authenticate("facebook" , {
-  successRedirect : CLIENT_HOME_PAGE_URL + "/facebook-auth" ,
+  successRedirect : CLIENT_HOME_PAGE_URL + "/net/facebook-auth" ,
   failureRedirect : "/login/failed" 
 }) , 
 (req , res)=>{
@@ -138,7 +138,7 @@ router.get('/google',
   passport.authenticate('google',  { scope: ['profile'] }));
 
 router.get("/google/redirect" , passport.authenticate("google" , {
-  successRedirect : CLIENT_HOME_PAGE_URL + "/google-auth",
+  successRedirect : CLIENT_HOME_PAGE_URL + "/net/google-auth",
   failureRedirect : "/login/failed" 
 }) , 
 (req , res)=>{
@@ -159,7 +159,7 @@ router.get('/github',
 // })
 
 router.get("/github/redirect" , passport.authenticate("github",{
-  successRedirect : CLIENT_HOME_PAGE_URL + "/github-auth",
+  successRedirect : CLIENT_HOME_PAGE_URL + "/net/github-auth",
   failureRedirect : "/login/failed"
 }));
 
@@ -168,7 +168,7 @@ router.get('/amazon',
   passport.authenticate('amazon',  { scope: ['profile'] }));
 
 router.get("/amazon/redirect" , passport.authenticate("amazon",{
-  successRedirect : CLIENT_HOME_PAGE_URL + "/amazon-auth",
+  successRedirect : CLIENT_HOME_PAGE_URL + "/net/amazon-auth",
   failureRedirect : "/login/failed"
 }));
 
@@ -184,7 +184,7 @@ router.get('/instagram',
 // res.send(req.user)
 // })
 router.get("/instagram/redirect" , passport.authenticate("instagram",{
-  successRedirect : CLIENT_HOME_PAGE_URL + "/instagram-auth",
+  successRedirect : CLIENT_HOME_PAGE_URL + "/net/instagram-auth",
   failureRedirect : "/login/failed"
 }));
 
@@ -199,7 +199,7 @@ router.get('/spotify',
 // })
  // redirect to home page after successfully login via twitter
  router.get("/spotify/redirect" , passport.authenticate('spotify',{
-  successRedirect : CLIENT_HOME_PAGE_URL + "/spotify-auth",
+  successRedirect : CLIENT_HOME_PAGE_URL + "/net/spotify-auth",
   failureRedirect : "/login/failed"
 }));
 
@@ -209,7 +209,7 @@ router.get('/twitter',
 
   // redirect to home page after successfully login via twitter
 router.get("/twitter/redirect" , passport.authenticate('twitter',{
-  successRedirect : CLIENT_HOME_PAGE_URL + "/twitter-auth",
+  successRedirect : CLIENT_HOME_PAGE_URL + "/net/twitter-auth",
   failureRedirect : "/login/failed"
 }));
 
