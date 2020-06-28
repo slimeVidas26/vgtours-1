@@ -112,7 +112,7 @@ export const setUserLoading = () => {
 export const socialLogoutUser = ()=> dispatch =>{
   dispatch(setCurrentUser({}));
   window.open("http://localhost:5000/auth/logout", "_self");
-  window.location.href = "./signup";
+  this.props.history.push("./");
 }
 
 
