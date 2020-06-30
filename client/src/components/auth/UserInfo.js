@@ -1,16 +1,24 @@
-import React from 'react';
+import React , {useContext , useEffect} from 'react';
 import Loader from 'react-loader-spinner'
+import { AuthContext } from '../../contexts/AuthContext';
 
-const UserInfo  = (props) => {
 
-    console.log("props in info" , props)
+const UserInfo  = () => {
+
+    const {getProfileSocialUser ,  socialLoginUser ,socialLogoutUser ,  socialUser} = useContext(AuthContext);
+
+    
+
+        useEffect(()=>{
+        socialLoginUser();   
+        } , [])
     
     return ( 
          <div style={{ height: "75vh" }} className="container valign-wrapper">
               
               <div className="row">
                 <div className="col s12 center-align">
-                   {!props.isAuthenticated ? (
+                   {socialUser[0].isAuthenticated ? (
         <Loader
          type="Puff"
          color="#00BFFF"
@@ -21,7 +29,8 @@ const UserInfo  = (props) => {
                 ) : ( 
                   <div>
                     <h4>
-                  {props.getProfileNetworkUser}
+                        
+                  {getProfileSocialUser}
                   
                   <p className="flow-text grey-text text-darken-1">
                       You are logged into vg1-tours{" "}
@@ -38,7 +47,7 @@ const UserInfo  = (props) => {
                       letterSpacing: "1.5px",
                       marginTop: "1rem"
                     }}
-                    onClick={props.onLogoutClick}
+                    onClick={socialLogoutUser}
                     className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                   >
                     Logout
