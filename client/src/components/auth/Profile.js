@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { socialLoginUser , socialLogoutUser } from "../../actions/authActions";
-import { withRouter, Switch} from "react-router-dom";
+import { withRouter} from "react-router-dom";
 import UserInfo from './UserInfo'
 
 const GOOGLE = "google-auth"
