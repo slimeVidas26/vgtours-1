@@ -35,7 +35,9 @@ const AuthContextProvider  = (props) => {
 
     const [socialUser , setSocialUser] = useState([
       {
-        isAuthenticated : false
+         //isAuthenticated : false,
+         //errors : {}
+        
       }]);
 
   // const setCurrentUser = (decoded)=>{
@@ -73,7 +75,7 @@ const AuthContextProvider  = (props) => {
     }
 
     const formatUser = (obj)=>{
-
+    console.log("obj from formatUser" , obj)
       const userEntries = Object.entries(obj);
       console.log("userEntries" , userEntries)
      const result = userEntries
@@ -85,11 +87,11 @@ const AuthContextProvider  = (props) => {
           case "thumbnail":
             return <div><img src={value} alt=""/></div>
            
-           case "username":
+           case "name":
              return <b>Hey there, {value} <br/></b>
              case "date":
              return <b> Date is, {value} <br/></b>
-             case "displayName":
+             case "screenName":
              return <b>Hey there, {value} <br/></b>
              case "_id":
                return <b> your  ID is : {value}<br/> </b>
@@ -106,7 +108,7 @@ const AuthContextProvider  = (props) => {
       const {handle} = props.match.params
       console.log("handle",{handle})
       setSocialUser(user);
-      //console.log("socialuser" , user)
+      console.log("user from getprofile" , user)
       switch (handle) {
         
         case GOOGLE:
@@ -175,17 +177,27 @@ const AuthContextProvider  = (props) => {
          .then(response => {
            console.log("response" , response)
            if (response.status === 200) return response;
-           //console.log("response.json" , response.json())
+           console.log("response.json" , response.json())
            throw new Error("failed to authenticate user");
          })
          .then(responseJson => {
-           console.log("responseJson from  social login" , responseJson)
+          //  console.log("responseJson from  social login" , responseJson)
            console.log("responseJson.data.user",responseJson.data.user)
-           //setSocialUser([...socialUser[0] ,responseJson.data.user ])
+          //  console.log(typeof(responseJson.data.user) )
+           //setSocialUser([...socialUser ,Object.assign(socialUser[0].toto , responseJson.data.user)])
+           socialUser[0]._id = responseJson.data.user._id
+           socialUser[0].twitterId = responseJson.data.user.twitterId
+           socialUser[0].name = responseJson.data.user.name
+           socialUser[0].screenName = responseJson.data.user.screenName
+           socialUser[0].thumbnail = responseJson.data.user.thumbnail
+           socialUser[0].date = responseJson.data.user.date
+           socialUser[0].isAuthenticated = true
+           //socialUser[0].errors = {}
+
+           //setSocialUser([...socialUser[0] ,...responseJson.data.user ])
            //setSocialUser([...socialUser[0] ,Object.assign(responseJson.data.user,socialUser[0].toto  )])
-          socialUser[0]  = responseJson.data.user 
+          //socialUser[0]  = responseJson.data.user 
           console.log("socialUser[0]a" ,socialUser[0]  )
-          socialUser[0].isAuthenticated = true
           //console.log("socialUser[0]b" ,socialUser[0]  )
 
            //setSocialUser([...socialUser ,Object.assign(User[0].errors , "tototototto")])
