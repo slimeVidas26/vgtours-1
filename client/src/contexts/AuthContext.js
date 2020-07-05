@@ -1,9 +1,22 @@
-import React , {createContext , useState} from 'react'
+import React , {createContext , useState , useReducer} from 'react'
 import axios from 'axios'
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 export const AuthContext = createContext();
 const isEmpty = require("is-empty");
+
+const initialStateError = {};
+const errorReducer = (state = initialStateError, action)=> {
+  switch (action.type) {
+    case "GET_ERRORS":
+      return  action.payload;
+    default:
+      return state;
+  }
+}
+
+
+
 
 
 
@@ -22,22 +35,29 @@ const AuthContextProvider  = (props) => {
         
     ]);
 
-    
 
+    const [error , dispatch ] = useReducer(errorReducer , initialStateError)
+    console.log("error" , error)
+    
     const registerUser = (userData, history) => {
-        axios
-          .post("/auth/register", userData)
-          .then(res => history.push("/?login=true")) // re-direct to login on successful register
-          .catch(err => {
-              const registerErrors = err.response.data;
-              //console.log("registerErrors",registerErrors)
-               
-             setUser([...User ,Object.assign(User[0].errors , registerErrors)])
-            //console.log("User",User[0].errors) 
-          }
-     
-          );
-      };
+     axios
+       .post("/auth/register", userData)
+       .then(res => history.push("/?login=true")) // re-direct to login on successful register
+       .catch(err => {
+           // const registerErrors = err.response.data;
+           //console.log("registerErrors",registerErrors)
+            
+          //setUser([...User ,Object.assign(count , registerErrors)])
+         //console.log("User",count) 
+    
+         dispatch({type: "GET_ERRORS" , payload :err.response.data})
+          //setUser([...User ,Object.assign(count , err.response.data)])
+       }
+    
+       );
+    };        
+
+   
 
     
 
@@ -84,7 +104,7 @@ const AuthContextProvider  = (props) => {
     
 
     return ( 
-        <AuthContext.Provider value = {{User , registerUser , signInUser , logoutUser}}>
+        <AuthContext.Provider value = {{dispatch , User  , signInUser , logoutUser , registerUser , error }}>
          {props.children}
         </AuthContext.Provider>
      );

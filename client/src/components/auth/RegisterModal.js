@@ -1,22 +1,23 @@
-    import React , {useState , useContext} from 'react'; 
+    import React , {useState , useContext } from 'react'; 
     import classnames from "classnames";
     import Modal from './Modal'
     import FormTitle from '../layout/FormTitle';
     import { AuthContext } from '../../contexts/AuthContext';
     import { withRouter} from "react-router-dom";
 
+
+
      
   const RegisterModal = (props) => {
-    const {registerUser , User} = useContext(AuthContext);
+    const { User , registerUser , error} = useContext(AuthContext);
 
     const [firstName , setFirstName] = useState("")
     const  [lastName , setLastName] = useState("")
     const [email , setEmail] = useState("")
     const [password , setPassword] = useState("")
     const [password2 , setPassword2] = useState("")
-    // const [errors , setErrors] = useState("");
 
-    
+ 
 
     const onSubmit = e => {
         e.preventDefault();
@@ -49,15 +50,15 @@
            <input
              onChange={(e)=>setFirstName(e.target.value)}
              value={firstName}
-             error={User[0].errors.firstName}
+             error={error.firstName}
              id="firstName"
              type="text"
              placeholder=" firstName"
              className={classnames("", {
-               invalid: User[0].errors.firstName
+               invalid: error.firstName
              })}
            />
-           <span className="red-text">{User[0].errors.firstName}</span>
+           <span className="red-text">{error.firstName}</span>
 
         </div>
         <div className="divided-column">
@@ -65,15 +66,15 @@
            <input
              onChange={(e)=>setLastName(e.target.value)}
              value={lastName}
-             error={User[0].errors.lastName}
+             error={error.lastName}
              id="lastName"
              type="text"
              placeholder=" lastName"
              className={classnames("", {
-               invalid: User[0].errors.lastName
+               invalid: error.lastName
              })}
            />
-           <span className="red-text">{User[0].errors.lastName}</span>
+           <span className="red-text">{error.lastName}</span>
 
         </div>
        
@@ -85,31 +86,31 @@
             <input
              onChange={(e)=>setEmail(e.target.value)}
              value={email}
-             error={User[0].errors.email}
+             error={error.email}
              id="email"
              type="email"
              placeholder="E-mail Adress"
              className={classnames("", {
-               invalid: User[0].errors.email
+               invalid: error.email
              })}
            />
-           <span className="red-text">{User[0].errors.email}</span>
+           <span className="red-text">{error.email}</span>
         </div>
         <div className="divided-column">
 
             <input
              onChange={(e)=>setPassword(e.target.value)}
              value={password}
-             error={User[0].errors.password}
+             error={error.password}
              id="password"
              type="password"
              placeholder="Password"
              className={classnames("", {
-               invalid: User[0].errors.password
+               invalid: error.password
              })}
            />
            {/* <label htmlFor="password">Password</label> */}
-           <span className="red-text">{User[0].errors.password}</span>
+           <span className="red-text">{error.password}</span>
         </div>
     </div>
 
@@ -123,16 +124,16 @@
             <input
             onChange={(e)=>setPassword2(e.target.value)}
              value={password2}
-             error={User[0].errors.password2}
+             error={error.password2}
              id="password2"
              type="password"
              placeholder="Password2"
              className={classnames("", {
-               invalid: User[0].errors.password2
+               invalid: error.password2
              })}
            />
            {/* <label htmlFor="password2">Confirm Password</label> */}
-           <span className="red-text">{User[0].errors.password2}</span>
+           <span className="red-text">{error.password2}</span>
         </div>
     </div>
 
