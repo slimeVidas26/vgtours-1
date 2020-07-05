@@ -9,7 +9,7 @@
 
      
   const RegisterModal = (props) => {
-    const { User , registerUser , error} = useContext(AuthContext);
+    const { registerUser , error} = useContext(AuthContext);
 
     const [firstName , setFirstName] = useState("")
     const  [lastName , setLastName] = useState("")
