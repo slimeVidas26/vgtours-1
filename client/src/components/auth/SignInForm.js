@@ -11,13 +11,15 @@ import { AuthContext } from '../../contexts/AuthContext';
 
  const SignInForm  = (props)=> {
 
-  const {signInUser , User} = useContext(AuthContext);
+  const {signInUser , User , error} = useContext(AuthContext);
 
   const [email , setEmail] = useState("")
   const [password , setPassword] = useState("")
 
  
-
+useEffect(()=>{
+  props.history.push("/dashboard"); 
+} , User)
   
 
    
@@ -64,18 +66,18 @@ import { AuthContext } from '../../contexts/AuthContext';
                <input
                onChange={(e)=>setEmail(e.target.value)}
                  value={email}
-                 error={User[0].errors.email}
+                 error={error.email}
                  id="email"
                  type="email"
                  placeholder="E-mail Adress"
                  className={classnames("", {
-                   invalid: User[0].errors.email || User[0].errors.emailnotfound
+                   invalid: error.email || error.emailnotfound
                  })}
                />
                {/* <label htmlFor="email">Email</label> */}
                <span className="red-text">
-                 {User[0].errors.email}
-                 {User[0].errors.emailnotfound}
+                 {error.email}
+                 {error.emailnotfound}
                </span>
            </div>
            <div className="divided-column">
@@ -84,18 +86,18 @@ import { AuthContext } from '../../contexts/AuthContext';
                <input
                onChange={(e)=>setPassword(e.target.value)}
                  value={password}
-                 error={User[0].errors.password}
+                 error={error.password}
                  id="password"
                  type="password"
                  placeholder="Password"
                  className={classnames("", {
-                   invalid: User[0].errors.password || User[0].errors.passwordincorrect
+                   invalid: error.password || error.passwordincorrect
                  })}
                />
                {/* <label htmlFor="password">Password</label> */}
                <span className="red-text">
-                 {User[0].errors.password}
-                 {User[0].errors.passwordincorrect}
+                 {error.password}
+                 {error.passwordincorrect}
                </span>
            </div>
        </div>
