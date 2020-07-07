@@ -1,8 +1,5 @@
 import React, { useContext , useState , useEffect } from 'react'
 import classnames from "classnames";
-// import PropTypes from "prop-types";
-// import { connect } from "react-redux";
-// import { loginUser } from "../../actions/authActions";
 import { withRouter} from "react-router-dom";
 import { AuthContext } from '../../contexts/AuthContext';
 
@@ -12,7 +9,6 @@ import { AuthContext } from '../../contexts/AuthContext';
  const SignInForm  = (props)=> {
 
   const {signInUser , User , error} = useContext(AuthContext);
-console.log("User" , User)
   const [email , setEmail] = useState("")
   const [password , setPassword] = useState("")
 
@@ -48,13 +44,14 @@ console.log("User" , User)
     
     const onSubmit = e => {
         e.preventDefault();
-        console.log("User" , User)
+      
     const userData = {
           email,
           password
         };
     console.log("userData",userData);
     signInUser(userData);
+    console.log("User" , User)
       }
   
         return (

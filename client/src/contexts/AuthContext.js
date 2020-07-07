@@ -60,26 +60,16 @@ const AuthContextProvider  = (props) => {
     const registerUser = (userData, history) => {
      axios
        .post("/auth/register", userData)
-       .then(res => history.push("/?login=true")) // re-direct to login on successful register
+       .then(res => history.push("/?signin=true")) // re-direct to login on successful register
        .catch(err => {
-           // const registerErrors = err.response.data;
-           //console.log("registerErrors",registerErrors)
-            
-          //setUser([...User ,Object.assign(count , registerErrors)])
-         //console.log("User",count) 
-    
          dispatchError({type: "GET_ERRORS" , payload :err.response.data})
-          //setUser([...User ,Object.assign(count , err.response.data)])
        }
     
        );
     };        
 
-   
-
-    
-
-     const signInUser = (userData , history ) => {
+  
+     const signInUser = (userData  ) => {
         axios
           .post("/auth/login", userData)
           .then(res => {
@@ -92,25 +82,13 @@ const AuthContextProvider  = (props) => {
             setAuthToken(token);
             // Decode token to get user data
             const decoded = jwt_decode(token);
+            
           dispatchUser({
             type : "SET_CURRENT_USER" ,
             payload : decoded })
-             window.location.href = "/toto" ;
+            console.log("decoded from authContext" , decoded)
+             window.location.href = `/dashboardHook/${token}` ;
 
-          
-          
-
-// const {email , password} = userData;
-            // User[0].email = email
-            // User[0].password = password
-            // User[0].isAuthenticated = !isEmpty(decoded)
-            // User[0].errors = !isEmpty(decoded)
-            // Object.keys(User[0]).forEach((key) => (User[0][key] == null) && delete User[0][key]);
-            //console.log("User[0]" , User[0])
-            // User[0].isAuthenticated &&  !Object.keys(User[0].errors).length
-            //  ?
-            //  window.location.href = "/dashboard" :
-            // console.log(false)
         })
         .catch(err => {
         dispatchError({type: "GET_ERRORS" , payload :err.response.data})
