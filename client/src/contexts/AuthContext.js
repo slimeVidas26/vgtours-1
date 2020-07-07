@@ -79,7 +79,7 @@ const AuthContextProvider  = (props) => {
 
     
 
-     const signInUser = (userData ) => {
+     const signInUser = (userData , history ) => {
         axios
           .post("/auth/login", userData)
           .then(res => {
@@ -92,8 +92,15 @@ const AuthContextProvider  = (props) => {
             setAuthToken(token);
             // Decode token to get user data
             const decoded = jwt_decode(token);
-dispatchUser({type : "SET_CURRENT_USER" ,payload : decoded })
-            // const {email , password} = userData;
+          dispatchUser({
+            type : "SET_CURRENT_USER" ,
+            payload : decoded })
+             window.location.href = "/toto" ;
+
+          
+          
+
+// const {email , password} = userData;
             // User[0].email = email
             // User[0].password = password
             // User[0].isAuthenticated = !isEmpty(decoded)

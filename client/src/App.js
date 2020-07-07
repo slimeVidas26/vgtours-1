@@ -21,6 +21,7 @@ import SignUpPage from './components/auth/SignUpPage';
 import ConnectPage from './components/auth/ConnectPage';
 import SignInPage from './components/auth/SignInPage'
 // import TwitterAuth from './components/auth/TwitterAuth';
+import TotoPage from "./components/auth/TotoPage";
 
 // import FacebookAuth from './components/auth/FacebookAuth'
 // import GoogleAuth from './components/auth/GoogleAuth'
@@ -114,9 +115,11 @@ class App extends Component {
       {/* <PrivateRoute  path="/amazon-auth" component={AmazonAuth} /> */}
 
     </Switch>
+    <Route  path="/" component={SignInPage} />
+    <Route  path="/toto" component={TotoPage} />
 
-    <Route exact path="/" component={LoginPage} />
-    <Route exact path="/" component={SignInPage} />
+
+    <Route  path="/" component={LoginPage} />
 
   
             </Fragment>

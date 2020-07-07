@@ -3,6 +3,7 @@ import Modal from "./Modal";
 import FormTitle from '../layout/FormTitle'
 import FormActions from '../layout/FormActions'
 import SignInForm from './SignInForm'
+import AuthContextProvider from '../../contexts/AuthContext';
 
 const SignInModal = () => {
     return ( 
@@ -13,8 +14,9 @@ const SignInModal = () => {
           }}>
          {/* FORM TITLE */}
          <FormTitle> Sign In </FormTitle>
-
-        <SignInForm/>
+          <AuthContextProvider>
+          <SignInForm/>
+          </AuthContextProvider>
      {/* FORM ACTION */}
       <FormActions>Sign Up</FormActions>
         </Modal>

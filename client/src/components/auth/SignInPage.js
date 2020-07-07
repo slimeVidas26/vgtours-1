@@ -15,7 +15,6 @@ import AuthContextProvider from "../../contexts/AuthContext";
   render() {
     //  let params = new URLSearchParams(this.props.location.search);
     let params = new URLSearchParams(this.props.location.search);
-
     return (
         params.get("signin") && (
           <AuthContextProvider>

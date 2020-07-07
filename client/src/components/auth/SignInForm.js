@@ -12,14 +12,14 @@ import { AuthContext } from '../../contexts/AuthContext';
  const SignInForm  = (props)=> {
 
   const {signInUser , User , error} = useContext(AuthContext);
-
+console.log("User" , User)
   const [email , setEmail] = useState("")
   const [password , setPassword] = useState("")
 
  
-useEffect(()=>{
-  props.history.push("/dashboard"); 
-} , User)
+//  useEffect(()=>{
+//    props.history.push("/toto"); 
+//  } , User)
   
 
    
@@ -48,6 +48,7 @@ useEffect(()=>{
     
     const onSubmit = e => {
         e.preventDefault();
+        console.log("User" , User)
     const userData = {
           email,
           password
