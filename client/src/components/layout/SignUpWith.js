@@ -5,7 +5,12 @@ import { SignUpContext } from '../../contexts/SignUpContext';
 
 const SignUpWith = ()=> { 
 
-  const {network } = useContext(SignUpContext);
+  const {network} = useContext(SignUpContext);
+
+  const getSocialUrl = (socialNetwork)=>{
+    // Authenticate using via passport api in the backend
+    window.open(`http://localhost:5000/auth/${socialNetwork}`, "_self");
+     } 
 
 
       const socialNetwork = network.map((item , index)=>{
@@ -21,8 +26,7 @@ const SignUpWith = ()=> {
                  </Link>
               :
                    <div
-                     onClick={item.func}
-                     
+                     onClick={()=>getSocialUrl(item.socialNetwork)}
                       key = {index}
                        className={item.className}>
                      <i className={item.icon}></i>
