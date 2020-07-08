@@ -4,14 +4,9 @@ import FormActions from '../layout/FormActions'
 import FormTitle from '../layout/FormTitle'
 import SignUpWith from '../layout/SignUpWith'
 import RegisterForm from './SignUpForm'
-
-
-// NEXT STEP : SignUpWith COMPONENT
-
-
-//import images
 import icon_google_plus from '../../assets/images/icon-google-plus.svg';
-import AuthContextProvider from '../../contexts/AuthContext'
+import SignUpContextProvider  from '../../contexts/SignUpContext'
+
 
 
  class ConnectPage extends Component {
@@ -32,7 +27,9 @@ import AuthContextProvider from '../../contexts/AuthContext'
               <FormTitle> Connect Now </FormTitle>
 
         <div className="content">
+      <SignUpContextProvider>
       <SignUpWith/>
+      </SignUpContextProvider>
      
       
        
