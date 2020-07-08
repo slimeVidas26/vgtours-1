@@ -1,4 +1,4 @@
-import React , {createContext , useState , useReducer} from 'react'
+import React , {createContext , useReducer} from 'react'
 import axios from 'axios'
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
@@ -40,18 +40,6 @@ const authReducer = (state = initialState, action) =>{
   }
 }
 
-// export const setCurrentUser = decoded => {
-//   return {
-//     type: SET_CURRENT_USER,
-//     payload: decoded
-//   };
-// };
-
-
-
-
-
-
 const AuthContextProvider  = (props) => {
     
     const [User , dispatchUser] = useReducer(authReducer , initialState);
@@ -81,27 +69,43 @@ const AuthContextProvider  = (props) => {
             // Set token to Auth header
             setAuthToken(token);
             // Decode token to get user data
-            const decoded = jwt_decode(token);
-            
-          dispatchUser({
-            type : "SET_CURRENT_USER" ,
-            payload : decoded })
-            console.log("decoded from authContext" , decoded)
-             window.location.href = `/dashboardHook/${token}` ;
+             const decoded = jwt_decode(token);
+             console.log("decoded from token" , decoded)
+        
+             dispatchUser({
+              type : "SET_CURRENT_USER" ,
+              payload : decoded 
+            })
+            console.log("decoded from token2" , decoded)
 
-        })
+               window.location.href = `/dashboardHook/${token}` ;
+          })
+          
+         
         .catch(err => {
         dispatchError({type: "GET_ERRORS" , payload :err.response.data})
-      }
-           
-          );
-        
-      };
+      });
+        };
 
-    const logoutUser = ()=>{
-        console.log("User is logged out")
 
-    }
+
+
+   
+
+     const logoutUser = () => {
+      console.log("user is logged out")
+      // Remove token from local storage
+      localStorage.removeItem("jwtToken");
+      // Remove auth header for future requests
+      setAuthToken(false);
+      // Set current user to empty object {} which will set isAuthenticated to false
+      // dispatch(setCurrentUser({}));
+      dispatchUser({
+        type : "SET_CURRENT_USER" ,
+        payload : {} 
+      })
+      window.location.href = "./?login=true";
+    };
     
 
     return ( 

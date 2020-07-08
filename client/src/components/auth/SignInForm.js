@@ -106,7 +106,7 @@ import { AuthContext } from '../../contexts/AuthContext';
           <button type="submit"
          className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                  >
-                   Login
+                   Sign In
                  </button>
           </div>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>

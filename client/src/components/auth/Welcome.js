@@ -4,18 +4,19 @@ import {withRouter} from 'react-router-dom'
 import jwt_decode from "jwt-decode";
 
 function Welcome(props) {
-
-    const { User} = useContext(AuthContext);
+     const {logoutUser} = useContext(AuthContext)
     const {handle} = props.match.params
     console.log("handle",{handle})
    const decoded = jwt_decode(handle);
 
 useEffect(()=>{
-    decoded.isAuthenticated = true
+    if(handle){
+        decoded.isAuthenticated = true
+
+    }
 })
 console.log("decodedIn Welcome" , decoded)
 
-     console.log("User welcome ", User )
     return (
         <div style={{ height: "75vh" }} className="container valign-wrapper">
         
@@ -29,7 +30,7 @@ console.log("decodedIn Welcome" , decoded)
                 <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
               </p>
             </h4>
-            <button
+            <button onClick = {logoutUser}
               style={{
                 width: "150px",
                 borderRadius: "3px",
