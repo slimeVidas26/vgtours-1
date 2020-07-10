@@ -22,7 +22,7 @@ import ConnectPage from './components/auth/ConnectPage';
 import SignInPage from './components/auth/SignInPage'
 // import TwitterAuth from './components/auth/TwitterAuth';
 import DashboardHook from "./components/auth/DashboardHook";
-
+import ProfileHooks from './components/auth/ProfileHooks'
 // import FacebookAuth from './components/auth/FacebookAuth'
 // import GoogleAuth from './components/auth/GoogleAuth'
 // import AmazonAuth from './components/auth/AmazonAuth'
@@ -105,7 +105,9 @@ class App extends Component {
       <Route  path="/spotify-auth" component={SpotifyAuth} />
       <Route  path="/instagram-auth" component={InstagramAuth} />
       <Route  path="/github-auth" component={GithubAuth} /> */}
-      <Route path='/net/:handle' component={Profile} />
+      {/* <Route path='/net/:handle' component={Profile} /> */}
+      <Route path='/net/:handle' component={ProfileHooks} />
+
       <PrivateRoute  path="/dashboard" component={Dashboard} />
       {/* <PrivateRoute  path="/twitter-authentication" component={TwitterAuthentication} /> */}
 

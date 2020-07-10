@@ -46,6 +46,7 @@ const UserInfo  = (props) => {
                 </div>
               </div>
             </div>
+     
      );
 }
  

@@ -2,8 +2,18 @@ import React , {createContext , useReducer} from 'react'
 import axios from 'axios'
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
+import {withRouter} from 'react-router-dom'
+
 export const AuthContext = createContext();
 const isEmpty = require("is-empty");
+
+const GOOGLE = "google-auth"
+const TWITTER = "twitter-auth"
+const FACEBOOK = "facebook-auth"
+const SPOTIFY = "spotify-auth"
+const INSTAGRAM = "instagram-auth"
+const GITHUB = "github-auth"
+const AMAZON = "amazon-auth"
 
 const initialStateError = {};
 //EROR REDUCER
@@ -88,9 +98,101 @@ const AuthContextProvider  = (props) => {
         };
 
 
+     
 
 
-   
+   const socialLoginUser = () =>{
+     console.log("from social login user")
+          fetch("/auth/login/success", {
+           method: "GET",
+           credentials: "include",
+           headers: {
+             Accept: "application/json",
+             "Content-Type": "application/json",
+             "Access-Control-Allow-Credentials": true
+           }
+         })
+           .then(response => {
+             if (response.status === 200) return response.json();
+             throw new Error("failed to authenticate user");
+           })
+           .then(responseJson => {
+             console.log("responseJson from socialLoginUser" , responseJson)
+           
+             const decoded = responseJson.user;
+            
+             console.log("decoded from socialLoginUser" , decoded)
+             dispatchUser({
+              type : "SET_CURRENT_USER" ,
+              payload : decoded 
+            })
+            .then(User=>{
+              console.log("User..." , User)
+              const {handle} = props.match.params
+            console.log("handle",{handle})
+            // const { user } = this.props.auth;
+            // console.log("user" , user)
+            switch (handle) {
+              
+              case GOOGLE:
+                case AMAZON:
+                  case TWITTER:
+                    case FACEBOOK:
+                      case SPOTIFY:
+                        case INSTAGRAM:
+                          case GITHUB:
+                return (
+                  
+                  User
+
+                  );
+              // default:
+              //   return "toto";
+            }
+           
+           })
+            }
+
+            )
+            
+           .catch(err => {
+            //dispatchError({type: "GET_ERRORS" , payload :err.response.data})
+          });
+       }
+
+     
+
+
+  // const  getProfileNetworkUser = () =>{
+  //       const {handle} = props.match.params
+  //       console.log("handle",{handle})
+  //       // const { user } = this.props.auth;
+  //       // console.log("user" , user)
+  //       switch (handle) {
+          
+  //         case GOOGLE:
+  //           case AMAZON:
+  //             case TWITTER:
+  //               case FACEBOOK:
+  //                 case SPOTIFY:
+  //                   case INSTAGRAM:
+  //                     case GITHUB:
+  //           return (
+  //             formatUser(User) 
+  //          );
+  //         default:
+  //           return "toto";
+  //       }
+  //     }
+
+   const socialLogoutUser = () =>{
+    dispatchUser({
+      type : "SET_CURRENT_USER" ,
+      payload : {} 
+    })
+    window.open("http://localhost:5000/auth/logout", "_self");
+    props.history.push("./");
+  }
 
      const logoutUser = () => {
       console.log("user is logged out")
@@ -109,10 +211,10 @@ const AuthContextProvider  = (props) => {
     
 
     return ( 
-        <AuthContext.Provider value = {{dispatchUser ,dispatchError ,  User  , signInUser , logoutUser , registerUser , error }}>
+        <AuthContext.Provider value = {{dispatchUser  ,socialLoginUser ,socialLogoutUser ,  dispatchError ,  User  , signInUser , logoutUser , registerUser , error }}>
          {props.children}
         </AuthContext.Provider>
      );
 }
  
-export default AuthContextProvider ;
+export default withRouter(AuthContextProvider) ;
