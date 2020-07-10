@@ -73,7 +73,7 @@ class App extends Component {
       <Router>
       <Fragment>
 
-          <Route exact path="/becomeavendor" component={BecomeAvendor} /> 
+          <Route  path="/becomeavendor/:handle" component={BecomeAvendor} /> 
           <Route exact path="/features/fts_default_grid.html" component={DefaultGrid}/>
           <Route exact path="/features/fts_divided_container.html" component={DividedContainer} />
           <Route exact path="/features/fts_magic_grid.html" component={MagicGrid} />
@@ -108,7 +108,7 @@ class App extends Component {
       {/* <Route path='/net/:handle' component={Profile} /> */}
       <Route path='/net/:handle' component={ProfileHooks} />
 
-      <PrivateRoute  path="/dashboard" component={Dashboard} />
+      {/* <PrivateRoute  path="/dashboard" component={Dashboard} /> */}
       {/* <PrivateRoute  path="/twitter-authentication" component={TwitterAuthentication} /> */}
 
       {/* <PrivateRoute  path="/twitter-auth" component={TwitterAuth} /> */}

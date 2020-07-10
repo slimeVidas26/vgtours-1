@@ -89,7 +89,9 @@ const AuthContextProvider  = (props) => {
               type : "SET_CURRENT_USER" ,
               payload : decoded 
             })
+               //window.location.href = `/dashboardHook/${token}` ;
                window.location.href = `/dashboardHook/${token}` ;
+
           })
         .catch(err => {
         dispatchError({type: "GET_ERRORS" , payload :err.response.data})

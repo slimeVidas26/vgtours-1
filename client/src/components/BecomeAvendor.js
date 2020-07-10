@@ -1,5 +1,8 @@
-import React, { Component , Fragment } from 'react'
+import React, {useContext , useEffect , Fragment } from 'react'
 import {Link} from 'react-router-dom'
+import { AuthContext } from '../contexts/AuthContext';
+import {withRouter} from 'react-router-dom'
+import jwt_decode from "jwt-decode";
 
 // image
 import host_01 from '../assets/images/host/host_01.jpg'
@@ -12,17 +15,24 @@ import '../assets/less/theme.css'
 import '../assets/icon/style.css'
 
 
- class BecomeAvendor extends Component {
+ const BecomeAvendor = (props)=> {
 
-    componentDidMount() {
-        document.getElementsByTagName('body')[0].className = 'no-transition dashboard-background';
+    const {logoutUser } = useContext(AuthContext)
+    const {handle} = props.match.params
+    console.log("handle",{handle})
+   const decoded = jwt_decode(handle);
 
-        // const script = document.createElement("script");
-        // script.async = true;
-        // script.src = "https://some-scripturl.js";
-        // this.div.appendChild(script);
+useEffect(()=>{
+    document.getElementsByTagName('body')[0].className = 'no-transition dashboard-background';
+
+    if(handle){
+        decoded.isAuthenticated = true
+
     }
-    render() {
+})
+
+  
+   
         return (
             <Fragment>
 
@@ -38,14 +48,14 @@ import '../assets/icon/style.css'
                         <br/>
                         <br/>
                         <h3 className="text-align-center-sq">
-                            Become a Vendor
+                        <b>Hey there,</b> {decoded.name}
                         </h3>
                         <br/>
                         
                         <p className="text-align-center-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper. </p>
                         <br/>
                         <div className="text-align-center-sq">
-                            <a className="button-sq font-weight-bold-sq" href="add_listing.html">Confirm</a>
+                            <a className="button-sq font-weight-bold-sq" onClick = {logoutUser}>Logout</a>
                         </div>
                         
                         
@@ -257,6 +267,6 @@ import '../assets/icon/style.css'
         
         )
     }
-}
 
-export default BecomeAvendor
+
+export default withRouter(BecomeAvendor)
