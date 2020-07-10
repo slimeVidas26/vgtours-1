@@ -4,7 +4,7 @@ import {withRouter} from 'react-router-dom'
 import jwt_decode from "jwt-decode";
 
 function Welcome(props) {
-     const {logoutUser} = useContext(AuthContext)
+     const {logoutUser } = useContext(AuthContext)
     const {handle} = props.match.params
     console.log("handle",{handle})
    const decoded = jwt_decode(handle);

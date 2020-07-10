@@ -21,6 +21,8 @@ const errorReducer = (state = initialStateError, action)=> {
   switch (action.type) {
     case "GET_ERRORS":
       return  action.payload;
+      case "GET_NETWORK_ERRORS":
+        return  "Unable to connect";
     default:
       return state;
   }
@@ -30,7 +32,8 @@ const errorReducer = (state = initialStateError, action)=> {
 const initialState = {
   isAuthenticated: false,
   user: {},
-  loading: false 
+  loading: false ,
+  url : ''
 };
 const authReducer = (state = initialState, action) =>{
   switch (action.type) {
@@ -40,6 +43,7 @@ const authReducer = (state = initialState, action) =>{
         isAuthenticated: !isEmpty(action.payload),
         user: action.payload
       };
+     
     case "USER_LOADING":
       return {
         ...state,
@@ -54,7 +58,8 @@ const AuthContextProvider  = (props) => {
     
     const [User , dispatchUser] = useReducer(authReducer , initialState);
     const [error , dispatchError ] = useReducer(errorReducer , initialStateError)
-    
+    const [networkError , dispatchNetworkError ] = useReducer(errorReducer , initialStateError)
+
     const registerUser = (userData, history) => {
      axios
        .post("/auth/register", userData)
@@ -71,7 +76,6 @@ const AuthContextProvider  = (props) => {
         axios
           .post("/auth/login", userData)
           .then(res => {
-              console.log("res.data" , res)
             // Save to localStorage
       // Set token to localStorage
             const { token } = res.data;
@@ -80,29 +84,20 @@ const AuthContextProvider  = (props) => {
             setAuthToken(token);
             // Decode token to get user data
              const decoded = jwt_decode(token);
-             console.log("decoded from token" , decoded)
         
              dispatchUser({
               type : "SET_CURRENT_USER" ,
               payload : decoded 
             })
-            console.log("decoded from token2" , decoded)
-
                window.location.href = `/dashboardHook/${token}` ;
           })
-          
-         
         .catch(err => {
         dispatchError({type: "GET_ERRORS" , payload :err.response.data})
       });
         };
 
 
-     
-
-
    const socialLoginUser = () =>{
-     console.log("from social login user")
           fetch("/auth/login/success", {
            method: "GET",
            credentials: "include",
@@ -116,22 +111,14 @@ const AuthContextProvider  = (props) => {
              if (response.status === 200) return response.json();
              throw new Error("failed to authenticate user");
            })
-           .then(responseJson => {
-             console.log("responseJson from socialLoginUser" , responseJson)
-           
+           .then(responseJson => {           
              const decoded = responseJson.user;
-            
-             console.log("decoded from socialLoginUser" , decoded)
              dispatchUser({
               type : "SET_CURRENT_USER" ,
               payload : decoded 
             })
             .then(User=>{
-              console.log("User..." , User)
               const {handle} = props.match.params
-            console.log("handle",{handle})
-            // const { user } = this.props.auth;
-            // console.log("user" , user)
             switch (handle) {
               
               case GOOGLE:
@@ -146,45 +133,15 @@ const AuthContextProvider  = (props) => {
                   User
 
                   );
-              // default:
-              //   return "toto";
-            }
-           
-           })
-            }
-
-            )
-            
+               default:
+                 return "toto";
+            }})})
            .catch(err => {
-            //dispatchError({type: "GET_ERRORS" , payload :err.response.data})
+            dispatchNetworkError({type: "GET_NETWORK_ERRORS"})
           });
        }
 
-     
-
-
-  // const  getProfileNetworkUser = () =>{
-  //       const {handle} = props.match.params
-  //       console.log("handle",{handle})
-  //       // const { user } = this.props.auth;
-  //       // console.log("user" , user)
-  //       switch (handle) {
-          
-  //         case GOOGLE:
-  //           case AMAZON:
-  //             case TWITTER:
-  //               case FACEBOOK:
-  //                 case SPOTIFY:
-  //                   case INSTAGRAM:
-  //                     case GITHUB:
-  //           return (
-  //             formatUser(User) 
-  //          );
-  //         default:
-  //           return "toto";
-  //       }
-  //     }
-
+    
    const socialLogoutUser = () =>{
     dispatchUser({
       type : "SET_CURRENT_USER" ,
@@ -211,7 +168,7 @@ const AuthContextProvider  = (props) => {
     
 
     return ( 
-        <AuthContext.Provider value = {{dispatchUser  ,socialLoginUser ,socialLogoutUser ,  dispatchError ,  User  , signInUser , logoutUser , registerUser , error }}>
+        <AuthContext.Provider value = {{dispatchUser  ,socialLoginUser ,socialLogoutUser ,  dispatchError ,dispatchNetworkError ,   User  , signInUser , logoutUser , registerUser , error , networkError }}>
          {props.children}
         </AuthContext.Provider>
      );

@@ -4,10 +4,8 @@ import {AuthContext} from '../../contexts/AuthContext'
 
 const UserInfoHooks = () => {
     const {User ,socialLoginUser ,socialLogoutUser ,    onLogoutClick} = useContext(AuthContext)
-    console.log("User from userInfoHooks" , User)
     
     useEffect(()=>{
-        console.log("toto from useEffect")
         socialLoginUser()
     } , [])
     
