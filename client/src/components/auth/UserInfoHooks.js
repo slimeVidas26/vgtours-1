@@ -16,24 +16,25 @@ const UserInfoHooks = () => {
        const result = userEntries
        .filter((item , i , arr)=>{
          return arr[i][0] !== "__v" && arr[i][0] !== "isAuthenticated"
+         && arr[i][0] !== "date"  && arr[i][0] !== "_id" 
        })
        .map(([ key, value ])=>{
           switch (key) {
-            case "thumbnail":
-              return <div><img src={value} alt=""/></div>
+            // case "thumbnail":
+            //   return <div><img src={value} alt=""/></div>
              
              case "username":
                return <b>Hey there, {value} <br/></b>
-               case "date":
-               return <b> Date is, {value} <br/></b>
+              //  case "date":
+              //  return <b> Date is, {value} <br/></b>
                case "displayName":
                return <b>Hey there, {value} <br/></b>
                case "name":
                return <b>Hey there, {value} <br/></b>
-               case "_id":
-                 return <b> your  ID is : {value}<br/> </b>
+              //  case "_id":
+              //    return <b> your  ID is : {value}<br/> </b>
                  default:
-             return <b> your  {key} is : {value}<br/> </b>
+             return null
           }
        })
 
@@ -60,7 +61,7 @@ const UserInfoHooks = () => {
                   <div>
                     <h4>
                   <b>
-                  {formatUser(User.user)}
+                  {/* {formatUser(User.user)} */}
                     </b>
                   <b>Hey there, {User.user.username} <br/></b> 
 

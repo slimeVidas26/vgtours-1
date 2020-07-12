@@ -121,6 +121,7 @@ const AuthContextProvider  = (props) => {
            
               console.log("decoded from authContext" , User)
               const {handle} = props.match.params
+              console.log("handle" , handle)
             switch (handle) {
               
               case GOOGLE:

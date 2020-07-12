@@ -29,6 +29,15 @@ import '../assets/icon/style.css'
        const result = userEntries
        .filter((item , i , arr)=>{
          return arr[i][0] !== "__v" && arr[i][0] !== "isAuthenticated"
+         && arr[i][0] !== "date" && arr[i][0] !== "_id" && arr[i][0] !== "googleId"
+         && arr[i][0] !== "thumbnail" && arr[i][0] !== "provider" && arr[i][0] !== "location"
+         && arr[i][0] !== "twitterId" && arr[i][0] !== "screenName"
+         && arr[i][0] !== "facebookId" && arr[i][0] !== "amazonId"
+          && arr[i][0] !== "email"
+         && arr[i][0] !== "spotifyId" && arr[i][0] !== "userName"
+         && arr[i][0] !== "githubId" 
+
+
        })
        .map(([ key, value ])=>{
           switch (key) {
@@ -41,6 +50,8 @@ import '../assets/icon/style.css'
                return <b> Date is, {value} <br/></b>
                case "displayName":
                return <b>Hey there, {value} <br/></b>
+               case "name":
+                return <b>Hey there, {value} <br/></b>
                case "_id":
                  return <b> your  ID is : {value}<br/> </b>
                  default:
@@ -78,8 +89,8 @@ import '../assets/icon/style.css'
                         />
                 ) : ( 
                   <div>
-                    <h4>
-                  <b>
+                    <h4 style={{ 'text-align': 'center' }} >
+                  <b >
                   {formatUser(User.user)}
                     </b>
                   {/* <b>Hey there, {User.user.username} <br/></b> 
