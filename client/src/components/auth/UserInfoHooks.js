@@ -3,7 +3,7 @@ import Loader from 'react-loader-spinner'
 import {AuthContext} from '../../contexts/AuthContext'
 
 const UserInfoHooks = () => {
-    const {User ,socialLoginUser ,socialLogoutUser ,    onLogoutClick} = useContext(AuthContext)
+    const {User ,socialLoginUser ,socialLogoutUser } = useContext(AuthContext)
     
     useEffect(()=>{
         socialLoginUser()
@@ -28,6 +28,8 @@ const UserInfoHooks = () => {
                return <b> Date is, {value} <br/></b>
                case "displayName":
                return <b>Hey there, {value} <br/></b>
+               case "name":
+               return <b>Hey there, {value} <br/></b>
                case "_id":
                  return <b> your  ID is : {value}<br/> </b>
                  default:
@@ -46,7 +48,7 @@ const UserInfoHooks = () => {
               
               <div className="row">
                 <div className="col s12 center-align">
-                   {!User.isAuthenticated ? (
+         {!User.isAuthenticated ? (
         <Loader
          type="Puff"
          color="#00BFFF"

@@ -2,8 +2,7 @@ import React, {useContext , useEffect , Fragment } from 'react'
 import {Link} from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthContext';
 import {withRouter} from 'react-router-dom'
-import jwt_decode from "jwt-decode";
-
+import Loader from 'react-loader-spinner'
 // image
 import host_01 from '../assets/images/host/host_01.jpg'
 import HeaderWhite from './HeaderWhite'
@@ -15,20 +14,43 @@ import '../assets/less/theme.css'
 import '../assets/icon/style.css'
 
 
- const BecomeAvendor = (props)=> {
+ const BecomeASocialVendor = ()=> {
+    const {User ,socialLoginUser ,socialLogoutUser } = useContext(AuthContext)
 
-    const {logoutUser } = useContext(AuthContext)
-    const {handle} = props.match.params
-    console.log("handle",{handle})
-   const decoded = jwt_decode(handle);
+    useEffect(()=>{
+        console.log("User from useEffect" , User)
+        socialLoginUser()
+    } , [])
 
-useEffect(()=>{
-    document.getElementsByTagName('body')[0].className = 'no-transition dashboard-background';
-    if(handle){
-        decoded.isAuthenticated = true
+    const formatUser = (obj)=>{
+        
+        const userEntries = Object.entries(obj);
+        console.log("userEntries" , userEntries)
+       const result = userEntries
+       .filter((item , i , arr)=>{
+         return arr[i][0] !== "__v" && arr[i][0] !== "isAuthenticated"
+       })
+       .map(([ key, value ])=>{
+          switch (key) {
+            case "thumbnail":
+              return <div><img src={value} alt=""/></div>
+             
+             case "username":
+               return <b>Hey there, {value} <br/></b>
+               case "date":
+               return <b> Date is, {value} <br/></b>
+               case "displayName":
+               return <b>Hey there, {value} <br/></b>
+               case "_id":
+                 return <b> your  ID is : {value}<br/> </b>
+                 default:
+             return <b> your  {key} is : {value}<br/> </b>
+          }
+       })
 
-    }
-})
+       return result;
+
+                         }
 
   
    
@@ -46,15 +68,39 @@ useEffect(()=>{
                         <br/>
                         <br/>
                         <br/>
-                        <h3 className="text-align-center-sq">
-                        <b>Hey there,</b> {decoded.name}
-                        </h3>
+                        {!User.isAuthenticated ? (
+                        <Loader
+                        type="Puff"
+                        color="#00BFFF"
+                        height={100}
+                        width={100}
+                        timeout={3000} //3 secs
+                        />
+                ) : ( 
+                  <div>
+                    <h4>
+                  <b>
+                  {formatUser(User.user)}
+                    </b>
+                  {/* <b>Hey there, {User.user.username} <br/></b> 
+                  <b>Hey there, {User.user.name} <br/></b> 
+                  <b>Hey there, {User.user.displayName} <br/></b>  */}
+
+
+
+                 
+
+                    </h4>
+                    </div>
+                 )} 
+                        
+                      
                         <br/>
                         
                         <p className="text-align-center-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper. </p>
                         <br/>
                         <div className="text-align-center-sq">
-                            <a className="button-sq font-weight-bold-sq" onClick = {logoutUser}>Logout</a>
+                            <a className="button-sq font-weight-bold-sq" onClick={socialLogoutUser}>Logout</a>
                         </div>
                         
                         
@@ -268,4 +314,4 @@ useEffect(()=>{
     }
 
 
-export default withRouter(BecomeAvendor)
+export default withRouter(BecomeASocialVendor)

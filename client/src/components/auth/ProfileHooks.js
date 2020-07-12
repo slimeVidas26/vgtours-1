@@ -1,14 +1,12 @@
 import React from 'react'
-import UserInfoHooks from './UserInfoHooks'
 import AuthContextProvider from '../../contexts/AuthContext';
-
+import BecomeASocialVendor from '../BecomeASocialVendor'
 
 const ProfileHooks = () => {
     return ( 
         <div>
-        {/* <h1>ProfileHooks</h1> */}
          <AuthContextProvider>
-         <UserInfoHooks />
+         <BecomeASocialVendor />
          </AuthContextProvider>
          
         </div>

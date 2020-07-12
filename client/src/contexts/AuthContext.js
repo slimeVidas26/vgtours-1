@@ -32,8 +32,7 @@ const errorReducer = (state = initialStateError, action)=> {
 const initialState = {
   isAuthenticated: false,
   user: {},
-  loading: false ,
-  url : ''
+  loading: false 
 };
 const authReducer = (state = initialState, action) =>{
   switch (action.type) {
@@ -119,7 +118,8 @@ const AuthContextProvider  = (props) => {
               type : "SET_CURRENT_USER" ,
               payload : decoded 
             })
-            .then(User=>{
+           
+              console.log("decoded from authContext" , User)
               const {handle} = props.match.params
             switch (handle) {
               
@@ -131,13 +131,11 @@ const AuthContextProvider  = (props) => {
                         case INSTAGRAM:
                           case GITHUB:
                 return (
-                  
                   User
-
                   );
                default:
                  return "toto";
-            }})})
+            }})
            .catch(err => {
             dispatchNetworkError({type: "GET_NETWORK_ERRORS"})
           });
