@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthContext';
 import {withRouter} from 'react-router-dom'
 import jwt_decode from "jwt-decode";
-
 // image
 import host_01 from '../assets/images/host/host_01.jpg'
 import HeaderWhite from './HeaderWhite'
@@ -17,25 +16,32 @@ import '../assets/icon/style.css'
 
  const BecomeAvendor = (props)=> {
 
-    const {logoutUser } = useContext(AuthContext)
+
+    let {logoutUser , User  } = useContext(AuthContext)
+
     const {handle} = props.match.params
     console.log("handle",{handle})
-   const decoded = jwt_decode(handle);
+    User = jwt_decode(handle);
 
-useEffect(()=>{
-    document.getElementsByTagName('body')[0].className = 'no-transition dashboard-background';
     if(handle){
-        decoded.isAuthenticated = true
+        User.isAuthenticated = true
+        //console.log("Decoded in become" , decoded)
 
     }
-})
 
-  
+useEffect(()=>{
+    console.log("User in become" , User)
+
+    document.getElementsByTagName('body')[0].className = 'no-transition dashboard-background';
+    
+} , [])
+
+  console.log("User.isAuthenticated" , User.isAuthenticated)
    
         return (
             <Fragment>
+                <HeaderWhite isAuthenticated = {User.isAuthenticated}/>
 
-          <HeaderWhite/>
    
         <div className="ui layout">
             <div className="ui centered grid container">
@@ -47,7 +53,7 @@ useEffect(()=>{
                         <br/>
                         <br/>
                         <h3 className="text-align-center-sq">
-                        <b>Hey there,</b> {decoded.name}
+                        <b>Hey there,</b> {User.name}
                         </h3>
                         <br/>
                         

@@ -9,8 +9,8 @@ import logo_mybnb_transparent2x from '../assets/images/logo-mybnb-transparent@2x
 import logo_mybnb from '../assets/images/logo-mybnb.png';
 import logo_mybnb2x from '../assets/images/logo-mybnb@2x.png';
 
- class HeaderWhite extends Component {
-    render() {
+ const HeaderWhite = (props)=> {
+  console.log("props in headerWhite" , props)
         return (
            
 
@@ -48,8 +48,7 @@ import logo_mybnb2x from '../assets/images/logo-mybnb@2x.png';
                 {/* <!-- Include Menu -->
                  */}
 {/* <!-- Header Menu--> */}
-                
-   <HeaderMenu/>
+      <HeaderMenu isAuthenticated = {props.isAuthenticated}/>
 {/* <!-- End of Header Menu--> */}
 
                 
@@ -60,6 +59,6 @@ import logo_mybnb2x from '../assets/images/logo-mybnb@2x.png';
 </header>
         )
     }
-}
+
 
 export default HeaderWhite

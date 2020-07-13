@@ -12,36 +12,7 @@ import { AuthContext } from '../../contexts/AuthContext';
   const [email , setEmail] = useState("")
   const [password , setPassword] = useState("")
 
- 
-//  useEffect(()=>{
-//    props.history.push("/toto"); 
-//  } , User)
-  
 
-   
- 
-      // componentDidMount() {
-
-      //   if (this.props.auth.isAuthenticated) {
-      //     this.props.history.push("/dashboard");
-          
-      //   }
-      // }
-    
-    //   componentWillReceiveProps(nextProps) {
-    //     if (nextProps.auth.isAuthenticated) {
-    //       console.log("nextProps.auth.isAuthenticated" , nextProps.auth.isAuthenticated)
-    //       this.props.history.push("/dashboard"); // push user to dashboard when they login
-    //     }
-    // if (nextProps.errors) {
-    //       this.setState({
-    //         errors: nextProps.errors
-    //       });
-    //     }
-    //   }
-    
-    
-    
     const onSubmit = e => {
         e.preventDefault();
       
@@ -117,14 +88,6 @@ import { AuthContext } from '../../contexts/AuthContext';
     }
 
 
-// SignInForm.propTypes = {
-//     loginUser: PropTypes.func.isRequired,
-//     auth: PropTypes.object.isRequired,
-//     errors: PropTypes.object.isRequired
-//   };
-//   const mapStateToProps = state => ({
-//     auth: state.auth,
-//     errors: state.errors
-//   });
+
   export default 
   (withRouter(SignInForm));

@@ -6,6 +6,7 @@ import FeaturesSubMenu from './FeaturesSubMenu'
 
 
 const HeaderMenu = (props) =>{
+    console.log("props in headerMenu" , props)
 
         return (
             <div className="item menu-default burger-mobile-sidemenu burger-tablet-sidemenu sidemenu-open-right icons-left profile-priority slide-out-sq dimmed flexMenu dropdown-open-right" data-burger="menu01">
@@ -65,11 +66,24 @@ const HeaderMenu = (props) =>{
             </Link>
             </li>  */}
 
-            <li>
+             {props.isAuthenticated ? 
+             ( <li>
+            <Link to={{ pathname: "/", search: "signin=true" }} className="item">
+            <span>Sign Out</span>
+            </Link>
+            </li> )
+             :
+             (
+                <li>
             <Link to={{ pathname: "/", search: "signin=true" }} className="item">
             <span>Sign In</span>
             </Link>
             </li> 
+             )
+             } 
+            
+
+           
     </ul>
     </div>
     

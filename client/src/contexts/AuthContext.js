@@ -83,13 +83,17 @@ const AuthContextProvider  = (props) => {
             setAuthToken(token);
             // Decode token to get user data
              const decoded = jwt_decode(token);
-        
+             console.log("decoded in signinuser before" , decoded)
+              //decoded.isAuthenticated = true
              dispatchUser({
               type : "SET_CURRENT_USER" ,
               payload : decoded 
             })
+
+
                //window.location.href = `/dashboardHook/${token}` ;
                window.location.href = `/dashboardHook/${token}` ;
+               //console.log("User in signinuser after" , User)
 
           })
         .catch(err => {
@@ -164,7 +168,7 @@ const AuthContextProvider  = (props) => {
         type : "SET_CURRENT_USER" ,
         payload : {} 
       })
-      window.location.href = "./?login=true";
+      window.location.href = "./?signin=true";
     };
     
 
@@ -173,6 +177,7 @@ const AuthContextProvider  = (props) => {
          {props.children}
         </AuthContext.Provider>
      );
+
 }
  
 export default withRouter(AuthContextProvider) ;
