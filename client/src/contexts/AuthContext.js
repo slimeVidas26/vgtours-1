@@ -3,6 +3,7 @@ import axios from 'axios'
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import {withRouter} from 'react-router-dom'
+import { SET_CURRENT_USER } from '../actions/types';
 
 export const AuthContext = createContext();
 const isEmpty = require("is-empty");
@@ -37,11 +38,13 @@ const initialState = {
 const authReducer = (state = initialState, action) =>{
   switch (action.type) {
     case "SET_CURRENT_USER":
+      console.log("action payload set current" , action.payload);
       return {
         ...state,
         isAuthenticated: !isEmpty(action.payload),
         user: action.payload
       };
+     
      
     case "USER_LOADING":
       return {
@@ -59,6 +62,8 @@ const AuthContextProvider  = (props) => {
     const [error , dispatchError ] = useReducer(errorReducer , initialStateError)
     const [networkError , dispatchNetworkError ] = useReducer(errorReducer , initialStateError)
 
+
+    
     const registerUser = (userData, history) => {
      axios
        .post("/auth/register", userData)
@@ -75,27 +80,40 @@ const AuthContextProvider  = (props) => {
         axios
           .post("/auth/login", userData)
           .then(res => {
+            console.log("res" , res)
+            // {email: "test28@gmail.com",
+            // password: "123456"}
+
             // Save to localStorage
       // Set token to localStorage
             const { token } = res.data;
+            console.log("token" ,{ token})
+            // {token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZC…AxMX0.l5xUU23I5UiFuU2RnhCf4vE1Q7GldKzlxGNfiJOLOUU"}
             localStorage.setItem("jwtToken", token);
             // Set token to Auth header
             setAuthToken(token);
             // Decode token to get user data
              const decoded = jwt_decode(token);
-             console.log("decoded in signinuser before" , decoded)
-              //decoded.isAuthenticated = true
+             console.log("decoded in signinuser before dispatch" , decoded)
+            //  {id: "5ef220cf6e721445282a3da9",
+            //   name: "test28",
+            //    iat: 1594747722,
+            //     exp: 1626304648} 
+             
+             
+             //decoded.isAuthenticated = true
              dispatchUser({
               type : "SET_CURRENT_USER" ,
-              payload : decoded 
+              payload :  decoded 
             })
-
-
-               //window.location.href = `/dashboardHook/${token}` ;
-               window.location.href = `/dashboardHook/${token}` ;
-               //console.log("User in signinuser after" , User)
+            console.log("decoded in signinuser after" , decoded)
+console.log("User after dispatch" ,User)
+           
+             
+            window.location.href = `/dashboardHook/${token}` ;
 
           })
+          
         .catch(err => {
         dispatchError({type: "GET_ERRORS" , payload :err.response.data})
       });
@@ -168,12 +186,13 @@ const AuthContextProvider  = (props) => {
         type : "SET_CURRENT_USER" ,
         payload : {} 
       })
-      window.location.href = "./?signin=true";
+      props.history.push("./");
     };
     
 
     return ( 
         <AuthContext.Provider value = {{dispatchUser  ,socialLoginUser ,socialLogoutUser ,  dispatchError ,dispatchNetworkError ,   User  , signInUser , logoutUser , registerUser , error , networkError }}>
+         {console.log("User in return" , User)}
          {props.children}
         </AuthContext.Provider>
      );

@@ -17,29 +17,29 @@ import '../assets/icon/style.css'
  const BecomeAvendor = (props)=> {
 
 
-    let {logoutUser , User  } = useContext(AuthContext)
+    let {logoutUser  ,User  } = useContext(AuthContext)
 
     const {handle} = props.match.params
     console.log("handle",{handle})
-    User = jwt_decode(handle);
+    
 
     if(handle){
+        User = jwt_decode(handle);
         User.isAuthenticated = true
-        //console.log("Decoded in become" , decoded)
+        console.log("User in become" , User)
 
     }
 
-useEffect(()=>{
-    console.log("User in become" , User)
+ useEffect(()=>{
 
-    document.getElementsByTagName('body')[0].className = 'no-transition dashboard-background';
+     document.getElementsByTagName('body')[0].className = 'no-transition dashboard-background';
     
-} , [])
+ })
 
-  console.log("User.isAuthenticated" , User.isAuthenticated)
    
         return (
             <Fragment>
+                
                 <HeaderWhite isAuthenticated = {User.isAuthenticated}/>
 
    

@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
+import React, {useContext } from 'react'
 import {Link} from 'react-router-dom'
 import HeaderMenu from './HeaderMenu'
+import AuthContextProvider from '../contexts/AuthContext';
+
 
 
 //import images
@@ -48,6 +50,7 @@ import logo_mybnb2x from '../assets/images/logo-mybnb@2x.png';
                 {/* <!-- Include Menu -->
                  */}
 {/* <!-- Header Menu--> */}
+     
       <HeaderMenu isAuthenticated = {props.isAuthenticated}/>
 {/* <!-- End of Header Menu--> */}
 

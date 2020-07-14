@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { } from "react";
 import { Link } from "react-router-dom";
 // import DefaultGrid from '../features/DefaultGrid'
 import FeaturesSubMenu from './FeaturesSubMenu'
