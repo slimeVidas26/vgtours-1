@@ -15,26 +15,23 @@ import '../assets/icon/style.css'
 
 
  const BecomeAvendor = (props)=> {
-
-
-    let {logoutUser  ,User  } = useContext(AuthContext)
-
+    const {logoutUser   } = useContext(AuthContext)
     const {handle} = props.match.params
     console.log("handle",{handle})
-    
+    const  User = jwt_decode(handle);
+    console.log("User in become" , User)
 
     if(handle){
-        User = jwt_decode(handle);
+       
         User.isAuthenticated = true
-        console.log("User in become" , User)
 
     }
 
  useEffect(()=>{
-
+      console.log("User from useEffet" , User)
      document.getElementsByTagName('body')[0].className = 'no-transition dashboard-background';
     
- })
+ } , [User])
 
    
         return (

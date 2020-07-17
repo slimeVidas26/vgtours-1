@@ -3,7 +3,6 @@ import axios from 'axios'
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import {withRouter} from 'react-router-dom'
-import { SET_CURRENT_USER } from '../actions/types';
 
 export const AuthContext = createContext();
 const isEmpty = require("is-empty");
@@ -57,12 +56,16 @@ const authReducer = (state = initialState, action) =>{
 }
 
 const AuthContextProvider  = (props) => {
+
+ 
     
     const [User , dispatchUser] = useReducer(authReducer , initialState);
     const [error , dispatchError ] = useReducer(errorReducer , initialStateError)
     const [networkError , dispatchNetworkError ] = useReducer(errorReducer , initialStateError)
 
-
+    // useEffect(()=>{
+    //   console.log(User)
+    // } , [User])
     
     const registerUser = (userData, history) => {
      axios
@@ -76,13 +79,15 @@ const AuthContextProvider  = (props) => {
     };        
 
   
-     const signInUser = (userData  ) => {
+     const signInUser = (userData , ) => {
+       
         axios
           .post("/auth/login", userData)
+           // {email: "test28@gmail.com",
+            // password: "123456"}
           .then(res => {
             console.log("res" , res)
-            // {email: "test28@gmail.com",
-            // password: "123456"}
+           
 
             // Save to localStorage
       // Set token to localStorage
@@ -100,27 +105,29 @@ const AuthContextProvider  = (props) => {
             //    iat: 1594747722,
             //     exp: 1626304648} 
              
-             
+            console.log("decoded.name" , decoded.name)
+
              //decoded.isAuthenticated = true
              dispatchUser({
               type : "SET_CURRENT_USER" ,
               payload :  decoded 
-            })
-            console.log("decoded in signinuser after" , decoded)
-console.log("User after dispatch" ,User)
-           
-             
-            window.location.href = `/dashboardHook/${token}` ;
+            }) 
+
+    console.log("User after dispatch" , User)
+
+
+            props.history.push(`/dashboardHook/${token}`) ;
 
           })
           
         .catch(err => {
-        dispatchError({type: "GET_ERRORS" , payload :err.response.data})
-      });
+        dispatchError({type: "GET_ERRORS" ,payload :err.response.data})
+      })
         };
 
 
    const socialLoginUser = () =>{
+    
           fetch("/auth/login/success", {
            method: "GET",
            credentials: "include",
@@ -186,14 +193,17 @@ console.log("User after dispatch" ,User)
         type : "SET_CURRENT_USER" ,
         payload : {} 
       })
-      props.history.push("./");
+      window.location.href = "./?signin=true";
     };
+
     
 
     return ( 
         <AuthContext.Provider value = {{dispatchUser  ,socialLoginUser ,socialLogoutUser ,  dispatchError ,dispatchNetworkError ,   User  , signInUser , logoutUser , registerUser , error , networkError }}>
-         {console.log("User in return" , User)}
+         {/* {console.log("User in return before child" , User)} */}
          {props.children}
+         {/* {console.log("User in return after child" , User)} */}
+
         </AuthContext.Provider>
      );
 
