@@ -4,12 +4,12 @@ import FormTitle from '../layout/FormTitle'
 import FormActions from '../layout/FormActions'
 import SignInForm from './SignInForm'
 import AuthContextProvider from '../../contexts/AuthContext';
-
-const SignInModal = () => {
+import {withRouter} from 'react-router-dom'
+const SignInModal = (props) => {
     return ( 
         <Modal
         onClick={() => {
-            this.props.history.push(this.props.location.pathname);
+            props.history.push(props.location.pathname);
             
           }}>
          {/* FORM TITLE */}
@@ -23,4 +23,4 @@ const SignInModal = () => {
      );
 }
  
-export default SignInModal;
+export default withRouter(SignInModal);

@@ -1,12 +1,12 @@
-import React, {useContext , useEffect , Fragment } from 'react'
+import React, { useEffect , Fragment } from 'react'
 import {Link} from 'react-router-dom'
-import { AuthContext } from '../contexts/AuthContext';
 import {withRouter} from 'react-router-dom'
 import jwt_decode from "jwt-decode";
 // image
 import host_01 from '../assets/images/host/host_01.jpg'
 import HeaderWhite from './HeaderWhite'
 import Footer from './layout/Footer'
+import AuthContextProvider from '../contexts/AuthContext';
 
 import '../assets/less/base.css'
 import '../assets/less/header.css'
@@ -15,7 +15,6 @@ import '../assets/icon/style.css'
 
 
  const BecomeAvendor = (props)=> {
-    const {logoutUser   } = useContext(AuthContext)
     const {handle} = props.match.params
     console.log("handle",{handle})
     const  User = jwt_decode(handle);
@@ -36,8 +35,9 @@ import '../assets/icon/style.css'
    
         return (
             <Fragment>
-                
+                <AuthContextProvider >
                 <HeaderWhite isAuthenticated = {User.isAuthenticated}/>
+                </AuthContextProvider>
 
    
         <div className="ui layout">
@@ -57,7 +57,7 @@ import '../assets/icon/style.css'
                         <p className="text-align-center-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper. </p>
                         <br/>
                         <div className="text-align-center-sq">
-                            <a className="button-sq font-weight-bold-sq" onClick = {logoutUser}>Logout</a>
+                            <a className="button-sq font-weight-bold-sq">Confirm</a>
                         </div>
                         
                         

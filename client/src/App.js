@@ -87,7 +87,7 @@ class App extends Component {
       2. THEN CLICK ON "SIGN UP WITH MAIL" */}
       <Route  path="/signup" component={SignUpPage} />
     
-      <Route  path="/connect" component={ConnectPage} />
+      <Route   path="/connect" component={ConnectPage} />
  
     
 

@@ -199,7 +199,7 @@ const AuthContextProvider  = (props) => {
     
 
     return ( 
-        <AuthContext.Provider value = {{dispatchUser  ,socialLoginUser ,socialLogoutUser ,  dispatchError ,dispatchNetworkError ,   User  , signInUser , logoutUser , registerUser , error , networkError }}>
+        <AuthContext.Provider value = {{logoutUser , dispatchUser  ,socialLoginUser ,socialLogoutUser ,  dispatchError ,dispatchNetworkError ,   User  , signInUser ,  registerUser , error , networkError }}>
          {/* {console.log("User in return before child" , User)} */}
          {props.children}
          {/* {console.log("User in return after child" , User)} */}

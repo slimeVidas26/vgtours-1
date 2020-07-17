@@ -15,7 +15,7 @@ import '../assets/icon/style.css'
 
 
  const BecomeASocialVendor = ()=> {
-    const {User ,socialLoginUser ,socialLogoutUser } = useContext(AuthContext)
+    const {User ,socialLoginUser } = useContext(AuthContext)
 
     useEffect(()=>{
         console.log("User from useEffect" , User)
@@ -68,7 +68,7 @@ import '../assets/icon/style.css'
         return (
             <Fragment>
 
-          <HeaderWhite/>
+            <HeaderWhite isAuthenticated = {User.isAuthenticated}/>
    
         <div className="ui layout">
             <div className="ui centered grid container">
@@ -111,7 +111,7 @@ import '../assets/icon/style.css'
                         <p className="text-align-center-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper. </p>
                         <br/>
                         <div className="text-align-center-sq">
-                            <a className="button-sq font-weight-bold-sq" onClick={socialLogoutUser}>Logout</a>
+                            <a className="button-sq font-weight-bold-sq">Confirm</a>
                         </div>
                         
                         

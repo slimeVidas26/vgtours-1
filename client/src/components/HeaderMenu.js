@@ -1,12 +1,11 @@
-import React, { } from "react";
+import React, { useContext} from "react";
 import { Link } from "react-router-dom";
-// import DefaultGrid from '../features/DefaultGrid'
-import FeaturesSubMenu from './FeaturesSubMenu'
-//   import '../assets/less/header.css'
+import { AuthContext } from "../contexts/AuthContext";
 
 
 const HeaderMenu = (props) =>{
-    console.log("props in headerMenu" , props)
+
+    const {logoutUser} = useContext(AuthContext);
 
         return (
             <div className="item menu-default burger-mobile-sidemenu burger-tablet-sidemenu sidemenu-open-right icons-left profile-priority slide-out-sq dimmed flexMenu dropdown-open-right" data-burger="menu01">
@@ -68,7 +67,7 @@ const HeaderMenu = (props) =>{
 
              {props.isAuthenticated ? 
              ( <li>
-            <Link to={{ pathname: "/", search: "signin=true" }} className="item">
+            <Link onClick = {logoutUser} className="item">
             <span>Sign Out</span>
             </Link>
             </li> )
