@@ -80,7 +80,8 @@ const AuthContextProvider  = (props) => {
 
   
      const signInUser = (userData , ) => {
-       
+      console.log("props.match.params" , props.match.params)
+
         axios
           .post("/auth/login", userData)
            // {email: "test28@gmail.com",
@@ -105,7 +106,7 @@ const AuthContextProvider  = (props) => {
             //    iat: 1594747722,
             //     exp: 1626304648} 
              
-            console.log("decoded.name" , decoded.name)
+            // console.log("decoded.name" , decoded.name)
 
              //decoded.isAuthenticated = true
              dispatchUser({
@@ -183,6 +184,7 @@ const AuthContextProvider  = (props) => {
 
      const logoutUser = () => {
       console.log("user is logged out")
+      console.log("props.match.params" , props.match.params)
       // Remove token from local storage
       localStorage.removeItem("jwtToken");
       // Remove auth header for future requests
@@ -193,7 +195,11 @@ const AuthContextProvider  = (props) => {
         type : "SET_CURRENT_USER" ,
         payload : {} 
       })
-      window.location.href = "./?signin=true";
+      console.log("props.history",props.history)
+       window.location.href = "./?signin=true";
+      //props.history.location("./");
+      //props.history.push("/?signin=true")
+
     };
 
     

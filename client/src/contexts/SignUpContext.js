@@ -32,6 +32,7 @@ const SignUpContextProvider = (props) => {
           Text : "Sign Up With Google",
           //func : getSocialUrl(google)
 
+
       },
       {   
           socialNetwork : "facebook",
@@ -39,6 +40,7 @@ const SignUpContextProvider = (props) => {
           icon : "icon icon-logo-facebook2",
           Text : "Sign Up With Facebook",
           //func : getSocialUrl(facebook)
+
 
       },
       {   
@@ -48,6 +50,7 @@ const SignUpContextProvider = (props) => {
         Text : "Sign Up With Amazon",
         //func : getSocialUrl(amazon)
 
+
     },
     {   
       socialNetwork : "spotify",
@@ -55,6 +58,7 @@ const SignUpContextProvider = (props) => {
       icon : "icon icon-logo-amazon",
       Text : "Sign Up With Spotify",
       //func : getSocialUrl(spotify)
+
 
   },
   {   
@@ -64,6 +68,7 @@ const SignUpContextProvider = (props) => {
     Text : "Sign Up With Instagram",
     //func : getSocialUrl(instagram)
 
+
 },
 {   
   socialNetwork : "github",
@@ -71,6 +76,7 @@ const SignUpContextProvider = (props) => {
   icon : "icon icon-logo-amazon",
   Text : "Sign Up With Github",
   //func : getSocialUrl(github)
+
 
 }
        ]);

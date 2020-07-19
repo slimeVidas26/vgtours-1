@@ -19,6 +19,7 @@ import '../assets/icon/style.css'
     console.log("handle",{handle})
     const  User = jwt_decode(handle);
     console.log("User in become" , User)
+    User.status = "mail"
 
     if(handle){
        
@@ -51,6 +52,8 @@ import '../assets/icon/style.css'
                         <br/>
                         <h3 className="text-align-center-sq">
                         <b>Hey there,</b> {User.name}
+                         {User.status}
+
                         </h3>
                         <br/>
                         

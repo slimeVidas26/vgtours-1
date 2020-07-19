@@ -5,6 +5,7 @@ import FormActions from '../layout/FormActions'
 import SignInForm from './SignInForm'
 import AuthContextProvider from '../../contexts/AuthContext';
 import {withRouter} from 'react-router-dom'
+
 const SignInModal = (props) => {
     return ( 
         <Modal

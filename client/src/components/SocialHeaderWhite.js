@@ -1,6 +1,6 @@
 import React, { } from 'react'
 import {Link} from 'react-router-dom'
-import HeaderMenu from './HeaderMenu'
+import SocialHeaderMenu from './SocialHeaderMenu'
 import AuthContextProvider from '../contexts/AuthContext';
 
 
@@ -11,7 +11,7 @@ import logo_mybnb_transparent2x from '../assets/images/logo-mybnb-transparent@2x
 import logo_mybnb from '../assets/images/logo-mybnb.png';
 import logo_mybnb2x from '../assets/images/logo-mybnb@2x.png';
 
- const HeaderWhite = (props)=> {
+ const SocialHeaderWhite = (props)=> {
   console.log("props in headerWhite" , props)
         return (
            
@@ -50,7 +50,7 @@ import logo_mybnb2x from '../assets/images/logo-mybnb@2x.png';
                 {/* <!-- Include Menu -->
                  */}
 {/* <!-- Header Menu--> */}
-     <HeaderMenu isAuthenticated = {props.isAuthenticated}/>
+     <SocialHeaderMenu isAuthenticated = {props.isAuthenticated}/>
 {/* <!-- End of Header Menu--> */}
 
                 
@@ -63,4 +63,4 @@ import logo_mybnb2x from '../assets/images/logo-mybnb@2x.png';
     }
 
 
-export default HeaderWhite
+export default SocialHeaderWhite

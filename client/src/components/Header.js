@@ -56,7 +56,12 @@ const Header = ()=>{
                     </span>
                 </a> 
        
-        <HeaderMenu/>
+       <AuthContextProvider>
+       <HeaderMenu/>
+
+       <socialHeaderMenu/>
+
+       </AuthContextProvider>
        
       
            

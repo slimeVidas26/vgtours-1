@@ -5,8 +5,9 @@ import {withRouter} from 'react-router-dom'
 import Loader from 'react-loader-spinner'
 // image
 import host_01 from '../assets/images/host/host_01.jpg'
-import HeaderWhite from './HeaderWhite'
+import SocialHeaderWhite from './SocialHeaderWhite'
 import Footer from './layout/Footer'
+import AuthContextProvider from '../contexts/AuthContext';
 
 import '../assets/less/base.css'
 import '../assets/less/header.css'
@@ -18,6 +19,7 @@ import '../assets/icon/style.css'
     const {User ,socialLoginUser } = useContext(AuthContext)
 
     useEffect(()=>{
+        User.status = "social"
         console.log("User from useEffect" , User)
         socialLoginUser()
     } , [])
@@ -67,8 +69,9 @@ import '../assets/icon/style.css'
    
         return (
             <Fragment>
-
-            <HeaderWhite isAuthenticated = {User.isAuthenticated}/>
+             <AuthContextProvider >
+             <SocialHeaderWhite isAuthenticated = {User.isAuthenticated}/>
+             </AuthContextProvider>
    
         <div className="ui layout">
             <div className="ui centered grid container">
@@ -89,9 +92,10 @@ import '../assets/icon/style.css'
                         />
                 ) : ( 
                   <div>
-                    <h4 style={{ 'text-align': 'center' }} >
+                    <h4 style={{ 'textAlign': 'center' }} >
                   <b >
                   {formatUser(User.user)}
+                  {User.status}
                     </b>
                   {/* <b>Hey there, {User.user.username} <br/></b> 
                   <b>Hey there, {User.user.name} <br/></b> 
