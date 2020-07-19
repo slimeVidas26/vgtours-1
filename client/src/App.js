@@ -106,7 +106,6 @@ class App extends Component {
       <Route  path="/instagram-auth" component={InstagramAuth} />
       <Route  path="/github-auth" component={GithubAuth} /> */}
       {/* <Route path='/net/:handle' component={Profile} /> */}
-      <Route path='/net/:handle' component={ProfileHooks} />
 
       {/* <PrivateRoute  path="/dashboard" component={Dashboard} /> */}
       {/* <PrivateRoute  path="/twitter-authentication" component={TwitterAuthentication} /> */}
@@ -118,8 +117,9 @@ class App extends Component {
 
     </Switch>
     <Route  path="/" component={SignInPage} />
-    <Route  path="/dashboardHook/:handle" component={DashboardHook} />
-    <Route  path="/dashboardHook/" component={HomePage} />
+    <Route  exact path="/dashboardHook/:handle" component={DashboardHook} />
+    <Route path='/net/:handle' component={ProfileHooks} />
+    <Route exact path="/dashboardHook/" component={HomePage} />
 
 
     {/* <Route  path="/" component={LoginPage} /> */}

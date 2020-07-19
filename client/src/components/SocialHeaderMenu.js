@@ -11,7 +11,10 @@ const SocialHeaderMenu = (props) =>{
             <div className="item menu-default burger-mobile-sidemenu burger-tablet-sidemenu sidemenu-open-right icons-left profile-priority slide-out-sq dimmed flexMenu dropdown-open-right" data-burger="menu01">
     
     <ul className="main-menu">
-
+    <li><Link to="/becomeavendor" className="item">
+                <span>Social Header Menu</span>
+            </Link>
+        </li>
               
         <li><Link to="/becomeavendor" className="item">
                 <span>Become a Vendor</span>
