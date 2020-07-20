@@ -1,4 +1,4 @@
-import React , {createContext , useReducer} from 'react'
+import React , {createContext , useReducer , useEffect} from 'react'
 import axios from 'axios'
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
@@ -63,9 +63,20 @@ const AuthContextProvider  = (props) => {
     const [error , dispatchError ] = useReducer(errorReducer , initialStateError)
     const [networkError , dispatchNetworkError ] = useReducer(errorReducer , initialStateError)
 
-    // useEffect(()=>{
-    //   console.log(User)
-    // } , [User])
+    
+    useEffect(()=>{
+      const decoded = localStorage.jwtToken ? localStorage.jwtToken : "";
+    console.log("decoded in use" , decoded)
+
+    if(decoded){
+      const decoded2 = jwt_decode(decoded);
+      dispatchUser({
+        type : "SET_CURRENT_USER" ,
+        payload :  decoded2 
+      }) 
+    }
+     
+  },[])
     
     const registerUser = (userData, history) => {
      axios
@@ -79,7 +90,7 @@ const AuthContextProvider  = (props) => {
     };        
 
   
-     const signInUser = (userData , ) => {
+     const signInUser = (userData ) => {
       console.log("props.match.params" , props.match.params)
 
         axios
@@ -109,15 +120,16 @@ const AuthContextProvider  = (props) => {
             // console.log("decoded.name" , decoded.name)
 
              //decoded.isAuthenticated = true
-             dispatchUser({
-              type : "SET_CURRENT_USER" ,
-              payload :  decoded 
-            }) 
+            //   dispatchUser({
+            //   type : "SET_CURRENT_USER" ,
+            //   payload :  decoded 
+            // }) 
+            //props.history.push(`/dashboardHook/${token}`) ;
+            //props.history.push(`./`) ;
+            window.location.href = "./";
 
-    console.log("User after dispatch" , User)
+            console.log("User after dispatch" , User)
 
-
-            props.history.push(`/dashboardHook/${token}`) ;
 
           })
           
@@ -196,7 +208,7 @@ const AuthContextProvider  = (props) => {
         payload : {} 
       })
       console.log("props.history",props.history)
-       window.location.href = "./?signin=true";
+       window.location.href = "./";
       //props.history.location("./");
       //props.history.push("/?signin=true")
 

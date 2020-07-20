@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 //import { setCurrentUser, logoutUser } from "./actions/authActions";
-import { Provider } from "react-redux";
-import store from "./store";
+//import { Provider } from "react-redux";
+//import store from "./store";
  import './App.css';
 
   import './assets/less/base.css'
@@ -69,7 +69,7 @@ class App extends Component {
     return (
 
      
-       <Provider store={store}>
+      
       <Router>
       <Fragment>
 
@@ -127,7 +127,7 @@ class App extends Component {
   
             </Fragment>
       </Router>
-      </Provider>
+    
     );
   }
 }

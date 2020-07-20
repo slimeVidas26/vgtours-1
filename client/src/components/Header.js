@@ -59,7 +59,7 @@ const Header = ()=>{
        <AuthContextProvider>
        <HeaderMenu/>
 
-       <socialHeaderMenu/>
+       {/* <socialHeaderMenu/> */}
 
        </AuthContextProvider>
        
