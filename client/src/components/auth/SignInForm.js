@@ -1,17 +1,16 @@
-import React, { useContext , useState , useEffect } from 'react'
+import React, { useContext , useState} from 'react'
 import classnames from "classnames";
 import { withRouter} from "react-router-dom";
 import { AuthContext } from '../../contexts/AuthContext';
+import {signInUser} from './externalFunctions/AuthFunctions'
 
 
 
+ const SignInForm  = ()=> {
 
- const SignInForm  = (props)=> {
-
-  const {signInUser , User , error} = useContext(AuthContext);
+  const { error} = useContext(AuthContext);
   const [email , setEmail] = useState("")
   const [password , setPassword] = useState("")
-  
 
 
     const onSubmit = e => {
@@ -21,9 +20,7 @@ import { AuthContext } from '../../contexts/AuthContext';
           email,
           password
         };
-    console.log("userData",userData);
     signInUser(userData);
-    console.log("User" , User)
       }
   
         return (

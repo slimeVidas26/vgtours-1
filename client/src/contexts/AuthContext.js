@@ -1,11 +1,12 @@
-import React , {createContext , useReducer , useEffect} from 'react'
-import axios from 'axios'
+import React , {createContext , useReducer} from 'react'
 import setAuthToken from "../utils/setAuthToken";
-import jwt_decode from "jwt-decode";
 import {withRouter} from 'react-router-dom'
 
+//import reducers
+import authReducer , {initialState} from '../reducers/authReducer'
+import errorReducer , {initialStateError} from '../reducers/errorReducer'
+
 export const AuthContext = createContext();
-const isEmpty = require("is-empty");
 
 const GOOGLE = "google-auth"
 const TWITTER = "twitter-auth"
@@ -14,46 +15,6 @@ const SPOTIFY = "spotify-auth"
 const INSTAGRAM = "instagram-auth"
 const GITHUB = "github-auth"
 const AMAZON = "amazon-auth"
-
-const initialStateError = {};
-//EROR REDUCER
-const errorReducer = (state = initialStateError, action)=> {
-  switch (action.type) {
-    case "GET_ERRORS":
-      return  action.payload;
-      case "GET_NETWORK_ERRORS":
-        return  "Unable to connect";
-    default:
-      return state;
-  }
-}
-
-//AUTH REDUCER
-const initialState = {
-  isAuthenticated: false,
-  user: {},
-  loading: false 
-};
-const authReducer = (state = initialState, action) =>{
-  switch (action.type) {
-    case "SET_CURRENT_USER":
-      console.log("action payload set current" , action.payload);
-      return {
-        ...state,
-        isAuthenticated: !isEmpty(action.payload),
-        user: action.payload
-      };
-     
-     
-    case "USER_LOADING":
-      return {
-        ...state,
-        loading: true
-      };
-    default:
-      return state;
-  }
-}
 
 const AuthContextProvider  = (props) => {
 
@@ -64,81 +25,6 @@ const AuthContextProvider  = (props) => {
     const [networkError , dispatchNetworkError ] = useReducer(errorReducer , initialStateError)
 
     
-    useEffect(()=>{
-      const decoded = localStorage.jwtToken ? localStorage.jwtToken : "";
-    console.log("decoded in use" , decoded)
-
-    if(decoded){
-      const decoded2 = jwt_decode(decoded);
-      dispatchUser({
-        type : "SET_CURRENT_USER" ,
-        payload :  decoded2 
-      }) 
-    }
-     
-  },[])
-    
-    const registerUser = (userData, history) => {
-     axios
-       .post("/auth/register", userData)
-       .then(res => history.push("/?signin=true")) // re-direct to login on successful register
-       .catch(err => {
-         dispatchError({type: "GET_ERRORS" , payload :err.response.data})
-       }
-    
-       );
-    };        
-
-  
-     const signInUser = (userData ) => {
-      console.log("props.match.params" , props.match.params)
-
-        axios
-          .post("/auth/login", userData)
-           // {email: "test28@gmail.com",
-            // password: "123456"}
-          .then(res => {
-            console.log("res" , res)
-           
-
-            // Save to localStorage
-      // Set token to localStorage
-            const { token } = res.data;
-            console.log("token" ,{ token})
-            // {token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZC…AxMX0.l5xUU23I5UiFuU2RnhCf4vE1Q7GldKzlxGNfiJOLOUU"}
-            localStorage.setItem("jwtToken", token);
-            // Set token to Auth header
-            setAuthToken(token);
-            // Decode token to get user data
-             const decoded = jwt_decode(token);
-             console.log("decoded in signinuser before dispatch" , decoded)
-            //  {id: "5ef220cf6e721445282a3da9",
-            //   name: "test28",
-            //    iat: 1594747722,
-            //     exp: 1626304648} 
-             
-            // console.log("decoded.name" , decoded.name)
-
-             //decoded.isAuthenticated = true
-            //   dispatchUser({
-            //   type : "SET_CURRENT_USER" ,
-            //   payload :  decoded 
-            // }) 
-            //props.history.push(`/dashboardHook/${token}`) ;
-            //props.history.push(`./`) ;
-            window.location.href = "./";
-
-            console.log("User after dispatch" , User)
-
-
-          })
-          
-        .catch(err => {
-        dispatchError({type: "GET_ERRORS" ,payload :err.response.data})
-      })
-        };
-
-
    const socialLoginUser = () =>{
     
           fetch("/auth/login/success", {
@@ -217,7 +103,7 @@ const AuthContextProvider  = (props) => {
     
 
     return ( 
-        <AuthContext.Provider value = {{logoutUser , dispatchUser  ,socialLoginUser ,socialLogoutUser ,  dispatchError ,dispatchNetworkError ,   User  , signInUser ,  registerUser , error , networkError }}>
+        <AuthContext.Provider value = {{logoutUser , dispatchUser  ,socialLoginUser ,socialLogoutUser ,  dispatchError ,dispatchNetworkError ,   User , error , networkError }}>
          {/* {console.log("User in return before child" , User)} */}
          {props.children}
          {/* {console.log("User in return after child" , User)} */}

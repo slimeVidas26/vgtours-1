@@ -1,4 +1,4 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext, Fragment , useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import jwt_decode from "jwt-decode";
@@ -8,13 +8,23 @@ const HeaderMenu = () =>{
 
 
 
-    const {logoutUser , User} = useContext(AuthContext);
+    const {logoutUser ,User ,  dispatchUser} = useContext(AuthContext);
 console.log("User from header menu" , User)
 
 
-// useEffect(()=>{
-//     signInUser()
-// } , [User])
+useEffect(()=>{
+    const decoded = localStorage.jwtToken ? localStorage.jwtToken : "";
+  console.log("decoded in use" , decoded)
+
+  if(decoded){
+    
+    dispatchUser({
+      type : "SET_CURRENT_USER" ,
+      payload :  jwt_decode(decoded) 
+    }) 
+  }
+   
+},[])
         return (
             <div className="item menu-default burger-mobile-sidemenu burger-tablet-sidemenu sidemenu-open-right icons-left profile-priority slide-out-sq dimmed flexMenu dropdown-open-right" data-burger="menu01">
     
