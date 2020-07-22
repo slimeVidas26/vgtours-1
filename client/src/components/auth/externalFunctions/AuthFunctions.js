@@ -6,7 +6,6 @@ import { AuthContext } from '../../../contexts/AuthContext';
 
 
 export  const signInUser = (userData ) => {
-    
     axios.post("/auth/login", userData)
           .then(res => {
             // Save to localStorage
@@ -36,5 +35,7 @@ export   const registerUser = (userData, history) => {
    
       );
    };
+
+   
    
    

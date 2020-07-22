@@ -41,10 +41,11 @@ const AuthContextProvider  = (props) => {
              throw new Error("failed to authenticate user");
            })
            .then(responseJson => {           
-             const decoded = responseJson.user;
+             const socialDecoded = responseJson.user;
+             console.log("socialDecoded" , socialDecoded)
              dispatchUser({
               type : "SET_CURRENT_USER" ,
-              payload : decoded 
+              payload : socialDecoded 
             })
            
               console.log("decoded from authContext" , User)

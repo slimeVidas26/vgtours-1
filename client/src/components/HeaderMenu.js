@@ -5,16 +5,12 @@ import jwt_decode from "jwt-decode";
 
 
 const HeaderMenu = () =>{
-
-
-
-    const {User ,  dispatchUser , logoutUser} = useContext(AuthContext);
+    const {User ,  dispatchUser , logoutUser , socialLoginUser , socialLogoutUser} = useContext(AuthContext);
 console.log("User from header menu" , User)
 
 
 useEffect(()=>{
     const decoded = localStorage.jwtToken ? localStorage.jwtToken : "";
-  console.log("decoded in use" , decoded)
 
   if(decoded){
     
@@ -22,6 +18,12 @@ useEffect(()=>{
       type : "SET_CURRENT_USER" ,
       payload :  jwt_decode(decoded) 
     }) 
+    console.log("jwt_decode(decoded)" , jwt_decode(decoded))
+  }
+  else { 
+
+    socialLoginUser()
+
   }
    
 },[])
@@ -60,13 +62,7 @@ useEffect(()=>{
             </Link>
            </li> */}
 
-           <li>
- 
-                 <Link to="/connect" className="item">
-                {/* <Link to={{ pathname: "/", search: "all=true" }} className="item"> */}
-                <span>Connect</span>
-            </Link>
-           </li>
+           
         
             {/* <li>
             <Link to="/login" className="item">
@@ -91,21 +87,39 @@ useEffect(()=>{
                 <span>Become a Vendor</span>
             </Link>
                </li>
-                  <li>
+               {User.user.exp ?
+                <li>
             <Link onClick = {logoutUser} className="item">
             <span>Sign Out</span>
             </Link>
             </li>
+            :
+            <li>
+            <Link onClick = {socialLogoutUser} className="item">
+            <span>Sign social Out</span>
+            </Link>
+            </li>
+               }
+            
+            
                  </Fragment>
                
              )
              :
              (
-                <li>
+                 <Fragment>
+                 <li>
             <Link to={{ pathname: "/", search: "signin=true" }} className="item">
             <span>Sign In</span>
             </Link>
             </li> 
+            <li>
+             <Link to="/connect" className="item">
+                <span>Connect</span>
+            </Link>
+           </li>
+                 </Fragment>
+                
              )
              } 
             

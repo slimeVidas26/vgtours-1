@@ -118,7 +118,7 @@ class App extends Component {
     </Switch>
     <Route  path="/" component={SignInPage} />
     <Route  exact path="/dashboardHook/:handle" component={DashboardHook} />
-    <Route path='/net/:handle' component={ProfileHooks} />
+    <Route path='/net/:handle' component={HomePage} />
     <Route exact path="/dashboardHook/" component={HomePage} />
 
 
