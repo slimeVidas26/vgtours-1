@@ -1,44 +1,66 @@
-import React, { useEffect , Fragment } from 'react'
+import React, { useEffect , Fragment , useContext } from 'react'
 import {Link} from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 import jwt_decode from "jwt-decode";
 // image
 import host_01 from '../assets/images/host/host_01.jpg'
-import HeaderWhite from './HeaderWhite'
+import Header from './Header'
 import Footer from './layout/Footer'
-import AuthContextProvider from '../contexts/AuthContext';
+import AuthContextProvider, { AuthContext } from '../contexts/AuthContext';
 
 import '../assets/less/base.css'
 import '../assets/less/header.css'
 import '../assets/less/theme.css'
 import '../assets/icon/style.css'
+import JsContextProvider from '../contexts/JsContext';
 
 
- const BecomeAvendor = (props)=> {
-    const {handle} = props.match.params
-    console.log("handle",{handle})
-    const  User = jwt_decode(handle);
-    console.log("User in become" , User)
-    User.status = "mail"
+ const BecomeAvendor = ()=> {
+    const {User , dispatchUser , socialLoginUser} =  useContext(AuthContext)
 
-    if(handle){
+    // const {handle} = props.match.params
+    // console.log("handle",{handle})
+    // const  User = jwt_decode(handle);
+    // console.log("User in become" , User)
+    // User.status = "mail"
+
+    // if(handle){
        
-        User.isAuthenticated = true
+    //     User.isAuthenticated = true
 
-    }
+    // }
 
- useEffect(()=>{
-      console.log("User from useEffet" , User)
-     document.getElementsByTagName('body')[0].className = 'no-transition dashboard-background';
+//  useEffect(()=>{
+//       console.log("User from useEffet" , User)
+//      document.getElementsByTagName('body')[0].className = 'no-transition dashboard-background';
     
- } , [User])
+//  } , [User])
+useEffect(()=>{
+    const decoded = localStorage.jwtToken ? localStorage.jwtToken : "";
+
+  if(decoded){
+    
+    dispatchUser({
+      type : "SET_CURRENT_USER" ,
+      payload :  jwt_decode(decoded) 
+    }) 
+    console.log("jwt_decode(decoded)" , jwt_decode(decoded))
+  }
+  else { 
+
+    socialLoginUser()
+
+  }
+   
+},[])
 
    
         return (
             <Fragment>
-                <AuthContextProvider >
-                <HeaderWhite isAuthenticated = {User.isAuthenticated}/>
-                </AuthContextProvider>
+            <JsContextProvider>
+            <Header/>
+            </JsContextProvider>
+               
 
    
         <div className="ui layout">
@@ -51,8 +73,8 @@ import '../assets/icon/style.css'
                         <br/>
                         <br/>
                         <h3 className="text-align-center-sq">
-                        <b>Hey there,</b> {User.name}
-                         {User.status}
+                        <b>Hey there,</b> {User.user.name}
+                        
 
                         </h3>
                         <br/>

@@ -73,7 +73,7 @@ class App extends Component {
       <Router>
       <Fragment>
 
-          <Route  path="/becomeavendor/:handle" component={BecomeAvendor} /> 
+          <Route  exact path="/becomeavendor" component={DashboardHook} /> 
           <Route exact path="/features/fts_default_grid.html" component={DefaultGrid}/>
           <Route exact path="/features/fts_divided_container.html" component={DividedContainer} />
           <Route exact path="/features/fts_magic_grid.html" component={MagicGrid} />
@@ -117,7 +117,7 @@ class App extends Component {
 
     </Switch>
     <Route  path="/" component={SignInPage} />
-    <Route  exact path="/dashboardHook/:handle" component={DashboardHook} />
+    <Route  exact path="/dashboardHook" component={DashboardHook} />
     <Route path='/net/:handle' component={HomePage} />
     <Route exact path="/dashboardHook/" component={HomePage} />
 
