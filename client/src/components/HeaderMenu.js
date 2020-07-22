@@ -8,7 +8,7 @@ const HeaderMenu = () =>{
 
 
 
-    const {logoutUser ,User ,  dispatchUser} = useContext(AuthContext);
+    const {User ,  dispatchUser , logoutUser} = useContext(AuthContext);
 console.log("User from header menu" , User)
 
 

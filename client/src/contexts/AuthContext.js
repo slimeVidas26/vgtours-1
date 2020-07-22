@@ -88,7 +88,6 @@ const AuthContextProvider  = (props) => {
       // Remove auth header for future requests
       setAuthToken(false);
       // Set current user to empty object {} which will set isAuthenticated to false
-      // dispatch(setCurrentUser({}));
       dispatchUser({
         type : "SET_CURRENT_USER" ,
         payload : {} 
@@ -104,10 +103,7 @@ const AuthContextProvider  = (props) => {
 
     return ( 
         <AuthContext.Provider value = {{logoutUser , dispatchUser  ,socialLoginUser ,socialLogoutUser ,  dispatchError ,dispatchNetworkError ,   User , error , networkError }}>
-         {/* {console.log("User in return before child" , User)} */}
          {props.children}
-         {/* {console.log("User in return after child" , User)} */}
-
         </AuthContext.Provider>
      );
 
