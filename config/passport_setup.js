@@ -73,6 +73,7 @@ passport.use(
               new User({
                   facebookId: profile.id,
                   displayName: profile.displayName,
+                  name: profile.displayName,
                   thumbnail: profile._json.picture,
                   provider :profile.provider,
                   location : profile._json.locale
@@ -106,6 +107,7 @@ passport.use(
 
                   new User({
                       username: profile._json.name,
+                      name: profile._json.name,
                       googleId: profile.id,
                       thumbnail: profile._json.picture,
                       provider :profile.provider,
@@ -229,6 +231,7 @@ passport.use(
                 // if not, create user in our db
                 new User({
                     spotifyId: profile.spotifyId,
+                    name : profile.displayName,
                     displayName: profile.displayName,
                     userName : profile.userName,
                     thumbnail: profile._json.images_url,

@@ -95,7 +95,7 @@ import '../assets/icon/style.css'
                     <h4 style={{ 'textAlign': 'center' }} >
                   <b >
                   {formatUser(User.user)}
-                  {User.status}
+                  
                     </b>
                   {/* <b>Hey there, {User.user.username} <br/></b> 
                   <b>Hey there, {User.user.name} <br/></b> 

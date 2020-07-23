@@ -18,23 +18,7 @@ import HeaderWhite from './HeaderWhite';
  const BecomeAvendor = ()=> {
     const {User , dispatchUser , socialLoginUser} =  useContext(AuthContext)
 
-    // const {handle} = props.match.params
-    // console.log("handle",{handle})
-    // const  User = jwt_decode(handle);
-    // console.log("User in become" , User)
-    // User.status = "mail"
-
-    // if(handle){
-       
-    //     User.isAuthenticated = true
-
-    // }
-
-//  useEffect(()=>{
-//       console.log("User from useEffet" , User)
-//      document.getElementsByTagName('body')[0].className = 'no-transition dashboard-background';
-    
-//  } , [User])
+   
 useEffect(()=>{
     const decoded = localStorage.jwtToken ? localStorage.jwtToken : "";
 
@@ -82,7 +66,7 @@ useEffect(()=>{
                         <p className="text-align-center-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper. </p>
                         <br/>
                         <div className="text-align-center-sq">
-                            <a className="button-sq font-weight-bold-sq">Confirm</a>
+                            <Link to = "/add-listing" className="button-sq font-weight-bold-sq">Confirm</Link>
                         </div>
                         
                         

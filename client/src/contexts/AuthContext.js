@@ -1,6 +1,7 @@
-import React , {createContext , useReducer} from 'react'
+import React , {createContext , useReducer , useContext} from 'react'
 import setAuthToken from "../utils/setAuthToken";
 import {withRouter} from 'react-router-dom'
+import axios from 'axios'
 
 //import reducers
 import authReducer , {initialState} from '../reducers/authReducer'
@@ -24,6 +25,34 @@ const AuthContextProvider  = (props) => {
     const [error , dispatchError ] = useReducer(errorReducer , initialStateError)
     const [networkError , dispatchNetworkError ] = useReducer(errorReducer , initialStateError)
 
+    const signInUser = (userData ) => {
+      axios.post("/auth/login", userData)
+            .then(res => {
+              // Save to localStorage
+        // Set token to localStorage
+              const { token } = res.data;
+              localStorage.setItem("jwtToken", token);
+              // Set token to Auth header
+              setAuthToken(token);
+              // Decode token to get user data
+              window.location.href = "./";
+            })
+          .catch(err => {
+          dispatchError({type: "GET_ERRORS" ,payload :err.response.data})
+        })
+          };
+  
+  
+    const registerUser = (userData, history) => {
+      axios
+        .post("/auth/register", userData)
+        .then(res => history.push("/?signin=true")) // re-direct to login on successful register
+        .catch(err => {
+          dispatchError({type: "GET_ERRORS" , payload :err.response.data})
+        }
+     
+        );
+     };
     
    const socialLoginUser = () =>{
     
@@ -42,7 +71,7 @@ const AuthContextProvider  = (props) => {
            })
            .then(responseJson => {           
              const socialDecoded = responseJson.user;
-             console.log("socialDecoded" , socialDecoded)
+             console.log("socialDecoded fr" , socialDecoded)
              dispatchUser({
               type : "SET_CURRENT_USER" ,
               payload : socialDecoded 
@@ -103,7 +132,7 @@ const AuthContextProvider  = (props) => {
     
 
     return ( 
-        <AuthContext.Provider value = {{logoutUser , dispatchUser  ,socialLoginUser ,socialLogoutUser ,  dispatchError ,dispatchNetworkError ,   User , error , networkError }}>
+        <AuthContext.Provider value = {{logoutUser ,signInUser , registerUser ,  dispatchUser  ,socialLoginUser ,socialLogoutUser ,  dispatchError ,dispatchNetworkError ,   User , error , networkError }}>
          {props.children}
         </AuthContext.Provider>
      );

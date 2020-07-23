@@ -83,10 +83,10 @@ useEffect(()=>{
                 <span>{User.user.name}</span>
             </Link>
                 </li>
-                 {/* <li><Link to="/becomeavendor" className="item">
+                 <li><Link to="/" className="item">
                 <span>Become a Vendor</span>
             </Link>
-               </li> */}
+               </li>
                {User.user.exp ?
                 <li>
             <Link onClick = {logoutUser} className="item">

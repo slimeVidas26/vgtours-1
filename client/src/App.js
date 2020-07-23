@@ -22,6 +22,8 @@ import ConnectPage from './components/auth/ConnectPage';
 import SignInPage from './components/auth/SignInPage'
 // import TwitterAuth from './components/auth/TwitterAuth';
 import DashboardHook from "./components/auth/DashboardHook";
+import Listing1 from "./components/auth/Listing1";
+
 import ProfileHooks from './components/auth/ProfileHooks'
 // import FacebookAuth from './components/auth/FacebookAuth'
 // import GoogleAuth from './components/auth/GoogleAuth'
@@ -37,7 +39,7 @@ import DefaultGrid from "./components/features/DefaultGrid";
 import DividedContainer from "./components/features/assets/dividedContainer/DividedContainer";
 import MagicGrid from "./components/features/assets/magicGrid/MagicGrid";
 import UrlParameters from "./components/features/assets/router/UrlParameters";
-import ListingPage from "./components/ListingPage";
+import ListingPage from "./components/AddListing";
 import RegisterFormHooks from "./components/auth/RegisterFormHooks"
 import AuthContextProvider from "./contexts/AuthContext";
 
@@ -74,6 +76,8 @@ class App extends Component {
       <Fragment>
 
           <Route  exact path="/becomeavendor" component={DashboardHook} /> 
+          <Route exact path="/add-listing" component={Listing1} />
+
           <Route exact path="/features/fts_default_grid.html" component={DefaultGrid}/>
           <Route exact path="/features/fts_divided_container.html" component={DividedContainer} />
           <Route exact path="/features/fts_magic_grid.html" component={MagicGrid} />
@@ -95,7 +99,6 @@ class App extends Component {
       {/* <Route  path="/signin" component={SignInPage} /> */}
 
       <Route  path="/url-parameters" component={UrlParameters} />
-      <Route exact path="/listing-page" component={ListingPage} />
 
          {/* <Route  path="/twitter-auth" component={TwitterAuth} /> */}
 
@@ -117,9 +120,9 @@ class App extends Component {
 
     </Switch>
     <Route  path="/" component={SignInPage} />
-    <Route  exact path="/dashboardHook" component={DashboardHook} />
+    {/* <Route  exact path="/dashboardHook" component={DashboardHook} /> */}
     <Route path='/net/:handle' component={HomePage} />
-    <Route exact path="/dashboardHook/" component={HomePage} />
+    <Route exact path="/dashboardHook" component={HomePage} />
 
 
     {/* <Route  path="/" component={LoginPage} /> */}

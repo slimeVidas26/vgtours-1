@@ -4,14 +4,13 @@
     import FormTitle from '../layout/FormTitle';
     import { AuthContext } from '../../contexts/AuthContext';
     import { withRouter} from "react-router-dom";
-    import {registerUser} from './externalFunctions/AuthFunctions'
 
 
 
 
      
   const RegisterModal = (props) => {
-    const { error} = useContext(AuthContext);
+    const { error , registerUser} = useContext(AuthContext);
 
     const [firstName , setFirstName] = useState("")
     const  [lastName , setLastName] = useState("")

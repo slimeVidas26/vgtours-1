@@ -2,13 +2,11 @@ import React, { useContext , useState} from 'react'
 import classnames from "classnames";
 import { withRouter} from "react-router-dom";
 import { AuthContext } from '../../contexts/AuthContext';
-import {signInUser} from './externalFunctions/AuthFunctions'
-console.log("signInUser" , signInUser)
 
 
  const SignInForm  = ()=> {
 
-  const { error} = useContext(AuthContext);
+  const { error , signInUser} = useContext(AuthContext);
   const [email , setEmail] = useState("")
   const [password , setPassword] = useState("")
 

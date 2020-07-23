@@ -108,6 +108,10 @@ useEffect(()=>{
              :
              (
                  <Fragment>
+                 <li><Link to="/connect" className="item">
+                <span>Become a Vendor</span>
+            </Link>
+               </li>
                  <li>
             <Link to={{ pathname: "/", search: "signin=true" }} className="item">
             <span>Sign In</span>
