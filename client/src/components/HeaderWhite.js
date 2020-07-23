@@ -1,6 +1,6 @@
 import React, { } from 'react'
 import {Link} from 'react-router-dom'
-import HeaderMenu from './HeaderMenu'
+import HeaderMenuWhite from './HeaderMenuWhite'
 import AuthContextProvider from '../contexts/AuthContext';
 
 
@@ -50,7 +50,7 @@ import logo_mybnb2x from '../assets/images/logo-mybnb@2x.png';
                 {/* <!-- Include Menu -->
                  */}
 {/* <!-- Header Menu--> */}
-     <HeaderMenu isAuthenticated = {props.isAuthenticated}/>
+     <HeaderMenuWhite/>
 {/* <!-- End of Header Menu--> */}
 
                 

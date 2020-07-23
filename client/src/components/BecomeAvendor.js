@@ -4,7 +4,6 @@ import {withRouter} from 'react-router-dom'
 import jwt_decode from "jwt-decode";
 // image
 import host_01 from '../assets/images/host/host_01.jpg'
-import Header from './Header'
 import Footer from './layout/Footer'
 import AuthContextProvider, { AuthContext } from '../contexts/AuthContext';
 
@@ -13,6 +12,7 @@ import '../assets/less/header.css'
 import '../assets/less/theme.css'
 import '../assets/icon/style.css'
 import JsContextProvider from '../contexts/JsContext';
+import HeaderWhite from './HeaderWhite';
 
 
  const BecomeAvendor = ()=> {
@@ -58,7 +58,7 @@ useEffect(()=>{
         return (
             <Fragment>
             <JsContextProvider>
-            <Header/>
+            <HeaderWhite/>
             </JsContextProvider>
                
 

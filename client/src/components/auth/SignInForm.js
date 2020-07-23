@@ -3,7 +3,7 @@ import classnames from "classnames";
 import { withRouter} from "react-router-dom";
 import { AuthContext } from '../../contexts/AuthContext';
 import {signInUser} from './externalFunctions/AuthFunctions'
-
+console.log("signInUser" , signInUser)
 
 
  const SignInForm  = ()=> {
