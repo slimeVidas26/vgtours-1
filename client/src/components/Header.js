@@ -33,7 +33,7 @@ const Header = ()=>{
         <div className="ui container grid">
             <div className="header-item header-left flex-order-tablet-second flex-order-mobile-second flex-grow-tablet-true flex-grow-mobile-true">
                  
-        <Link to="homepage.html" className="logo item">
+        <Link to="/" className="logo item">
         <img  src={logo_mybnb_transparent} srcSet={`${logo_mybnb_transparent} 1x ,${logo_mybnb_transparent2x} 2x `} alt="mybnb logo" className="logo-transparent"/>
         <img   src={logo_mybnb} srcSet= {`${logo_mybnb} 1x , ${logo_mybnb2x} 2x`} alt="mybnb logo"/>
         

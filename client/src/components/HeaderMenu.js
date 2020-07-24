@@ -32,49 +32,6 @@ useEffect(()=>{
     
     <ul className="main-menu">
     
-              
-       
-        
-        {/* <li className="has-submenu">
-            <Link to="#" className="item" >
-                <span>Features</span>
-            </Link>
-
-          <FeaturesSubMenu/>
-        </li> */}
-        
-        {/* <li>
-        <Link to="/signup" className="item">
-            <span>Sign Up</span>
-            </Link>
-            </li>  */}
-    
-
-            {/* <li>
-            <Link to={{ pathname: "/", search: "signup=true" }} className="item">
-            <span>Sign Up</span>
-            </Link>
-            </li>  */}
-
-            {/* <li>
-                 <Link to="/signup" className="item">
-                <span>Sign Up</span>
-            </Link>
-           </li> */}
-
-           
-        
-            {/* <li>
-            <Link to="/login" className="item">
-            <span>Log In</span>
-            </Link>
-            </li>  */}
-
-            {/* <li>
-            <Link to={{ pathname: "/", search: "login=true" }} className="item">
-            <span>Log In</span>
-            </Link>
-            </li>  */}
 
              {User.isAuthenticated ? 
              (
