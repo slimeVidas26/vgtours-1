@@ -234,7 +234,7 @@ passport.use(
                     name : profile.displayName,
                     displayName: profile.displayName,
                     userName : profile.userName,
-                    thumbnail: profile._json.images_url,
+                    thumbnail: profile.photos[0],
                     provider :profile.provider,
                     country : profile._json.locale
                 }).save().then((newUser) => {

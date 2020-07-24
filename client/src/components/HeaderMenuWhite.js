@@ -100,16 +100,7 @@ if (window.location.pathname==="/becomeavendor") {
      {User.isAuthenticated  ? 
      (
          <Fragment>
-         <li><Link to="/" className="item">
-        <span>{User.user.name}</span>
-    </Link>
-        </li>
-             
-          {/* <li><Link to="/" className="item">
-               <span>Vendor</span>
-              </Link>
-           </li> */}
-
+        
            <li class="has-submenu">
                <a href="" class="item">Vendor</a>
                <ul class="submenu">
@@ -124,8 +115,15 @@ if (window.location.pathname==="/becomeavendor") {
 
             <li class="profile-item has-submenu">
                 <Link to ="#" class="item">
-                    <span>Emma</span>
-                    <img src={emma} alt=""/>
+                    <span>{User.user.name}</span>
+                   
+                   {
+                     User.user.thumbnail ?
+                     <img src={User.user.thumbnail} alt=""/>
+                     :
+                     <img src={emma} alt=""/>
+                   }
+                    
                 </Link>
                 <ul class="submenu">
                     <li><Link to ="my_profile.html" class="item"><span>My Profile</span></Link></li>
