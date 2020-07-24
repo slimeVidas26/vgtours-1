@@ -71,3 +71,9 @@ git recent-branches --count=1
 
 git branch --sort=-committerdate  # DESC
 git branch --sort=committerdate  # ASC
+
+
+compose(
+    applyMiddleware(...middleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )

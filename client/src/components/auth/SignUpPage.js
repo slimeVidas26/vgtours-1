@@ -3,7 +3,6 @@ import Modal from './Modal'
 import FormActions from '../layout/FormActions'
 import FormTitle from '../layout/FormTitle'
 import SignUpWith from '../layout/SignUpWith'
-import RegisterForm from './SignUpForm'
 
 
 // NEXT STEP : SignUpWith COMPONENT
@@ -37,7 +36,7 @@ import AuthContextProvider from '../../contexts/AuthContext'
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
     </div>  
                {/* FORM REGISTER */}
-            <RegisterForm/>
+            {/* <RegisterForm/> */}
             <FormActions>Log In</FormActions>
             </Modal>
             )

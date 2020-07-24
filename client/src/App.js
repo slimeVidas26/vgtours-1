@@ -16,7 +16,6 @@ import setAuthToken from "./utils/setAuthToken";
 // import Navbar from "./components/layout/Navbar";
 // import Landing from "./components/layout/Landing";
 import BecomeAvendor from './components/BecomeAvendor'
- import LoginPage from "./components/auth/LoginPage";
 import SignUpPage from './components/auth/SignUpPage';
 import ConnectPage from './components/auth/ConnectPage';
 import SignInPage from './components/auth/SignInPage'
@@ -24,16 +23,12 @@ import SignInPage from './components/auth/SignInPage'
 import DashboardHook from "./components/auth/DashboardHook";
 import Listing1 from "./components/auth/Listing1";
 
-import ProfileHooks from './components/auth/ProfileHooks'
 // import FacebookAuth from './components/auth/FacebookAuth'
 // import GoogleAuth from './components/auth/GoogleAuth'
 // import AmazonAuth from './components/auth/AmazonAuth'
 // import SpotifyAuth from './components/auth/SpotifyAuth'
 // import InstagramAuth from './components/auth/InstagramAuth'
 // import GithubAuth from './components/auth/GithubAuth'
-import Profile from './components/auth/Profile'
-import PrivateRoute from "./components/private-route/PrivateRoute";
-import Dashboard from "./components/dashboard/Dashboard";
 import HomePage from "./components/HomePage";
 import DefaultGrid from "./components/features/DefaultGrid";
 import DividedContainer from "./components/features/assets/dividedContainer/DividedContainer";
