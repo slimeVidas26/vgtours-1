@@ -1,20 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 
 import SignInModal from "./SignInModal"
 import AuthContextProvider from "../../contexts/AuthContext";
 
- class SignInPage extends Component {
+ const SignInPage = (props)=> {
 
-  constructor() {
-    super();
-    this.state = {
-     
-    };
-  }
+  
 
-  render() {
     //  let params = new URLSearchParams(this.props.location.search);
-    let params = new URLSearchParams(this.props.location.search);
+    let params = new URLSearchParams(props.location.search);
     return (
         params.get("signin") && (
           <AuthContextProvider>
@@ -24,7 +18,7 @@ import AuthContextProvider from "../../contexts/AuthContext";
       )
      );
   }
-}
+
 
 export default SignInPage;
 

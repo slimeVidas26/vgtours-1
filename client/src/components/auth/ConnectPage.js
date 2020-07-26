@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {useEffect } from 'react'
 import Modal from './Modal'
 import FormActions from '../layout/FormActions'
 import FormTitle from '../layout/FormTitle'
@@ -10,14 +10,15 @@ import AuthContextProvider  from '../../contexts/AuthContext'
 
 
 
- class ConnectPage extends Component {
+ const ConnectPage = ()=> {
 
-    constructor(props) {
-        super(props);
-        // console.log(this.props.history + ' from signUpWithMail') 
-      }
-
-    render(){
+    
+  useEffect(()=>{
+    window.onpopstate = e => {
+      window.location.href = "/";
+    }
+  } , []) 
+    
         return (
              <Modal
              onClick={() => {
@@ -49,6 +50,6 @@ import AuthContextProvider  from '../../contexts/AuthContext'
             
             )
     }   
-}
+
 export default ConnectPage
 
