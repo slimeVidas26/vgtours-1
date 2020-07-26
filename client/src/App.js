@@ -1,10 +1,7 @@
 import React, { Component , Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import jwt_decode from "jwt-decode";
-import setAuthToken from "./utils/setAuthToken";
-//import { setCurrentUser, logoutUser } from "./actions/authActions";
-//import { Provider } from "react-redux";
-//import store from "./store";
+
+
  import './App.css';
 
   import './assets/less/base.css'
@@ -26,18 +23,13 @@ import DefaultGrid from "./components/features/DefaultGrid";
 import DividedContainer from "./components/features/assets/dividedContainer/DividedContainer";
 import MagicGrid from "./components/features/assets/magicGrid/MagicGrid";
 import UrlParameters from "./components/features/assets/router/UrlParameters";
-import ListingPage from "./components/AddListing";
 import RegisterFormHooks from "./components/auth/RegisterFormHooks"
-import AuthContextProvider from "./contexts/AuthContext";
 
 
 
-class App extends Component {
+const App  = ()=> {
 
-  componentDidMount(){
-  }
 
-  render() {
     return (
 
      
@@ -78,5 +70,5 @@ class App extends Component {
     
     );
   }
-}
+
 export default App;

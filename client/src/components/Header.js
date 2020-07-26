@@ -12,6 +12,7 @@ import AuthContextProvider from '../contexts/AuthContext';
 
 
 const Header = ()=>{
+    
 
     const {scriptsArray , loadScriptHead , loadScriptBody} = useContext(JsContext);
      console.log("scriptsArray",scriptsArray)

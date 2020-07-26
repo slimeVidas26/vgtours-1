@@ -1,4 +1,4 @@
-import React, { Component , Fragment  } from 'react'
+import React, { Fragment  , useEffect , useContext } from 'react'
 
 
 import '../assets/images/ico/favicon.ico'
@@ -9,24 +9,21 @@ import UiLayoutTop from './UiLayoutTop'
 import Wishlist from './Wishlist'
 
 import Footer from "./Footer";
-import JsContextProvider from '../contexts/JsContext';
+import JsContextProvider, { JsContext } from '../contexts/JsContext';
 import HeroSearchContextProvider from '../contexts/HeroSearchContext';
 import RegisterFormHooks from './auth/RegisterFormHooks';
 import AuthContextProvider from '../contexts/AuthContext';
 
-class HomePage extends Component {
+const HomePage = ()=> {
 
-    constructor(props) {
-        super(props)
-    console.log(this.props)
-        this.state = {
-             
-        }
+  useEffect(()=>{
+    window.onpopstate = e=>{
+      console.log(e)
     }
-    
-
-    render(){
-        return (
+  })
+   
+       
+       return (
     <Fragment>
     <JsContextProvider>
       <Header/>
@@ -43,7 +40,4 @@ class HomePage extends Component {
           )
     }
    
-
-}
-
 export default HomePage
